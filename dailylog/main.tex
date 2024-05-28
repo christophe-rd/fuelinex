@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\def\arcdeg{\hbox{$^\circ$}}
+\def\arcmin{\hbox{$^\prime$}}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\def\farcs{\hbox{$.\!\!^{\prime\prime}$}}
+\def\farcm{\hbox{$.\!\!^{\prime}$}}
+\def\itfarcs{\hbox{{\it $.\!\!^{\prime\prime}$}}}
+\def\arcpt{${{\lower3pt\hbox{$^{\prime\prime}$}}\atop{\raise4pt\hbox{.}}}$}
+
+\setlength\evensidemargin{0.0in}
+\setlength\oddsidemargin{0.0in}
+\setlength\textwidth{6.5in}
+\setlength\textheight{9.5in}
+\setlength\topmargin{-0.5in}
+
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For Footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+%\rhead{Share\LaTeX}
+%\lhead{Guides and tutorials}
+\rfoot{\thepage}
+\def\day{}
+\cfoot{\textit{\day}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For Multiple Columns within Text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For Links to Websites
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% https://www.sharelatex.com/learn/Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Title Page
+\include{./title}
+
+% Title Page for the Year, Then "Chapters" for Each Month 
+\def\year{2023} % The year is 2017
+\include{newyear} % Include "Title Page" for Year
+
+\def\month{August} % The month is August
+\include{./2023/2023_08} % Include the writing for the month
+\def\month{September} % Include more months as you go
+\include{./2023/2023_09}
+%\def\month{October}
+%\include{./2017/2017_10}
+%\def\month{November}
+%\include{./2017/2017_11}
+%\def\month{December}
+%\include{./2017/2017_12}
+
+\def\year{2024}  % Set the New Year
+\include{newyear} % Include the page for the new year, and continue!
+\def\month{January} % The month is January
+\include{./2024/2024_01}
+\def\month{February} 
+\include{./2024/2024_02} % Include the writing for the month
+\def\month{March} 
+\include{./2024/2024_03} 
+\def\month{April} 
+\include{./2024/2024_05} 
+\def\month{May} 
+\include{./2024/2024_05} 
+
+\end{document}
