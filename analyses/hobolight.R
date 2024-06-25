@@ -67,15 +67,15 @@ head(B3_5910.hourly.means)
 
 # Preliminary plot
 ggplot() +
-  geom_jitter(data = B3_5910.hourly.means,
-              aes(hour, light.lux), 
-              colour= "blue", alpha = 0.5,
-              width = 1,
-              height = 0,) +
-  geom_jitter(data = B1_5921.hourly.means, 
-              aes(hour, light.lux), 
-              colour= "red", alpha = 0.5,
-              width = 1,
-              height = 0,)
+  geom_line(data = B3_5910.hourly.means,
+              aes(hour, light.lux)) +
+              # colour= "blue", alpha = 0.5,
+              # width = 1,
+              # height = 0,) 
+  geom_line(data = B1_5921.hourly.means, 
+              aes(hour, light.lux))
+              # colour= "red", alpha = 0.5,
+              # width = 1,
+              # height = 0,)
 
 
