@@ -30,7 +30,7 @@ library(scales)
 B1_5913<- read.csv2("B1_21715913 2024-06-19 13_56_09 PDT (Data PDT)(1).csv", header = TRUE, sep = ",")
 B1_5921 <- read.csv2("B1_21715921 2024-06-19 13_55_41 PDT (Data PDT).csv", header = TRUE, sep = ",")
 B1_5358 <- read.csv2("B1_21715358 2024-06-19 13_56_34 PDT (Data PDT)(1).csv", header = TRUE, sep = ",")
-B3_5910 <- read.csv2("B3_21715910 2024-06-19 16_14_43 PDT (Data PDT)(1).csv", header = TRUE, sep = ",")
+B3_5911 <- read.csv2("B3_21715910 2024-06-19 16_14_43 PDT (Data PDT)(1).csv", header = TRUE, sep = ",")
 
 # Change colum names
 colnames(B1_5921) <- c("id", "date.time", "temperature", "light.lux")
@@ -80,49 +80,18 @@ mean(B3_5910.hourly.means.sub$light.lux)
 hour8_B1_5921 <- subset(B1_5921.hourly.means.sub, hour == 8)
 hour8_B3_5910 <- subset(B3_5910.hourly.means.sub, hour == 8)
 
-B1_5921_8 <- mean(hour8_B1_5921$light.lux)
-B3_5910_8 <- mean(hour8_B3_5910$light.lux)
+mean(hour8_B1_5921$light.lux)
+mean(hour8_B3_5910$light.lux)
 
 # Mean at 12am 
 hour12_B1_5921 <- subset(B1_5921.hourly.means.sub, hour == 12)
 hour12_B3_5910 <- subset(B3_5910.hourly.means.sub, hour == 12)
 
-B1_5921_12 <- mean(hour12_B1_5921$light.lux)
-B3_5910_12 <- mean(hour12_B3_5910$light.lux)
+mean(hour12_B1_5921$light.lux)
+mean(hour12_B3_5910$light.lux)
 # Mean at 15 
 hour16_B1_5921 <- subset(B1_5921.hourly.means.sub, hour == 16)
 hour16_B3_5910 <- subset(B3_5910.hourly.means.sub, hour == 16)
 
-B1_5921_15 <- mean(hour16_B1_5921$light.lux)
-B3_5910_15 <- mean(hour16_B3_5910$light.lux)
-
-# Create table
-df <- matrix(c(1:6), nrow=6, ncol=3, byrow=TRUE)
-rownames(df) <- c("B1_5921_8", "B3_5910_8", "B1_5921_12", "B3_5910_12", "B1_5921_15", "B3_5910_15")
-colnames(df) <- c("hour", "meanlux", "logger")
-
-df[1,1] <- 8
-df[1,2] <- B1_5921_8
-df[1,3] <- "B1_5921"
-df[2,1] <- 8
-df[2,2] <- B3_5910_8
-df[2,3] <- "B3_5910"
-df[3,1] <- 12
-df[3,2] <- B1_5921_12
-df[3,3] <- "B1_5921"
-df[4,1] <- 12
-df[4,2] <- B3_5910_12
-df[4,3] <- "B3_5910"
-df[5,1] <- 15
-df[5,2] <- B1_5921_15
-df[5,3] <- "B1_5921"
-df[6,1] <- 15
-df[6,2] <- B3_5910_15
-df[6,3] <- "B3_5910"
-data <- as.data.frame(df)
-data$hour <- as.numeric(data$hour)\
-data$meanlux <-as.numeric(data$meanlux)
-# add rownames as columns
-
-ggplot(data = data)+
-  geom_point(aes(x=hour, y=meanlux, colour = logger))
+mean(hour16_B1_5921$light.lux)
+mean(hour16_B3_5910$light.lux)
