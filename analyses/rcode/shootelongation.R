@@ -13,7 +13,7 @@ options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder  
-directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/fuelinex/data/"
+directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/fuelinex/"
 
 # Set Working Directory
 setwd(directory_path)
@@ -24,9 +24,13 @@ library(ggplot2)
 library(data.table)
 
 # Read csv
-shootelongation <- read.csv2("shoot_elongation/shoot_elongation.csv", header = TRUE, sep = ",", check.names = FALSE)
+shootelongation <- read.csv2("data/shoot_elongation/shoot_elongation.csv", header = TRUE, sep = ",", check.names = FALSE)
 head(shootelongation)
 
+# Convert all chr values that should be numeric, numeric
+for (i in 7:length(colnames(shootelongation))) {
+  shootelongation[,i]<-as.numeric(shootelongation[,i])
+}
 
 #=== === === === === === === === === === === === === === === === === === === ===
 #### ACNE #####
@@ -34,12 +38,7 @@ head(shootelongation)
 
 # Subset for Acne
 acne <- subset(shootelongation, genus == "acer")
-# Check for nas
 
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 7:length(colnames(acne))) {
-  acne[,i]<-as.numeric(acne[,i])
-}
 # Select essential column 
 acne.sel <- acne[, c(1, 3, 7,11, 13:18)]
 head(acne.sel)
@@ -55,8 +54,16 @@ acne.long.absolute <- melt(setDT(acne.absolute), id.vars = c("tree_ID","treatmen
 # Mean of treatments + doy
 acne.long.absolute.mean <- aggregate(value ~ treatment + doy, data = acne.long.absolute, FUN = mean, na.omit =TRUE )
 # Quick plot for ABSOLUTE
-ggplot(data = acne.long.absolute.mean) +
-  geom_point(aes (x=doy, y=value, color = treatment))
+acne.long.absolute.mean.plot <- ggplot(acne.long.absolute.mean)+
+  geom_point(aes (x=doy, y=value, color = treatment)) +
+  labs(x="", y="")+
+  ggtitle("Acne absolute shoot elongation")+
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "right")
+acne.long.absolute.mean.plot
 
 ##### Total shoot elongation #####
 # Rotate table TOTAL
@@ -66,9 +73,16 @@ acne.long.total <- melt(setDT(acne.sel), id.vars = c("tree_ID","treatment"), var
 acne.long.total.mean <- aggregate(value ~ treatment + doy, data = acne.long.total, FUN = mean, na.omit =TRUE )
 
 # Quick plot for TOTAL
-ggplot(data = acne.long.total.mean) +
-  geom_point(aes (x=doy, y=value, color = treatment))
-
+acne.long.total.mean.plot <- ggplot(acne.long.total.mean)+
+  geom_point(aes (x=doy, y=value, color = treatment)) +
+  labs(x="", y="")+
+  ggtitle("Acne total shoot elongation")+
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "right")
+acne.long.total.mean.plot
 
 
 #=== === === === === === === === === === === === === === === === === === === ===
@@ -77,10 +91,6 @@ ggplot(data = acne.long.total.mean) +
 
 # Subset for bepa
 bepa <- subset(shootelongation, genus == "betula")
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 8:length(colnames(bepa))) {
-  bepa[,i]<-as.numeric(bepa[,i])
-}
 
 # Select essential column 
 bepa.sel <- bepa[, c(1, 3, 8, 11, 13:length(colnames(bepa)))]
@@ -133,12 +143,7 @@ bepa.long.total.mean.plot
 
 # Subset for pist
 pist <- subset(shootelongation, genus == "pinus")
-# Check for nas
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 7:length(colnames(pist))) {
-  pist[,i]<-as.numeric(pist[,i])
-}
-head(pist)
+
 # Select essential column 
 pist.sel <- pist[, c(1, 3, 9, 11, 13:length(colnames(pist)))]
 head(pist.sel)
@@ -190,12 +195,7 @@ pist.long.total.mean.plot
 #=== === === === === === === === === === === === === === === === === === === ===
 # Subset for poba
 poba <- subset(shootelongation, genus == "populus")
-# Check for nas
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 7:length(colnames(poba))) {
-  poba[,i]<-as.numeric(poba[,i])
-}
-head(poba)
+
 # Select essential column 
 poba.sel <- poba[, c(1, 3, 9, 11, 13:length(colnames(poba)))]
 
@@ -247,11 +247,7 @@ poba.long.total.mean.plot
 
 # Subset for prvi
 prvi <- subset(shootelongation, genus == "prunus")
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 7:length(colnames(prvi))) {
-  prvi[,i]<-as.numeric(prvi[,i])
-}
-head(prvi)
+
 # Select essential column 
 prvi.sel <- prvi[, c(1, 3, 8, 11, 13:length(colnames(prvi)))]
 head(prvi.sel)
@@ -303,12 +299,7 @@ prvi.long.total.mean.plot
 
 # Subset for quma
 quma <- subset(shootelongation, genus == "quercus")
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 7:length(colnames(quma))) {
-  quma[,i]<-as.numeric(quma[,i])
-}
 
-head(quma)
 # Select essential column 
 quma.sel <- quma[, c(1, 3, 10, 12:length(colnames(quma)))]
 head(quma.sel)
@@ -361,11 +352,7 @@ quma.long.total.mean.plot
 
 # Subset for segi
 segi <- subset(shootelongation, genus == "sequoiadendron")
-# Change all measurements to numeric. Specified columns: starting on the third (measurement 128)
-for (i in 7:length(colnames(segi))) {
-  segi[,i]<-as.numeric(segi[,i])
-}
-head(segi)
+
 # Select essential column 
 segi.sel <- segi[, c(1, 3, 10, 12, 13:length(colnames(segi)))]
 head(segi.sel)
@@ -414,8 +401,6 @@ segi.long.total.mean.plot
 
 
 #### AGREGATE BY WARM/COOL SPRING ####
-
-
 
 ##### ACNE #####
 head(acne)
@@ -716,3 +701,4 @@ segi.long.total.sf.mean.plot <- ggplot(segi.long.total.sf.mean) +
         plot.title = element_text(hjust = 0.5),
         legend.position = "right")
 segi.long.total.sf.mean.plot
+

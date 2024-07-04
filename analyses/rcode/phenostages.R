@@ -80,12 +80,83 @@ acne.sd <- aggregate(value ~ springtreatment + doy, data = acne.long, FUN = sd)
 # Merge dfs mean and sd
 acne.merged <- merge(acne.mean, acne.sd, by=c("springtreatment","doy"))
 # change colnames
-colnames(acne.merged) <- c("springtreatement", "doy", "mean", "sd")
+colnames(acne.merged) <- c("springtreatment", "doy", "mean", "sd")
 head(acne.merged)
 
+head(acne.long)
+ggplot(acne.merged, aes (x=doy, y=mean)) + 
+  geom_bar(stat = "identity", position="dodge")
 
-ggplot(acne.long, ) + 
-  geom_histogram()
 
-stat_boxplot(geom = "errorbar",
-             width = 0.15) + 
+
+#### QUMA ####
+quma <- subset(phenostages, genus =="quercus")
+head(quma)
+str(quma)
+# Select columns
+quma.sel <- quma[, c(1, 3, 7:ncol(quma))]
+head(quma.sel)
+#Convert to long format
+quma.long <- melt(setDT(quma.sel), id.vars = c("tree_ID","treatment"), variable.name = "doy")
+
+# Mean of treatments + doy
+quma.mean <- aggregate(value ~ treatment + doy, data = quma.long, FUN = mean, na.omit =TRUE )
+head(quma.mean)
+# Quick plot
+quma.mean.plot <- ggplot(quma.mean)+
+  geom_point(aes (x=doy, y=value, color = treatment)) +
+  labs(x="", y="")+
+  ggtitle("quma total shoot elongation")+
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "right")
+quma.mean.plot
+
+# only for spring or fall 
+quma.sf <- quma.sel
+head(quma.sf)
+quma.sf$springtreatment <- ifelse(grepl('^CoolS', quma.sf$treatment), 'CoolS', 'WarmS')
+# Reorganize columns so spring treatment spcified by >length(colnames(quma.sf)) is at second position and that all days are included 
+quma.sf <- quma.sf[, c(1, 27, 3:24)]
+head(quma.sf)
+#Convert to long format
+quma.long <- melt(setDT(quma.sf), id.vars = c("tree_ID","springtreatment"), variable.name = "doy")
+head(quma.long)
+# Mean of treatments + doy
+quma.mean <- aggregate(value ~ springtreatment + doy, data = quma.long, FUN = mean, na.omit =TRUE )
+# Min of treatments + doy
+quma.min <- aggregate(value ~ springtreatment + doy, data = quma.long, FUN = min, na.omit =TRUE )
+# Max of treatments + doy
+quma.max <- aggregate(value ~ springtreatment + doy, data = quma.long, FUN = max, na.omit =TRUE )
+# Standard deviation of treatments + doy
+quma.sd <- aggregate(value ~ springtreatment + doy, data = quma.long, FUN = sd)
+# Merge dfs mean and min and max
+quma.merged <- merge(quma.mean, quma.min, by=c("springtreatment","doy"))
+
+quma.merged <- merge(quma.merged, quma.max, by=c("springtreatment","doy"))
+head(quma.merged)
+
+# change colnames
+colnames(quma.merged) <- c("springtreatment", "doy", "mean", "min", "max")
+head(quma.merged)
+# Nuage de points
+quma.plot <- ggplot(quma.merged)+
+  geom_point(aes(x=doy, y=mean, color=springtreatment)) +
+  geom_ribbon(aes(ymin=min, ymax=max))
+quma.plot
+str(quma.merged)
+tmp<-subset(quma.merged, springtreatment == "CoolS")
+
+ggplot() +
+  geom_point(data=tmp, aes(x = doy, y = mean))+
+  geom_line(na.rm=TRUE) +
+  geom_ribbon(aes(x = doy, ymin = min, ymax = max)) +
+  theme_minimal()
+
+head(tmp)
+ggplot()+
+  geom_line(data=tmp, aes(x=doy, y=mean))
+
+#cool spring subset
