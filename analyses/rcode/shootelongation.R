@@ -24,7 +24,7 @@ library(ggplot2)
 library(data.table)
 
 # Read csv
-shootelongation <- read.csv2("data/shoot_elongation/shoot_elongation.csv", header = TRUE, sep = ",", check.names = FALSE)
+shootelongation <- read.csv2("analyses/input/shoot_elongation.csv", header = TRUE, sep = ",", check.names = FALSE)
 head(shootelongation)
 
 # Convert all chr values that should be numeric, numeric
@@ -421,9 +421,31 @@ acne.long.absolute.sf <- melt(setDT(acne.absolute.sf), id.vars = c("tree_ID","sp
 # Mean of treatments + doy
 acne.long.absolute.sf.mean <- aggregate(value ~ springtreatment + doy, data = acne.long.absolute.sf, FUN = mean, na.omit =TRUE )
 
-# Quick plot for absolute
-acne.long.absolute.sf.mean.plot <- ggplot(acne.long.absolute.sf.mean)+
-  geom_point(aes (x=doy, y=value, color = springtreatment)) +
+# Min of treatments + doy
+acne.long.absolute.sf.min <- aggregate(value ~ springtreatment + doy, data = acne.long.absolute.sf, FUN = min, na.omit =TRUE )
+
+# Max of treatments + doy
+acne.long.absolute.sf.max <- aggregate(value ~ springtreatment + doy, data = acne.long.absolute.sf, FUN = max, na.omit =TRUE )
+
+# sd 
+acne.long.absolute.sf.sd <- aggregate(value ~ springtreatment + doy, data = acne.long.absolute.sf, FUN = sd)
+
+#merge
+acne.abs.merge <- merge(acne.long.absolute.sf.mean, acne.long.absolute.sf.sd, by=c("springtreatment","doy"))
+# acne.abs.merge2 <- merge(acne.abs.merge, acne.long.absolute.sf.max, by=c("springtreatment","doy"))
+colnames(acne.abs.merge) <- c("springtreatment", "doy", "mean", "sd")
+
+# to numeric doy
+acne.abs.merge2$doy <- as.numeric(as.character(acne.abs.merge2$doy))
+str(acne.abs.merge2)
+#subset cools 
+acnecools <- subset(acne.abs.merge, springtreatment == "CoolS")
+acnecools$doy <- as.numeric(as.character(acnecools$doy))
+head(acnecools)
+# Quick plot for absolute cools
+acne.long.absolute.sf.mean.plot <- ggplot(acnecools)+
+  geom_point(aes (x=doy, y=mean)) +
+  geom_ribbon(aes(x=doy, ymin=mean-sd, ymax=mean+sd), alpha=0.2)
   labs(x="DOY", y="CM")+
   ggtitle("Acne absolute shoot elongation")+
   theme_minimal() +
@@ -438,10 +460,25 @@ acne.long.absolute.sf.mean.plot
 acne.long.total.sf <- melt(setDT(acne.sf), id.vars = c("tree_ID","springtreatment"), variable.name = "doy")
 # Mean of treatments + doy
 acne.long.total.sf.mean <- aggregate(value ~ springtreatment + doy, data = acne.long.total.sf, FUN = mean, na.omit =TRUE )
+#sd
+acne.long.total.sf.sd <- aggregate(value ~ springtreatment + doy, data = acne.long.total.sf, FUN = sd )
 
+#merge
+acne.total.merge <- merge(acne.long.total.sf.mean, acne.long.total.sf.sd, by=c("springtreatment","doy"))
+# acne.abs.merge2 <- merge(acne.abs.merge, acne.long.absolute.sf.max, by=c("springtreatment","doy"))
+colnames(acne.total.merge) <- c("springtreatment", "doy", "mean", "sd")
+
+# to numeric doy
+acne.total.merge$doy <- as.numeric(as.character(acne.total.merge$doy))
+str(acne.total.merge)
+#subset cools 
+# acnecools <- subset(acne.abs.merge, springtreatment == "CoolS")
+# acnecools$doy <- as.numeric(as.character(acnecools$doy))
+# head(acnecools)
 # Quick plot for TOTAL
-acne.long.total.sf.mean.plot <- ggplot(acne.long.total.sf.mean)+
-  geom_point(aes (x=doy, y=value, color = springtreatment)) +
+acne.total.merge.plot<-ggplot(acne.total.merge)+
+  geom_point(aes (x=doy, y=mean, color = springtreatment)) +
+  geom_ribbon(aes(x=doy, ymin=mean-sd, ymax=mean+sd, color=springtreatment), alpha=0.2)+
   labs(x="DOY", y="CM")+
   ggtitle("Acne total shoot elongation")+
   theme_minimal() +
@@ -449,7 +486,7 @@ acne.long.total.sf.mean.plot <- ggplot(acne.long.total.sf.mean)+
         panel.background = element_rect(fill = "white"),
         plot.title = element_text(hjust = 0.5),
         legend.position = "right")
-acne.long.total.sf.mean.plot
+acne.total.merge.plot
 
 
 
@@ -603,6 +640,58 @@ poba.long.total.sf.mean.plot <- ggplot(poba.long.total.sf.mean) +
         legend.position = "right")
 poba.long.total.sf.mean.plot
 
+
+##### prvi #####
+head(prvi)
+# Select springtreatment column and place it after id
+prvi.sf <- prvi[, c(1, 3, 9, 11, 13:length(colnames(prvi)))]
+# Add a column with only the spring treatment
+prvi.sf$springtreatment <- ifelse(grepl('^CoolS', prvi.sf$treatment), 'CoolS', 'WarmS')
+# Reorganize columns so spring treatment specified by >length(colnames(prvi.sf)) is at second position and that all days are included 
+prvi.sf <- prvi.sf[, c(1, length(colnames(prvi.sf)), (4:length(colnames(prvi.sf))-1))]
+
+##### Absolute shoot elongation ##### 
+# Subtract each column by the first measurement
+prvi.absolute.sf <- prvi.sf
+head(prvi.sf)
+prvi.absolute.sf[3:ncol(prvi.absolute.sf)] <- prvi.absolute.sf[3:ncol(prvi.absolute.sf)] - prvi.absolute.sf[, 3]
+
+# Rotate table ABSOLUTE
+prvi.long.absolute.sf <- melt(setDT(prvi.absolute.sf), id.vars = c("tree_ID", "springtreatment"), variable.name = "doy")
+head(prvi.long.absolute.sf)
+# Mean of treatments + doy
+prvi.long.absolute.sf.mean <- aggregate(value ~ springtreatment + doy, data = prvi.long.absolute.sf, FUN = mean, na.rm = TRUE)
+
+# Quick plot for absolute
+prvi.long.absolute.sf.mean.plot <- ggplot(prvi.long.absolute.sf.mean) +
+  geom_point(aes(x = doy, y = value, color = springtreatment)) +
+  labs(x = "DOY", y = "CM") +
+  ggtitle("prvi absolute shoot elongation") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "right")
+prvi.long.absolute.sf.mean.plot
+
+##### Total shoot elongation #####
+# Rotate table TOTAL
+prvi.long.total.sf <- melt(setDT(prvi.sf), id.vars = c("tree_ID", "springtreatment"), variable.name = "doy")
+# Mean of treatments + doy
+prvi.long.total.sf.mean <- aggregate(value ~ springtreatment + doy, data = prvi.long.total.sf, FUN = mean, na.rm = TRUE)
+
+# Quick plot for TOTAL
+prvi.long.total.sf.mean.plot <- ggplot(prvi.long.total.sf.mean) +
+  geom_point(aes(x = doy, y = value, color = springtreatment)) +
+  labs(x = "DOY", y = "CM") +
+  ggtitle("prvi total shoot elongation") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "right")
+prvi.long.total.sf.mean.plot
+
 ##### QUMA #####
 head(quma)
 # Select springtreatment column and place it after id
@@ -701,4 +790,5 @@ segi.long.total.sf.mean.plot <- ggplot(segi.long.total.sf.mean) +
         plot.title = element_text(hjust = 0.5),
         legend.position = "right")
 segi.long.total.sf.mean.plot
+
 
