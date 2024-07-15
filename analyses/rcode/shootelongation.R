@@ -792,3 +792,5 @@ segi.long.total.sf.mean.plot <- ggplot(segi.long.total.sf.mean) +
 segi.long.total.sf.mean.plot
 
 
+quma
+
