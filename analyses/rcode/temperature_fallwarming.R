@@ -1,33 +1,25 @@
-#*======================================================================================================
-## Temperature decision for climate chambers
-##  
-##
-## Project:        FUELINEX
-## Date:           06.15.2023
-## Author:         Christophe 
-#*======================================================================================================
+## Started 14 August 2024
+## By Christophe RD
+
+## This code intends to take a look at the summer temperature so I can make a decision on what temperature should I set the climate chambers at.
 
 # housekeeping
 rm(list=ls())  
 options(stringsAsFactors=FALSE)
 list.files()
+
 #*------------------------------------------------------------------------------------------------------
-# Set the path to your directory folder called PhotoChain
-directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/PhaenoFlex/treatment_overview/R"
+
+directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/fuelinex/"
 
 # Set Working Directory
 setwd(directory_path)
 
 # Package
-library(geosphere)
-library(dplyr)
-library(tidyr)
 library(ggplot2)
-library(stringr)
-library(readxl)
-
+library(dplyr)
 # Read totem field data from the past 30 years
-climate_totem <- read.csv2("raw_data/TotemField_30Years_cleaned.csv", header = TRUE, sep = ",")
+climate_totem <- read.csv2("data/totem_field_climate/TotemField_30Years_cleaned.csv", header = TRUE, sep = ",")
 
 # Change columns
 climate_totem$Tair_max <- as.numeric(climate_totem$Tair_max)
@@ -51,28 +43,59 @@ mean_30years <- climate_totem %>%
             maxtemp = mean(Tair_max, na.rm = TRUE),
             mintemp = mean(Tair_min, na.rm = TRUE))
 
-cut <- mean_30years[c(60:121),]
+cut <- mean_30years[c(183:365),]
 
 ggplot(cut) +
   geom_line(aes(x=julian, y= meantemp))+
   geom_ribbon(aes(ymin = mintemp, ymax = maxtemp),
               alpha = 0.1, na.rm = TRUE) 
 
-ggplot(data = cut, aes(x = julian, y = meantemp)) +
+ggplot(data = mean_30years, aes(x = julian, y = meantemp)) +
   geom_ribbon(aes(ymin = mintemp, ymax = maxtemp),
               alpha = 0.1, na.rm = TRUE) + 
-  geom_line(aes(x=julian, y= meantemp))+
-  geom_line(aes(x=julian, y= 20))
+  geom_line(aes(x=julian, y= meantemp))
 
-# Select from 92 to 121 (April)
-# Max
-head(climate_totem)
-max <- climate_totem %>%
+
+# Select from 214 to 244 (August)
+# Mean
+mean_aug <- climate_totem %>%
   group_by(year) %>%
-  filter(julian >= 92 & julian <= 121) %>%
+  filter(julian >= 214 & julian <= 244) %>%
+  summarise(Tair_mean = mean(Tair_mean, na.rm=TRUE)) 
+
+# Min
+min_aug <- climate_totem %>%
+  group_by(year) %>%
+  filter(julian >= 214 & julian <= 244) %>%
+  summarise(Tair_min = min(Tair_min, na.rm=TRUE)) 
+
+# Max
+max_aug <- climate_totem %>%
+  group_by(year) %>%
+  filter(julian >= 214 & julian <= 244) %>%
   summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
 
-ggplot(max) + 
-  geom_point(aes(x=year, y=Tair_max))
+# Select from 245 to 274 (September)
+# Mean
+mean_sept <- climate_totem %>%
+  group_by(year) %>%
+  filter(julian >= 245 & julian <= 274) %>%
+  summarise(Tair_mean = mean(Tair_mean, na.rm=TRUE)) 
 
-mean(max$Tair_max)
+# Min
+min_sept <- climate_totem %>%
+  group_by(year) %>%
+  filter(julian >= 245 & julian <= 274) %>%
+  summarise(Tair_min = min(Tair_min, na.rm=TRUE)) 
+
+# Max
+max_sept <- climate_totem %>%
+  group_by(year) %>%
+  filter(julian >= 245 & julian <= 274) %>%
+  summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
+
+mean(mean_aug$Tair_mean)
+mean(mean_sept$Tair_mean)
+
+mean(max_aug$Tair_max)
+mean(max_sept$Tair_max)
