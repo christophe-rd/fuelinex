@@ -7,7 +7,7 @@
 ## Autor:           Christophe 
 #=== === === === === === === === === === === === === === === === === === === ===
 
-# housekeeping
+# housekeeping 
 rm(list=ls())  
 options(stringsAsFactors=FALSE)
 
@@ -791,6 +791,4 @@ segi.long.total.sf.mean.plot <- ggplot(segi.long.total.sf.mean) +
         legend.position = "right")
 segi.long.total.sf.mean.plot
 
-
-quma
 
