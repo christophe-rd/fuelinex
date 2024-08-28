@@ -102,3 +102,7 @@ mean(max_sept$Tair_max)
 
 mean(min_aug$Tair_min)
 mean(min_sept$Tair_min)
+
+
+head(climate_totem)
+
