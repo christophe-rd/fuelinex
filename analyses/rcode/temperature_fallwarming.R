@@ -94,6 +94,7 @@ max_sept <- climate_totem %>%
   filter(julian >= 245 & julian <= 274) %>%
   summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
 
+as.vector(max_sept)
 mean(mean_aug$Tair_mean)
 mean(mean_sept$Tair_mean)
 
@@ -106,3 +107,54 @@ mean(min_sept$Tair_min)
 
 head(climate_totem)
 
+#### Weekly temperatures ####
+##### Max temperature #####
+max_sept_a <- climate_totem %>%
+  group_by(year) %>%
+  filter(julian >= 214 & julian <= 221) %>%
+  summarise(Tair_max = max(Tair_max, na.rm=TRUE))
+head(climate_totem)
+
+# Tests
+# subset for the first week of september (245 to 252)
+suby <- subset(climate_totem, julian == c(245, 246, 247, 248, 249, 250, 251, 252))
+cut <- climate_totem[1:730, c("Tair_max", "year", "julian")]
+dput(cut)
+str(climate_totem)
+
+
+# Assuming your data frame is named `climate_totem`
+
+# Initialize an empty list to store the means
+means_per_year <- list()
+
+# Get the unique years in the data
+years <- unique(climate_totem$year)
+
+# Loop over each year
+for (i in years) { # i = 2005
+  
+  # Subset the data for the current year and the Julian days 245 to 252
+  subset_data <- climate_totem[climate_totem$year == i & 
+                                 climate_totem$julian >= 214 & 
+                                 climate_totem$julian <= 221, ]
+  
+  # Calculate the mean of the Tair_max column for this subset
+  mean_Tair_max <- mean(subset_data$Tair_max, na.rm = TRUE)
+  
+  # Store the mean in the list with the year as the name
+  means_per_year[[as.character(i)]] <- mean_Tair_max
+}
+
+# Convert the list to a data frame (if needed)
+means_df <- data.frame(Year = names(means_per_year), Mean_Tair_Max = unlist(means_per_year))
+
+mean(means_df$Mean_Tair_Max)
+
+# View the result
+print(means_df)
+
+mean(max_sept_a$Tair_max)
+print(max_sept_a)
+dput(max_sept_a)
+as.vector(max_sept_a)
