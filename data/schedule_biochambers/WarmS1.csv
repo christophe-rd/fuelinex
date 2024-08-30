@@ -1,0 +1,5 @@
+Day of year,Time,Temperature,Humidity,CO2,Light 1,Light 2,Light 3,Light 4,Auxiliary 1,Auxiliary 2,Auxiliary 3,Auxiliary 4,Fan Speed
+1,5:34,8,0,0,100,0,0,0,0,0,0,0,70
+1,6:00,22,0,0,100,0,0,0,0,0,0,0,70
+1,18:09,8,0,0,100,0,0,0,0,0,0,0,70
+1,18:48,8,0,0,0,0,0,0,0,0,0,0,70
