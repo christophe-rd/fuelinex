@@ -158,3 +158,50 @@ mean(max_sept_a$Tair_max)
 print(max_sept_a)
 dput(max_sept_a)
 as.vector(max_sept_a)
+getwd()
+##### Plot schedules #####
+schedule <- read.csv2("notes/climate_chamber/schedule/warm_fall/WarmF1.csv", header = TRUE, sep = ",")
+str(schedule)
+head(schedule)
+# plot 
+schedule$time2 <- as.POSIXlt(strptime(schedule$Time, format = "%H:%M:%OS"))
+schedule$time3 <- format(schedule$time2, format = "%H:%M")
+
+sche <- ggplot(data=schedule, aes(x=time3, y=Temperature)) +
+  geom_point(aes(y=Light.1)) +
+  scale_y_continuous(
+    name = "Temperature (°C)",
+    limits = c(0, NA),
+    sec.axis = sec_axis(~./1.9, name = "Daylength (hours)")
+  ) +
+sche  
+  
+cut<- schedule[, c("time3", "Temperature", "Light.1")]
+
+
+# Create the plot
+library(ggplot2)
+
+# Ensure time3 is treated as a factor to keep the correct order
+schedule$time3 <- factor(schedule$time3, levels = schedule$time3)
+
+# Create the plot
+sche<-ggplot(schedule, aes(x = time3)) +
+  geom_line(aes(y = Temperature, color = "Temperature", group = 1), size = 1) +
+  geom_line(aes(y = Light.1 / max(Light.1) * max(Temperature), color = "Light Intensity", group = 1), size = 1) +
+  scale_y_continuous(
+    name = "Temperature",
+    sec.axis = sec_axis(~ . * max(schedule$Light.1) / max(schedule$Temperature), name = "Light Intensity")
+  ) +
+  labs(x = "Time", color = "Parameter") +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white"),
+        plot.title = element_text(hjust = 0.5),
+        legend.background = element_rect(fill="white", 
+                                         linewidth =0.5, linetype="solid"),
+        legend.text=element_text(size=9),
+        legend.key.size = unit(0.6, "cm"),
+        axis.ticks = element_line(),
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 10)
+  )
+ggsave("analyses/output/climatechambers_schedules/WarmF1.pdf", sche)
