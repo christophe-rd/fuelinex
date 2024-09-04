@@ -110,6 +110,56 @@ Criticism from the authors: most studies focus on a single phenophase and theref
 
 **Plant Phenology and global climate change: Current progresses and challenges**
 
-Climate change has greatly shifted major events. E.g. spring and autumn, but also caused phenological mismatch accross trophic levels. This can have strong impacts on community structures and ecosystem functions. E.g. different phenological responses to warming between plants and animals can lead to bird species not breeding at the time when the food isn’t at it’s maximum supply
+Climate change has greatly shifted major events. E.g. spring and autumn, but also caused phenological mismatch across trophic levels. This can have strong impacts on community structures and ecosystem functions. E.g. different phenological responses to warming between plants and animals can lead to bird species not breeding at the time when the food isn’t at it’s maximum supply. E.g. this can also cause teh reduction in seed production for some tree species. 
+
+Changes in phenology that are caused by warming are also a primary cause for the recent increases in vegetation activity and carbon uptake
+
+
+
+In the second paragraph of the first section of the methodology, they provide an. example of BBCH. It's a system that has provided a uniform definition of plant development stages. 
+
+
+
+On remote sensing: the spatial resolution of satellite data varies from 30 m to several km. Therefore, the retrieval and interpretation of stands with mixed canopies where several species are present and different phenophases co-occur at the same time. 
+
+
+
+2.4 Manipulative experiments
+
+Using only phenology obvservations, it's very difficult to reveal the covarying drivers of phenology and  gain insights in the mechanisms that drive the patterns in the observations and changes. To understand more the mechanisms of plant phenology, manipulatve experiments have been proven to be a very useful tool. 
+
+There are types of climate warming experiments : passive and active warming. Both show similar results: spring leafing is highly sensitive to manipulate warming. 
+
+Downsides of manipulative experiments:
+
+1. Most experiments are conducted for a handful of species adn usually have only lasted a few years. This short term may not suffice to induce adaptive responses or to gain complete understanding of long-term pheno responses of plants to environmental changes. 
+   
+   That's because other ecological processes may play an increasing role overtime. E.g. nutrient availability and thermal acclimation. 
+
+2. Only conducted on seedlings or saplings and rarely on mature trees. Young and mature trees may show very different responses to the same environemental changes.
+
+3. Phenological responses to experimental and natural conditions may differ a lot. 
+
+They mention that despite these limitations, they have the advantage of keeping certain conditions constant, so they are ideal to answer hypothesis testing.  
+
+
+
+Few studies have documented the phenological events in the fall. Evidence tend to point towards a delaying trend in the end date of autumn. Much weeker than in the spring though. 
+
+
+
+*Thought: could that weeker trend be caused by the fact than autumn phenological events are not as "clear cut as the spring's?*
+
+
+
+##### Drivers and mechanisms:
+
+1. Temperature
+
+Response of phenological events is largely non-linear. In autumn and early spring, cooling has a dual role. 1. chilling activates plant stress responses and stimulates plant endodormancy (first stage of plant dormancy). Then a certain amount of accumulated chilling is required to break endodormancy and lead plants into the second dormant stage (ecodormancy). During that stage, the growth of meristem cells is stimulated and plant cell elongation accelarates under warm temperature that is quantified as growing degree-days.
+
+
+
+Spring phenology is more responsive to warming during daytime than to nightime temperature
 
 
