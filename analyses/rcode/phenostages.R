@@ -11,10 +11,10 @@ rm(list=ls())
 options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
-# Load librairies
+# Load librair1ies
 library(dplyr)
-library(readxl)
 library(ggplot2)
+library(data.table)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
@@ -24,7 +24,7 @@ setwd(directory)
 list.files()
 
 # Read data
-phenostages <- read.csv2("data/phenological_monitoring/phenological_monitoring.csv", header = TRUE, sep = ",", check.names = FALSE)
+phenostages <- read.csv2("analyses/input/2024_budburst_to_budset.csv", header = TRUE, sep = ",", check.names = FALSE)
 head(phenostages)
 str(phenostages)
 
@@ -33,14 +33,27 @@ str(phenostages)
 convert_to_numeric <- function(x) {
   as.numeric(ifelse(grepl("^[0-9]+$", x), x, NA))
 }
-# Convert to numeric
-for (i in 7:ncol(phenostages)) {
-  phenostages[, i] <- convert_to_numeric(phenostages[, i])
-}
+# # Convert to numeric
+# for (i in 7:ncol(phenostages)) {
+#   phenostages[, i] <- convert_to_numeric(phenostages[, i])
+# }
 
 #### ACNE ####
 acne <- subset(phenostages, genus =="acer")
+bepa <- subset(phenostages, genus =="betula")
+poba <- subset(phenostages, genus =="populus")
+prvi <- subset(phenostages, genus =="prunus")
+pist <- subset(phenostages, genus =="pinus")
+quma <- subset(phenostages, genus =="quercus")
+
 head(acne)
+acne_last_measurement<- acne[, "242"]
+bepa_last_measurement<- bepa[, "242"]
+prvi_last_measurement<- prvi[, "242"]
+pist_last_measurement<- pist[, "242"]
+quma_last_measurement<- quma[, "242"]
+poba_last_measurement<- poba[, "242"]
+
 # Select columns
 acne.sel <- acne[, c(1, 3, 7:ncol(acne))]
 head(acne.sel)
