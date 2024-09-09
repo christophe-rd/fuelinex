@@ -114,15 +114,9 @@ Climate change has greatly shifted major events. E.g. spring and autumn, but als
 
 Changes in phenology that are caused by warming are also a primary cause for the recent increases in vegetation activity and carbon uptake
 
-
-
 In the second paragraph of the first section of the methodology, they provide an. example of BBCH. It's a system that has provided a uniform definition of plant development stages. 
 
-
-
 On remote sensing: the spatial resolution of satellite data varies from 30 m to several km. Therefore, the retrieval and interpretation of stands with mixed canopies where several species are present and different phenophases co-occur at the same time. 
-
-
 
 2.4 Manipulative experiments
 
@@ -142,15 +136,9 @@ Downsides of manipulative experiments:
 
 They mention that despite these limitations, they have the advantage of keeping certain conditions constant, so they are ideal to answer hypothesis testing.  
 
-
-
 Few studies have documented the phenological events in the fall. Evidence tend to point towards a delaying trend in the end date of autumn. Much weeker than in the spring though. 
 
-
-
 *Thought: could that weeker trend be caused by the fact than autumn phenological events are not as "clear cut as the spring's?*
-
-
 
 ##### Drivers and mechanisms:
 
@@ -158,8 +146,52 @@ Few studies have documented the phenological events in the fall. Evidence tend t
 
 Response of phenological events is largely non-linear. In autumn and early spring, cooling has a dual role. 1. chilling activates plant stress responses and stimulates plant endodormancy (first stage of plant dormancy). Then a certain amount of accumulated chilling is required to break endodormancy and lead plants into the second dormant stage (ecodormancy). During that stage, the growth of meristem cells is stimulated and plant cell elongation accelarates under warm temperature that is quantified as growing degree-days.
 
-
-
 Spring phenology is more responsive to warming during daytime than to nightime temperature
 
 
+
+2. Photoperiod
+
+The increasing night length in autumn induces bud set and leaf senescence when photoperiod is bellow a growth-permitting treshold.
+
+E.g. leaf senescence of mature European aspens is mostly regulated by  photoperiod (happens on the same day every year)
+
+Photoperiod effect on spring phenology is unclear unlike its effect on fall phenology. 
+
+With warming-induced leaf out advancement, reduced photperiod earlier in spring may decrease the temperature sensitivity of spring phenology and thus prevent the plants from leafing out too early = potential spring frost. 
+
+Photoperiod sensitivity of spring phenological events might vary among species/latitudes. 
+
+3. Nutrient and water availability
+
+They can affect plant phenology, but their extend is <temperature and photoperiod. 
+
+Nutrients can affect plant's phenology. E.g. enough nutrient during the GS may enhance the plant's resistance and adaptation to freezing stress, thus postponing autumn leaf senesence. 
+
+Studies found that water availability may play a key role in spring and autumn events. Altough not enough empirical evidence. 
+
+4. Interaction among phenological events
+
+Recent studies found that spring and autumn phenology are positively intercorrelated. Underlying mechanisms might related to leaf traits stuch as leaf longetivity and programmed cell death. The interaction between spring and autumn phenology will likely modify pheno responses to climate change. 
+
+
+
+##### Ecosystem and climatic impacts of pheno changes
+
+Climate-induced phenology changes may reshape community structure, because of the diverse range of plant pheno responses to climate change. E.g. a study showed that species growing in a cool climate are more sensitive to warming climate then those in warm regions. Convergence of phenological events accross a temperature gradient could increase gene flow accross lat/long.
+
+Impacts accross trophic levels: alter the interactions between plants and herbivores. 
+
+
+
+Plant phenological shifts may alter soil moisture, run-off and precipitation primarily through influencing evapotranspiration.
+
+Plant phenological changes can also produce extra biological forcing on surface temperature by directly modifying surface conductance and albedo (and indirectly modifying cloud formation). Earlier leaf out = larger amount of solar radiation absorption that heats the canopy surface. This mechanism is espacially important for snow-covered boreal regions due to the large contrast between snow albedo adn new-leaf albedo. 
+
+
+
+##### Challenges
+
+Currently, phenomodels use phenological records. Underlying mechanistic processes governing phenological events are rarely incorporated into models or only empirically represented via statistical relationships.
+
+Inconsistencies of experimental settings see: chuine et al. 2010 and Hanninen 2016
