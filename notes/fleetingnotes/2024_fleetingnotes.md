@@ -120,7 +120,7 @@ On remote sensing: the spatial resolution of satellite data varies from 30 m to 
 
 2.4 Manipulative experiments
 
-Using only phenology obvservations, it's very difficult to reveal the covarying drivers of phenology and  gain insights in the mechanisms that drive the patterns in the observations and changes. To understand more the mechanisms of plant phenology, manipulatve experiments have been proven to be a very useful tool. 
+Using only phenology observations, it's very difficult to reveal the covarying drivers of phenology and  gain insights in the mechanisms that drive the patterns in the observations and changes. To understand more the mechanisms of plant phenology, manipulatve experiments have been proven to be a very useful tool. 
 
 There are types of climate warming experiments : passive and active warming. Both show similar results: spring leafing is highly sensitive to manipulate warming. 
 
@@ -190,7 +190,7 @@ Inconsistencies of experimental settings see: chuine et al. 2010 and Hanninen 20
 
 ### 12 September 2024
 
-##### A continental phenologymodel for monitoring vegetation responsesto interannual climatic variability
+##### A continental phenologymodel for monitoring vegetation responses to interannual climatic variability
 
 Trees need to fullfill a chilling requirement before warmer temperatures begin to affect spring time growth. 
 
@@ -217,3 +217,5 @@ Phenostages can be detected by:
    1. Pros: offer global coverage data. E.g. Lansat characterize the seasonality of vegetation at regional scales. 
    
    2. Cons: landsat imagery applications is limited because many pheno changes occur more rapidly than the 16-day revisit of lanset. Also cloud cover
+
+https://<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>@github.com/<christophe-rd>/<slipbox>.git

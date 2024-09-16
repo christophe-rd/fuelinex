@@ -1,11 +1,5 @@
-#*======================================================================================================
-## Climate Chambers temperature data - Drought 1
-##  
-##
-## Project:         PhaenoFlex
-## Datum:           06.15.2023
-## Autor:           Christophe 
-#*======================================================================================================
+## Started 13 September 2024
+## By Christophe RD (based on the treatment overview I made for Fredi's project last year)
 
 # housekeeping
 rm(list=ls())  
@@ -13,7 +7,7 @@ options(stringsAsFactors=FALSE)
 list.files()
 #*------------------------------------------------------------------------------------------------------
 # Set the path to your directory folder called PhotoChain
-directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/PhaenoFlex/treatment_overview/R"
+directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/fuelinex/"
 
 # Set Working Directory
 setwd(directory_path)
