@@ -217,5 +217,3 @@ Phenostages can be detected by:
    1. Pros: offer global coverage data. E.g. Lansat characterize the seasonality of vegetation at regional scales. 
    
    2. Cons: landsat imagery applications is limited because many pheno changes occur more rapidly than the 16-day revisit of lanset. Also cloud cover
-
-https://<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>@github.com/<christophe-rd>/<slipbox>.git
