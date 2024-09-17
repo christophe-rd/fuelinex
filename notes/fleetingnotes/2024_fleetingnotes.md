@@ -217,3 +217,25 @@ Phenostages can be detected by:
    1. Pros: offer global coverage data. E.g. Lansat characterize the seasonality of vegetation at regional scales. 
    
    2. Cons: landsat imagery applications is limited because many pheno changes occur more rapidly than the 16-day revisit of lanset. Also cloud cover
+
+
+
+### 16 September 2024
+
+##### A Biologist's guide to Mathematical modelling
+
+###### Chapter 1
+
+1.3.1. Dynamics of HIV after initial infection
+
+When a patient is infected by HIV, the number of virions in the bloodstream skyrockets and plummets again = acute phase. It lasts about 100 days. This rise reflects the infection of CD4+ cells and the replication of HIB within the infected host cells. Easy answer is that immune system acts to supress the infection. However, Phillips 96 found that the number of virions declines because most of the CD4+ cells have been infected and thus there are fewer host cells to infect. 
+
+He came to the counterintuitive conclusion that the reduction in virus concentration during the acute infection doesn't reflect the ability of HIV-specific immune response to control the virus replication. What Philipps can say : an immune response is not necessary to explain the observed data. 
+
+It illustres an important principle in modelling: principle of parsimony that states that you should prefer models containing few variables and parameters as possible to describe a system.
+
+Things Philipps model succeded to do: 1. Changed the view of what was possible (in regards to CD4+ cells) 2. Produced testable predictions 3. generated a useful null hypothesis: viral dynamics do not reflect an immune response. 
+
+1.4. Concluding Message
+
+Models can only tell us what is possible. E.g. they can tell us how HIV levels within the body or HIV incidence within a population might change over time. But without data, mathematical models can nevert tell us what happened or what's happening. 
