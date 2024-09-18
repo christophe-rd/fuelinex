@@ -126,7 +126,7 @@ str(climate_totem)
 # Assuming your data frame is named `climate_totem`
 
 # Initialize an empty list to store the means
-means_max_per_year <- list()
+means_max_per_year <- list() 
 # Get the unique years in the data
 years <- unique(climate_totem$year)
 # Loop over each year
@@ -134,8 +134,8 @@ for (i in years) { # i = 2005
   
   # Subset the data for the current year and the Julian days 245 to 252
   subset_data <- climate_totem[climate_totem$year == i & 
-                                 climate_totem$julian >= 224 & 
-                                 climate_totem$julian <= 231, ]
+                                 climate_totem$julian >= 232 & 
+                                 climate_totem$julian <= 239, ]
   
   # Calculate the mean of the Tair_max column for this subset
   mean_Tair_max <- mean(subset_data$Tair_max, na.rm = TRUE)
