@@ -128,7 +128,7 @@ str(climate_totem)
 # Initialize an empty list to store the means
 means_max_per_year <- list() 
 # Get the unique years in the data
-years <- unique(climate_totem$year)
+years <- unique(climate_totem$year)s
 # Loop over each year
 for (i in years) { # i = 2005
   
