@@ -218,8 +218,6 @@ Phenostages can be detected by:
    
    2. Cons: landsat imagery applications is limited because many pheno changes occur more rapidly than the 16-day revisit of lanset. Also cloud cover
 
-
-
 ### 16 September 2024
 
 ##### A Biologist's guide to Mathematical modelling
@@ -239,3 +237,9 @@ Things Philipps model succeded to do: 1. Changed the view of what was possible (
 1.4. Concluding Message
 
 Models can only tell us what is possible. E.g. they can tell us how HIV levels within the body or HIV incidence within a population might change over time. But without data, mathematical models can nevert tell us what happened or what's happening. 
+
+
+
+
+
+### 27 September 2024
