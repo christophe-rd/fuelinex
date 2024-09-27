@@ -238,8 +238,101 @@ Things Philipps model succeded to do: 1. Changed the view of what was possible (
 
 Models can only tell us what is possible. E.g. they can tell us how HIV levels within the body or HIV incidence within a population might change over time. But without data, mathematical models can nevert tell us what happened or what's happening. 
 
+### 20 September 2024
 
+##### An earlier start of the thermal growing season enhances tree growth in cold humid areas but not in dry areas
+
+Start of the thermal growing season directly influences plant phenology 
+and its advance matches the interannual variability of spring green-up. 
+These phenoshifts influence the capacity of the biosphere to take up 
+carbon and affect the exchange of energy between the atmosphere and the 
+bioshere. We don't know if the shifts in plant phenology would result in
+ a negative feedback to warming and a increased carbon uptake or 
+alternatively, exhibit additional ecological stress.
+
+In addition to earlier TSOS, peak photosynthesis occurs earlier and 
+culminates higher in forests of the extratropical Northern Hemisphere
+
+The carbon residence time in tree stems is much longer than in the 
+foliage, making the former a major contributor to the long-term carbon 
+sink in forests.
+
+Tree radial growth represents the annual accumulation and fixation of carbohydrates in the stem
+
+In addition to temperature, the length of the growing season determines the available period for developing functional xylem through cell maturation and lignification, especially in cold areas. 
+
+In drier ecosystems, water availability is another important driver of cambial reactivation.
 
 
 
 ### 27 September 2024
+
+##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
+
+Plant molecular ecology research have focused on phenology where studies
+ were conducted to understand how underlying physiological and genetic 
+structures that control flowering provide evolutionary insights into how
+ local adaptation shapes intraspecific variation
+
+To predict plant phenological responses, we need understanding of 
+abiotic versus biotic forces that drive selection on plant phenology. 
+This is grounded on the concept of temporal niche i.e. that time is a 
+primary axis bby which plant species can partition ressources, from 
+nutrients to pollinators. Both abiotic and biotic forces can shape 
+selection on plant phenology.
+
+They expect that most species even (those with phenologies shaped 
+almost
+ entirely by biotic forces) proximately trigger phenology through 
+abiotic cues. E.g. Selection on flowering time for some species might be
+ driven to match the timing of specialist pollinators, but 
+physiologically, they use environmental cues such as temperature and 
+photoperiod to cue flowering.
+
+In temperate biomes, when precipitation is regular throughout the year, 
+temperature is expected to be a major driver of phenology especially at 
+the start and end of the growing season. However, when climate 
+variability is low and competition between plants for soil, light and 
+pollinator resources is high, biotic forces should dominate to shape 
+selection.
+
+In arid and semi-arid systems, moisture is a critical driver of phenology
+
+In tropical regions, temperature, precipitation and irradiance may 
+interact to drive phenology. Though, seperating proximate cues is hard.
+
+Annual species are on average, more sensitive to temperature than 
+perennial species and early ontogenic stages (e.g. seedlings) appear to 
+be more responsive to temperature than adult stages).  This indicates 
+that thre is a big tradeoff between investment/risk where individuals 
+with lower investments appear more reponsive to temperature compared 
+with individuals with more investment.
+
+High risk, high reward: more responsive organisms are subjected to 
+greater risks, but also benefits. They also tend to have increased 
+abundance or fitness with warming.
+
+Native species appear to be
+ more senstitive to climate which suggests that responsive phenologies 
+may be important to invasion success.
+
+Closely related species show that related species are more likely to 
+flower at similar times. However, there is mixed support fr phylogenetic
+ structure of species response to climate. This means that species 
+cannot be considered statistically independant and studies considering 
+the timing of pheno events needs to consider their shared evoluttionary 
+history and genetic background.
+
+Molecular ecology shows a strong  genetic basis for phenology whether 
+it's driven by high phenotypic plasticity in phenology across a species'
+ range with little genetic variation or cues, such as photoperiod that 
+produce a static timing across years within sites. This is an obstacle 
+because it means that pheno data taken from field observations from 
+field include mixed signals. E.g. observations at one location of a 
+wide-ranging species that triggers flowering predominantely by 
+temperature, may not accurately trigger the witing-species variation.
+
+one solution is to use time-series data that allows modeling of plastic 
+responses to interannual climate variation. Limitation: assumes that 
+cues are not locally adapter across species' ranges and may introduce 
+bias based on the local climate sampled.
