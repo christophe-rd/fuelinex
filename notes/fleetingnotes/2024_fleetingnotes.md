@@ -263,8 +263,6 @@ In addition to temperature, the length of the growing season determines the avai
 
 In drier ecosystems, water availability is another important driver of cambial reactivation.
 
-
-
 ### 27 September 2024
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
@@ -336,3 +334,31 @@ one solution is to use time-series data that allows modeling of plastic
 responses to interannual climate variation. Limitation: assumes that 
 cues are not locally adapter across species' ranges and may introduce 
 bias based on the local climate sampled.
+
+
+
+### 4 October 2024
+
+##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
+
+To build robust models, critical data is needed beyond temperature. Data on soil moisture, humidity, irradiance (diffuse and direct) are necessary for any basic estimates of how phenological cues may vary accross species and latitudes and habitats. However, climate factors are intrinsically linked (cloud cover, radiation, precipatation often covary). This makes them difficult to separate their effects.
+
+
+
+To estimate how the intraspecific variation in phenology is controlled by phenotypic plasticity vs genotypic adaptation, we can do controlled studies on cues, if conducted across populations. --> links with cookie project
+
+Common garden studies, where exotic species were planted in Europe have found variations over a month in flowering time across populations taken from latitudinal transects spanning 1200-1800km. 
+
+
+
+##### Effects of climate change on alpine plants and their pollinators
+
+Alpine plant community are simple and comprised mostly of long-lived perrenial herbaceous plants and have a relatively low plant diversity. Trees are absent, but in some alpine areas, smaller shrub communities have been expanding and subalpine plants have been migrating up to the detriment of smaller shrubs. Therefore, one of the most important consequence of climate change is the reduction of alpine environements in result to the migration of trees and shrubs
+
+The topographically complex (rough and patchy ) landscapes that characterize alpine ecosystems should be both more resistand and resilient to climate change, as they have greater microhabitat diversity compared to flat and homogeneous habitats.
+
+Alpine plant communuties are relatively resistant to alien species invasion. This might be because of seed dispersal constraints, but also because of low temperature (slow growth), and biotic interactions. 
+
+Snow melt also provides a major source of water at the beginning of the growing season. Now, more precipitation falls as rain rather than snow which might cause longer growing season and potentially increased summer drought. The warming of the ground is also a cue for plant growth
+
+Flowering phenology: as snowmelyt dates are advancing, growing seasons are getting longer and flowering phenology is getting earlier. This is a major determinant for small plants in alpine environements as they can't start growing until the snow melts. In subalpine, few species may begin to grow before the snow is gone. 
