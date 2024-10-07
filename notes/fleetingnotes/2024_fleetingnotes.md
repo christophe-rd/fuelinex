@@ -335,21 +335,15 @@ responses to interannual climate variation. Limitation: assumes that
 cues are not locally adapter across species' ranges and may introduce 
 bias based on the local climate sampled.
 
-
-
 ### 4 October 2024
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
 
 To build robust models, critical data is needed beyond temperature. Data on soil moisture, humidity, irradiance (diffuse and direct) are necessary for any basic estimates of how phenological cues may vary accross species and latitudes and habitats. However, climate factors are intrinsically linked (cloud cover, radiation, precipatation often covary). This makes them difficult to separate their effects.
 
-
-
 To estimate how the intraspecific variation in phenology is controlled by phenotypic plasticity vs genotypic adaptation, we can do controlled studies on cues, if conducted across populations. --> links with cookie project
 
 Common garden studies, where exotic species were planted in Europe have found variations over a month in flowering time across populations taken from latitudinal transects spanning 1200-1800km. 
-
-
 
 ##### Effects of climate change on alpine plants and their pollinators
 
@@ -362,3 +356,35 @@ Alpine plant communuties are relatively resistant to alien species invasion. Thi
 Snow melt also provides a major source of water at the beginning of the growing season. Now, more precipitation falls as rain rather than snow which might cause longer growing season and potentially increased summer drought. The warming of the ground is also a cue for plant growth
 
 Flowering phenology: as snowmelyt dates are advancing, growing seasons are getting longer and flowering phenology is getting earlier. This is a major determinant for small plants in alpine environements as they can't start growing until the snow melts. In subalpine, few species may begin to grow before the snow is gone. 
+
+
+
+High temperature accelarates bud burst, flowering and stem elongation in spring, and thus extend the growing season. Optimal temperatures for metabolism, growth and phenological resposnes are the product of long-term adaptation to local conditions even when imperfectly matched with local climate. 
+
+Global patterns of species distribution indicate that temperature sensitivity influences both the potential and realized niche of plants. However, a lot of factors combine to define range boundaries. Plants have adapted to their local environment so their growth and reproduction are optmized.
+
+###### Methods:
+
+Collection of leaf litter from the ground of each chamber at 5 to 18 days intervals. Separated by species and dried. 
+
+Chlorophyll remaining in individual trees. based on a pre-selected subsample of leaves and supplemented by a random sampling of leaves chosen at intervasl throughout each crown. Fallen leaves were recorded as zero color. For populus, they couldn't make estimates as too much biotic damage. Foliar chlorophyll concentrations were estimated at similar intervals using a portable chlorophyll meter (SPAD-502, Konica Minolta Sensing, Inc., Osaka, Japan), a non-destructive method based on light absorption (optical density difference) at two wavelengths.
+
+Unitless SPAD values were converted to chlorophyll concentrations using a calibration established from a subsample of leaves of each species. 
+
+
+
+Warming experiments advanced bud burst in all species and years the experiments were conducted, even in species growing well outside of their native ranges. 
+
+There is little concensus on the environmental cues for leaf colouring and abscission in autumn, partly because the pool of ground observations is much smaller and events are difficult to quantify. Observations of growth cessation, bud set, senescence, abscission adn cold-hardiness represent different aspects of "**autumn syndrome**" mediated through an array of signaling pathways. 
+
+At larger scales, autumn observations may rely on ground or satellite based estimations of color change; absciussion dates may be based on light transmission through the canopy or leaf-litter collections, even through leaf fall can be induced prematurely by extreme temperatures, drought, insects or pathogens and may respond to a single episode of high wind, rain or frost. 
+
+Question: when we monitor leaf senescence, what are we monitoring exactly? Could there be a single hormone treshold that could be a better indicator? 
+
+Photoperiod is often accepted as a trigger of autumn phenology, potential warming at the end of the growing season is often ignored. Yet, inter-annual differents beg an explanation. Autumn temperatures were the primary cue for senescence in 2 Quercus species. Same for Fagus, but photoperiod played a role as well. 
+
+In Populus, senescence was triggered by long nights, lower temperature accelarated chlorophyll degradation. On the other hand, senescence in Malus and Pyrus was induced by low temperature and insensitive to photoperiod. Their results showed delayed phenophases regardless of differences in photoperiod between source and field sites. Delays in leaf absission were more pronounced than delays in chlorophyll loss. 
+
+
+
+#### NEED TO FINISH THIS PAPER TO THE ORANGE HIGHLIGHT
