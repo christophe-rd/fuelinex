@@ -200,6 +200,8 @@ Dry grasslands are sensitive to temperature, precipitation and soil moisture whe
 
 ##### A Review of Vegetation Phenological Metrics Extraction Using Time-Series, Multispectral Satellite Data
 
+**Permanent note: DONE**
+
 Phenostages can be detected by: 
 
 1. Human visual observations : pro:  a lot of data from a long time. Con: they represent only a small localized area and in often limited number. Provide detailed and accurate phenology information that is essential for remote calibration of sensing-based models.
@@ -242,6 +244,8 @@ Models can only tell us what is possible. E.g. they can tell us how HIV levels w
 
 ##### An earlier start of the thermal growing season enhances tree growth in cold humid areas but not in dry areas
 
+**Permanent note: DONE**
+
 Start of the thermal growing season directly influences plant phenology 
 and its advance matches the interannual variability of spring green-up. 
 These phenoshifts influence the capacity of the biosphere to take up 
@@ -266,6 +270,8 @@ In drier ecosystems, water availability is another important driver of cambial r
 ### 27 September 2024
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
+
+**Permanent note: ***
 
 Plant molecular ecology research have focused on phenology where studies
  were conducted to understand how underlying physiological and genetic 
@@ -339,6 +345,8 @@ bias based on the local climate sampled.
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
 
+**Permanent note:**
+
 To build robust models, critical data is needed beyond temperature. Data on soil moisture, humidity, irradiance (diffuse and direct) are necessary for any basic estimates of how phenological cues may vary accross species and latitudes and habitats. However, climate factors are intrinsically linked (cloud cover, radiation, precipatation often covary). This makes them difficult to separate their effects.
 
 To estimate how the intraspecific variation in phenology is controlled by phenotypic plasticity vs genotypic adaptation, we can do controlled studies on cues, if conducted across populations. --> links with cookie project
@@ -357,7 +365,7 @@ Snow melt also provides a major source of water at the beginning of the growing 
 
 Flowering phenology: as snowmelyt dates are advancing, growing seasons are getting longer and flowering phenology is getting earlier. This is a major determinant for small plants in alpine environements as they can't start growing until the snow melts. In subalpine, few species may begin to grow before the snow is gone. 
 
-
+#### Forest phenology and a warmer climate – growing season extension in relation to climatic provenance
 
 High temperature accelarates bud burst, flowering and stem elongation in spring, and thus extend the growing season. Optimal temperatures for metabolism, growth and phenological resposnes are the product of long-term adaptation to local conditions even when imperfectly matched with local climate. 
 
@@ -371,8 +379,6 @@ Chlorophyll remaining in individual trees. based on a pre-selected subsample of 
 
 Unitless SPAD values were converted to chlorophyll concentrations using a calibration established from a subsample of leaves of each species. 
 
-
-
 Warming experiments advanced bud burst in all species and years the experiments were conducted, even in species growing well outside of their native ranges. 
 
 There is little concensus on the environmental cues for leaf colouring and abscission in autumn, partly because the pool of ground observations is much smaller and events are difficult to quantify. Observations of growth cessation, bud set, senescence, abscission adn cold-hardiness represent different aspects of "**autumn syndrome**" mediated through an array of signaling pathways. 
@@ -384,7 +390,5 @@ Question: when we monitor leaf senescence, what are we monitoring exactly? Could
 Photoperiod is often accepted as a trigger of autumn phenology, potential warming at the end of the growing season is often ignored. Yet, inter-annual differents beg an explanation. Autumn temperatures were the primary cue for senescence in 2 Quercus species. Same for Fagus, but photoperiod played a role as well. 
 
 In Populus, senescence was triggered by long nights, lower temperature accelarated chlorophyll degradation. On the other hand, senescence in Malus and Pyrus was induced by low temperature and insensitive to photoperiod. Their results showed delayed phenophases regardless of differences in photoperiod between source and field sites. Delays in leaf absission were more pronounced than delays in chlorophyll loss. 
-
-
 
 #### NEED TO FINISH THIS PAPER TO THE ORANGE HIGHLIGHT
