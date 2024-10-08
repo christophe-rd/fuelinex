@@ -286,8 +286,7 @@ nutrients to pollinators. Both abiotic and biotic forces can shape
 selection on plant phenology.
 
 They expect that most species even (those with phenologies shaped 
-almost
- entirely by biotic forces) proximately trigger phenology through 
+almost entirely by biotic forces) proximately trigger phenology through 
 abiotic cues. E.g. Selection on flowering time for some species might be
  driven to match the timing of specialist pollinators, but 
 physiologically, they use environmental cues such as temperature and 
