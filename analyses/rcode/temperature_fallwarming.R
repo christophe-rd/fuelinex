@@ -55,72 +55,72 @@ ggplot(data = mean_30years, aes(x = julian, y = meantemp)) +
               alpha = 0.1, na.rm = TRUE) + 
   geom_line(aes(x=julian, y= meantemp))
 
-
-# Select from 214 to 244 (August)
-# Mean
-mean_aug <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 214 & julian <= 244) %>%
-  summarise(Tair_mean = mean(Tair_mean, na.rm=TRUE)) 
-
-# Min
-min_aug <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 214 & julian <= 244) %>%
-  summarise(Tair_min = min(Tair_min, na.rm=TRUE)) 
-
-# Max
-max_aug <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 214 & julian <= 244) %>%
-  summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
-
-# Select from 245 to 274 (September)
-# Mean
-mean_sept <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 245 & julian <= 274) %>%
-  summarise(Tair_mean = mean(Tair_mean, na.rm=TRUE)) 
-
-# Min
-min_sept <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 214 & julian <= 221) %>%
-  summarise(Tair_min = min(Tair_min, na.rm=TRUE)) 
-
-# Max
-max_sept <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 245 & julian <= 274) %>%
-  summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
-
-as.vector(max_sept)
-mean(mean_aug$Tair_mean)
-mean(mean_sept$Tair_mean)
-
-mean(max_aug$Tair_max)
-mean(max_sept$Tair_max)
-
-mean(min_aug$Tair_min)
-mean(min_sept$Tair_min)
-
-
-head(climate_totem)
-
-#### Weekly temperatures ####
-##### Max temperature #####
-max_sept_a <- climate_totem %>%
-  group_by(year) %>%
-  filter(julian >= 214 & julian <= 221) %>%
-  summarise(Tair_max = max(Tair_max, na.rm=TRUE))
-head(climate_totem)
-
-# Tests
-# subset for the first week of september (245 to 252)
-suby <- subset(climate_totem, julian == c(245, 246, 247, 248, 249, 250, 251, 252))
-cut <- climate_totem[1:730, c("Tair_max", "year", "julian")]
-dput(cut)
-str(climate_totem)
+# 
+# # Select from 214 to 244 (August)
+# # Mean
+# mean_aug <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 214 & julian <= 244) %>%
+#   summarise(Tair_mean = mean(Tair_mean, na.rm=TRUE)) 
+# 
+# # Min
+# min_aug <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 214 & julian <= 244) %>%
+#   summarise(Tair_min = min(Tair_min, na.rm=TRUE)) 
+# 
+# # Max
+# max_aug <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 214 & julian <= 244) %>%
+#   summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
+# 
+# # Select from 245 to 274 (September)
+# # Mean
+# mean_sept <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 245 & julian <= 274) %>%
+#   summarise(Tair_mean = mean(Tair_mean, na.rm=TRUE)) 
+# 
+# # Min
+# min_sept <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 214 & julian <= 221) %>%
+#   summarise(Tair_min = min(Tair_min, na.rm=TRUE)) 
+# 
+# # Max
+# max_sept <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 245 & julian <= 274) %>%
+#   summarise(Tair_max = max(Tair_max, na.rm=TRUE)) 
+# 
+# as.vector(max_sept)
+# mean(mean_aug$Tair_mean)
+# mean(mean_sept$Tair_mean)
+# 
+# mean(max_aug$Tair_max)
+# mean(max_sept$Tair_max)
+# 
+# mean(min_aug$Tair_min)
+# mean(min_sept$Tair_min)
+# 
+# 
+# head(climate_totem)
+# 
+# #### Weekly temperatures ####
+# ##### Max temperature #####
+# max_sept_a <- climate_totem %>%
+#   group_by(year) %>%
+#   filter(julian >= 214 & julian <= 221) %>%
+#   summarise(Tair_max = max(Tair_max, na.rm=TRUE))
+# head(climate_totem)
+# 
+# # Tests
+# # subset for the first week of september (245 to 252)
+# suby <- subset(climate_totem, julian == c(245, 246, 247, 248, 249, 250, 251, 252))
+# cut <- climate_totem[1:730, c("Tair_max", "year", "julian")]
+# dput(cut)
+# str(climate_totem)
 
 
 # Assuming your data frame is named `climate_totem`
@@ -132,10 +132,10 @@ years <- unique(climate_totem$year)
 # Loop over each year
 for (i in years) { # i = 2005
   
-  # Subset the data for the current year and the Julian days 245 to 252
+  # Subset the data for the current year and the Julian days 245 to 252 (1st week of september). 253 to 260 for 9 october (19 degrees) and 261 to 268 for 16 october ()
   subset_data <- climate_totem[climate_totem$year == i & 
-                                 climate_totem$julian >= 245 & 
-                                 climate_totem$julian <= 252, ]
+                                 climate_totem$julian >= 261 & 
+                                 climate_totem$julian <= 268, ]
   
   # Calculate the mean of the Tair_max column for this subset
   mean_Tair_max <- mean(subset_data$Tair_max, na.rm = TRUE)
