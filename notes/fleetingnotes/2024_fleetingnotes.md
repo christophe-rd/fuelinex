@@ -271,7 +271,7 @@ In drier ecosystems, water availability is another important driver of cambial r
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
 
-**Permanent note: ***
+**Permanent note: partially, not all done ***
 
 Plant molecular ecology research have focused on phenology where studies
  were conducted to understand how underlying physiological and genetic 
@@ -291,6 +291,8 @@ abiotic cues. E.g. Selection on flowering time for some species might be
  driven to match the timing of specialist pollinators, but 
 physiologically, they use environmental cues such as temperature and 
 photoperiod to cue flowering.
+
+*HERE*
 
 In temperate biomes, when precipitation is regular throughout the year, 
 temperature is expected to be a major driver of phenology especially at 
@@ -390,4 +392,4 @@ Photoperiod is often accepted as a trigger of autumn phenology, potential warmin
 
 In Populus, senescence was triggered by long nights, lower temperature accelarated chlorophyll degradation. On the other hand, senescence in Malus and Pyrus was induced by low temperature and insensitive to photoperiod. Their results showed delayed phenophases regardless of differences in photoperiod between source and field sites. Delays in leaf absission were more pronounced than delays in chlorophyll loss. 
 
-#### NEED TO FINISH THIS PAPER TO THE ORANGE HIGHLIGHT
+There is evidence from model simulations and field observations that extended GS can increase productivity in forest ecosystems. E.g. an experience showed that small temperature-driven differences in growing season length had a large cumulative effect on annual C exchange. We indicates the importance of usiong a temperature-driven growing season length especially in spring. Longer growing season=higher productivity
