@@ -9,7 +9,7 @@
 | Sean Michaletz    | Botany                       |                                          | Physiological ecology                                                  |
 | Athena McKown     | Athena McKown                |                                          | Tree physiology and phenology                                          |
 | Yousry El-Kassaby | Applied Conservation Science |                                          | tree breeding and genomics                                             |
-|                   |                              |                                          |                                                                        |
-|                   |                              |                                          |                                                                        |
+| Sally Aitken      |                              |                                          |                                                                        |
+| Rob Guy           |                              |                                          |                                                                        |
 |                   |                              |                                          |                                                                        |
 |                   |                              |                                          |                                                                        |
