@@ -394,8 +394,6 @@ In Populus, senescence was triggered by long nights, lower temperature accelarat
 
 There is evidence from model simulations and field observations that extended GS can increase productivity in forest ecosystems. E.g. an experience showed that small temperature-driven differences in growing season length had a large cumulative effect on annual C exchange. We indicates the importance of usiong a temperature-driven growing season length especially in spring. Longer growing season=higher productivity
 
-
-
 ### 10 October 2024
 
 #### Growing season changes in the last century
@@ -415,3 +413,79 @@ They also point out a lower difference in autumn phenology compared to spring ph
 *A lot of very insighful informations about papers reporting phenology*
 
 In the northem Atlantic region, a big portion of the climate variability is attributed to North Atlantic Oscillation (NAO) Using leafing dates of trees for 30 years, they showed that the growing season was early by 8 days. It is likely explained by NAO
+
+
+
+### 11 October 2024
+
+###### Warming experiments underpredict plant phenological responses to climate change
+
+**Permanent note:**
+
+There are two main approaches to predict plant responses to climate change:
+
+1. Observations over time or space to quantify sensitivities to temperature variabilit and change. This includes recent warming. 
+
+2. Experiments that directly warm natural plant communities on a small scale
+
+Warming experiments have been used to extrapolate to future conditions. However, this approach rests on the critical but **little-tested** assumption that plant responses to experimental warming match long-term respones to global warming. Testing this assumption is essential if we want to assess the utility of warming experiments for long-term forecasting and prediction.
+
+The analyses conducted for 36 species common to both study types, the experiments still produced smaller sensititivites. More strikingly, the experiments predicted a delay in flowering and little change in leafind in response to higher temperatures wheras the observations predicted an advance of >4.6 days per C for both leafinf and flowering.
+
+Several artefacts may explain the lower sensitivity in the experimental studies. E.g.: 
+
+- differences in the traits of the species sampled
+
+- correlations between MAT and other envrionemental variables for the observational studies
+
+- differences in the degree of warming
+
+They didn't find aanything that these factors explain the smaller or positive senstitivitiues found in the experiment. 
+
+Warming methods have continually improved, all experimental manipulations unavoidably alter additional environemental factors. E.g.:
+
+- Common passive warming structures-open-top chambers- reduce light, wind and often soil moisture and reduce winter temperatures. 
+
+- Above canopy heaters only achieve warming in periods of low wind. 
+
+They found no evidence of differences in the senstivities between the passive and active designs. Canopy heaters seem to have caused the greatest advances.
+
+There were no effects of habitat, study duration or period of warming each year: the results from studies tha manipulated temperature **only** during the growing season were indistintinguishable from thos that eleaveted temperature year around. That means that there are no difference between the 2. 
+
+Both active and passive experimental designs tend to reduce total irradiance and soil moisture, which can delay plant phenology
+
+
+
+The few efforts to examine temperature changes carefully have found that warming chambers can sometimes result in the cooling of plots or can have unintended effects on daily and seasonal temperature regimes. 
+
+To project experimental results, we must first verify that they amtch the changes that are observed in natural systems. 
+
+When sampling the same species, experiments failed to rpedict both the magnitude adn the direction of plant responses to warmin
+
+These huge differences between observed and experimentally estimated temeprature sensitivities indicate that experimental results alone should not be used for parameterizing species distribution and exosystem models.
+
+
+
+###### A globally coherent fingerprint of climate change impacts across natural systems
+
+An impass of how to assess the consequences of climate change on natural biological systems comes from differences in perspective on what constitutes an "important" factor. Anyone would consider a currently strong driver to be important. But biologists also attach importatn to forces that are **currently weak but are likely to persist**.
+
+Definition of climate fingerprint:
+
+- Economist would conclude that climate change was important if it were principally responsible for a high proportion of current biotic changes.
+  
+  - By this criterion, a climate fingerprint appears weak
+  
+  - Most short-term local changes are not caused by climate change but by land-use change and by natural fluctuations in the abunmdance and distribution of species.
+  
+  - This approach ignores small systematic trends tht may become important in the longer term. But they could be confounded by strong forces such as habitat loss.
+
+For range bounderies, their meta-analysis showed that the range limits of species have moved on average 6.1km/decade. 
+
+For phenology, there was shift towards earlier spring timing of 2.3 days/decade for herbs, shrubs, trees, birds, butterflies and amphibians. 
+
+They assessed phenology for 677 species over a time of 16-132 years. 27% showed no trends in phenology, 9% trend toward delayed spring events and 62% towards spring advancement. 
+
+Increased CO2 can directly cause earlier flowering as does increased temperature, making these effects difficult to separate. *Is that still true?*
+
+Climate and extreme weather events are mechanistically linked to body size, individual fitness and population dynamics for diverse species. 
