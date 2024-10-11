@@ -393,3 +393,25 @@ Photoperiod is often accepted as a trigger of autumn phenology, potential warmin
 In Populus, senescence was triggered by long nights, lower temperature accelarated chlorophyll degradation. On the other hand, senescence in Malus and Pyrus was induced by low temperature and insensitive to photoperiod. Their results showed delayed phenophases regardless of differences in photoperiod between source and field sites. Delays in leaf absission were more pronounced than delays in chlorophyll loss. 
 
 There is evidence from model simulations and field observations that extended GS can increase productivity in forest ecosystems. E.g. an experience showed that small temperature-driven differences in growing season length had a large cumulative effect on annual C exchange. We indicates the importance of usiong a temperature-driven growing season length especially in spring. Longer growing season=higher productivity
+
+
+
+### 10 October 2024
+
+#### Growing season changes in the last century
+
+Studies (from that study published in 2006) have used 3 techniques to determine GSL change :
+
+1. Phenology
+
+2. Normalised vegetatioin index (NDVQ) from satellite data
+
+3. Surface air temperature.
+
+Since spring pheno events are closely related to temperature, they can act as proxies for spring temperatures. In autumn, it's not as clear, maybe because temporal changes in the autumn seem to be less pronounced and show more heterogeneous patterns.
+
+They also point out a lower difference in autumn phenology compared to spring phenology
+
+*A lot of very insighful informations about papers reporting phenology*
+
+In the northem Atlantic region, a big portion of the climate variability is attributed to North Atlantic Oscillation (NAO) Using leafing dates of trees for 30 years, they showed that the growing season was early by 8 days. It is likely explained by NAO
