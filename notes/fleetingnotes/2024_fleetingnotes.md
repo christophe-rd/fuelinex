@@ -271,7 +271,7 @@ In drier ecosystems, water availability is another important driver of cambial r
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
 
-**Permanent note: partially, not all done ***
+**Permanent note: YES
 
 Plant molecular ecology research have focused on phenology where studies
  were conducted to understand how underlying physiological and genetic 
@@ -292,7 +292,7 @@ abiotic cues. E.g. Selection on flowering time for some species might be
 physiologically, they use environmental cues such as temperature and 
 photoperiod to cue flowering.
 
-*HERE*
+
 
 In temperate biomes, when precipitation is regular throughout the year, 
 temperature is expected to be a major driver of phenology especially at 
@@ -414,8 +414,6 @@ They also point out a lower difference in autumn phenology compared to spring ph
 
 In the northem Atlantic region, a big portion of the climate variability is attributed to North Atlantic Oscillation (NAO) Using leafing dates of trees for 30 years, they showed that the growing season was early by 8 days. It is likely explained by NAO
 
-
-
 ### 11 October 2024
 
 ###### Warming experiments underpredict plant phenological responses to climate change
@@ -454,8 +452,6 @@ There were no effects of habitat, study duration or period of warming each year:
 
 Both active and passive experimental designs tend to reduce total irradiance and soil moisture, which can delay plant phenology
 
-
-
 The few efforts to examine temperature changes carefully have found that warming chambers can sometimes result in the cooling of plots or can have unintended effects on daily and seasonal temperature regimes. 
 
 To project experimental results, we must first verify that they amtch the changes that are observed in natural systems. 
@@ -463,8 +459,6 @@ To project experimental results, we must first verify that they amtch the change
 When sampling the same species, experiments failed to rpedict both the magnitude adn the direction of plant responses to warmin
 
 These huge differences between observed and experimentally estimated temeprature sensitivities indicate that experimental results alone should not be used for parameterizing species distribution and exosystem models.
-
-
 
 ###### A globally coherent fingerprint of climate change impacts across natural systems
 
