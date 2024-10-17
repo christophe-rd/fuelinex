@@ -1,0 +1,66 @@
+\documentclass{article}
+
+% Needed for colour at all (xcolor), and background colour in table cells
+% (colortbl)
+
+\usepackage{xcolor,colortbl}
+
+% A package which allows simple repetition counts, and some useful commands
+
+\usepackage{forloop}
+\newcounter{loopcntr}
+\newcommand{\rpt}[2][1]{%
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}%
+}
+\newcommand{\on}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{gray}}
+}
+\newcommand{\off}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&}
+}
+
+\begin{document}
+
+% A table with rows containing a pbox of 0.17 textwidth, followed by 20 pboxes
+% of 0.01 textwidth. Although this sums to just 0.37 textwidth, there are a
+% lot of intercolumn gaps to consider. The 0.17 and 0.01 were fiddled by hand
+% to fit this particular example.
+
+\noindent\begin{tabular}{p{0.25\textwidth}*{12}{|p{0.04\textwidth}}|}
+
+% The top line
+\textbf{Gantt chart} & \multicolumn{4}{c|}{2024} 
+           & \multicolumn{4}{c|}{2025} 
+           & \multicolumn{4}{c|}{2026} \\
+% The second line, with its five years of four quarters
+\rpt[3]{&1&2&3&4} \\
+\hline
+% using the on macro to fill in twenty cells as `on'
+% basically, the sum of the on and off always needs to equals to the number of columns
+Classes \off[3]  \on[3] \off[1] \on [1] \off [4]\\
+\hline
+Cookie Project  \off[3]  \on[7] \off[2] \\
+\hline
+Fuelinex    \on[12]  \off[2]\\
+\hline
+% using the on macro followed by the off macro
+PhD 1     \on[8] \off[4]\\
+\hline
+% The mbox prevent packages from being hyphenated
+% The multicolumn produces no vertical guides within the columns it spans, but
+% does put one at the end to complete the righ-hand edge of the table
+\textbf{Work \mbox{packages}} & \multicolumn{12}{c|}{} \\
+\hline
+Finding Bugs  \on[1] \off[2] \on[1] \off[2]  \\
+\hline
+Squashing Bugs \off[2] \on[1] \off[2] \on[1] \off[2] \\
+\hline
+% Note the omitting the count to on or off is the same as setting the count to 1
+Producing Results \off[1] \on[2] \off \\
+\hline
+Dissemination \off[3] \on \\
+
+\hline
+\end{tabular}
+
+\end{document}
