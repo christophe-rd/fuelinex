@@ -130,12 +130,13 @@ means_max_per_year <- list()
 # Get the unique years in the data
 years <- unique(climate_totem$year)
 # Loop over each year
+# CRD On 17 OCTOBER: ramping down to cooler temp. Going for the temperature 2 weeks before now for 4 days 3 october to 7 october. MAX is 15 and MIN is 9
 for (i in years) { # i = 2005
   
   # Subset the data for the current year and the Julian days 245 to 252 (1st week of september). 253 to 260 for 9 october (19 degrees) and 261 to 268 for 16 october ()
   subset_data <- climate_totem[climate_totem$year == i & 
-                                 climate_totem$julian >= 261 & 
-                                 climate_totem$julian <= 268, ]
+                                 climate_totem$julian >= 277 & 
+                                 climate_totem$julian <= 281, ]
   
   # Calculate the mean of the Tair_max column for this subset
   mean_Tair_max <- mean(subset_data$Tair_max, na.rm = TRUE)
@@ -156,8 +157,8 @@ for (i in years) { # i = 2005
   
   # Subset the data for the current year and the Julian days 245 to 252
   subset_data <- climate_totem[climate_totem$year == i & 
-                                 climate_totem$julian >= 240 & 
-                                 climate_totem$julian <= 247, ]
+                                 climate_totem$julian >= 277 & 
+                                 climate_totem$julian <= 281, ]
   
   # Calculate the mean of the Tair_min column for this subset
   mean_Tair_min <- mean(subset_data$Tair_min, na.rm = TRUE)
