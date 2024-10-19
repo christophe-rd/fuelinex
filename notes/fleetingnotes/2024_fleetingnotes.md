@@ -271,7 +271,7 @@ In drier ecosystems, water availability is another important driver of cambial r
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
 
-**Permanent note: YES
+**Permanent note: YES***
 
 Plant molecular ecology research have focused on phenology where studies
  were conducted to understand how underlying physiological and genetic 
@@ -291,8 +291,6 @@ abiotic cues. E.g. Selection on flowering time for some species might be
  driven to match the timing of specialist pollinators, but 
 physiologically, they use environmental cues such as temperature and 
 photoperiod to cue flowering.
-
-
 
 In temperate biomes, when precipitation is regular throughout the year, 
 temperature is expected to be a major driver of phenology especially at 
@@ -346,7 +344,7 @@ bias based on the local climate sampled.
 
 ##### Progress towards an interdisciplinary science of plant phenology: building predictions across space, time and species diversity
 
-**Permanent note:**
+**Permanent note: YES**
 
 To build robust models, critical data is needed beyond temperature. Data on soil moisture, humidity, irradiance (diffuse and direct) are necessary for any basic estimates of how phenological cues may vary accross species and latitudes and habitats. However, climate factors are intrinsically linked (cloud cover, radiation, precipatation often covary). This makes them difficult to separate their effects.
 
@@ -355,6 +353,8 @@ To estimate how the intraspecific variation in phenology is controlled by phenot
 Common garden studies, where exotic species were planted in Europe have found variations over a month in flowering time across populations taken from latitudinal transects spanning 1200-1800km. 
 
 ##### Effects of climate change on alpine plants and their pollinators
+
+**Permanent note: yes**
 
 Alpine plant community are simple and comprised mostly of long-lived perrenial herbaceous plants and have a relatively low plant diversity. Trees are absent, but in some alpine areas, smaller shrub communities have been expanding and subalpine plants have been migrating up to the detriment of smaller shrubs. Therefore, one of the most important consequence of climate change is the reduction of alpine environements in result to the migration of trees and shrubs
 
@@ -367,6 +367,8 @@ Snow melt also provides a major source of water at the beginning of the growing 
 Flowering phenology: as snowmelyt dates are advancing, growing seasons are getting longer and flowering phenology is getting earlier. This is a major determinant for small plants in alpine environements as they can't start growing until the snow melts. In subalpine, few species may begin to grow before the snow is gone. 
 
 #### Forest phenology and a warmer climate – growing season extension in relation to climatic provenance
+
+**Permanent note:
 
 High temperature accelarates bud burst, flowering and stem elongation in spring, and thus extend the growing season. Optimal temperatures for metabolism, growth and phenological resposnes are the product of long-term adaptation to local conditions even when imperfectly matched with local climate. 
 
@@ -396,7 +398,9 @@ There is evidence from model simulations and field observations that extended GS
 
 ### 10 October 2024
 
-#### Growing season changes in the last century
+###### Growing season changes in the last century
+
+**Permanent note:****
 
 Studies (from that study published in 2006) have used 3 techniques to determine GSL change :
 
@@ -462,6 +466,8 @@ These huge differences between observed and experimentally estimated temeprature
 
 ###### A globally coherent fingerprint of climate change impacts across natural systems
 
+**Permanent note:**
+
 An impass of how to assess the consequences of climate change on natural biological systems comes from differences in perspective on what constitutes an "important" factor. Anyone would consider a currently strong driver to be important. But biologists also attach importatn to forces that are **currently weak but are likely to persist**.
 
 Definition of climate fingerprint:
@@ -483,3 +489,33 @@ They assessed phenology for 677 species over a time of 16-132 years. 27% showed 
 Increased CO2 can directly cause earlier flowering as does increased temperature, making these effects difficult to separate. *Is that still true?*
 
 Climate and extreme weather events are mechanistically linked to body size, individual fitness and population dynamics for diverse species. 
+
+
+
+### 18 October 2024
+
+###### Methods of Dendrochronology: Applications in the Environmental Sciences
+
+**Permanent note:**
+
+METHODS
+
+At the start of the research project, there is a search phase. At this stage, the optimum information should be obtained with the least effort. The first features of the core that are easy to identify are:
+
+- Mean ring width
+
+- Sensitivity (i.e. frequency of visually recognizable signatures or pointer years)
+
+- Frequency and date of abrupt changesin ring width 
+
+- Rot, wounds, compression wood. 
+
+
+
+Definition of dendroecology: determination of teh year-by-year interplay of realtionships among climate, site conditions, and tree growth to assess exogenous and endogenous factors taht influence the growth of a plant community
+
+
+
+Once the surface is prepared, it may be cross-dated first or measured first, then cross-dated using the measured ring width.
+
+Simple orbital or rotary sanding tools using a range of grit size from 280 to 600 are satisfactory.  Don't overheat the wood and wear mask as the dust from hardwood is linked with cancer. 
