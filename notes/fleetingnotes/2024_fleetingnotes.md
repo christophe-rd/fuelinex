@@ -368,7 +368,7 @@ Flowering phenology: as snowmelyt dates are advancing, growing seasons are getti
 
 #### Forest phenology and a warmer climate – growing season extension in relation to climatic provenance
 
-**Permanent note:
+**Permanent note: YES**
 
 High temperature accelarates bud burst, flowering and stem elongation in spring, and thus extend the growing season. Optimal temperatures for metabolism, growth and phenological resposnes are the product of long-term adaptation to local conditions even when imperfectly matched with local climate. 
 
@@ -400,7 +400,7 @@ There is evidence from model simulations and field observations that extended GS
 
 ###### Growing season changes in the last century
 
-**Permanent note:****
+**Permanent note: YES**
 
 Studies (from that study published in 2006) have used 3 techniques to determine GSL change :
 
@@ -422,7 +422,7 @@ In the northem Atlantic region, a big portion of the climate variability is attr
 
 ###### Warming experiments underpredict plant phenological responses to climate change
 
-**Permanent note:**
+**Permanent note: YES**
 
 There are two main approaches to predict plant responses to climate change:
 
@@ -466,7 +466,7 @@ These huge differences between observed and experimentally estimated temeprature
 
 ###### A globally coherent fingerprint of climate change impacts across natural systems
 
-**Permanent note:**
+**Permanent note: YES**
 
 An impass of how to assess the consequences of climate change on natural biological systems comes from differences in perspective on what constitutes an "important" factor. Anyone would consider a currently strong driver to be important. But biologists also attach importatn to forces that are **currently weak but are likely to persist**.
 
@@ -490,8 +490,6 @@ Increased CO2 can directly cause earlier flowering as does increased temperature
 
 Climate and extreme weather events are mechanistically linked to body size, individual fitness and population dynamics for diverse species. 
 
-
-
 ### 18 October 2024
 
 ###### Methods of Dendrochronology: Applications in the Environmental Sciences
@@ -510,12 +508,102 @@ At the start of the research project, there is a search phase. At this stage, th
 
 - Rot, wounds, compression wood. 
 
-
-
 Definition of dendroecology: determination of teh year-by-year interplay of realtionships among climate, site conditions, and tree growth to assess exogenous and endogenous factors taht influence the growth of a plant community
-
-
 
 Once the surface is prepared, it may be cross-dated first or measured first, then cross-dated using the measured ring width.
 
 Simple orbital or rotary sanding tools using a range of grit size from 280 to 600 are satisfactory.  Don't overheat the wood and wear mask as the dust from hardwood is linked with cancer. 
+
+### 21 October 2024
+
+###### Declining global warming effects on the phenology of spring leaf unfolding
+
+**Permanent note:
+
+Phenology of spring leaf unfolding influences regional and hemispheric-scale carbon balances, the long-term distribution of tree species, and plant-animal interactions. 
+
+The extent at which leaf unfolding will respond to climate change is uncertain because the underlying mechanisms respond to environmental stimuli are still not well understood. 
+
+There are still debates regarding the linearity of leaf unfolding in response to climate warming. 
+
+They used pheno data from 1245 sites for sevent dominant tree species in Europe using mature trees. 
+
+They showed VERY interesting results. The leaf unfolding decreased in response to climate change. Three hypothesis:
+
+1. Adaptation to increased variance in spring temperature
+   
+   1. Possible effects of increased variance in temperature. Trees may develop conservative strategies (or higher phenological plasticity) of spring leaf unfolding in places where temperatures fluctuates more. E.g. to avoid spring frost damage. 
+
+2. Photoperiodic limitations (due to earlier leaf unfolding) overrding temperature controls
+
+Early leaf unfolding in warm springs increase the risk of late frost events for trees. To overcome this risk during warm springs, many species have evolved a protective mechanism related to photoperiod. This prevents the warming response when the days are still short and the risk for subsequent frost events is thus high.
+
+Change in the relationship between chilling accumulation and heat requirement due to shortening days as warming advances leaf unfolding. However, they didn't observe changes in leaf unfolding with latitude neither across species nor individual species, as one could experct if photoperiod was a strong co-limitation of leaf unfolding.
+
+They hve no evidence to exclude photoperiod as a controlling mechanism for the decline in spring unfolding as different popultations may have different genetic adaptaions to photoperiod.
+
+In addition, the lack of relationship between spring unfolding and latitude may have been because the response of spring phenology to photoperiod can be associated with a lot of confounding factors:
+
+- Tree age
+
+- Successional niche
+
+- Xylem anatomy
+
+- Chilling conditions.
+
+Therefore, they couldn't conclude that photoperioid did not influence leaf unfolding, but how it might directly or indirectly affect spring phenology still remains unclear and is currently under debate.
+
+3. Reduced duration and/or sum of cold temperatures during dormancy i.e. a lost chilling mechanism.
+
+Boreal and temperate trees require a certain amount of heat after they come out of the rest period to initiate leaf unfolding in spring. Heat requirement is met sooner in warm springs. However, heat requirement is negatively correlated with chilling (accumulation of cold temperatures during the dormancy period. As the dormancy period warming during the study period, the accumulated chilling is progressibely reduced, thereby increasing the heat requirement ans slowing the advance of leaf unfolding.  They tested this by calculating the accumulation of chilling (sum of days when air temp was between 0 and 5). They found a significant decrease in chilling accumulation for all species. 
+
+Effects of changes in spring phenology on global carbon cycling: extension of GS can increase the photosynthetic production of forests by 0.5-1%/day.
+
+
+
+###### Ecological responses to recent climate change
+
+**Permanent note:
+
+Long-term phenological data sets for birds, butterflies and wild plants have been collected because of the easiness of species ID. Pheno trends show earlier breeding or first singning of birds, earlier arrival of migrant birdsd, earlier appearance of butterflies, earlier choruses and spawning in amphibvians and earlier shooting and flowering of plants. 
+
+Less pronounced changes for autumn phenology.
+
+In contrast with the climatic factors controlling autumn phenology, climate signal for phenology are well understood: all phenophases correlate with spring temperatures in the preceding months. 
+
+Earlier leaf unfolding  generates a longer growing season, but also increase the risk of damage by a late frost.
+
+Climatic regimes influence species distributions ofen through species-specific physiological trescholds of temperature and precipitation tolereance. These climate envelopes shift toward the poles or higher altitudes. 
+
+On invasion and climate change: species with different histories of introduction spread *en masse* during periods of climatic amelioration. 
+
+
+
+###### Land surface phenology as indicator of global terrestrial ecosystem dynamics: A systematic review
+
+**Permanent note:
+
+Increase in the length of the growing season favorurs increase in net primary production (NPP) resulting in increase CO2 absorption and potentially contribute to reduction of atmospheric greenhouse gasses. It can also have negative effects. Piao et al. 2008 showed longer and warmer autum phenophases increased respiration thus leading to an increase in the amount of CO2 released to the atmosphere.
+
+Longer growing season may also decreasedn albedo as greater amount of surface vegetation exists, which may lead to increased warming of surface due to incresed solar energy absorption vegetation.
+
+Changes in the biological cycle of plants may alter species itneractions (e.g. plant-pollinator interaction), afecting their ecological relationship -->biodiversity loss. therefore, pheno dynamics are extremely important in understanding behavioural responses of the earth' ecostems in the face of clim change.
+
+Phenological changes may influence processes related to wood growth and could have an effect on the timber industry -->Delpierre et al., 2016; He et al., 2018)
+
+LINKS WITH *A Review of Vegetation Phenological Metrics Extraction Using Time-Series, Multispectral Satellite Data*
+
+**Land surface phenology LSP**, which referes to vegetation phenology derived from satellite data is generally estimated based on **vegetation indices** VI (i.e. a combination of spectral values primarily derived from the red and near-infrared (NIR) regions of the electromagnetic spectrum) or **biophysical variables**
+
+BI or biophysical variables time series can be used to study phenophases and obtain specific phenological metrics :**phenometrics** (Def: ecologically-meaningful metrics based on functional analysis from satellite-derived vegetation indices (or satellite-derived biophysical variables). These include the start of the growing season (SOS), the end of the growing season (EOS) and the length of the growing season, which could be considered as a proxy of timing of phenophases.)
+
+LSP studies since the 1980s showed earlier spring and delayed autumn phenophases as general trends. Athough, these trends were associated mainly to changes in temeprature adn precipitation. Pheno cycle dynamics might be related to other drivers, such as photoperiod, soil moisture or organic carbon content. 
+
+###### Large-scale variations in the vegetation growing season and annual cycle of atmospheric CO2 at high northern latitudes from 1950 to 2011
+
+**Permanent note:
+
+Northern ecosytems have experienced the largest warming rates on the globe. In these regions, phenology controls the seasonal onset adn ending of the carbon uptake period, thereby directly affecting net ecosystem carbon balanece. 
+
+Extension of GS in autumn prolongs photosyntesis in some vegetation types despite decreasing radiation levels. However, the net impacts on seasonal ecosystem balance is not always positive as soil respiration tends to increase more than photosynthesis. 
