@@ -560,8 +560,6 @@ Boreal and temperate trees require a certain amount of heat after they come out 
 
 Effects of changes in spring phenology on global carbon cycling: extension of GS can increase the photosynthetic production of forests by 0.5-1%/day.
 
-
-
 ###### Ecological responses to recent climate change
 
 **Permanent note:
@@ -577,8 +575,6 @@ Earlier leaf unfolding  generates a longer growing season, but also increase the
 Climatic regimes influence species distributions ofen through species-specific physiological trescholds of temperature and precipitation tolereance. These climate envelopes shift toward the poles or higher altitudes. 
 
 On invasion and climate change: species with different histories of introduction spread *en masse* during periods of climatic amelioration. 
-
-
 
 ###### Land surface phenology as indicator of global terrestrial ecosystem dynamics: A systematic review
 
@@ -602,8 +598,32 @@ LSP studies since the 1980s showed earlier spring and delayed autumn phenophases
 
 ###### Large-scale variations in the vegetation growing season and annual cycle of atmospheric CO2 at high northern latitudes from 1950 to 2011
 
-**Permanent note:
+**Permanent note:**
 
 Northern ecosytems have experienced the largest warming rates on the globe. In these regions, phenology controls the seasonal onset adn ending of the carbon uptake period, thereby directly affecting net ecosystem carbon balanece. 
 
 Extension of GS in autumn prolongs photosyntesis in some vegetation types despite decreasing radiation levels. However, the net impacts on seasonal ecosystem balance is not always positive as soil respiration tends to increase more than photosynthesis. 
+
+
+
+###### Leaf-out phenology of temperate woody plants: from trees to ecosystems
+
+NOT DONE
+
+**Permanent note:**
+
+Within temperate plant communities, trees and shrubs vary widely in leaf-out times, both among and within species. It can also vary with individuals in different microhabitats within one population. E.e. sugar masple seedlings growing in the understory will leaf out earlier than adults in the canopy, taking advantage of the light availabillity. 
+
+Photoperiod:
+
+Not all species respond to photoperiod cues and not all populations of a species have the same requirements. 
+
+Populations of a given species often have differing photoperiodic requirements across a latitudinal gradient, which are known as photoperiod ecotypes. Lots of long-lived trees rely on a combination of photoperiod and temperature to break dormancy. 
+
+Many early successional oppotunistic species such as birches, poplars don't have a photoperiod requirement to break dormancy, but do have chilling requirements. 
+
+Differences in stem anatomy could explain why some co-existing species leaf-out at different times. Diffuse porous species, those that produce small vessel elements throughout the growing season, tend to loeaf-out earlier in teh spring e.g. maples, birches, alders and poplars. Their small vessel elements are less susceptible to embolism during the winter, which allows them to begin to meet demands of transpiration earlier in the growing season. 
+
+Ring porous species, such as oaks, ashes and hickories have less uniform vessel elements, producing larger vessels in the spring and smaller ones later in the growing seaon. These will be more susceptible to winter freeze which leads to later leaf-out.  However, there are a lot of exceptions to these rules. 
+
+Another factor that influences the timing of leaf out is the amount of genetic diversity of a species. Species with low genetic diversity have far more limited variation in budburst dates across a region than those species with high diversity. 
