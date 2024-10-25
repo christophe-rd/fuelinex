@@ -131,8 +131,8 @@ for (i in years) { # i = 2005
   
   # Subset the data for the current year and the Julian days 245 to 252 (1st week of september). 253 to 260 for 9 october (19 degrees) and 261 to 268 for 16 october ()
   subset_data <- climate_totem[climate_totem$year == i & 
-                                 climate_totem$julian >= 293 & 
-                                 climate_totem$julian <= 297, ]
+                                 climate_totem$julian >= 298 & 
+                                 climate_totem$julian <= 305, ]
   
   # Calculate the mean of the Tair_max column for this subset
   mean_Tair_max <- mean(subset_data$Tair_max, na.rm = TRUE)
@@ -153,8 +153,8 @@ for (i in years) { # i = 2005
   
   # Subset the data for the current year and the Julian days 245 to 252
   subset_data <- climate_totem[climate_totem$year == i & 
-                                 climate_totem$julian >= 293 & 
-                                 climate_totem$julian <= 297, ]
+                                 climate_totem$julian >= 298 & 
+                                 climate_totem$julian <= 305, ]
   
   # Calculate the mean of the Tair_min column for this subset
   mean_Tair_min <- mean(subset_data$Tair_min, na.rm = TRUE)
@@ -217,3 +217,4 @@ sche<-ggplot(schedule, aes(x = time3)) +
   )
 sche
 ggsave("analyses/output/climatechambers_schedules/WarmF1.pdf", sche)
+
