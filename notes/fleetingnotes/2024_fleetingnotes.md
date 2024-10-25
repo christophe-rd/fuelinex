@@ -518,7 +518,7 @@ Simple orbital or rotary sanding tools using a range of grit size from 280 to 60
 
 ###### Declining global warming effects on the phenology of spring leaf unfolding
 
-**Permanent note:
+**Permanent note:**
 
 Phenology of spring leaf unfolding influences regional and hemispheric-scale carbon balances, the long-term distribution of tree species, and plant-animal interactions. 
 
@@ -604,8 +604,6 @@ Northern ecosytems have experienced the largest warming rates on the globe. In t
 
 Extension of GS in autumn prolongs photosyntesis in some vegetation types despite decreasing radiation levels. However, the net impacts on seasonal ecosystem balance is not always positive as soil respiration tends to increase more than photosynthesis. 
 
-
-
 ###### Leaf-out phenology of temperate woody plants: from trees to ecosystems
 
 NOT DONE
@@ -626,4 +624,68 @@ Differences in stem anatomy could explain why some co-existing species leaf-out 
 
 Ring porous species, such as oaks, ashes and hickories have less uniform vessel elements, producing larger vessels in the spring and smaller ones later in the growing seaon. These will be more susceptible to winter freeze which leads to later leaf-out.  However, there are a lot of exceptions to these rules. 
 
-Another factor that influences the timing of leaf out is the amount of genetic diversity of a species. Species with low genetic diversity have far more limited variation in budburst dates across a region than those species with high diversity. 
+Another factor that influences the timing of leaf out is the amount of **genetic diversity **of a species. Species with low genetic diversity have far more limited variation in budburst dates across a region than those species with high diversity. 
+
+
+
+### 25 October 2024
+
+###### Leaf-out phenology of temperate woody plants: from trees to ecosystems
+
+Another theory to explain differences in leaf-out timing among species is evolutionary response to herbivory pressures. Study case: 2 co-occuring varieties of English oak (Quercus robur), one variety leafs-out as much as 5 wks earlier than the other, but sufferes more from herbivory damage. That suggests the opportunity cost of losing more than 1 month of photosynthesis is offset by decrease in foliar damage. See Wesolowski & Rowinski, 2008
+
+While a more universal protocol for monitoring leaf-out would be helpful, Parmesan 2007 found that quantification of changes in leaf-out timing have been found to be quite robust across studies despite methodological differences. 
+
+Earlier leaf-out increases the risk of spring frost. e.g. in 2007 Eastern NA, there was warm weather in March=leaf-out. Subsequent freezing temperatures in early April caused the young leaves and flowers of woody plants to sufffer from frost damage. Immediate result: dieback of youg growth. The damage differed among species depending at which individual developement stage. Plants undergoing leaf elongation suffered much more than those that were just budbursting their buds. Species that burst their leaf buds early but develop slowly were less vulnerable to the late frost than plants with early budburst and quick leaf developement. Species with late budburst and quick developement of leaves also suffered high damage. 
+
+Phenology is a heritable trait with high variability withing species and populations. This suggests that plants may be able to undergo genetic changes in response to new conditions over the course of several generations. (Chuine 2010). Leafing phenology is also highly plastic, allowing plants to survive variabilkity in weather conditions. 
+
+Phenology and ecosystem processes. When trees leaf-out, canopy trees alter water and light environments of coexisting organisms. Earlier leaf-out leads to the canoppy interecepting more of the incoming radiation and precipitation. These reduce throughfall, soil weater and soil evaporation. 
+
+It also has strong controls over rates of water uptake by trees. Reduces light and water for plant understory. Can be quite negative. 
+
+Earlier onset of spring did result in increase of carbon sequestered in deciduous forests and to a lesser extent, coniferous forest. 
+
+Cool picture of how vegetative phenology can affect physiological activity. 
+
+Species don't all respond to changing temperature in the same way and there is a wide variation nin leaf-out timing as a result of different control mechanisms. *link this to a previous note above.*
+
+
+
+###### Phenology Under Global Warming
+
+**Permanent note:**
+
+Christian Körner
+
+Spring events at temperate latittudes have advanced by 2.5 days per decade since 1971 : A. Menzel et al., Glob. Change Biol. 12, 1969 (2006).
+
+The three most important factors controlling phenology in dominant forest tree species are the degree of winter chilling, photoperiod and temperature. A lack of sufficient chilling in mild winters delays bud break. However, it may be partially replaced by long photoperiods and or very high temperatures. 
+
+Not all tree species are sensitive to photoperiodm, but the long-lived, late successional species that become dominant in mature forests commonly are. Shorter lived-early successional species adopt are more risky life strategy. Poplars, birch are usually oppotunistic i.e. photoperiod insensitive in spring. 
+
+Oppotunistic taxa may profit from a warmer climate and may thus gain a competitve advantage over photoperiod-sensitive taxa. 
+
+###### Photoperiod constraints on tree phenology, performance and migration in a warming world
+
+**Permanent note:**
+
+Way, Danielle
+
+Warming will not be distributed equally across the globe. Higher latitude regions will warm more than equatorial regions, with mean annual temperatures in artic regions predicted to warm by 8.3C and summer temperatures in broeal regions by 6C by the highest emission scenario by 2100 
+
+Warming experiments show that increased temperature will affect tree growth with direct effects on plant physiology. These effects are positive fro deciduous species and negative for evergreen. 
+
+Longer GS could increase forest productivity or offset reductions in mid-summer carbon uptake caused by increasing heat and drought stress. 
+
+Potential asynchrony between photoperiod and temperature. E.g. as the climate warms at a specific location, the day of year when the risk of spring frost ceases or autumn frost appears will have a shorter photoperiod than it currently does. 
+
+There is considerable evidence that photoperiod is the dominant cue for growth cessation and bud set in many temperate and boreal trees. Temperature has been shown to impact these processess in some species. Bud set represents a major shift in developmental pathways that starts the process of dormancy induction prior to winter. 
+
+Photoperiodic control of growth cessation and bud set comes from provenance trials. E.g. balsam poplar populations have showed important divergence in bud set when grown in a common garden. This suggests strong selection for this phenological trait (neutral processes).
+
+Phenotypic variance in budset is strongly related to provenance, with northen populations setting bud earlier than southern ones, consistent with the role of photoperiod as a major control on bud set. 
+
+Generally, trees from lower altitudes have shorter critical photoperiod to induce growth cessation or budset. Thus, if moved poleward, they set bud later and achieve higher growth than local genotypes. Similarly, when populations are moved toward equator they set bud and cesase growth earlier as they have longer critical photoperiods. 
+
+Cool table about photoperiod sensitivity.  
