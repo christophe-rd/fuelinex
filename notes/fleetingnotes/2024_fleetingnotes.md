@@ -626,8 +626,6 @@ Ring porous species, such as oaks, ashes and hickories have less uniform vessel 
 
 Another factor that influences the timing of leaf out is the amount of **genetic diversity **of a species. Species with low genetic diversity have far more limited variation in budburst dates across a region than those species with high diversity. 
 
-
-
 ### 25 October 2024
 
 ###### Leaf-out phenology of temperate woody plants: from trees to ecosystems
@@ -649,8 +647,6 @@ Earlier onset of spring did result in increase of carbon sequestered in deciduou
 Cool picture of how vegetative phenology can affect physiological activity. 
 
 Species don't all respond to changing temperature in the same way and there is a wide variation nin leaf-out timing as a result of different control mechanisms. *link this to a previous note above.*
-
-
 
 ###### Phenology Under Global Warming
 
