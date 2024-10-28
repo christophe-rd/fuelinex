@@ -685,3 +685,75 @@ Phenotypic variance in budset is strongly related to provenance, with northen po
 Generally, trees from lower altitudes have shorter critical photoperiod to induce growth cessation or budset. Thus, if moved poleward, they set bud later and achieve higher growth than local genotypes. Similarly, when populations are moved toward equator they set bud and cesase growth earlier as they have longer critical photoperiods. 
 
 Cool table about photoperiod sensitivity.  
+
+
+
+### 28 October 2024
+
+###### Predicting phenology by integrating ecology, evolution and climate science
+
+**Permanent notes:**
+
+Pau, Stephanie, Wolkovich, Lizzie, Cleland, Elsa.
+
+Definition of Climate: composite of generally prevailing weather conditions (e.g. temperature and precipitation) at a site or over a region, for some defined period of time (e.g. months, seasons, years)
+
+Holy grail in ecology: unify our understanding of variation across scales, linking genetic studies to the expanseive spatial and temporal scale of natural systems
+
+Growing degree day models are highly asccurate at predicting models typically use daily temperature data to capture chilling requirements and heat accumulation over the course of a season,
+
+Phenology provides a mechanism by which coocurring species can reduce competition by partinioning resources through time - TEMPORAL NICHE. Hence, the community context of phenology becomes important. This is supported by work that showed that a species phenology may be sensitive to local community composition. 
+
+Long as climate been seen as a source of cues underlying phenological events upon which selection acts. E.g. to maximize germination rates, match pollinators, or reduce resource competition. 
+
+Phylogeny may be a powerfuyl approach for understanding phenology because it provides a simple method to integratge species differences across multiple traits, which may have complex underlying physiological pathways. By placing phenology in a historical evolutionary framework, we can predict potential in response to future climate change.
+
+Species are under continuous selective pressure to match their phenologies to favorabl;e environnemental conditions and positive biotic interactions to reduce fitness costs associated with mis-timing. Costs of misstimed phenology associated with abiotic drives should be high. E.g. blooming to early or late can lead to death or extensive tissues loss due to frost or drought in semi-arid systems.
+
+Costs assocaited with biotic drivers may be lower over short-time scales. E.g. species flowers during the growing sweason but at the wrong period, it may face increased com,petition for soil resources or reduced pollination. This may reduce growth or reproductive output. 
+
+They ask a question: How growing season, seasonal transition length, and interannual variability may shape the phenologies of species and communities
+
+Prediction 1:  early season species phenologies should be more sensitive to abiotic forces, wheras mid-growing seasoin specie' phenologies should be governed by biotic forces. As GSL increases towards the tropics, the relative within-season weight of abiotic vs. biotic forces on plant phenology should decrase
+
+![Screenshot 2024-10-28 at 11.02.13 AM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_jtF3Jd/Screenshot%202024-10-28%20at%2011.02.13 AM.png)
+
+Prediction 2: species phenologies occupying long gradual seasonal transition perioids should be sensitive to climate. Species timed to rapid transitions may be less sensitive to climate because of high competition. 
+
+Some systems have extremely rapid, consistent transition periods such as tropical monsoon forests
+
+Prediciton 3: Species phenologies to environements with low interannual variability should respond more strongly to biotic forces, wheras species in environements expericencing high interannual variability should be more sensitive to abiotic forces.
+
+Prediction 4:  Phenological traits responding to cues associated with temporal niche-partioonning, such as photoperiod, should exhibit faster evolutionaryu rates, wheras wresposnes to temperature and precipitation should exhibit slower evoluitionary rates. 
+
+
+
+###### Plant Phenology And Distribution In Relation To Recent Climate Change
+
+**Permanent notes:**
+
+Bertin, Robert
+
+Phenology is the most responsive aspect of nature to warming and the simplest to observe (Sparks and Menzel 2002)
+
+Menzel and Fabian (1999) found that 70% of interannual variation in bud break in a group of European species was explained by daily temperature patterns, and average February and March temperatures explained 75% of the variation in flowering time of Japanese cherries
+
+A bias in phenolgical studies is the possibility that studies showing certain patterns of change are more likely to bhe published than those showing no change or change opposite to the expected direction. 
+
+Spring phenophases have advanced much more consistently than summer or autumn phenophases and early spring phenophases show greater advances than those in later spring or early summer. 
+
+###### Responses to a Warming World
+
+Climate change may cause decoupling between plant and bird phenology. E.g. Great tit still breeds at the same time, but its food supply has beenm advanced because of easrlier plant development in recent years. Different phenological responses may alter the competitive ability of different species and thus their ecology and conservation. This would results in unpredictable impacts on community structure and ecosystem functionning. 
+
+###### Shifting plant phenology in response to global change
+
+Elsa E. Cleland, Isabelle Chuine, Annette Menzel, Harold A. Mooney and Mark D. Schwartz
+
+Degree day: nombre of degrees above a particular temperature treshold that can be calculated by many methods and accumulated to provide a sum of (growing) degree days over a period. E.g. with a temperature treshold of 10C, the growing degree days over a three-day period with daily mean temperatures of 19C, 22C and 18 is 9+12+8=29C
+
+Phenoclimatic measures: indices of temperature that integrate over important time periods for plant growth and development; examples include degree days, number of frost-free days, as well as calculations of Spring Indices.
+
+Phenophase: a particular stage of development, such as bud burst, flowering, fruiting, leaf-out, or senescence (equivalent to phenological event’ used in some publications).
+
+Analyses to detect temporal trends in phenbology have traditionally relied on regressions or correlations between observed events adn varaiables, such as year or temperature. These tranditional methods cannot detect abrupt phenological changes tahn can acompany rapid shifts in climate; howeve, new techniques based on change point analyuses and Bayessian techniques enable a quantitative representation of non-linear phenological responses and associated rates of change. 
