@@ -27,4 +27,6 @@ I hope this email finds you well.
 
 As you know, I am a first-year Master's student working with Lizzie Wolkovich. 
 
-I previously completed my BSc at the Université du Québec à Montréal. My Master's research will explore how extended growing seasons in the context of climate change will affect different tree species. By conducting an 2-year experiment during which trees are subjected to warmer spring and autumn temperatures, I aim to investigate wether they will show growth increment and how these conditions will impact their phenology. I will also conduct a side experiment during which I will analyse tree ring data from a latitudinal provenance common garden study that was implemented at Harvard Forest 7 years ago. 
+I previously completed my BSc at the Université du Québec à Montréal and my Master's research will explore how extended growing seasons in the context of climate change will affect different tree species. By conducting an 2-year experiment during which trees are subjected to warmer spring and autumn temperatures in the first year, I aim to investigate wether they will show growth increment in the following season and how these conditions will impact their phenology. I will also conduct a side experiment during which I will analyse tree ring data from a common garden study implemented at Harvard Forest 7 years ago. With this, I aim to investigate how latitudinal provenance impacts trees' growth. 
+
+I think your research about .
