@@ -686,8 +686,6 @@ Generally, trees from lower altitudes have shorter critical photoperiod to induc
 
 Cool table about photoperiod sensitivity.  
 
-
-
 ### 28 October 2024
 
 ###### Predicting phenology by integrating ecology, evolution and climate science
@@ -726,8 +724,6 @@ Prediciton 3: Species phenologies to environements with low interannual variabil
 
 Prediction 4:  Phenological traits responding to cues associated with temporal niche-partioonning, such as photoperiod, should exhibit faster evolutionaryu rates, wheras wresposnes to temperature and precipitation should exhibit slower evoluitionary rates. 
 
-
-
 ###### Plant Phenology And Distribution In Relation To Recent Climate Change
 
 **Permanent notes:**
@@ -757,3 +753,49 @@ Phenoclimatic measures: indices of temperature that integrate over important tim
 Phenophase: a particular stage of development, such as bud burst, flowering, fruiting, leaf-out, or senescence (equivalent to phenological event’ used in some publications).
 
 Analyses to detect temporal trends in phenbology have traditionally relied on regressions or correlations between observed events adn varaiables, such as year or temperature. These tranditional methods cannot detect abrupt phenological changes tahn can acompany rapid shifts in climate; howeve, new techniques based on change point analyuses and Bayessian techniques enable a quantitative representation of non-linear phenological responses and associated rates of change. 
+
+### 1 November 2024
+
+###### Shifting plant phenology in response to global change
+
+Most pheno advancing studies have attributed the accelaration of spring events to warming temperatures. Less attention has focused on the role of other co-occuring global changes such as increasing CO2 and shifts in precipiation. 
+
+Crop species respond to elevated CO2 more than wild species for several reproductive traits such as flowring. THis might be because their growth isn't limited by other resources such as nutrients, water and lgiht. 
+
+Temporal dispersion (or complementarity) in phenology is an important factor promoting co-existence among speices in plant communities. It can also influence ecosystem processes such as nutrient capture and productivity. 2 experiments show that species-level shifts in phenology resulted in alterted community interactions.
+
+Accurate phenology predictions would: 
+
+1. Increase accureacey of the predictions of ecosystems productivity and gas exchanges with the atmosphere and thereby the predictions of our future climate
+
+2. Enable a better understanding of population dynamics in multi-species interactions systems 
+
+3. Help farmers and foresters select provenacnecs or varieeties that will be best adapted to the new climatic conditions. 
+
+The evidence for the role in photoperiod on tree phenology is conflicting, depending on species and location. Further experimental work on the impact of the interaction of photoperiod and temperature on leaf unfolding and flowering dates is required so that photoperiod can be used appropriately in phenological models. 
+
+###### Phenological niches and the future of invaded ecosystems with climate change
+
+There is growing evidence that climate change could facilitate invasions because of the distinct phenology or phenological sensitivity of non-native species. The theory that "windows of invasion oppportunity" may play a critical role in invasions. The concept of temporal niche in which time is a fundamental axis by which species may partition resource use, reduce interspecific competition and thus promote coexistence. Distinct phenologies may result in a competitive advantage for non-native species, especially in areas with shifting growing seasons due to climate change. If native species do not accurately and rapidly tracks shifting claimte, it might produce vacant niches. Such vacant niches may then promote invader success by :
+
+1. Directly i.e. an invader occupies the open niche space
+
+2. Early-season priority effects
+
+3. Invader plasticity where non-native species trackl climatge shifts more closely than native species 
+
+4. Greater niche breadth (width)\
+
+
+
+Several studies have found that especially early or late phenologies may aid the success of non-native species. 
+
+Definitions: 
+
+Non-native:refer to any species established outside of its home range; such a distinction between native and non-native is important because non-native species have evolved in a different community than the one into which they have been introduced. Thus, they may exhibit differing strategies and trade-offs than native species.
+
+Invasive:for non-native species with a detrimental impact in their introduced community
+
+Phenology is an important component of plant life history theory affecting both biotic constraints (competition, herbivory, pollination) and abiotic constraints (frost, drought) on plant performance. *important references here*
+
+An important issue is to consider phenology as one trait within a complex network of correlated traits. We need to consider phenology a major trait on which selection acts versus only linked to a more critical trait. E.g. flworing time is often associated with seed size and teaasing out how much phenology or seed size is constrained by the other remains a puzzle, with correlations varying by clade and study. 
