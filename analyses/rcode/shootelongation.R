@@ -35,7 +35,16 @@ for (i in 7:length(colnames(shootelongation))) {
 #=== === === === === === === === === === === === === === === === === === === ===
 #### ACNE #####
 #=== === === === === === === === === === === === === === === === === === === ===
-
+# count of how many trees I have left
+segisub <- segi$"241"
+segiNA<-sum(!is.na(segisub))
+prvisub <- prvi$"234"
+prvisub <- sum(!is.na(prvisub))
+qumasub <- quma$"199"
+qumasub
+.<- sum(!is.na(quma_last_measurement))
+poba$Notes
+howmanypots<- sum(90+90+87+84+90+90+60)
 # Subset for Acne
 acne <- subset(shootelongation, genus == "acer")
 
