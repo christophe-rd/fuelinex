@@ -11,8 +11,9 @@
 \usepackage{cite}
 %\usepackage{citesupernumber}
 %\usepackage{citecollapse}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{float}
+\usepackage[sort&compress, super, numbers]{natbib}
 \floatstyle{plaintop}
 \restylefloat{table}
 \usepackage[table]{xcolor} % http://ctan.org/pkg/xcolor
@@ -36,7 +37,8 @@ The references can use a smaller font (eg 8pt,or footnotesize). What follows is 
 \end{verbatim}
 
 \section{References}
-\bibliography{/Users/christophe_rouleau-desrochers/Documents/github/bibtex/mylibrary.bib}
+\bibliographystyle{Science}
+\bibliography{mylibrary.bib}
 
 
 \end{document}

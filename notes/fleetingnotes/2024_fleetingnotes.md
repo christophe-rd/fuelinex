@@ -494,7 +494,7 @@ Climate and extreme weather events are mechanistically linked to body size, indi
 
 ###### Methods of Dendrochronology: Applications in the Environmental Sciences
 
-**Permanent note:**
+**Permanent note: YES**
 
 METHODS
 
@@ -518,7 +518,7 @@ Simple orbital or rotary sanding tools using a range of grit size from 280 to 60
 
 ###### Declining global warming effects on the phenology of spring leaf unfolding
 
-**Permanent note:**
+**Permanent note: YES**
 
 Phenology of spring leaf unfolding influences regional and hemispheric-scale carbon balances, the long-term distribution of tree species, and plant-animal interactions. 
 
@@ -562,7 +562,7 @@ Effects of changes in spring phenology on global carbon cycling: extension of GS
 
 ###### Ecological responses to recent climate change
 
-**Permanent note:
+**Permanent note:YES**
 
 Long-term phenological data sets for birds, butterflies and wild plants have been collected because of the easiness of species ID. Pheno trends show earlier breeding or first singning of birds, earlier arrival of migrant birdsd, earlier appearance of butterflies, earlier choruses and spawning in amphibvians and earlier shooting and flowering of plants. 
 
@@ -785,8 +785,6 @@ There is growing evidence that climate change could facilitate invasions because
 3. Invader plasticity where non-native species trackl climatge shifts more closely than native species 
 
 4. Greater niche breadth (width)\
-
-
 
 Several studies have found that especially early or late phenologies may aid the success of non-native species. 
 
