@@ -1,6 +1,91 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem{trugman_tree_2018}
-A.~Trugman, {\it et~al.\/}, {\it Ecology letters\/} {\bf 21 10}, 1552 (2018).
+\bibitem{korner_phenology_2010}
+\bibinfo{author}{Körner, C.} \& \bibinfo{author}{Basler, D.}
+\newblock \bibinfo{title}{Phenology {Under} {Global} {Warming}}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{327}},
+  \bibinfo{pages}{1461--1462} (\bibinfo{year}{2010}).
+
+\bibitem{menzel_growing_1999}
+\bibinfo{author}{Menzel, A.} \& \bibinfo{author}{Fabian, P.}
+\newblock \bibinfo{title}{Growing season extended in {Europe}}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{397}},
+  \bibinfo{pages}{659--659} (\bibinfo{year}{1999}).
+\newblock \bibinfo{note}{Number: 6721 Publisher: Nature Publishing Group}.
+
+\bibitem{wolkovich_warming_2012}
+\bibinfo{author}{Wolkovich, E.~M.} \emph{et~al.}
+\newblock \bibinfo{title}{Warming experiments underpredict plant phenological
+  responses to climate change}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{485}},
+  \bibinfo{pages}{494--497} (\bibinfo{year}{2012}).
+\newblock \bibinfo{note}{Number: 7399 Publisher: Nature Publishing Group}.
+
+\bibitem{keenan_net_2014}
+\bibinfo{author}{Keenan, T.~F.} \emph{et~al.}
+\newblock \bibinfo{title}{Net carbon uptake has increased through
+  warming-induced changes in temperate forest phenology}.
+\newblock \emph{\bibinfo{journal}{Nature Climate Change}}
+  \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{598--604}
+  (\bibinfo{year}{2014}).
+\newblock \bibinfo{note}{Number: 7 Publisher: Nature Publishing Group}.
+
+\bibitem{wang_interactive_2020}
+\bibinfo{author}{Wang, H.}, \bibinfo{author}{Wang, H.}, \bibinfo{author}{Ge,
+  Q.} \& \bibinfo{author}{Dai, J.}
+\newblock \bibinfo{title}{The {Interactive} {Effects} of {Chilling},
+  {Photoperiod}, and {Forcing} {Temperature} on {Flowering} {Phenology} of
+  {Temperate} {Woody} {Plants}}.
+\newblock \emph{\bibinfo{journal}{Frontiers in Plant Science}}
+  \textbf{\bibinfo{volume}{11}} (\bibinfo{year}{2020}).
+
+\bibitem{chapin_ecology_nodate}
+\bibinfo{author}{Chapin, F.~S.}
+\newblock \bibinfo{title}{The {Ecology} and {Economics} of {Storage} in
+  {Plants}} .
+
+\bibitem{lawrence_variable_2018}
+\bibinfo{author}{Lawrence, B.~T.} \& \bibinfo{author}{Melgar, J.~C.}
+\newblock \bibinfo{title}{Variable {Fall} {Climate} {Influences} {Nutrient}
+  {Resorption} and {Reserve} {Storage} in {Young} {Peach} {Trees}}.
+\newblock \emph{\bibinfo{journal}{Frontiers in Plant Science}}
+  \textbf{\bibinfo{volume}{9}} (\bibinfo{year}{2018}).
+
+\bibitem{landhausser_partitioning_2012}
+\bibinfo{author}{Landhäusser, S.~M.}, \bibinfo{author}{Pinno, B.~D.},
+  \bibinfo{author}{Lieffers, V.~J.} \& \bibinfo{author}{Chow, P.~S.}
+\newblock \bibinfo{title}{Partitioning of carbon allocation to reserves or
+  growth determines future performance of aspen seedlings}.
+\newblock \emph{\bibinfo{journal}{Forest Ecology and Management}}
+  \textbf{\bibinfo{volume}{275}}, \bibinfo{pages}{43--51}
+  (\bibinfo{year}{2012}).
+
+\bibitem{martens_first-year_2007}
+\bibinfo{author}{Martens, L.~A.}, \bibinfo{author}{Landhäusser, S.~M.} \&
+  \bibinfo{author}{Lieffers, V.~J.}
+\newblock \bibinfo{title}{First-year growth response of cold-stored,
+  nursery-grown aspen planting stock}.
+\newblock \emph{\bibinfo{journal}{New Forests}} \textbf{\bibinfo{volume}{33}},
+  \bibinfo{pages}{281--295} (\bibinfo{year}{2007}).
+
+\bibitem{schott_premature_2013}
+\bibinfo{author}{Schott, K.~M.}, \bibinfo{author}{Pinno, B.~D.} \&
+  \bibinfo{author}{Landhäusser, S.~M.}
+\newblock \bibinfo{title}{Premature shoot growth termination allows nutrient
+  loading of seedlings with an indeterminate growth strategy}.
+\newblock \emph{\bibinfo{journal}{New Forests}} \textbf{\bibinfo{volume}{44}},
+  \bibinfo{pages}{635--647} (\bibinfo{year}{2013}).
+
+\bibitem{siegel_collaborative_2009}
+\bibinfo{author}{Siegel, J.~A.}
+\newblock \bibinfo{title}{Collaborative {Decision} {Making} on {Climate}
+  {Change} in the {Federal} {Government}}.
+\newblock \emph{\bibinfo{journal}{Pace Environmental Law Review}}
+  \textbf{\bibinfo{volume}{27}}, \bibinfo{pages}{257} (\bibinfo{year}{2009}).
 
 \end{thebibliography}
