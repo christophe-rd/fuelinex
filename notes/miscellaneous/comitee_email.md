@@ -10,7 +10,7 @@ I am in the process of forming my committee, and I would like to have experts wh
 
 I think your research about plant physiology and how temperature affects their metabolism would be relevant to my projects. Since the trees in my experiment are going through different temperature regimes, I believe your insights would be truly helpful. 
 
-I expect to have my first committee meeting in the spring, and hope you would consider joining my committee. I am happy to arrange a meeting to discuss the project in more detail and/or answer any questions you have in person or over email. 
+I expect to have my first committee meeting in the Winter Term 2 (Jan-Apr 2025), and hope you would consider joining my committee. I am happy to arrange a meeting to discuss the project in more detail and/or answer any questions you have in person or over email. 
 
 Thank you for considering my request. I look forward to your response.
 
@@ -31,7 +31,7 @@ I am in the process of forming my committee, and I would like to have experts wh
 
 Being in your teaching team in addition to going through your research has made me realize that your insights could be truly helpful for my projects. I believe your knowledge and experience in the ways forest trees will react to a changing climate could be more than relevant to my projects. 
 
-I expect to have my first committee meeting in the spring and hope you will consider joining my committee. I am happy to arrange a meeting to discuss the project in more detail and/or answer any questions you have in person or over email.
+I expect to have my first committee meeting in the Winter Term 2 (Jan-Apr 2025) and hope you will consider joining my committee. I am happy to arrange a meeting to discuss the project in more detail and/or answer any questions you have in person or over email.
 
 Thank you for considering my request. I look forward to your response.
 

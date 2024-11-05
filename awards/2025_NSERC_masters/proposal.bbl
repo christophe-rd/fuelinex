@@ -1,91 +1,89 @@
-\begin{thebibliography}{10}
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-\providecommand{\bibinfo}[2]{#2}
-\providecommand{\eprint}[2][]{\url{#2}}
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
 
-\bibitem{korner_phenology_2010}
-\bibinfo{author}{Körner, C.} \& \bibinfo{author}{Basler, D.}
-\newblock \bibinfo{title}{Phenology {Under} {Global} {Warming}}.
-\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{327}},
-  \bibinfo{pages}{1461--1462} (\bibinfo{year}{2010}).
+\bibitem[{Chapin et~al.(1990)Chapin, Schulze, and Mooney}]{chapin_ecology_1990}
+Chapin, F.~S., E.~Schulze, and H.~A. Mooney. 1990.
+\newblock The {Ecology} and {Economics} of {Storage} in {Plants}.
+\newblock Annual Review of Ecology and Systematics 21:423--447.
 
-\bibitem{menzel_growing_1999}
-\bibinfo{author}{Menzel, A.} \& \bibinfo{author}{Fabian, P.}
-\newblock \bibinfo{title}{Growing season extended in {Europe}}.
-\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{397}},
-  \bibinfo{pages}{659--659} (\bibinfo{year}{1999}).
-\newblock \bibinfo{note}{Number: 6721 Publisher: Nature Publishing Group}.
+\bibitem[{Jönsson et~al.(2010)Jönsson, Eklundh, Hellström, Bärring, and
+  Jönsson}]{jonsson_annual_2010}
+Jönsson, A.~M., L.~Eklundh, M.~Hellström, L.~Bärring, and P.~Jönsson. 2010.
+\newblock Annual changes in {MODIS} vegetation indices of {Swedish} coniferous
+  forests in relation to snow dynamics and tree phenology.
+\newblock Remote Sensing of Environment 114:2719--2730.
 
-\bibitem{wolkovich_warming_2012}
-\bibinfo{author}{Wolkovich, E.~M.} \emph{et~al.}
-\newblock \bibinfo{title}{Warming experiments underpredict plant phenological
-  responses to climate change}.
-\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{485}},
-  \bibinfo{pages}{494--497} (\bibinfo{year}{2012}).
-\newblock \bibinfo{note}{Number: 7399 Publisher: Nature Publishing Group}.
+\bibitem[{Keenan et~al.(2014)Keenan, Gray, Friedl, Toomey, Bohrer, Hollinger,
+  Munger, O’Keefe, Schmid, Wing, Yang, and Richardson}]{keenan_net_2014}
+Keenan, T.~F., J.~Gray, M.~A. Friedl, M.~Toomey, G.~Bohrer, D.~Y. Hollinger,
+  J.~W. Munger, J.~O’Keefe, H.~P. Schmid, I.~S. Wing, B.~Yang, and A.~D.
+  Richardson. 2014.
+\newblock Net carbon uptake has increased through warming-induced changes in
+  temperate forest phenology.
+\newblock Nature Climate Change 4:598--604.
+\newblock Number: 7 Publisher: Nature Publishing Group.
 
-\bibitem{keenan_net_2014}
-\bibinfo{author}{Keenan, T.~F.} \emph{et~al.}
-\newblock \bibinfo{title}{Net carbon uptake has increased through
-  warming-induced changes in temperate forest phenology}.
-\newblock \emph{\bibinfo{journal}{Nature Climate Change}}
-  \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{598--604}
-  (\bibinfo{year}{2014}).
-\newblock \bibinfo{note}{Number: 7 Publisher: Nature Publishing Group}.
+\bibitem[{Körner and Basler(2010)}]{korner_phenology_2010}
+Körner, C., and D.~Basler. 2010.
+\newblock Phenology {Under} {Global} {Warming}.
+\newblock Science 327:1461--1462.
 
-\bibitem{wang_interactive_2020}
-\bibinfo{author}{Wang, H.}, \bibinfo{author}{Wang, H.}, \bibinfo{author}{Ge,
-  Q.} \& \bibinfo{author}{Dai, J.}
-\newblock \bibinfo{title}{The {Interactive} {Effects} of {Chilling},
-  {Photoperiod}, and {Forcing} {Temperature} on {Flowering} {Phenology} of
-  {Temperate} {Woody} {Plants}}.
-\newblock \emph{\bibinfo{journal}{Frontiers in Plant Science}}
-  \textbf{\bibinfo{volume}{11}} (\bibinfo{year}{2020}).
+\bibitem[{Landhäusser et~al.(2012)Landhäusser, Pinno, Lieffers, and
+  Chow}]{landhausser_partitioning_2012}
+Landhäusser, S.~M., B.~D. Pinno, V.~J. Lieffers, and P.~S. Chow. 2012.
+\newblock Partitioning of carbon allocation to reserves or growth determines
+  future performance of aspen seedlings.
+\newblock Forest Ecology and Management 275:43--51.
 
-\bibitem{chapin_ecology_nodate}
-\bibinfo{author}{Chapin, F.~S.}
-\newblock \bibinfo{title}{The {Ecology} and {Economics} of {Storage} in
-  {Plants}} .
+\bibitem[{Lawrence and Melgar(2018)}]{lawrence_variable_2018}
+Lawrence, B.~T., and J.~C. Melgar. 2018.
+\newblock Variable {Fall} {Climate} {Influences} {Nutrient} {Resorption} and
+  {Reserve} {Storage} in {Young} {Peach} {Trees}.
+\newblock Frontiers in Plant Science 9.
 
-\bibitem{lawrence_variable_2018}
-\bibinfo{author}{Lawrence, B.~T.} \& \bibinfo{author}{Melgar, J.~C.}
-\newblock \bibinfo{title}{Variable {Fall} {Climate} {Influences} {Nutrient}
-  {Resorption} and {Reserve} {Storage} in {Young} {Peach} {Trees}}.
-\newblock \emph{\bibinfo{journal}{Frontiers in Plant Science}}
-  \textbf{\bibinfo{volume}{9}} (\bibinfo{year}{2018}).
+\bibitem[{Martens et~al.(2007)Martens, Landhäusser, and
+  Lieffers}]{martens_first-year_2007}
+Martens, L.~A., S.~M. Landhäusser, and V.~J. Lieffers. 2007.
+\newblock First-year growth response of cold-stored, nursery-grown aspen
+  planting stock.
+\newblock New Forests 33:281--295.
 
-\bibitem{landhausser_partitioning_2012}
-\bibinfo{author}{Landhäusser, S.~M.}, \bibinfo{author}{Pinno, B.~D.},
-  \bibinfo{author}{Lieffers, V.~J.} \& \bibinfo{author}{Chow, P.~S.}
-\newblock \bibinfo{title}{Partitioning of carbon allocation to reserves or
-  growth determines future performance of aspen seedlings}.
-\newblock \emph{\bibinfo{journal}{Forest Ecology and Management}}
-  \textbf{\bibinfo{volume}{275}}, \bibinfo{pages}{43--51}
-  (\bibinfo{year}{2012}).
+\bibitem[{Menzel and Fabian(1999)}]{menzel_growing_1999}
+Menzel, A., and P.~Fabian. 1999.
+\newblock Growing season extended in {Europe}.
+\newblock Nature 397:659--659.
+\newblock Number: 6721 Publisher: Nature Publishing Group.
 
-\bibitem{martens_first-year_2007}
-\bibinfo{author}{Martens, L.~A.}, \bibinfo{author}{Landhäusser, S.~M.} \&
-  \bibinfo{author}{Lieffers, V.~J.}
-\newblock \bibinfo{title}{First-year growth response of cold-stored,
-  nursery-grown aspen planting stock}.
-\newblock \emph{\bibinfo{journal}{New Forests}} \textbf{\bibinfo{volume}{33}},
-  \bibinfo{pages}{281--295} (\bibinfo{year}{2007}).
+\bibitem[{Schott et~al.(2013)Schott, Pinno, and
+  Landhäusser}]{schott_premature_2013}
+Schott, K.~M., B.~D. Pinno, and S.~M. Landhäusser. 2013.
+\newblock Premature shoot growth termination allows nutrient loading of
+  seedlings with an indeterminate growth strategy.
+\newblock New Forests 44:635--647.
 
-\bibitem{schott_premature_2013}
-\bibinfo{author}{Schott, K.~M.}, \bibinfo{author}{Pinno, B.~D.} \&
-  \bibinfo{author}{Landhäusser, S.~M.}
-\newblock \bibinfo{title}{Premature shoot growth termination allows nutrient
-  loading of seedlings with an indeterminate growth strategy}.
-\newblock \emph{\bibinfo{journal}{New Forests}} \textbf{\bibinfo{volume}{44}},
-  \bibinfo{pages}{635--647} (\bibinfo{year}{2013}).
+\bibitem[{Siegel(2009)}]{siegel_collaborative_2009}
+Siegel, J.~A. 2009.
+\newblock Collaborative {Decision} {Making} on {Climate} {Change} in the
+  {Federal} {Government}.
+\newblock Pace Environmental Law Review 27:257.
 
-\bibitem{siegel_collaborative_2009}
-\bibinfo{author}{Siegel, J.~A.}
-\newblock \bibinfo{title}{Collaborative {Decision} {Making} on {Climate}
-  {Change} in the {Federal} {Government}}.
-\newblock \emph{\bibinfo{journal}{Pace Environmental Law Review}}
-  \textbf{\bibinfo{volume}{27}}, \bibinfo{pages}{257} (\bibinfo{year}{2009}).
+\bibitem[{Wang et~al.(2020)Wang, Wang, Ge, and Dai}]{wang_interactive_2020}
+Wang, H., H.~Wang, Q.~Ge, and J.~Dai. 2020.
+\newblock The {Interactive} {Effects} of {Chilling}, {Photoperiod}, and
+  {Forcing} {Temperature} on {Flowering} {Phenology} of {Temperate} {Woody}
+  {Plants}.
+\newblock Frontiers in Plant Science 11.
+
+\bibitem[{Wolkovich et~al.(2012)Wolkovich, Cook, Allen, Crimmins, Betancourt,
+  Travers, Pau, Regetz, Davies, Kraft, Ault, Bolmgren, Mazer, McCabe, McGill,
+  Parmesan, Salamin, Schwartz, and Cleland}]{wolkovich_warming_2012}
+Wolkovich, E.~M., B.~I. Cook, J.~M. Allen, T.~M. Crimmins, J.~L. Betancourt,
+  S.~E. Travers, S.~Pau, J.~Regetz, T.~J. Davies, N.~J.~B. Kraft, T.~R. Ault,
+  K.~Bolmgren, S.~J. Mazer, G.~J. McCabe, B.~J. McGill, C.~Parmesan,
+  N.~Salamin, M.~D. Schwartz, and E.~E. Cleland. 2012.
+\newblock Warming experiments underpredict plant phenological responses to
+  climate change.
+\newblock Nature 485:494--497.
+\newblock Number: 7399 Publisher: Nature Publishing Group.
 
 \end{thebibliography}

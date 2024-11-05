@@ -1,49 +1,47 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: proposal.aux
-The style file: naturemag.bst
+The style file: amnat.bst.bst
 Database file #1: 2024-CGSM.bib
-Warning--empty journal in chapin_ecology_nodate
-Warning--empty year in chapin_ecology_nodate
-You've used 11 entries,
-            2334 wiz_defined-function locations,
-            1053 strings with 11720 characters,
-and the built_in function-call counts, 4219 in all, are:
-= -- 304
-> -- 104
-< -- 0
-+ -- 52
-- -- 26
-* -- 528
-:= -- 476
-add.period$ -- 35
-call.type$ -- 11
-change.case$ -- 14
-chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 389
-empty$ -- 369
-format.name$ -- 35
-if$ -- 817
-int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 91
-newline$ -- 65
-num.names$ -- 11
-pop$ -- 65
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 12 entries,
+            3251 wiz_defined-function locations,
+            737 strings with 7736 characters,
+and the built_in function-call counts, 8781 in all, are:
+= -- 690
+> -- 575
+< -- 4
++ -- 196
+- -- 180
+* -- 681
+:= -- 1433
+add.period$ -- 51
+call.type$ -- 12
+change.case$ -- 123
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 601
+empty$ -- 534
+format.name$ -- 220
+if$ -- 1702
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 133
+newline$ -- 67
+num.names$ -- 48
+pop$ -- 250
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 108
 quote$ -- 0
-skip$ -- 61
+skip$ -- 149
 stack$ -- 0
-substring$ -- 190
-swap$ -- 380
+substring$ -- 382
+swap$ -- 287
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 2
-while$ -- 26
-width$ -- 13
-write$ -- 130
-(There were 2 warnings)
+type$ -- 108
+warning$ -- 0
+while$ -- 55
+width$ -- 0
+write$ -- 165

@@ -578,7 +578,7 @@ On invasion and climate change: species with different histories of introduction
 
 ###### Land surface phenology as indicator of global terrestrial ecosystem dynamics: A systematic review
 
-**Permanent note:
+**Permanent note: YES**
 
 Increase in the length of the growing season favorurs increase in net primary production (NPP) resulting in increase CO2 absorption and potentially contribute to reduction of atmospheric greenhouse gasses. It can also have negative effects. Piao et al. 2008 showed longer and warmer autum phenophases increased respiration thus leading to an increase in the amount of CO2 released to the atmosphere.
 
@@ -598,7 +598,7 @@ LSP studies since the 1980s showed earlier spring and delayed autumn phenophases
 
 ###### Large-scale variations in the vegetation growing season and annual cycle of atmospheric CO2 at high northern latitudes from 1950 to 2011
 
-**Permanent note:**
+**Permanent note: YES**
 
 Northern ecosytems have experienced the largest warming rates on the globe. In these regions, phenology controls the seasonal onset adn ending of the carbon uptake period, thereby directly affecting net ecosystem carbon balanece. 
 
@@ -797,3 +797,73 @@ Invasive:for non-native species with a detrimental impact in their introduced co
 Phenology is an important component of plant life history theory affecting both biotic constraints (competition, herbivory, pollination) and abiotic constraints (frost, drought) on plant performance. *important references here*
 
 An important issue is to consider phenology as one trait within a complex network of correlated traits. We need to consider phenology a major trait on which selection acts versus only linked to a more critical trait. E.g. flworing time is often associated with seed size and teaasing out how much phenology or seed size is constrained by the other remains a puzzle, with correlations varying by clade and study. 
+
+
+
+### 4 November 2024
+
+###### Text Mining in Remotely Sensed Phenology Studies: A Review on Research Development, Main Topics, and Emerging Issues
+
+Remote sensing phenology research is exponentially growing through time, but it is considered a subset of remote sensing sciecne rather than a branch of phenology
+
+###### The interaction between freezing tolerance and phenology in temperate deciduous trees
+
+Trees have evolved, in the last 11 000 years into an interglacial period (Holocene), which is warmer than the preceding 100 000 years i.e. the last glacial period. The holocene is climatically stable when viewed from a geological time perspective. However, the climate of temperate areas is highly variable from the perspective of trees' lifespan, but with a predictable seasonality.  As a result, trees have evolved to cope with the seasonal occurence of freezing temperature. One of the adaptation to seasonality is cold acclimatation in autumn and dormancy in winter, followed by deacclimation period in spring. These are mediated by temperature and photoperiod. 
+
+In deciduous trees growing in temperate climate, the timing of phenological events affects annual growth, reproductive success and competive abilities of trees. 
+
+Changes in phenology may even feed back on climate.
+
+Alongside with shifts in phenology, the risk of trees to encounter freezing damages is changing, but it's unclear wether the risk increases or not. 
+
+In temperate climates, there is four seasons where there are large drops in temperature than can occur from 1 day or 1 week. The contrast in temperature among the sweasons increases with increasing continentality (distance from the coast. 
+
+Warm spells can cause abrupt changs in temperature within a 24h period. They can be associated with severe drought in summers, but they can also lead to a certain degree of dehardening in winter or early spring. Combining with a subsequent freeze can be damaging. Cold spells are potentially damaging in autumn and spring if the tissues aren't hardy enough.
+
+The movement of the polar jet stream is changing with global warming because the polar regions warm faster than the rest of the world. It flows from west to east.
+
+Fagus sylvatica is one of the most sensitive tree species to photoperiod in its spring phenology in Europe. It is also the species that exhibited the lowest variation in its leaf-out timing
+
+When variabiliy in flushing date is discussed, it's crucial to separate spatial (high vs low elevation), from temporal (year to year), and variation wihin a genotype vs different genotype. It's also key to separate tree species that belong to different life histoy strategies (early successional, short lived, r-strategies vs late successional, long lives, k-strategies), trees that grow in the wild versus trees planted in cities/arboreta (provenances or unknown origin) and wild treews in situ vfs cultivated trees or exotic trees.
+
+Dormancy for most temperate tree species is realeased after they have passed through a certain duration of chilling temperastures between 0 and 5C. It interacts with a certain extent to with photoperiod depending on the species. 
+
+Longer duration of chilling and longer photoperiod decrease the thermal time required for budburst i.e. decrease the warmth requirement for budburst.
+
+Dormancy induction is the prerequisite to cold acclimatation during the hardening period. It's widely recognized that the shortening of the photoperiod in combination with lower temperature initate and strengthen cold acclimation. This cause active tissues to gradually enter endordormancy. Cells are a state where they can withstand very cold temperatures.
+
+In spring, there are 2 forms of deacclimatation :
+
+Active deacclimatation : loss of cold hardiness as part of a general enhancement of metabolism and development in response to the combined effect of past chilling experience, photoperiod  and concurrent temperatures. By temperature : forcing. 
+
+Passive deacclimation: freezing tolerance results from the exposure to fully acclimated (hardy) trees in mid winter to small or moderate increases of temperature. 
+
+3 strategies from trees to cope with freezing temperatures: escape, avoidance and tolerance.  
+
+Trees exhibit a high phenological plasticity in spite of clear genetic differentiations related to the climate of origin. The high phenological variation in response to temperature enables temperate trees to adjust their growth period to a larger range of climatic conditions within the distribution range rather than to be localy adapted. E.g. b y adjusting the timing of leaf-out to temperature and photoperiod along elevational gradients, trees avoid the risky period in terms of freezing temperature for sensitive tissues such as new leaves.
+
+Along climatic gradients, a convergence of genetic differentiation among populations has been documented for deciduous temperate trees both for the timing of bud set and bud burst and cold hardiness. Thus, when planted in common grardens, seedling populations of winter deciduous temperate species from high latitude or elevation generally exhibit late spring phenology. **TREE COOKIE PROJECT** --> (Engler, 1913; Burger, 1926; Langlet, 1971; Barnett and Farmer, 1980; Vitasse et al., 2009a, 2013; Alberto et al., 2011; Körner, 2012)
+
+Genetic and phenotypic clines in cold hardiness also exhibit a co-gradient variation: young tree populations from high latitude were found more resistant than southern populations in winter when planted in common gardens. The genetic cline is more marked along latitudinal gradients, because photoperiod controls the gropwth cessation and subsequently the initiation of the acclimation period in most temperate tree species. 
+
+No common garden studies havec investigated whether there is a genetic differentiation among population 
+
+Populations of young trees originating from colder climates has shown slower growth rate. Weak genetic differentiation was found in leaf morphological traits among populations along elevational gradients. This could reflect a trade-off between growth rate and freezing resistance.
+
+For competition for light and water, rapid gain in height seems advanteageous in warmer cliamte whearas cold climate populations are usually more open, and have evolved under natural slection for greaster generasl robustness, includiong cold hardiness. However, the trade-off between growth allocation and physiological adaptations to cold conditions isn't clear. Indeeed, the lower biomass increment found in populations originating from colder environement when planted inc ommon gardens could result from the fact that these populations ceased to grow at shorter photoperiod. 
+
+Deacclimation in late winter and early spring proceeds much faster than acclimation in autumn which makes the trees vulnerable when a wearm spell is followed by a cold spell in nalte winter/spring. 
+
+John Muir described the phenology of pines in Yosemite Valley.
+
+###### The phenology of plant invasions: a community ecology perspective
+
+Ecologists use time to describe the suite of critical but limited resource available to a species at any given time. Variabiliy in space and time may promote coexistence. E.g. Ant species with highly similar diets may coexist because they tend to search for food at different times of the day. At a longer time scale, the storage effect m,odel uses a temporal niche to promote coexistence via interannual variation that benefits different "long-lived" species ind different years. Under this model, a species can coexist with other species when it experiences high-abundance years during which intraspecific competition is stronger than interspecif ccompetition. 
+
+Vacant niche: predicts that exotic plants will invade communities where there is an open niche, often resulting from unused soil resources. For plants, this theory has been modified to include fluctuating resources; in such cases, a vacant niche can be temporally variable occureing only for short time period, but still highly beneficial to exotic species. If an exotic plant species benefits from a temporally vacant (phenological) niche, it wwould tend to bloom and or leaf earlier or later as compared with native plant species, thereby using temporally availab le resources (e.g. sunlight, pollinators, nutrients.)
+
+###### Why Would Plant Species Become Extinct Locally If Growing Conditions Improve?
+
+2 models to evaluate the influence of climate change on species range : statistical climate envelope models and process-based dynamic vegetation models.
+
+Many dynamic forest succession models assume taht the maximum growth rate is attained at the core of the geographic distribution of a species and decreases toward its limits. That's the consequence of using a parabolic relationship between growth rate and thermal time (accumulation of days eceediong a temperature threshold aka Growing Degree Days (GDD))
