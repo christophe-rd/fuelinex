@@ -1,12 +1,12 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: proposal.aux
+The top-level auxiliary file: 2024CGSMProposal.aux
 The style file: amnat.bst.bst
 Database file #1: 2024-CGSM.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 12 entries,
             3251 wiz_defined-function locations,
-            737 strings with 7736 characters,
+            737 strings with 7752 characters,
 and the built_in function-call counts, 8781 in all, are:
 = -- 690
 > -- 575
