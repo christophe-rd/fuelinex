@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Chapin et~al.(1990)Chapin, Schulze, and Mooney}]{chapin_ecology_1990}
@@ -85,5 +85,12 @@ Wolkovich, E.~M., B.~I. Cook, J.~M. Allen, T.~M. Crimmins, J.~L. Betancourt,
   climate change.
 \newblock Nature 485:494--497.
 \newblock Number: 7399 Publisher: Nature Publishing Group.
+
+\bibitem[{Zohner et~al.(2021)Zohner, Renner, Sebald, and
+  Crowther}]{zohner_how_2021}
+Zohner, C.~M., S.~S. Renner, V.~Sebald, and T.~W. Crowther. 2021.
+\newblock How changes in spring and autumn phenology translate into
+  growth‐experimental evidence of asymmetric effects.
+\newblock Journal of Ecology 109:2717--2728.
 
 \end{thebibliography}

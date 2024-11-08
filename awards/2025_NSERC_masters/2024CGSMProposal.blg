@@ -4,44 +4,44 @@ The top-level auxiliary file: 2024CGSMProposal.aux
 The style file: amnat.bst.bst
 Database file #1: 2024-CGSM.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 12 entries,
+You've used 13 entries,
             3251 wiz_defined-function locations,
-            737 strings with 7752 characters,
-and the built_in function-call counts, 8781 in all, are:
-= -- 690
-> -- 575
+            744 strings with 8001 characters,
+and the built_in function-call counts, 9484 in all, are:
+= -- 749
+> -- 614
 < -- 4
-+ -- 196
-- -- 180
-* -- 681
-:= -- 1433
-add.period$ -- 51
-call.type$ -- 12
-change.case$ -- 123
-chr.to.int$ -- 12
-cite$ -- 12
-duplicate$ -- 601
-empty$ -- 534
-format.name$ -- 220
-if$ -- 1702
++ -- 209
+- -- 192
+* -- 736
+:= -- 1546
+add.period$ -- 55
+call.type$ -- 13
+change.case$ -- 132
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 648
+empty$ -- 581
+format.name$ -- 235
+if$ -- 1840
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 133
-newline$ -- 67
-num.names$ -- 48
-pop$ -- 250
+missing$ -- 143
+newline$ -- 72
+num.names$ -- 52
+pop$ -- 269
 preamble$ -- 1
-purify$ -- 108
+purify$ -- 116
 quote$ -- 0
-skip$ -- 149
+skip$ -- 161
 stack$ -- 0
-substring$ -- 382
-swap$ -- 287
+substring$ -- 424
+swap$ -- 309
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 108
+type$ -- 117
 warning$ -- 0
-while$ -- 55
+while$ -- 60
 width$ -- 0
-write$ -- 165
+write$ -- 178
