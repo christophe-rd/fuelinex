@@ -798,8 +798,6 @@ Phenology is an important component of plant life history theory affecting both 
 
 An important issue is to consider phenology as one trait within a complex network of correlated traits. We need to consider phenology a major trait on which selection acts versus only linked to a more critical trait. E.g. flworing time is often associated with seed size and teaasing out how much phenology or seed size is constrained by the other remains a puzzle, with correlations varying by clade and study. 
 
-
-
 ### 4 November 2024
 
 ###### Text Mining in Remotely Sensed Phenology Studies: A Review on Research Development, Main Topics, and Emerging Issues
@@ -867,3 +865,63 @@ Vacant niche: predicts that exotic plants will invade communities where there is
 2 models to evaluate the influence of climate change on species range : statistical climate envelope models and process-based dynamic vegetation models.
 
 Many dynamic forest succession models assume taht the maximum growth rate is attained at the core of the geographic distribution of a species and decreases toward its limits. That's the consequence of using a parabolic relationship between growth rate and thermal time (accumulation of days eceediong a temperature threshold aka Growing Degree Days (GDD))
+
+
+
+### 8 November 2024
+
+###### Growth of a Pine Tree
+
+Young pine trees are in a rapid growth phase, so the annual rings are wide and easy  measure. Cross sections from wild trees usually are not symmetric because they have been subjected to asymmetric environmental factors such as slope, crowding or uneven light availability.
+
+In the spring, the cambium produces early wood, with large cells and thin cell walls. As the season progresses, the cambium produces latewood
+
+Early wood caracteristics: 
+
+- Large cells
+
+- Thin cell walls
+
+- Light colour
+
+Late wood caracteristics
+
+- Smaller cells
+
+- Thicker cell walls
+
+- Darker colour
+
+The arbrupt transition to earlywood in the spring produces the sharp contrast that makes the growth ring visible 
+
+###### Methods of dendrochronology
+
+Sample preparation: 
+
+Cores describe the mounting of increment cores in wooden supports (Stokes and Smiley 1968). Cores should be fixed to the mount using a water-soluble glue so that they can be realigned if necessary. 
+
+Cutting the cores at a 35 degrees to the long axis was the best resolution of surface detail. 
+
+Using a sharp tungsten carbide-tipped circular saw to cut the sample before sanding saves a lot of time. They leave a surface that requires minimal sanding. 
+
+Radiodensitometry: the density of faily larget wood smaples may be determined through volumetric gravimetric methods i.e. weighing and volume measurements, and is then termed gravimetric density.
+
+Surface enhancements: Douglass describes the use of kerosene as a wetting agent to enhance the clarity of rings particulary on a saw cut surface. 
+
+Parker and al. 1976 describes ring wenhancement using zinc oxide which has the advantage of being easily removable usign dilute acid. 
+
+Using chalf to fill the spring wood vessels to make them clearer can be done. Regular black board chalk is good. Suitable for both ring-porous and diffuse porous species.
+
+###### Responses to subtropical climate in radial growth and wood density of Chinese fir provenances, southern China
+
+Hong Wang
+
+Ring widths, including tree ring width (TRW), early wood width (EWW) and late wood width (LWW) were measured for each year with a resolution of 0.01mm. 
+
+They also measured density measurements via high frequency densitometry. The ring width and wood density measurements of the disks were carried out from pith to bark.
+
+Cross dating and quality checking were conducted with the COFECHA software for each tree-ring series. They used ARSTAN to standardize the tree-ring series for each provenance. The effects of biological age were removed by fitting a negative exponential function of the Hugershoff method (Hu et al. 2001)
+
+Statistic analysis: to ascertain to explore the trend of geographical variation in different tree ring indices (tree ring width and wood density) for different chinese fir provenances, they used a simple regressioin equations that were developed with the longitude and latitude as the independendant variable and raw mean series for each Chinese fir provenacnes as the dependant variable. 
+
+Since tree growth can be affected by the current and previous year's climatic conditions, they evaluated 16 months of temperature and precipitation data, starting with June of the previous year to September of the current year. 
