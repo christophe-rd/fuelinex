@@ -925,3 +925,45 @@ Cross dating and quality checking were conducted with the COFECHA software for e
 Statistic analysis: to ascertain to explore the trend of geographical variation in different tree ring indices (tree ring width and wood density) for different chinese fir provenances, they used a simple regressioin equations that were developed with the longitude and latitude as the independendant variable and raw mean series for each Chinese fir provenacnes as the dependant variable. 
 
 Since tree growth can be affected by the current and previous year's climatic conditions, they evaluated 16 months of temperature and precipitation data, starting with June of the previous year to September of the current year. 
+
+
+
+###### Fundamentals of Tree-ring Research
+
+Tree rings are composed of individual cells that consittute the building blocks of the organism of the tree. A basic understanding of tree physiology is also important for comprehending the biologiocal preocesses that link the environment to ring formation. 
+
+Gymnosperms have less-developped and fewer cell types. They transport water from the roots to the leaves through tracheids (long narrow cells that comprise growth rings) in the outer living part of the xylem in the area of the sapwood
+
+Angiospersm transport water and nutrients from the soil to the leaves in specialized, capillary like cells called vessels. They are larger in diameter than tracheids and transport water more efficiently but are more prone to embolism (air bubble formation during conduction that blocks water movement)
+
+Most gymnosperms and dicots in seasonal climates produce one ring/year which are divided in earlywood and latewood. 
+
+Earlywood is defined as cells that have large lumen (the opening in the center of the cell) relative to the cell walls. Latewood cells are always flattened and have a more compact lumen relative to the cell walls and consequently appear darker.
+
+**Secondary meristem** is produced in most gymnosperms and dicots and enables a tree to grow in circumference through time and produce tree rings.
+
+Cell division occurs in the vascular cambium which is a narrow layer of mestematic cells between bark and wood. During cell division, **xylem** is produced toward the inside of the tree, becoming the wood structure that supports the tree, and** phloem** is produced towards the outside of the tree and becomes the inner bark. A **cork cambium** forms the outer bark of most trees.
+
+Less frequently, a series of thin-walled **ray cells** are also produced during cell division in the cambium resulting in a radial cell component that connects the outside of the tree to the inside.
+
+Heartwood forms in the middle of the stems as a result of an active production of substances, mainly phenols, which are deposited to close down teh structure and guaranteee that the wood is resistant to decay. The lighter coloured outer wood is called **sapwood**
+
+The **pith** is the bundle of cells produced by the upward growth of the apical meristem, allowing trees to reach greater heights and creating the cambium initials that start the secondary thickening of trees. Hitting the pit when coring a tree provides the exact age of the tree. 
+
+A cross-section view allows a clear view of the **tracheids** in conifers, which are elongated tube-like cells that make up the majority of the wood and function to transport fluids and nutrients vertically in the xylem of the tree. 
+
+Angiosperms have more complex wood structure than gymnosperms. Fibers provide the key structure and support for the tree, but they also produce vessels taht are used for the main water transport in the tree. They may have the following structures that are apparent in a cross section:
+
+Large and small vessels
+
+Fibers
+
+Tracheids 
+
+Parenchyma cells: more common in hardwoods and actually form the ring boundary in some genera of diffuse porous species
+
+![](https://media.springernature.com/lw703/springer-static/image/art%3A10.1038%2Fs41578-020-0195-z/MediaObjects/41578_2020_195_Figa_HTML.png)
+
+![Structure–property–function relationships of natural and engineered wood |  Nature Reviews Materials](https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41578-020-0195-z/MediaObjects/41578_2020_195_Figa_HTML.png)
+
+![Screenshot 2024-11-08 at 1.05.05 PM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_teSf3J/Screenshot%202024-11-08%20at%201.05.05 PM.png)
