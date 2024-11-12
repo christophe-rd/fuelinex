@@ -866,8 +866,6 @@ Vacant niche: predicts that exotic plants will invade communities where there is
 
 Many dynamic forest succession models assume taht the maximum growth rate is attained at the core of the geographic distribution of a species and decreases toward its limits. That's the consequence of using a parabolic relationship between growth rate and thermal time (accumulation of days eceediong a temperature threshold aka Growing Degree Days (GDD))
 
-
-
 ### 8 November 2024
 
 ###### Growth of a Pine Tree
@@ -926,8 +924,6 @@ Statistic analysis: to ascertain to explore the trend of geographical variation 
 
 Since tree growth can be affected by the current and previous year's climatic conditions, they evaluated 16 months of temperature and precipitation data, starting with June of the previous year to September of the current year. 
 
-
-
 ###### Fundamentals of Tree-ring Research
 
 Tree rings are composed of individual cells that consittute the building blocks of the organism of the tree. A basic understanding of tree physiology is also important for comprehending the biologiocal preocesses that link the environment to ring formation. 
@@ -967,3 +963,135 @@ Parenchyma cells: more common in hardwoods and actually form the ring boundary i
 ![Structure–property–function relationships of natural and engineered wood |  Nature Reviews Materials](https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41578-020-0195-z/MediaObjects/41578_2020_195_Figa_HTML.png)
 
 ![Screenshot 2024-11-08 at 1.05.05 PM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_teSf3J/Screenshot%202024-11-08%20at%201.05.05 PM.png)
+
+### 12 November
+
+###### A new process-based model for predicting autumn phenology: How is leaf senescence controlled by photoperiod and temperature coupling?
+
+Permanent note:
+
+Piao, Shilong,  Lang, Weiguang, Lang
+
+Since the vegetation growing season is approximately equivalent to the photosynthetic period, carbon-uptake period, and trasnpiration periood, climate change induced vegetation growing season shifts may influence the exchange capacties of carbon,  water, and energy amon land surface and the atmosphere and consequently result in ecosystem productivity variations. Additionaly, the exchange capactieies of carbon, water and energy will affect carbon balance and climate change. 
+
+They believe that spring phenology model has reached maturity. Since numerous models have been developped to simulate and predict budburst, green-up, leafind and flowering dates. (*they provide an exhaustive list of references for these*)
+
+In contrast, process-based models on autumn plant phenology are still scarce. The main reasons for this are inadequate ground observation data and unclear environemental cues for autumn phenology. 
+
+Autumn leaf phenology in temperate forests better explains variation in annual net ecosystem productivity (NEP) than do chances in spring phenology according to statistical studies. Thus, delayed leaf senescece is associated with increased NEP, meaning that ecosystems tend to sequested more carbon in warmer years with later autumn phenology.
+
+Physiology: leaf senescence is controlled by photoperiod and temperature. As photoperiod shortens and temperature decreases in late autumn, an abscission zone starst to forma t the base of the periole and chlorophyll degradation occurs. 
+
+There would be a strong photoperiodic regulation of leaf senescence at latitudes with severe winters. At lower latitudes where inters are elss severe temperature exerts a certain amount of control on autumn phenology. 
+
+Delpierre suggested a cold-degree day sum. (CDD) model which assusmes that leaf coloration is solely determined by linear accumulation of daily mean temperature lower than a treshold, but its accuracy hasn't been tested. He revised his model by suggesting that leaf colouration is driven both by photoperiod and low tempes. The DM model suggests a photoperiod-sensistive cold-degree day summation procedure. In this model, it's only when both the photoperiod and temperature reach their respective tresholds that leaf senescence process can start. 
+
+Their results show that elasf senescence processes were mainly triggered by photoperiod shortening at locations with shorter annual maximum photoperiod, but by night temperature decrease at locations with longer annual maximum photoperiod. This supports the fact that there are two distinctive growth cessation pathways for woody plants:
+
+1. Low night temperature-induced growth cessation under long photoperiods
+
+2. Short photoperiod-induced growth cesssation under warm night temperatures.
+
+Both pathways reflect plant selective responsed to environmental cues for minimizing risk from abiotic stresses.
+
+Growth cessation i.e. budset and atumn senescecen are two indepednant stages, senescence could not be initiated until a certain time after growth cessation. (*questions: does growth really stops at budset? what about radial growth?*)
+
+Daily minimum temperature (by model TPM) would be important for leaf senescence rather than mean daily temperature. Based on the evidence that minimum temperature may trigger leaf senescence through decreasing light saturated photosynthetic rate and limiting meristematic activity in shoot. As leaf senescence should be intimately related to the previous developmental stages of leaf, such as leaf initiation, growth and maturation, genese could controll these processes including meristematc activity which could influence age-dependant senescence.
+
+Their new model (Low Temperature and Photoperiod Multiplicative Model (TPM)) shows that leaf senescence rate exponentially increases with decrease of arithmetic product of daily minimum temperature and photoperiod.
+
+###### Acclimation of phenology relieves leaf longevity constraints in deciduous forests
+
+Marqués, Laura; Stocker, Benjamin
+
+Permanent notes:
+
+A positivie correlation between SOS and EOS dates ahve been found in observational ad experimental studies, which could provide useful information for improving EOS predictions.  
+
+A strong relationship between observed EOS and simulated Anet (Net CO2 assimilation), such that greater productivity was associated with earlier leaf senescence. This negative relationship between growing-season total net CO2 assimilation and EOS was interpreted as an expression of plant C sink saturation, whhereby an early replenishment of non-strucvtural carbon reserves induces an early cessation of the photosynthetically active season.
+
+Thus, an EOS advancement was predicted as a consequence of accelarated C sink saturation due to continued SOS advances and enhanced photosynthesis under rising CO2 levels. However, an advance of SOS and a CO2 driven increase in photosynthesis did not lead to a corresponding advance in EOS. 
+
+They show that the relationship between net CO2 assimilation and EOS are opposite at the interannual and the decadal time scales. A trend towards later EOS in parralel with a trend towards increasing net CO2 assimilation in spite of the negativfe Anet-EOS relationship
+
+Their results suggest that acclimation of phenology has enabled plants to trasnscend a constrained leaf longetivity or premature C sink saturation over the course of seveal decadeds, leading to a more ffective use of available light and a sustained extension of the vegetationCO2 uptakle season over time.
+
+###### Alteration of the phenology of leaf senescence and fall in winter deciduous species by climate change: effects on nutrient proficiency
+
+Estiarte, Marc
+
+Permanent notes;
+
+The purpose of leaf senescence is the recovery of nutrients before the leaves fall. 
+
+Woody plants in temperate and boreal ecosystems have adapted to the unfavorable season of winter by managing their foliage differentyly during dormancy: evergreeen species maintain their leaves whereas deciduous species shed all foliage.
+
+The date of leaf colouring is used to quantify the phenology and leaf senescence. Leaf senescence and change in colour are commonly sinonymous in the literature. Leaf fall is the next step after leaf senescence and in most cases is tightly realted to it to such an extent that it can be used as a proxy of leaf senescnce, assuming a certain delay in time.
+
+Consequences of longer seasons at the indivual level
+
+- Improve competitive ability if C uptake is not compromised by the potential damage of frosts. 
+
+- Advancing leaf unfolding increases the risk of late-spring frosts taht could kill new tissues affect production. 
+
+- Delayed leaf senescence could kill leaves before the completion of nutrient resorption during senescence and could reduce the nutrient reserves taht support growth in the next season.
+
+Leaf senescence consists of the orderly degradation of the cells of the leaf, leading to cell death and utltimately to leaf fall. Nutrient resorption is not absolute and falling leaves retain a certain amount of nutrients, whose concentrations represent the proficiency of nutrient resorption. The proportion of the nutrients in green leasves prior to senescence that are resorbed before abscission is knowe as the nutrient-resorption efficiency.
+
+Leaf senescence implies a radical change in foliar metabolism that shifts from assimilation tot the removilization of resources, as shown by the dynamics of the transcriptoms, proteomes and metabolomes of foliar cells. The onset of leaf senescence, the tipping point in the transition from anabolims to catabolism manifests before teh mentioned external signals are visible. The onset begins with the down-regulation of genes associated with phtoosynthesis and with the up-regulatioon of genes associated with senescence.
+
+By the end of of the process of leaf senescence, a large fraction of the mobile nutrients ahve been trasnferred to the perennating organs. Leaf senescence proceeds sequentially, it begins with the disasssembly of the chloroplast, while mitochondria and nuclei remain functional. 
+
+The degradation of chlorophyll, the cause of the characteristic leaf yellowing, occurs early to prevent the formation of oxygen radiacals that could disturb the activity of enzymes.
+
+Mitochondria maintain integrity until the last stages of senescence, with respiration supplying the aTP and C skeletons needed for nutrient resorption.
+
+The main nutrients withdrawn from senescent leavfes are N, P, K and S, the macronutrients that are mobile in the phloem, whereas Ca and Mg, the other two macronutrients, are less mobile and are often accreted rather than resorbed at the end of the process. 
+
+Proteins are abundant N-containing macromolecules Chloroplasts contain 50-60% of the N in leaves, half of which is in Rubisco. Nucleic acids contain 10-15% of the foliar and minor amounts are found in cytosolic proteins, chlorophyll and amino acids. Up to 9% of the foliar N is in proteins attached to cell walls. S is found in the amino acids cysteine and methionine and teherefore has the same distribution as N in proteins.
+
+Nutrient-containing macromolecules are degraded and transformed into molecules suitable for transport from the leaf. 
+
+Nutrient-resorption efficiencies in woody deciduous plants average 64% for N, 65% for P and 70% for K.
+
+
+
+During the dormant season, woody tissues of deciduous plants, but especially 1-year old twigs, store N mainly as storage proteins in the bark, but also as amino acids. When the active season resumes, N flows toward newly formed tissues. Large amounts of N got to Rubisco in the leaves. Rubisco is a protein that has a key role in C fixation, but acts also as storage. When the active season ends, leaf senescence remobilizes a large proporton of the N back to the woody tissues.
+
+The internal cycling of N improves resource economy because it saves plants from devoting resources and energy to acquire new N. This cycling is strategic also because it allows intense growth at the beginning of the season. The flush in the spring is at the beginning almost entirely supported by N stored in the plant. Stored N enables early spring growth independant of potentially unfavorable soil temperatures, although newly acquired can later be supplemented for newer growth.
+
+
+
+Getting ready for overwintering:
+
+Step 1: cessation of growth in the middle of the active season in species with free growth for avoiding the presence of active tissues (inadequate for ovewintering.)
+
+Step 2: bud set which protect meristems with bud scales.
+
+These are morphological changes, but biochemical changes also occur at the cellualr level, such as starach catabolism for supplying C skeletons for the synthesis of cryoprotectants or the accumulation of bark storage proteins. At this stage, plants have acquired endodormancy and do not respond to signals that promote growth. 
+
+Step 3: leaf senescence which occurs near the end of this succession of events leading to the dormant stage, but later cellular changes can still occur to further increase frost hardiness.
+
+Preparation for winter dormanyc are mostly triggered by photoperiod. Moving plants to shorter days elicits growth cessation and bud set.
+
+Metabolism generally increases with temperature, bud senescence is usally slower and longer with warmer conditions. E.g. high temperature was asssumed to slow senescence in the leaves of teh upper crown exposed to the sun compared to the upper crown exposed to the sun compared to the sahed leaves of the lower crown. Colder temperatures may also account for the trend toward the faster progression of leaf senescence at higher latitudes. 
+
+Projections that climatic warming will delay the onset of leaf senescence and fall in many regions and species cannot be generalized. The magnitude of the delay will depend on the degree of photoperiodic control for particular species. Members of the Rosacea family will experience the largest effect, and species and poulations suffering severe winter conditions being unresponsive to warming
+
+Determinants of realized nutrient. resorption:
+
+1. Plant physiologicalk status that depends on fertilization or radiation i.e. availablke energy, nutrient concentration, enzymatic activity
+
+2. Existence of a sink demand for nutrients
+
+3. Disturbances
+
+4. Water strees during leaf senescence 
+
+5. Timing of leaf senescence
+
+Leaves that fell early contained more nutrients and the nutrient concentrations decreased linearly with time to match the lower concentrations in the leaves that fell later.
+
+Nutrient resorption takes time. E.g. P. tremula takes two weeks. They hypothesize that with warming, a slower, thus longer leaf senescence can allow a more thorough scouring of nutrients so the realized resorption can approach the potential resorption. 
+
+Species whose leaf senescence will be delayed by warming will confront higher risks of occasional reductions in nutrient profiency, because warming increases the risk that early frosts will kill the elaves before they complete or even begin senescence.
