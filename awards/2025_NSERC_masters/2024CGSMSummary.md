@@ -4,4 +4,4 @@ Temperate and boreal forests are closely linked to temperature, a critical fac
 
 To assess trees' capacity to extend their activity schedules, I conducted experiments in 2024 across seven tree species under controlled conditions. Among these, five were deciduous trees, and two were conifers. I used a full factorial design of four treatments including spring warming, fall warming, both, and a control, plus an additional two treatments to test fall nutrient effects. In 2024, I tracked phenological events weekly throughout the entire season. In 2025, I will repeat these measurements. After the trees have grown under ambient temperatures for the season, I will assess growth on both the individual and the cellular level using dendrochronological methods.
 
-### 
+# 
