@@ -606,9 +606,7 @@ Extension of GS in autumn prolongs photosyntesis in some vegetation types despit
 
 ###### Leaf-out phenology of temperate woody plants: from trees to ecosystems
 
-NOT DONE
-
-**Permanent note:**
+**Permanent note: YES**
 
 Within temperate plant communities, trees and shrubs vary widely in leaf-out times, both among and within species. It can also vary with individuals in different microhabitats within one population. E.e. sugar masple seedlings growing in the understory will leaf out earlier than adults in the canopy, taking advantage of the light availabillity. 
 
@@ -620,7 +618,7 @@ Populations of a given species often have differing photoperiodic requirements a
 
 Many early successional oppotunistic species such as birches, poplars don't have a photoperiod requirement to break dormancy, but do have chilling requirements. 
 
-Differences in stem anatomy could explain why some co-existing species leaf-out at different times. Diffuse porous species, those that produce small vessel elements throughout the growing season, tend to loeaf-out earlier in teh spring e.g. maples, birches, alders and poplars. Their small vessel elements are less susceptible to embolism during the winter, which allows them to begin to meet demands of transpiration earlier in the growing season. 
+Differences in stem anatomy could explain why some co-existing species leaf-out at different times. Diffuse porous species,  that produce small vessel elements throughout the growing season, tend to loeaf-out earlier in teh spring e.g. maples, birches, alders and poplars. Their small vessel elements are less susceptible to embolism during the winter, which allows them to begin to meet demands of transpiration earlier in the growing season. 
 
 Ring porous species, such as oaks, ashes and hickories have less uniform vessel elements, producing larger vessels in the spring and smaller ones later in the growing seaon. These will be more susceptible to winter freeze which leads to later leaf-out.  However, there are a lot of exceptions to these rules. 
 
@@ -629,6 +627,8 @@ Another factor that influences the timing of leaf out is the amount of **genetic
 ### 25 October 2024
 
 ###### Leaf-out phenology of temperate woody plants: from trees to ecosystems
+
+**Permanent note: YES**
 
 Another theory to explain differences in leaf-out timing among species is evolutionary response to herbivory pressures. Study case: 2 co-occuring varieties of English oak (Quercus robur), one variety leafs-out as much as 5 wks earlier than the other, but sufferes more from herbivory damage. That suggests the opportunity cost of losing more than 1 month of photosynthesis is offset by decrease in foliar damage. See Wesolowski & Rowinski, 2008
 
@@ -757,6 +757,8 @@ Analyses to detect temporal trends in phenbology have traditionally relied on re
 ### 1 November 2024
 
 ###### Shifting plant phenology in response to global change
+
+Permanent notes: 
 
 Most pheno advancing studies have attributed the accelaration of spring events to warming temperatures. Less attention has focused on the role of other co-occuring global changes such as increasing CO2 and shifts in precipiation. 
 
