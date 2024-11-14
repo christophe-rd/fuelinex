@@ -1056,13 +1056,9 @@ Nutrient-containing macromolecules are degraded and transformed into molecules s
 
 Nutrient-resorption efficiencies in woody deciduous plants average 64% for N, 65% for P and 70% for K.
 
-
-
 During the dormant season, woody tissues of deciduous plants, but especially 1-year old twigs, store N mainly as storage proteins in the bark, but also as amino acids. When the active season resumes, N flows toward newly formed tissues. Large amounts of N got to Rubisco in the leaves. Rubisco is a protein that has a key role in C fixation, but acts also as storage. When the active season ends, leaf senescence remobilizes a large proporton of the N back to the woody tissues.
 
 The internal cycling of N improves resource economy because it saves plants from devoting resources and energy to acquire new N. This cycling is strategic also because it allows intense growth at the beginning of the season. The flush in the spring is at the beginning almost entirely supported by N stored in the plant. Stored N enables early spring growth independant of potentially unfavorable soil temperatures, although newly acquired can later be supplemented for newer growth.
-
-
 
 Getting ready for overwintering:
 
