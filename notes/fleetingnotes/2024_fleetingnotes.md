@@ -1093,3 +1093,87 @@ Leaves that fell early contained more nutrients and the nutrient concentrations 
 Nutrient resorption takes time. E.g. P. tremula takes two weeks. They hypothesize that with warming, a slower, thus longer leaf senescence can allow a more thorough scouring of nutrients so the realized resorption can approach the potential resorption. 
 
 Species whose leaf senescence will be delayed by warming will confront higher risks of occasional reductions in nutrient profiency, because warming increases the risk that early frosts will kill the elaves before they complete or even begin senescence.
+
+### 15 November
+
+###### Asymmetric effects of cooler and warmer winters on beech phenology last beyond spring
+
+Warmer temperature recorded during the last two decades has resulted in an increase in forcing requirement for budburst of temperate trees in Europe, which is likely the result of insufficient chilling requirement for a full dormancy release or an increasing photoperiodic limitation. 
+
+Most studies focus on a single phenophase and therefore do not consider any potential effect of one phenophase to the other phenophases occuring within the same growing season or event from 1 year to the next one: carry over effect. 
+
+The different phenophases are not independant of each other. \
+
+Campoli et al. 2014 found a carryover effect of spring over autumn phenology or even to the next year spring phenology.
+
+Methods: dormant bud: (0), 
+
+swollen bud (1), 
+
+budburst (2), 
+
+leaves folded in a single plan (3),
+
+at least one leaf fully unfolded (4), 
+
+as commonly used for deciduous trees (e.g., Vitasse, Lenz, Hoch, & Korner, 2014).
+
+he observations were conducted on the apical bud of each sapling in each site by the same observer three times a week from March 24, 2014, until all saplings reached the stage 4.
+
+In summer/autumn 2014, while all transplanted saplings were back in their site of origin, we monitored budset on the shoot apical meristem three times a week using four different stages: ongoing leaf development (0), newly formed green and soft bud (1), small and brown bud (2), elongated (>1 cm), and brown bud (3). Budset timing was defined when a given sapling reached the stage 3, which was taken as a proxy for the cessation of the primary growth.
+
+Leaf coloration and leaf fall were also monitored, but we chose to use only budset data in this study as a proxy for growth cessation. The growing season length for each sapling was defined as the time in days between budburst and budset.
+
+Growth and bud morphology
+
+For each sapling, we measured the stem apical diameter (mm), the stem basal diameter at 3 cm from the ground (mm), and the stem length (cm).
+
+Good formulas of calculation for stem volume
+
+**Nonstructural Carbohydrate (NSC) analysis**
+
+Even though sapling phenology doesn't represent adult tree's phenology, they are relevant as they are the future of the next generation in mature forests. Thus the carryover effect for these might not be as strong as for adults becasue they have other factors such as flowering and seed formation that may play a regulating role. 
+
+They found that the induced delay or advance of budburst had a strong impact on the timing of budset, used here as a proxy for primary growth cessation. 
+
+They suggest taht the potential delay in senescence processes due to global warming might be smaller than expected becaue of this positive relationship between spring budburst timin adn atumn phenophases. 
+
+###### Atmospheric brightening counteracts warming-induced delays in autumn phenology of temperate trees in Europe
+
+Recent models predict that in spite of the ongoing warmer autumn trends, leaf senescence might slightly advance rather than delay over the rest of the century. 
+
+In recent years, there has been a reduction in atmospheric pollution and cloud cover that led to significant atmospheric brightening in several regions, with the increased radiation, likely affecting the physiological processes of plants. E.g. increased productivity in Amazon rain forest largely driven by increased solar radiation. 
+
+Increased vegetation growth during the growing season advanced autumn phenology. This can be explained by the carbon sink limitation hypothesis. Check this hypothesis and link it to the carbon sink notes. This suggests that solar radiation might affect autumn phenology through regulating plant productivity
+
+Results presentations:
+
+![Screenshot 2024-11-15 at 11.53.29 AM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_1MDPSG/Screenshot%202024-11-15%20at%2011.53.29 AM.png)
+
+They reveal an antagonistic effect of warming and bruiightening on leaf senescence for the dominant tree species in central Europe. Brithening accelerates the leaf senescence process and reduces the temperature sensitivity of leaf senescence, couteracting the expected warming induced delays in leaf senescence. The photoprotection and sink limitation hypothesis provide plausible explanations for the negative effect of radiation on leaf senescence and declining effect of temperature sensitivity of leaf senescence in response to brightening,
+
+###### Carbon Source Reduction Postpones Autumn Leaf Senescence in a Widespread Deciduous Tree
+
+While temperature has been shown to be an important driver of autumn leaf senescence, carbon source–sink dynamics have been proposed as a mechanism that could help explain variation of this important process. According to the carbon sink limitation hypothesis, senescence is regulated by the interplay between plant carbon source and sink dynamics, so that senescence occurs later upon low carbon inputs (source) and earlier upon low carbon demand (sink).
+
+Over the past decades, established forests have take up over 25% of the carbon emitted by fossil fuel combustion and land use change. Plant is a major determinant of the inter-annual and seasonal variability in carbon assimilation of temperate and boreal forests.
+
+Autumn senescence thought to be driven by temperature and photoperiod, but factors suche as nutrients, water statuses, pathogen infections and air pollution come into play. 
+
+The concept of carbon sink limitation in trees is supported by a study that demonstrated that individuals that leafed out and senesced earlier had high levels of non-structural carbohydrates (NSC)
+
+A lot of evidence indicate that  the timing of leaf senescence is affected by the balance between the plant carbon source and sink.
+
+If the carbon sink exhaustion proves to be a driver of autumn phenology in temperate and boreal forests, this suggests that ESM projections are oversestimating the positive effect of higher temperatures, nutrient depositioin or CO2 fertilication on plant carbon assimilation under global change. 
+
+To test carbon sink: remove mature leaves or elevation of CO2 levels increase the potential for carbon uptake. The carbon sink can also be increased by ferlization or decrease by the rpevention of pollination --> inhitis investment in reproduction. 
+
+According to the carbon sinkl limitation hypothesis, we expect that all measures decreasing the source, or increasing the sink will postpone autumn senescence.
+
+The removal of leafs increased autumn photosynthesis and delayed whole-plant leaf senescence. This supports the carbon sink limitation hypothesis as it suggests that smaller carbon inputs upon a constant sink size delays autumn senescence and the decline in photosynthesis+
+
+###### Chilled to be forced: the best dose to wake up buds from winter dormancy
+
+A lack of chilling does not only affect the time of budburst but could potentially impact tree vitality by decreassing bud survival. With continuing climate change and the winters get warmer, a lack of chilling might lower the sensitivity of trees to spring warming due to insufficient release of dormancy
+
+Chillin duration outweighed the importance of absolute chillin temperatures. This indicates that phenological models of temperate and boreal forests should accoun t for all chilling temperatures below 10C, especially the ones below or above zero. 
