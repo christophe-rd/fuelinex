@@ -10,7 +10,7 @@ Keenan predicted that by each day of advance spring leaf out = uptake of 45kg ca
 
 Piao found carbon losses in longer growing season.
 
-Delayed leaf senescence doesn’t necessarily translate to elevated plant productivity. Warmer springs and summers can also lead to earlier growth cessation. 
+Delayed leaf senescence doesn’t necess
 
 **Ok**
 
@@ -1022,7 +1022,7 @@ Their results suggest that acclimation of phenology has enabled plants to trasns
 
 Estiarte, Marc
 
-Permanent notes;
+**Permanent notes:**
 
 The purpose of leaf senescence is the recovery of nutrients before the leaves fall. 
 
@@ -1098,6 +1098,8 @@ Species whose leaf senescence will be delayed by warming will confront higher ri
 
 ###### Asymmetric effects of cooler and warmer winters on beech phenology last beyond spring
 
+**Permanent note: **
+
 Warmer temperature recorded during the last two decades has resulted in an increase in forcing requirement for budburst of temperate trees in Europe, which is likely the result of insufficient chilling requirement for a full dormancy release or an increasing photoperiodic limitation. 
 
 Most studies focus on a single phenophase and therefore do not consider any potential effect of one phenophase to the other phenophases occuring within the same growing season or event from 1 year to the next one: carry over effect. 
@@ -1140,6 +1142,8 @@ They suggest taht the potential delay in senescence processes due to global warm
 
 ###### Atmospheric brightening counteracts warming-induced delays in autumn phenology of temperate trees in Europe
 
+**Permanent note: **
+
 Recent models predict that in spite of the ongoing warmer autumn trends, leaf senescence might slightly advance rather than delay over the rest of the century. 
 
 In recent years, there has been a reduction in atmospheric pollution and cloud cover that led to significant atmospheric brightening in several regions, with the increased radiation, likely affecting the physiological processes of plants. E.g. increased productivity in Amazon rain forest largely driven by increased solar radiation. 
@@ -1153,6 +1157,8 @@ Results presentations:
 They reveal an antagonistic effect of warming and bruiightening on leaf senescence for the dominant tree species in central Europe. Brithening accelerates the leaf senescence process and reduces the temperature sensitivity of leaf senescence, couteracting the expected warming induced delays in leaf senescence. The photoprotection and sink limitation hypothesis provide plausible explanations for the negative effect of radiation on leaf senescence and declining effect of temperature sensitivity of leaf senescence in response to brightening,
 
 ###### Carbon Source Reduction Postpones Autumn Leaf Senescence in a Widespread Deciduous Tree
+
+**Permanent note: **
 
 While temperature has been shown to be an important driver of autumn leaf senescence, carbon source–sink dynamics have been proposed as a mechanism that could help explain variation of this important process. According to the carbon sink limitation hypothesis, senescence is regulated by the interplay between plant carbon source and sink dynamics, so that senescence occurs later upon low carbon inputs (source) and earlier upon low carbon demand (sink).
 
@@ -1174,6 +1180,82 @@ The removal of leafs increased autumn photosynthesis and delayed whole-plant lea
 
 ###### Chilled to be forced: the best dose to wake up buds from winter dormancy
 
+**Permanent note: **
+
 A lack of chilling does not only affect the time of budburst but could potentially impact tree vitality by decreassing bud survival. With continuing climate change and the winters get warmer, a lack of chilling might lower the sensitivity of trees to spring warming due to insufficient release of dormancy
 
 Chillin duration outweighed the importance of absolute chillin temperatures. This indicates that phenological models of temperate and boreal forests should accoun t for all chilling temperatures below 10C, especially the ones below or above zero. 
+
+
+
+
+
+### 18 November
+
+###### Changes in autumn senescence in northern hemisphere deciduous trees: a meta-analysis of autumn phenology studies
+
+**Permanent note:**
+
+Meta analysis of autumn phenology
+
+October temperatures were the strongest predictors of senescence date, followed by cooling degree-days, latitude, photoperiod and monthly precipitation. The strength of the relationships differed between high and low latitude sites. 
+
+Autumn senescence has been more delayed at low (25 to 49N) than high (50 to 70) latitudes. Because high latitudes sites are more sensitive to photoperiod *to cross reference to the notes about this subject.*
+
+Senescence delays in North America>Asia and Europe.
+
+Leaf senescence completes the growing season for deciduous trees and factors tha lengthen the period of plant photosynthesis and increase rates of growth primary productivity could contribute to reduced atmospheric CO2 concentrations to enhanced carbon sequestration in terrestrial plants. 
+
+In addition to site-level meteorological factors, the timing of spring leaf-out would be linked to autumn leaf senescence.
+
+List of metrics used to measure leaf senescence. The one that was the most popular: 50% of leaf fall, 100% leaf fall, NDVI (Normalized difference vegetation index), 80% leaf fall, 50% green, 50% colour change, 0% green, 50% YELLOW. 
+
+Compared to low-latitude ecosystems, high latitude will get the largest increases in temperature over the next century. Photoperiod will remain the same. These asynchronous changes in meteorological factors may affect plant communities and their role in carbon sequestration. E.g. southerly species migrate north in response to higher temperature, these will lengthen their photosynthetic period while native, photoperiod-dependant northerly species may show less flexibility in the timing of leaf senescence, affecting competitive dynamics within plant communities. *Photoperiod constraints on leaf senescence, as it was part of the highly cited papers*
+
+We need to consider the biological releveance of senescence metrics because there can be species-specific relationships between the end of the photosynthetic period and date of leaf fall. Thus, leaf senescence is a combination of biodegradation and nutrient resorption, deciduous trees show a large decline in photosynthetic activity long before they drop their leaves. 
+
+Plants in the orders of Fagales and Rosales respond the most to increases of air temperatures. (oak, birch, beech, carya)
+
+###### Contrasting responses of autumn-leaf senescence to daytime and night-time warming
+
+**Permanent note:**
+
+Their models shows that incorporating day time and night time, rather than temperature alone is really important. They predict an earlier LSD unlike what has been reported. It could be an unrecognized positive feedback to climate change and could potentially weakends the capapability of terrestrial ecosystems to uptake carbon. 
+
+###### Delayed autumn phenology in the Northern Hemisphere is related to change in both climate and spring phenology
+
+**Permanent notes:**
+
+Studies have reported positive correlations between day length and/or light intensity and EOS dates. However, the physiological mechanism of light regulatioin of EOS is still unclear due to the difficulty in separating the effects of day length and light intensity.
+
+They found that a warming climate in summer/autumn delayed EOS date in most of Northern hemisphere, especially in cold region. This positive effect is likely related to the warming-induced enhancement of activities of photosynthetic enzymes, to the reduced speed of chlorophyll degradation, to the reduced probability of bering exposed to frost in autumn, or to the increased potential for growth and photosynthetic consumption. 
+
+Mechanims proposed to explain the carryover effects of SOS on EOS (i.e. earlier start of season is followed by an earlier date of EOS):
+
+1: Timing of leaf senescence was reported to be constrained by factors associated with leaf traits directly, such as leaf life span and programmed cell death.
+
+2: earlier spring might lead to soil water loss in the early part of growing season, thereby increasing the prevalence of dought during summer --> result in early leaf senescence
+
+3: Earlier leaf emergence may increase the risk of being exposed to spring frost and the oubreak of harmful insects which may be related to earlier leaf sencesnce.
+
+4: Correlation between SOS and EOS may be related to the limitation in the size of the plants' carbon sink: earlier accumulation of nonstructural carbohydrate in spring might have contributed to the earlier achievement of its max carbon content in autumn
+
+However, the relation of SOS on EOS < climatic variables across all bioomes and even in areas with deciduous forest.
+
+###### Divergent responses of phenology and growth to summer and autumnal warming
+
+**Permanent note:**
+
+Warming in result to climate change is not seasonally uniform and substantial asymmetric seasonal warming has been reported not only for high latitudes, but also for temperate regions. 
+
+Changes in plant phenology alter the GS length with consequent influence on ecosystem structure and functioning, such as plant productivityt and carbon and nutrient cycling
+
+They showed delayed autumn senescence in response to warmer temperature becaue of the activity of photosynthetic enzymes that could be maitained at a a higher level under warmer conditions in autumn. The degradation rate of chlorophyll would decrease and timming of senescnece would be delayed.
+
+Warmer autumn led to increased growth of seedlings. This may result in 2 causes:
+
+1. delayed leaf senesnce increases photosynthetic carbon gains due to the later degradation of chlrioophyll and extends the growing season(source-driven timing of foliar senescence)
+
+2. Higher temperatures extend the growth of wood and leadf to a later foliar senescence (sink-driven timing of foliar senescence)\
+
+They showed that the timing of autumn senescence and growth respond differentailly to nonuniform seasonal warming.
