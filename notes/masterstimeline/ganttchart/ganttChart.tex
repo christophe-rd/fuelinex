@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{pgfgantt} % For Gantt charts
+\usepackage{geometry} % For custom page geometry
+\usepackage{xcolor}
+\title{Master's timeline}
+
+\geometry{%
+  paperheight=11in,
+  paperwidth=13in,
+  top=1in,
+  bottom=1in,
+  right=0.1in,
+  left=0.1in,}
+\begin{document}
+
+\begin{figure}[tbp]
+    \begin{center}
+    \begin{ganttchart}[y unit title=0.4cm,
+    y unit chart=0.5cm,
+    vgrid,hgrid, 
+    title label anchor/.style={below=-1.6ex},
+    title left shift=.05,
+    title right shift=-.05,
+    title height=1,
+    progress label text={},
+    bar height=0.7,
+    group right shift=0,
+    group top shift=.6,
+    group height=.3]{1}{44}
+    %labels
+    %sum of 44
+    \gantttitle{2024}{4}
+    \gantttitle{2025}{24}
+    \gantttitle{2026}{16}
+     \\
+    \gantttitle{Nov-Dec}{4} 
+    \gantttitle{Jan-Feb}{4} 
+    \gantttitle{Mar-Apr}{4}
+    \gantttitle{May-Jun}{4}
+    \gantttitle{Jul-Aug}{4}
+    \gantttitle{Sep-Oct}{4} 
+    \gantttitle{Nov-Dec}{4}
+    \gantttitle{Jan-Feb}{4} 
+    \gantttitle{Mar-Apr}{4}
+    \gantttitle{May-Jun}{4}
+    \gantttitle{Jul-Aug}{4}
+\\
+    %tasks
+    \ganttbar[bar/.append style={fill=cyan}]{Classes}{1}{28} \\ %ok
+    \ganttbar[bar/.append style={fill=red}]{Cookie project - sample processing}{1}{6} \\
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex repotting}{5}{10}\\ % ok
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex - diameter/height measurements}{5}{10}\\
+    \ganttbar[bar/.append style={fill=cyan}]{Comittee prep + meeting}{6}{10} \\
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex - phenology measurements}{11}{24}\\
+    \ganttbar[bar/.append style={fill=yellow}]{Tree spotters - sample collection}{9}{9}\\
+    \ganttbar[bar/.append style={fill=yellow}]{Tree spotters - sample processing}{10}{12} \\
+    \ganttbar[bar/.append style={fill=orange}]{Cookie Spotters - results}{13}{18} \\ % find another name
+    \ganttbar[bar/.append style={fill=orange}]{Cookie Spotters - manuscript}{19}{22} \\
+    \ganttbar[bar/.append style={fill=orange}]{Cookie Spotters - submission}{23}{23} \\
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex - harvest}{21}{24} \\
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex - sample processing}{21}{28} \\
+    \ganttbar[bar/.append style={fill=}]{Fuelinex - tree ring analyses?}{29}{30} \\
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex - results}{29}{32} \\
+    \ganttbar[bar/.append style={fill=teal}]{Fuelinex - manuscript}{24}{34} \\
+    \ganttbar[bar/.append style={fill=cyan}]{Master's - 1st draft to Lizzie}{33}{35} \\
+    \ganttbar[bar/.append style={fill=cyan}]{Master's - draft manuscript edits}{36}{40} \\
+    \ganttbar[bar/.append style={fill=cyan}]{Master's - final manuscript submission}{41}{42} 
+    \end{ganttchart}
+    \end{center}
+    \caption{Christophe RD Master's timeline}
+
+\end{figure}
+\end{document}
