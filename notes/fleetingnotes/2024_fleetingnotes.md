@@ -1186,10 +1186,6 @@ A lack of chilling does not only affect the time of budburst but could potential
 
 Chillin duration outweighed the importance of absolute chillin temperatures. This indicates that phenological models of temperate and boreal forests should accoun t for all chilling temperatures below 10C, especially the ones below or above zero. 
 
-
-
-
-
 ### 18 November
 
 ###### Changes in autumn senescence in northern hemisphere deciduous trees: a meta-analysis of autumn phenology studies
@@ -1259,3 +1255,37 @@ Warmer autumn led to increased growth of seedlings. This may result in 2 causes:
 2. Higher temperatures extend the growth of wood and leadf to a later foliar senescence (sink-driven timing of foliar senescence)\
 
 They showed that the timing of autumn senescence and growth respond differentailly to nonuniform seasonal warming.
+
+### 22 November
+
+###### Effect of climate warming on the timing of autumn leaf senescence reverses after the summer solstice
+
+Early season warming, causing earlier spring leaf-out and faster growth and tissue maturation tends to advance EOS dates. Late season warming has the opposite effect i.e. delaying EOS. Increased temperatures and physiological early in the seasonmight drive earlier leaf senescence through a variety of mechanisms, including developmental and nutrient constraints, seasonal buildup of water stress and radiation induced leaf aging.In contrast, later in the season, a direct effect of temperature is likely to drive the timing of leaf senescence. If both are correct, then climate warming ahs opposing effects at the start and end of the growing season with a reversal of effects somwhere in between. 
+
+The progression of senescence should be slowed down by warmer autumns, lengthening the overall senescence period
+
+Their results show that the onset of senescence is driven by pre-solstice vegetation activity and development, while the speed of its progfression depends on autum temperature.
+
+When they removed the effect of pre-solstice temeprature or photosynthesis on senescence onset, by including the variable as a fixed effect, the model predicted delays in EOS10 dates of 0.8 to 1.4 days per decade. Which highlights how strong pre-solstice vegetation activity that is driven by temperature affects the start of senescence.
+
+They reveal that the productivity before the summer solstce is linked to early senescence dates accross the whole northen hemisphere. This implies a widespread constraint on future growing-season extensions in response to global warming. This contradicts european research suggesting a negative feedback between growing-season productivity driving earlier senesncece.
+
+###### Impact of microclimatic conditions and resource availability on spring and autumn phenology of temperate tree seedlings
+
+A major limitation of plant physiological and phenological studies carried out under natural conditions is that they usually use the temperature from weather station. However, the microclimate in forests or near buds acan largely deviate from 2m heigh air temperature. 
+
+The sensitivity of leaf senescence to environmentasl stress appears to depend on species' resistance strategies and the severity of the stressor, which can le;ad to constrastng results among co-existing trees
+
+Methods: We We estimated the above-ground biomass using the allometric equation provided by Annigh  ̈ ofer et al. (2016) as follows:
+
+![Screenshot 2024-11-22 at 11.52.14 AM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_TwjpX1/Screenshot%202024-11-22%20at%2011.52.14 AM.png)
+
+Results:
+
+![Screenshot 2024-11-22 at 11.56.53 AM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_GZXERb/Screenshot%202024-11-22%20at%2011.56.53 AM.png)
+
+Increased nutrient availability was found to delay leaf senescence in Populus trichocarpa. Therefore, senescence, appears to be largely driven by the interaction between nutrient, particularly nitrogen and carbon supply. High nutrietns will therefore allow trees to maintain source activity (photosynthesis) for a longer time and shed their leaves later. However, no biomass increment was found in their experimentfor the freilised treatments.
+
+They found that reduced light delayed leaf senescence of ash, cherry and beech with a reduction of biomass increment.  Can be explained by the sink limitastion hypothesis. I.e. shaded conditions over summer led to reduced carbon uptake  due to lower photosynthetic activity and subsequently delayed the senescence process. 
+
+They showed the importance of microclimatic conditions, especially solar radiation  in regulating buburst and leaf senesence 
