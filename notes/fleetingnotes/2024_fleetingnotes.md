@@ -1289,3 +1289,71 @@ Increased nutrient availability was found to delay leaf senescence in Populus tr
 They found that reduced light delayed leaf senescence of ash, cherry and beech with a reduction of biomass increment.  Can be explained by the sink limitastion hypothesis. I.e. shaded conditions over summer led to reduced carbon uptake  due to lower photosynthetic activity and subsequently delayed the senescence process. 
 
 They showed the importance of microclimatic conditions, especially solar radiation  in regulating buburst and leaf senesence 
+
+### 25 November
+
+###### An earlier start of growing season can affect tree radial growth through regulating cumulative growth rate
+
+**Permanent notes:**
+
+The extent at which tree xylem growth will respond to warming and precipitation changes remains to be explored. Yes it is a fundamental question to predict the impacts of climate change on forest growth. 
+
+Xylem growth in tree trucks (what the fuck is that) sequestrates the carbohydrate produced by leaf photosynthesis, which contributes to the long-term carbon storage of forests. Therefore, annual xylem growth is charactreized as periodic cambium activity and its relationships with climate factors has been reported extesnively adn atracted great attention. E.g. temperature triggers cambium activity in Northern Hemiusphere conifers. Also, recent studies suggest that photoperiods play an important role in controlling the spring growth initiation. 
+
+We can observe xylem growth dynamics by monitoring micro-cores on a fine spatial-temporal scale, but long-term and continuous monitoring is expensive and labor-consuming, expecially in cold regions. 
+
+They found a method based on process-based VS-model that comineds temperature, precipitation and photoperiod. The simulation results are more accurate. 
+
+Phenology helps us obtain the duration of the growing season, which determiens the amount of time available to develop functional xylem throught cell maturation and lignification. 
+
+A recent study shows that an early season can promote tree growth in cold humid areas but inhibit tree growth in dry areas. Droughts caused by warming have led to a decline in tree growth in many regions, including the northern hemisphere. Drought may lead to xylem embolism, which affects water transport,  reduced water use efficiency, reduces tree growth and increases the possibility of disease and insect pests. 
+
+Other studies showed that the beneficial effects of spring warmth on GS productivity were offset by carbon losses due to water stress in summer and autumn.
+
+Growth rate has a more direct influence on tree growth than the growing season length. Growth rate is complex and regulated by various envrionemental factors. In boreal forests, warming-induced earlier growth recovery has a positive effect on tree radial growth.
+
+Studies have found that precipitation of the early seasonm, might have a more direct effect on tree growth by affecting teh rate of cambium cell division and enlargment. 
+
+They showed that in their northen region, radial growth was promoted by advanced SOS, but no effect in the south.
+
+###### Cold adaptation recorded in tree rings highlights risks associated with climate change and assisted migration
+
+**Permanent notes:**
+
+Environmental changes are going faster than plant populations can adapt. This mis-match is expected to destabilize ecosystems by decreasing productivity while increasing mortality. Maladapted plant populations may further contribute to climate change through reduced carbon sequestration or may even turn into significant source of CO2. To mitigate such consequences, assisted migration has been proposed for reforestation programs.
+
+Assisted migratiopn involves changing the genetic composition of plant populations by moving seed material to climate regions where they are anticipated to be well adapted in the future. 
+
+Growing northern seed sources at southern planting sites involves a climate transfer that can simulate projected warming, with the growth response being predictive of future performance under realisistic long-termin field conditions. Conversely, moving sourthern seeds to the north can test the performance of warm-adapted populations under currerntly colder environments, thereby suggesting limits to seed transfer. 
+
+Tree rings can provide additional information for evaluating cold adaptation since they provide a record of how past cliamte has influenced growth. 2 anatomical features have been linked to cold and frost: 1. layers of deformed, collapsed tracheids and traumatic parenchyma cells (frost rings). Frost years during which there was frosts in periods of cambium activity. 2. Light rings consist of layers of cells that are incompletely lignified and have been associated with frost events that kill the cells before teh lignification process is complete. 
+
+Methods: figure 2 for results of proveance trial
+
+###### Differentiation and Non-Linear Responses in Temporal Phenotypic Plasticity of Seasonal Phenophases in a Common Garden of Crataegus monogyna Jacq.
+
+**Permanent notes:**
+
+All individuals in a common garden share the same envionement, any average difference in a trait between provenances of the same species has a genetic origin. 
+
+Within populations, individual trees display variabale timing of bud burst, which is suggested to have genetic cause. Individual trees  in a population can teherfore be cataegorized as early intermediate and late pehnological forms.
+
+No relationship between the timing of cambial activity and bud burst in Quercus robur. 
+
+The emergence and growth of new spring foliage in temperate deciduous trees relies strongly on the nutrients that were resorbed during the preceding leaf senescence.
+
+In 59 species, the timing of autumn senescence displayed a pattern according to the climatic clines of the home-sites of the studies populations, which was clearer than the pattern observerd in bud burst timing. 
+
+Leaves that emerged after a late spring frosdt in beech and oak displayed a higher photosynthesis rate and a delayed leaf senescence in autumn, compensating for spring frost damage and demonstrating that long-lived trees can adadt their autumn phenology depending on preceding productivity. 
+
+Phenotypic plasticity: range of phenotypes taht a plant can express as a function of teh environement. Genetically controlled, heritable phenotypic plasticity has the potential to influence plant evolution. Species that can adjust their pheno resposnes to warming spring by earlier bud burst or earlier flowering show better performance when compared to less responsive species. 
+
+Methods: cool table to describ phenophases
+
+###### Interpreting common garden studies to understand cueing mechanisms of spring leafing phenology in temperate and boreal tree species
+
+In temperate and boreal regions, both photoperiod and light spectral properties (both red and far red(R:FR) and blue wavelenghts) change in greographically complicated ways during the perioid affecting leafing phenology.
+
+Apart from dawn and dusk, daytime R:FR is very constant at ground level, and is barely afgfected by clouds
+
+R:FR affects plants via phytochromes, the main photoreceptors actrive at long wavelengths. They switch from with exposure to different rations of red and far red light. This physiology affects phenology
