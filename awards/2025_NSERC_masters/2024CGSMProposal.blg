@@ -1,47 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2023)
+This is BibTeX, Version 0.99d (TeX Live 2024)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: 2024CGSMProposal.aux
-The style file: amnat.bst.bst
+The style file: nature.bst
 Database file #1: 2024-CGSM.bib
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 13 entries,
-            3251 wiz_defined-function locations,
-            744 strings with 8001 characters,
-and the built_in function-call counts, 9484 in all, are:
-= -- 749
-> -- 614
-< -- 4
-+ -- 209
-- -- 192
-* -- 736
-:= -- 1546
-add.period$ -- 55
-call.type$ -- 13
-change.case$ -- 132
-chr.to.int$ -- 13
-cite$ -- 13
-duplicate$ -- 648
-empty$ -- 581
-format.name$ -- 235
-if$ -- 1840
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 143
-newline$ -- 72
-num.names$ -- 52
-pop$ -- 269
+You've used 12 entries,
+            1865 wiz_defined-function locations,
+            534 strings with 6557 characters,
+and the built_in function-call counts, 3440 in all, are:
+= -- 300
+> -- 213
+< -- 0
++ -- 75
+- -- 63
+* -- 370
+:= -- 589
+add.period$ -- 39
+call.type$ -- 12
+change.case$ -- 12
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 106
+empty$ -- 272
+format.name$ -- 63
+if$ -- 702
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 12
+newline$ -- 66
+num.names$ -- 12
+pop$ -- 9
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 0
 quote$ -- 0
-skip$ -- 161
+skip$ -- 40
 stack$ -- 0
-substring$ -- 424
-swap$ -- 309
+substring$ -- 262
+swap$ -- 12
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 117
+type$ -- 0
 warning$ -- 0
-while$ -- 60
-width$ -- 0
-write$ -- 178
+while$ -- 32
+width$ -- 14
+write$ -- 140
