@@ -1357,3 +1357,106 @@ In temperate and boreal regions, both photoperiod and light spectral properties 
 Apart from dawn and dusk, daytime R:FR is very constant at ground level, and is barely afgfected by clouds
 
 R:FR affects plants via phytochromes, the main photoreceptors actrive at long wavelengths. They switch from with exposure to different rations of red and far red light. This physiology affects phenology
+
+### 29 November
+
+###### Seed transfer and climate change effects on radial growth of jack pine populations in a common garden in Petawawa, Ontario, Canada
+
+Method: common garden study. They did a provenance trial and took cores at 50 cm above ground to ensure a maxium number of tree rings. They used a 0.04 linear resolution step size for measurements.M
+
+Annual basal area increment per tree (TRA) in the year n was calculated as a non-linear function of the cumulative tree radius (R) in the year n1 and tree-ring width (TRW) in the year n. They present a basal tree-ring area increment for each tree ring. 
+
+They excluded the first years of rings to to 1. avoid the distinct trend related to tree age in the early years and 2. Allow erxtension of our growth seed-source orgigin models to tree-ring date
+
+- **Tree-ring width** measures the thickness of a 
+  single year's growth ring. This can vary depending on tree species, 
+  environmental conditions, and other factors.
+
+- **Basal area** is the cross-sectional area of the trunk at a specific height, usually 
+  expressed in square centimeters or square meters. It is calculated as:
+
+- **Basal Area Increment** quantifies the change in basal 
+  area from one year to the next. This allows researchers to assess how 
+  much growth the tree adds annually in terms of trunk cross-section, not 
+  just linear growth. It reflects the tree's overall volume or biomass 
+  accumulation more accurately than ring width alone
+
+Radial growth represents actual, integrated measures of tree and stand wood production. Studies of this characteristic over long periods of time increases the reliability of modeling efforts and conclusions. They showed that the southern seed sources could out-perform local populations in diameter and height growth. Southern seed sources might be better adapted to warming temperatures.
+
+###### Tree rings provide a new class of phenotypes for genetic associations that foster insights into adaptation of conifers to climate change
+
+Two genomic strategies are commonly used to search for genes involved in local adaptation to climate:
+
+1. Genotype-environment ssociation (GEA) method that looks for correlations between genetic markers and envionmmental variables from where populations/individuals originate
+   
+   1. Does not provide information about the phenotypic traits controlled by the candidate genes.
+
+2. Genotype-phenotype assocation ; GPA: test for associations between genotypes growing in a common environmment and traists of interest
+   
+   1. Has the advantage of establishing more direct links between genes and traits potentially under selection
+   
+   2. Disadvantage: in tree species, the list of functional traits that closly reflect adaptation to climate is still rather limited and labor intensive. 
+
+Dendroecology: cambial activity is an integrative indicator that accounts for physiological mechanisms such as responses to drought stress, phenology of dormancy and resistance to freezing injuries.
+
+Definition of provenance: geographic and climatic origin of a population and the term "population" when referring to the trees grown from seed sampled at the provenance 
+
+Cool figure to descrive the treer-ring trait assests in establishing the links betweeen genotypes, phenotypes and evenionemental selection pressures acting on trees.
+
+Tree ring phenotypes for association genetics: 
+
+Type A: basal area increment (BAI)
+
+Type B: Growth response to past extreme climatic events
+
+Type C: climate sensitivity : relationship between growth time series and climatic fluctuations
+
+Methods: Cool figure showing BAI RAW chronologie, standardised and mean ring density as a function of year and including mean annual temperature of the provenance MATp
+
+They showed that tree-ring traits measured in common garden experiments offer great potential to unravel local adaptation in forests trees through a fine-scale retrospective and dynamic view of tree resposnes to past environmental variations
+
+###### Tree-rings to climate relationships in nineteen provenances of four black pines sub-species (Pinus nigra Arn.) growing in a common garden from Northwest Tunisia
+
+Tree rings are very reliable indicators of forest health and decline. However, a large amount of factors contribute to ring-width variations which must be removed by standardization procedures from ring-width series in order to isolate the influence of climate. 
+
+Methods: All cores were mounted on wooden supports and thoroughly polished with progressively finer sand paper.
+
+###### Cambial phenology, wood formation and temperature thresholds in two contrasting years at high altitude in southern Italy
+
+During the growing season, some variability exists in growth onset and duration becasue of intra-annual differences in weather, with cambium reactivation in spring being highly dependant on temperature.  Wood formation involves cambial cell division and cell expansion followed by secondary wall production. They are regulated by gene expression and hormonal signals, but also environmental factors, such as temperature and precipitation. They ask the question whether there is a link between changes in cambial phenology and intraannual wood formation. E.g. changes in duration of wood formation induced by a change in cambial phenology might result in modification to ring-width formaiton.
+
+They showed that temperature tresholds in contrasting springs provide strong evidence that temperature largeely determines the onset,  cessation and duration of wood formation.
+
+They showed taht spring temperatures modify the duration of xylogenesis which had a daily mean air `temperature` treshold of 8C. 
+
+### 2 December
+
+###### Tree-ring variation, wood formation and phenology of beech (Fagus sylvatica) from a representative site in Slovenia, SE Central Europe
+
+The application of densitometry showed that within and between year density variations in beech provide more information at higher temporal resolution than tree-rings only. 
+
+Analysis of wood anotomy provides better resolution since the morphology of the cells records the effects of different factors on a finer scale during the time of wood formation. 
+
+In Northern Germany, wood formation data weas combined with pheno data (Schhmitt et al. 2000) and in the Netherlands with long term tree ring and climate (Werf van der et al. 2007)
+
+Beech. They showed that peak wood formation happened from the end of May to the beginning of June which is more than 2 weeks before the summer solstice. Wood formation in the Netherlands ended in October and in the Netherlands in September.  
+
+###### Tree-rings, genetics and the environment: Complex interactions at the rear edge of species distribution range
+
+The climatic signal captured in tree-ring series is stronger in a stressful or constrained environment
+
+They showed that the genetic background of Pinus cembra had limited influence on the interannual fluctuations of radial tree growth and their resposnes to climatic variability
+
+###### Where, why and how? Explaining the low-temperature range limits of temperate tree specie
+
+They hypothesized that seed set will be diminished, seed quality and viability will be reduced and germination will be less successful in high compared to low-elevation seed provenances was falsified.  No evidence that reproductive potential at the upper range llimit is diminished under current climate conditions (for the species they studied. )
+
+Radial growth of their trees always correlated with growing season mean temperatur, irrespective of elevation. The annual variation of the length of the GS has an effect on radial growth only when temperatures are generally warmer. Because the timew required for new cell formation increases nonlineraly with decreasing temperatures., a longer season at low temperatures will only produce few additional cell rows, whereas a longer season at high temperatures can produce many more cell rows, particularly when spring is warm --> sets the size of the cambial zone. 
+
+Their common garden experiments revealed small, but consisten genetic differentiation of spriong phenology among provenances of seedlings originating from different elevations,e xcept for the treeline species which underlines the importance of the timing of growth and development for tree success. Fagus Sylvatica from high elevation provenances flushed earlier than those at low elevations as observed previously. 
+
+Provenances from high elevations tended to set their buds earlier in autumn than low provenances. 
+
+Overall, phenology of populations from high elevations was less responsive to temperature and presumably more strongly tied to chilling requirements and or photoperiod than in populations from low elevations 
+
+Cool picture of the triangular control of species range limiets which outlines the species-specific trade-off between 1. Risk of freezing damage in spring, 2. Risk of tentering the dormant season with immature tissue 3. Timing of spring phenology.=
