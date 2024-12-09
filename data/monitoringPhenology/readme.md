@@ -70,6 +70,8 @@ All spreadsheets are both in xlsx and csv. The former is to facilitate data coll
 
 *This list goes on until the end of senescence monitoring*
 
-
-
 Once a tree didn't have green leaves or no more leaves attached to it, chlorophyll measurements were nas and percent was 0. 
+
+### 4 December
+
+Last day of senescence monitoring is 4 December 2024. Some Pobas haven't lost all of their leaves, so all the individuals without "last leaves fell" are not NAs, they just stil have leaves on. 
