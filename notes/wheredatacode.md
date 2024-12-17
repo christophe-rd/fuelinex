@@ -1,17 +1,20 @@
-*Date of study*  
-Enter when study happened here (e.g., January-June, 2015)
+##### *Date of study*
 
-*Date of Public Archiving:*  
-Enter when data should be (or was) publicly-archived following lab data management plan.  
-*Last Modified:*  
+February 2024 -- >
 
-06 Dec 2024
+##### *Date of Public Archiving:*
 
-*Goal*
+NA
+
+#### *Last Modified:*
+
+17 Dec 2024
+
+#### *Goal*
 
 Investigate how extended growing seasons influence tree's capacity to grow to following year. And also get a Master's degree!
 
-*Contributors*
+#### *Contributors*
 
 Lizzie
 
@@ -33,29 +36,26 @@ Mark
 
 Julie Sieg
 
-*General Files*
+#### *General Files*
 
-| **File**                    | **Where**                                                                                                                                             | **What**                    |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| Explain what is in the file | Give a backed-up place where the data are (e.g., Wolkovich Lab Google Drive, WeldShare, Odyssey lab folder; github is okay). Link to item if possible | Explain what is in the file |
+*not yet added* 
 
-*Data and Code*
+| **File**             | **Where** | **What**                                                                  |
+| -------------------- | --------- | ------------------------------------------------------------------------- |
+| greenHouseDesign.pdf |           | Greenhouse arrangement by blocs for Fuelinex 2024. Might change for 2025. |
 
-Give info on how to track down all locations given in table below (even if link fails). Two good examples given below -- delete these for your file!
+#### *Data*
 
-**Github** [https://github.com/lizzieinvancouver/buds/tree/](https://github.com/lizzieinvancouver/buds/tree/master/analyses/data)  
-**W: drive** Weldshare > Wolkovich Lab > Budburst Experiment 2015
-
-| **File**                        | **Where**                                                                                                                       | **What**                                                                                                                                                                           |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hoboLight (folder)              | /fuelinex/data/hoboLight/                                                                                                       | Hobo loggers that were set up at totem field and in the growth chambers                                                                                                            |
-| hoboTemp (folder)               | /fuelinex/data/hoboTemp/                                                                                                        | Hobo loggers that were set up at totem field and in the growth chambers                                                                                                            |
-| 2024MiscellaneousMonitoring.csv | [Github](https://github.com/christophe-rd/fuelinex/tree/07ce6a790eb73b4769eb29ebcd92ede950735c65/data/miscellaneous_monitoring) | miscellaneous monitoring spreadsheet. This is a condensed version of the different problems trees have had so far in 2024. E.g. dead apical shoot, chlorosis, light stress, mildew |
-| 2024BudburstToBudset.csv        | [Github](https://github.com/christophe-rd/fuelinex/tree/07ce6a790eb73b4769eb29ebcd92ede950735c65/data/monitoring_phenology)     | Bi-weekly, weekly monitoring of phenological events for 2024 from budburst, to leaf unfolding to budset.                                                                           |
-| 2024Senescence.csv              | [Github](https://github.com/christophe-rd/fuelinex/tree/07ce6a790eb73b4769eb29ebcd92ede950735c65/data/monitoring_phenology)     |                                                                                                                                                                                    |
-| TotemField_30Years.csv          | [Github](https://github.com/christophe-rd/fuelinex/tree/71c1dd92573e9d1b47a0c1c4bd5273476025bbb1/data/totemFieldClimateData)    |                                                                                                                                                                                    |
-| Jun2024TreeInventory.csv        | [Github](https://github.com/christophe-rd/fuelinex/tree/71c1dd92573e9d1b47a0c1c4bd5273476025bbb1/data/treeInventory)            | inventory of leftover trees next to the greenhouse                                                                                                                                 |
-| TreeMeasurements.xlsx           | [Github](https://github.com/christophe-rd/fuelinex/tree/71c1dd92573e9d1b47a0c1c4bd5273476025bbb1/data/treeMeasurements)         | Diameter and height measurements                                                                                                                                                   |
+| **File**                                                                                                                                                                                                                                                                                                     | **Where**                                                                                                                       | **What**                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hoboLight (folder). 22 files according to their position in the greenhouse. B1, B2, B3 and roof. See greenHouseDesign.pdf for the greenhouse organization. Structure as follows: *BX_loggerID dateLogged 13_56_34 PDT (Data PDT)(1).csv*                                                                     | /fuelinex/data/hoboLight/                                                                                                       | Hobo loggers that were set up at totem field and in the growth chambers. Each date folder contains the data when it was logged in as a back-up.                                    |
+| hoboTemp (folder). 5 files recording the temperature log in the climate chambers for the CoolSpring treatments in 2024, followed by the temperature recording at Totem.  See greenHouseDesign.pdf for the greenhouse organization. Structure as follows: **needs to be updated when I am back in Vancouver** | /fuelinex/data/hoboTemp/                                                                                                        | Hobo loggers that were set up at totem field and in the growth chambers. Each date folder contains the data when it was logged in as a back-up.                                    |
+| 2024MiscellaneousMonitoring.csv                                                                                                                                                                                                                                                                              | [Github](https://github.com/christophe-rd/fuelinex/tree/07ce6a790eb73b4769eb29ebcd92ede950735c65/data/miscellaneous_monitoring) | miscellaneous monitoring spreadsheet. This is a condensed version of the different problems trees have had so far in 2024. E.g. dead apical shoot, chlorosis, light stress, mildew |
+| 2024BudburstToBudset.csv                                                                                                                                                                                                                                                                                     | [Github](https://github.com/christophe-rd/fuelinex/tree/07ce6a790eb73b4769eb29ebcd92ede950735c65/data/monitoring_phenology)     | Bi-weekly, weekly monitoring of phenological events for 2024 from budburst, to leaf unfolding to budset.                                                                           |
+| 2024Senescence.csv                                                                                                                                                                                                                                                                                           | [Github](https://github.com/christophe-rd/fuelinex/tree/07ce6a790eb73b4769eb29ebcd92ede950735c65/data/monitoring_phenology)     |                                                                                                                                                                                    |
+| TotemField_30Years.csv                                                                                                                                                                                                                                                                                       | [Github](https://github.com/christophe-rd/fuelinex/tree/71c1dd92573e9d1b47a0c1c4bd5273476025bbb1/data/totemFieldClimateData)    |                                                                                                                                                                                    |
+| Jun2024TreeInventory.csv                                                                                                                                                                                                                                                                                     | [Github](https://github.com/christophe-rd/fuelinex/tree/71c1dd92573e9d1b47a0c1c4bd5273476025bbb1/data/treeInventory)            | inventory of leftover trees next to the greenhouse                                                                                                                                 |
+| TreeMeasurements.xlsx                                                                                                                                                                                                                                                                                        | [Github](https://github.com/christophe-rd/fuelinex/tree/71c1dd92573e9d1b47a0c1c4bd5273476025bbb1/data/treeMeasurements)         | Diameter and height measurements                                                                                                                                                   |
 
 | Cleaned file                  | Where                                                                                                                                   | What                                                                                         |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -71,8 +71,6 @@ Give info on how to track down all locations given in table below (even if link 
 |                |                                                                                                                                 |                                                          |
 |                |                                                                                                                                 |                                                          |
 |                |                                                                                                                                 |                                                          |
-
-
 
 **Possible Extras:**
 
