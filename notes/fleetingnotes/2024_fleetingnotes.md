@@ -650,7 +650,7 @@ Species don't all respond to changing temperature in the same way and there is a
 
 ###### Phenology Under Global Warming
 
-**Permanent note:**
+**Permanent note: YES**
 
 Christian Körner
 
@@ -664,7 +664,7 @@ Oppotunistic taxa may profit from a warmer climate and may thus gain a competitv
 
 ###### Photoperiod constraints on tree phenology, performance and migration in a warming world
 
-**Permanent note:**
+**Permanent note: YES**
 
 Way, Danielle
 
