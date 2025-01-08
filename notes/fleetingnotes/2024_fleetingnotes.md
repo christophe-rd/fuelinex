@@ -668,7 +668,7 @@ Oppotunistic taxa may profit from a warmer climate and may thus gain a competitv
 
 Way, Danielle
 
-Warming will not be distributed equally across the globe. Higher latitude regions will warm more than equatorial regions, with mean annual temperatures in artic regions predicted to warm by 8.3C and summer temperatures in broeal regions by 6C by the highest emission scenario by 2100 
+# Warming will not be distributed equally across the globe. Higher latitude regions will warm more than equatorial regions, with mean annual temperatures in artic regions predicted to warm by 8.3C and summer temperatures in broeal regions by 6C by the highest emission scenario by 2100
 
 Warming experiments show that increased temperature will affect tree growth with direct effects on plant physiology. These effects are positive fro deciduous species and negative for evergreen. 
 
