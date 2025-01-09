@@ -668,7 +668,7 @@ Oppotunistic taxa may profit from a warmer climate and may thus gain a competitv
 
 Way, Danielle
 
-# Warming will not be distributed equally across the globe. Higher latitude regions will warm more than equatorial regions, with mean annual temperatures in artic regions predicted to warm by 8.3C and summer temperatures in broeal regions by 6C by the highest emission scenario by 2100
+ Warming will not be distributed equally across the globe. Higher latitude regions will warm more than equatorial regions, with mean annual temperatures in artic regions predicted to warm by 8.3C and summer temperatures in broeal regions by 6C by the highest emission scenario by 2100
 
 Warming experiments show that increased temperature will affect tree growth with direct effects on plant physiology. These effects are positive fro deciduous species and negative for evergreen. 
 
@@ -690,7 +690,7 @@ Cool table about photoperiod sensitivity.
 
 ###### Predicting phenology by integrating ecology, evolution and climate science
 
-**Permanent notes:**
+**Permanent notes: YES**
 
 Pau, Stephanie, Wolkovich, Lizzie, Cleland, Elsa.
 
@@ -739,11 +739,11 @@ A bias in phenolgical studies is the possibility that studies showing certain pa
 Spring phenophases have advanced much more consistently than summer or autumn phenophases and early spring phenophases show greater advances than those in later spring or early summer. 
 
 ###### Responses to a Warming World
-
+Permanent note: YES
 Climate change may cause decoupling between plant and bird phenology. E.g. Great tit still breeds at the same time, but its food supply has beenm advanced because of easrlier plant development in recent years. Different phenological responses may alter the competitive ability of different species and thus their ecology and conservation. This would results in unpredictable impacts on community structure and ecosystem functionning. 
 
 ###### Shifting plant phenology in response to global change
-
+Permanent note: YES
 Elsa E. Cleland, Isabelle Chuine, Annette Menzel, Harold A. Mooney and Mark D. Schwartz
 
 Degree day: nombre of degrees above a particular temperature treshold that can be calculated by many methods and accumulated to provide a sum of (growing) degree days over a period. E.g. with a temperature treshold of 10C, the growing degree days over a three-day period with daily mean temperatures of 19C, 22C and 18 is 9+12+8=29C
@@ -758,7 +758,7 @@ Analyses to detect temporal trends in phenbology have traditionally relied on re
 
 ###### Shifting plant phenology in response to global change
 
-Permanent notes: 
+Permanent notes: YES
 
 Most pheno advancing studies have attributed the accelaration of spring events to warming temperatures. Less attention has focused on the role of other co-occuring global changes such as increasing CO2 and shifts in precipiation. 
 
@@ -777,6 +777,7 @@ Accurate phenology predictions would:
 The evidence for the role in photoperiod on tree phenology is conflicting, depending on species and location. Further experimental work on the impact of the interaction of photoperiod and temperature on leaf unfolding and flowering dates is required so that photoperiod can be used appropriately in phenological models. 
 
 ###### Phenological niches and the future of invaded ecosystems with climate change
+**PERMANENT NOTES**: YES
 
 There is growing evidence that climate change could facilitate invasions because of the distinct phenology or phenological sensitivity of non-native species. The theory that "windows of invasion oppportunity" may play a critical role in invasions. The concept of temporal niche in which time is a fundamental axis by which species may partition resource use, reduce interspecific competition and thus promote coexistence. Distinct phenologies may result in a competitive advantage for non-native species, especially in areas with shifting growing seasons due to climate change. If native species do not accurately and rapidly tracks shifting claimte, it might produce vacant niches. Such vacant niches may then promote invader success by :
 
@@ -803,10 +804,12 @@ An important issue is to consider phenology as one trait within a complex networ
 ### 4 November 2024
 
 ###### Text Mining in Remotely Sensed Phenology Studies: A Review on Research Development, Main Topics, and Emerging Issues
+**Permanent notes:** YES
 
 Remote sensing phenology research is exponentially growing through time, but it is considered a subset of remote sensing sciecne rather than a branch of phenology
 
 ###### The interaction between freezing tolerance and phenology in temperate deciduous trees
+**Permanent notes:** YES
 
 Trees have evolved, in the last 11 000 years into an interglacial period (Holocene), which is warmer than the preceding 100 000 years i.e. the last glacial period. The holocene is climatically stable when viewed from a geological time perspective. However, the climate of temperate areas is highly variable from the perspective of trees' lifespan, but with a predictable seasonality.  As a result, trees have evolved to cope with the seasonal occurence of freezing temperature. One of the adaptation to seasonality is cold acclimatation in autumn and dormancy in winter, followed by deacclimation period in spring. These are mediated by temperature and photoperiod. 
 
@@ -871,6 +874,7 @@ Many dynamic forest succession models assume taht the maximum growth rate is att
 ### 8 November 2024
 
 ###### Growth of a Pine Tree
+**Permanent note:** YES
 
 Young pine trees are in a rapid growth phase, so the annual rings are wide and easy  measure. Cross sections from wild trees usually are not symmetric because they have been subjected to asymmetric environmental factors such as slope, crowding or uneven light availability.
 
@@ -895,6 +899,7 @@ Late wood caracteristics
 The arbrupt transition to earlywood in the spring produces the sharp contrast that makes the growth ring visible 
 
 ###### Methods of dendrochronology
+**Permanent note:** YES
 
 Sample preparation: 
 
@@ -913,6 +918,7 @@ Parker and al. 1976 describes ring wenhancement using zinc oxide which has the a
 Using chalf to fill the spring wood vessels to make them clearer can be done. Regular black board chalk is good. Suitable for both ring-porous and diffuse porous species.
 
 ###### Responses to subtropical climate in radial growth and wood density of Chinese fir provenances, southern China
+**Permanent note:** YES
 
 Hong Wang
 
@@ -927,6 +933,7 @@ Statistic analysis: to ascertain to explore the trend of geographical variation 
 Since tree growth can be affected by the current and previous year's climatic conditions, they evaluated 16 months of temperature and precipitation data, starting with June of the previous year to September of the current year. 
 
 ###### Fundamentals of Tree-ring Research
+**Permanent note:** YES
 
 Tree rings are composed of individual cells that consittute the building blocks of the organism of the tree. A basic understanding of tree physiology is also important for comprehending the biologiocal preocesses that link the environment to ring formation. 
 
@@ -970,7 +977,7 @@ Parenchyma cells: more common in hardwoods and actually form the ring boundary i
 
 ###### A new process-based model for predicting autumn phenology: How is leaf senescence controlled by photoperiod and temperature coupling?
 
-Permanent note:
+**Permanent note**: YES
 
 Piao, Shilong,  Lang, Weiguang, Lang
 
@@ -1006,7 +1013,7 @@ Their new model (Low Temperature and Photoperiod Multiplicative Model (TPM)) sho
 
 Marqués, Laura; Stocker, Benjamin
 
-Permanent notes:
+**Permanent notes**: YES
 
 A positivie correlation between SOS and EOS dates ahve been found in observational ad experimental studies, which could provide useful information for improving EOS predictions.  
 
@@ -1022,7 +1029,7 @@ Their results suggest that acclimation of phenology has enabled plants to trasns
 
 Estiarte, Marc
 
-**Permanent notes:**
+**Permanent notes**: YES
 
 The purpose of leaf senescence is the recovery of nutrients before the leaves fall. 
 
@@ -1098,7 +1105,7 @@ Species whose leaf senescence will be delayed by warming will confront higher ri
 
 ###### Asymmetric effects of cooler and warmer winters on beech phenology last beyond spring
 
-**Permanent note: **
+**Permanent note: ** YES
 
 Warmer temperature recorded during the last two decades has resulted in an increase in forcing requirement for budburst of temperate trees in Europe, which is likely the result of insufficient chilling requirement for a full dormancy release or an increasing photoperiodic limitation. 
 
