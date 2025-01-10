@@ -1149,7 +1149,7 @@ They suggest taht the potential delay in senescence processes due to global warm
 
 ###### Atmospheric brightening counteracts warming-induced delays in autumn phenology of temperate trees in Europe
 
-**Permanent note: **
+**Permanent note:** YES
 
 Recent models predict that in spite of the ongoing warmer autumn trends, leaf senescence might slightly advance rather than delay over the rest of the century. 
 
@@ -1159,13 +1159,12 @@ Increased vegetation growth during the growing season advanced autumn phenology.
 
 Results presentations:
 
-![Screenshot 2024-11-15 at 11.53.29 AM.png](/var/folders/7j/k9z66wg973160gwzr455s7n80000gn/T/TemporaryItems/NSIRD_screencaptureui_1MDPSG/Screenshot%202024-11-15%20at%2011.53.29 AM.png)
 
 They reveal an antagonistic effect of warming and bruiightening on leaf senescence for the dominant tree species in central Europe. Brithening accelerates the leaf senescence process and reduces the temperature sensitivity of leaf senescence, couteracting the expected warming induced delays in leaf senescence. The photoprotection and sink limitation hypothesis provide plausible explanations for the negative effect of radiation on leaf senescence and declining effect of temperature sensitivity of leaf senescence in response to brightening,
 
 ###### Carbon Source Reduction Postpones Autumn Leaf Senescence in a Widespread Deciduous Tree
 
-**Permanent note: **
+**Permanent note: ** YES
 
 While temperature has been shown to be an important driver of autumn leaf senescence, carbon source–sink dynamics have been proposed as a mechanism that could help explain variation of this important process. According to the carbon sink limitation hypothesis, senescence is regulated by the interplay between plant carbon source and sink dynamics, so that senescence occurs later upon low carbon inputs (source) and earlier upon low carbon demand (sink).
 
@@ -1187,7 +1186,7 @@ The removal of leafs increased autumn photosynthesis and delayed whole-plant lea
 
 ###### Chilled to be forced: the best dose to wake up buds from winter dormancy
 
-**Permanent note: **
+**Permanent note: ** YES
 
 A lack of chilling does not only affect the time of budburst but could potentially impact tree vitality by decreassing bud survival. With continuing climate change and the winters get warmer, a lack of chilling might lower the sensitivity of trees to spring warming due to insufficient release of dormancy
 
@@ -1466,4 +1465,19 @@ Provenances from high elevations tended to set their buds earlier in autumn than
 
 Overall, phenology of populations from high elevations was less responsive to temperature and presumably more strongly tied to chilling requirements and or photoperiod than in populations from low elevations 
 
-Cool picture of the triangular control of species range limiets which outlines the species-specific trade-off between 1. Risk of freezing damage in spring, 2. Risk of tentering the dormant season with immature tissue 3. Timing of spring phenology.=
+Cool picture of the triangular control of species range limiets which outlines the species-specific trade-off between 1. Risk of freezing damage in spring, 2. Risk of tentering the dormant season with immature tissue 3. Timing of spring phenology.
+
+High-elevation provenances exhibited slower growth rates than low-elevation provenances in half of the studied species
+
+They showed that leaf thickness and leaf mass per area increased with increasing elevation of the common garden. Provenances did not differ 
+
+they showed that seedlings and adults exert the same freezing resistance during flushing 
+
+There very rarelly any above-ground growth happening below 5C and non existent below-ground of the studied species. They showed that species from high elevation could grow at lower temperature than those to low elevations. 
+
+They show that species can grow at lower temperatures than those corresponding to their current range limit, but fail to produce ature tissue under these conditions, which limits winter survivorship.
+
+Species range limits are neither winter temperature means, nor extremes are involved in the biological mechanisms responsible for the formation of range limits. LINK to temp extremes that limits range distribution from fredi's article i think. 
+
+They propose a triangular control of species range limits (FIG 5). Where inherent freezing tolerance of foliage in spring selects for a certain phenological control of spring flushing, which truncates the length of GS, and thus, the time available for tissue maturation. 
+END IN ZOTERO 
