@@ -1473,11 +1473,12 @@ They showed that leaf thickness and leaf mass per area increased with increasing
 
 they showed that seedlings and adults exert the same freezing resistance during flushing 
 
-There very rarelly any above-ground growth happening below 5C and non existent below-ground of the studied species. They showed that species from high elevation could grow at lower temperature than those to low elevations. 
+There very rarelly any above-ground growth happening below 5C and non-existent below-ground of the studied species. They showed that species from high elevation could grow at lower temperature than those to low elevations. 
 
 They show that species can grow at lower temperatures than those corresponding to their current range limit, but fail to produce ature tissue under these conditions, which limits winter survivorship.
 
 Species range limits are neither winter temperature means, nor extremes are involved in the biological mechanisms responsible for the formation of range limits. LINK to temp extremes that limits range distribution from fredi's article i think. 
 
 They propose a triangular control of species range limits (FIG 5). Where inherent freezing tolerance of foliage in spring selects for a certain phenological control of spring flushing, which truncates the length of GS, and thus, the time available for tissue maturation. 
-END IN ZOTERO 
+
+SEE LIZZIES GREATEST HITS IN ZOTERO AND ADD HERE. 
