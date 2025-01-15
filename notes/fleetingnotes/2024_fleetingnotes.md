@@ -1186,7 +1186,7 @@ The removal of leafs increased autumn photosynthesis and delayed whole-plant lea
 
 ###### Chilled to be forced: the best dose to wake up buds from winter dormancy
 
-**Permanent note: ** YES
+**Permanent note:** YES
 
 A lack of chilling does not only affect the time of budburst but could potentially impact tree vitality by decreassing bud survival. With continuing climate change and the winters get warmer, a lack of chilling might lower the sensitivity of trees to spring warming due to insufficient release of dormancy
 
@@ -1196,7 +1196,7 @@ Chillin duration outweighed the importance of absolute chillin temperatures. Thi
 
 ###### Changes in autumn senescence in northern hemisphere deciduous trees: a meta-analysis of autumn phenology studies
 
-**Permanent note:**
+**Permanent note:** YES
 
 Meta analysis of autumn phenology
 
@@ -1220,13 +1220,13 @@ Plants in the orders of Fagales and Rosales respond the most to increases of air
 
 ###### Contrasting responses of autumn-leaf senescence to daytime and night-time warming
 
-**Permanent note:**
+**Permanent note:** YES
 
 Their models shows that incorporating day time and night time, rather than temperature alone is really important. They predict an earlier LSD unlike what has been reported. It could be an unrecognized positive feedback to climate change and could potentially weakends the capapability of terrestrial ecosystems to uptake carbon. 
 
 ###### Delayed autumn phenology in the Northern Hemisphere is related to change in both climate and spring phenology
 
-**Permanent notes:**
+**Permanent notes:** YES
 
 Studies have reported positive correlations between day length and/or light intensity and EOS dates. However, the physiological mechanism of light regulatioin of EOS is still unclear due to the difficulty in separating the effects of day length and light intensity.
 
@@ -1246,7 +1246,7 @@ However, the relation of SOS on EOS < climatic variables across all bioomes and 
 
 ###### Divergent responses of phenology and growth to summer and autumnal warming
 
-**Permanent note:**
+**Permanent note:** YES
 
 Warming in result to climate change is not seasonally uniform and substantial asymmetric seasonal warming has been reported not only for high latitudes, but also for temperate regions. 
 
@@ -1265,6 +1265,7 @@ They showed that the timing of autumn senescence and growth respond differentail
 ### 22 November
 
 ###### Effect of climate warming on the timing of autumn leaf senescence reverses after the summer solstice
+**Permanent notes:** YES
 
 Early season warming, causing earlier spring leaf-out and faster growth and tissue maturation tends to advance EOS dates. Late season warming has the opposite effect i.e. delaying EOS. Increased temperatures and physiological early in the seasonmight drive earlier leaf senescence through a variety of mechanisms, including developmental and nutrient constraints, seasonal buildup of water stress and radiation induced leaf aging.In contrast, later in the season, a direct effect of temperature is likely to drive the timing of leaf senescence. If both are correct, then climate warming ahs opposing effects at the start and end of the growing season with a reversal of effects somwhere in between. 
 
@@ -1277,6 +1278,7 @@ When they removed the effect of pre-solstice temeprature or photosynthesis on se
 They reveal that the productivity before the summer solstce is linked to early senescence dates accross the whole northen hemisphere. This implies a widespread constraint on future growing-season extensions in response to global warming. This contradicts european research suggesting a negative feedback between growing-season productivity driving earlier senesncece.
 
 ###### Impact of microclimatic conditions and resource availability on spring and autumn phenology of temperate tree seedlings
+**Permanent notes:**
 
 A major limitation of plant physiological and phenological studies carried out under natural conditions is that they usually use the temperature from weather station. However, the microclimate in forests or near buds acan largely deviate from 2m heigh air temperature. 
 
@@ -1357,6 +1359,7 @@ Phenotypic plasticity: range of phenotypes taht a plant can express as a functio
 Methods: cool table to describ phenophases
 
 ###### Interpreting common garden studies to understand cueing mechanisms of spring leafing phenology in temperate and boreal tree species
+**Permanent notes:**
 
 In temperate and boreal regions, both photoperiod and light spectral properties (both red and far red(R:FR) and blue wavelenghts) change in greographically complicated ways during the perioid affecting leafing phenology.
 
@@ -1367,6 +1370,7 @@ R:FR affects plants via phytochromes, the main photoreceptors actrive at long wa
 ### 29 November
 
 ###### Seed transfer and climate change effects on radial growth of jack pine populations in a common garden in Petawawa, Ontario, Canada
+**Permanent notes:**
 
 Method: common garden study. They did a provenance trial and took cores at 50 cm above ground to ensure a maxium number of tree rings. They used a 0.04 linear resolution step size for measurements.M
 
@@ -1390,6 +1394,7 @@ They excluded the first years of rings to to 1. avoid the distinct trend related
 Radial growth represents actual, integrated measures of tree and stand wood production. Studies of this characteristic over long periods of time increases the reliability of modeling efforts and conclusions. They showed that the southern seed sources could out-perform local populations in diameter and height growth. Southern seed sources might be better adapted to warming temperatures.
 
 ###### Tree rings provide a new class of phenotypes for genetic associations that foster insights into adaptation of conifers to climate change
+**Permanent notes:**
 
 Two genomic strategies are commonly used to search for genes involved in local adaptation to climate:
 
@@ -1422,12 +1427,14 @@ Methods: Cool figure showing BAI RAW chronologie, standardised and mean ring den
 They showed that tree-ring traits measured in common garden experiments offer great potential to unravel local adaptation in forests trees through a fine-scale retrospective and dynamic view of tree resposnes to past environmental variations
 
 ###### Tree-rings to climate relationships in nineteen provenances of four black pines sub-species (Pinus nigra Arn.) growing in a common garden from Northwest Tunisia
+**Permanent notes:**
 
 Tree rings are very reliable indicators of forest health and decline. However, a large amount of factors contribute to ring-width variations which must be removed by standardization procedures from ring-width series in order to isolate the influence of climate. 
 
 Methods: All cores were mounted on wooden supports and thoroughly polished with progressively finer sand paper.
 
 ###### Cambial phenology, wood formation and temperature thresholds in two contrasting years at high altitude in southern Italy
+**Permanent notes:**
 
 During the growing season, some variability exists in growth onset and duration becasue of intra-annual differences in weather, with cambium reactivation in spring being highly dependant on temperature.  Wood formation involves cambial cell division and cell expansion followed by secondary wall production. They are regulated by gene expression and hormonal signals, but also environmental factors, such as temperature and precipitation. They ask the question whether there is a link between changes in cambial phenology and intraannual wood formation. E.g. changes in duration of wood formation induced by a change in cambial phenology might result in modification to ring-width formaiton.
 
@@ -1438,7 +1445,7 @@ They showed taht spring temperatures modify the duration of xylogenesis which ha
 ### 2 December
 
 ###### Tree-ring variation, wood formation and phenology of beech (Fagus sylvatica) from a representative site in Slovenia, SE Central Europe
-
+**Permanent notes:**
 The application of densitometry showed that within and between year density variations in beech provide more information at higher temporal resolution than tree-rings only. 
 
 Analysis of wood anotomy provides better resolution since the morphology of the cells records the effects of different factors on a finer scale during the time of wood formation. 
@@ -1448,12 +1455,14 @@ In Northern Germany, wood formation data weas combined with pheno data (Schhmitt
 Beech. They showed that peak wood formation happened from the end of May to the beginning of June which is more than 2 weeks before the summer solstice. Wood formation in the Netherlands ended in October and in the Netherlands in September.  
 
 ###### Tree-rings, genetics and the environment: Complex interactions at the rear edge of species distribution range
+**Permanent notes:**
 
 The climatic signal captured in tree-ring series is stronger in a stressful or constrained environment
 
 They showed that the genetic background of Pinus cembra had limited influence on the interannual fluctuations of radial tree growth and their resposnes to climatic variability
 
 ###### Where, why and how? Explaining the low-temperature range limits of temperate tree specie
+**Permanent notes:**
 
 They hypothesized that seed set will be diminished, seed quality and viability will be reduced and germination will be less successful in high compared to low-elevation seed provenances was falsified.  No evidence that reproductive potential at the upper range llimit is diminished under current climate conditions (for the species they studied. )
 
