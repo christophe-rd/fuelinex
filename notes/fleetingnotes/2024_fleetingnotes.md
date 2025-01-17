@@ -1278,7 +1278,7 @@ When they removed the effect of pre-solstice temeprature or photosynthesis on se
 They reveal that the productivity before the summer solstce is linked to early senescence dates accross the whole northen hemisphere. This implies a widespread constraint on future growing-season extensions in response to global warming. This contradicts european research suggesting a negative feedback between growing-season productivity driving earlier senesncece.
 
 ###### Impact of microclimatic conditions and resource availability on spring and autumn phenology of temperate tree seedlings
-**Permanent notes:**
+**Permanent notes:** YES
 
 A major limitation of plant physiological and phenological studies carried out under natural conditions is that they usually use the temperature from weather station. However, the microclimate in forests or near buds acan largely deviate from 2m heigh air temperature. 
 
@@ -1311,6 +1311,7 @@ Xylem growth in tree trucks (what the fuck is that) sequestrates the carbohydrat
 We can observe xylem growth dynamics by monitoring micro-cores on a fine spatial-temporal scale, but long-term and continuous monitoring is expensive and labor-consuming, expecially in cold regions. 
 
 They found a method based on process-based VS-model that comineds temperature, precipitation and photoperiod. The simulation results are more accurate. 
+# HERE
 
 Phenology helps us obtain the duration of the growing season, which determiens the amount of time available to develop functional xylem throught cell maturation and lignification. 
 
