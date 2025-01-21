@@ -141,3 +141,55 @@ Difference in tree-ring width can be the result of 4 things:
 2. Deficit in carbohydrates of reserves in 2018 negatively affecting wood growth the following year. 
 3. Fast-wood production during the spring 
 4. Presence of tension wood overestimating the tree-ring width in that year.
+
+## 20 January 2025
+### Species specific growth responses of black spruce and trembling aspen may enhance resilience of boreal forest to climate change
+Igor Drobyshev and Yves Bergeron, 2013
+**Permanent notes**
+Dendroclimatic studies suggest that aspen growth is mostly influenced by climatic conditions of the year prior to growth. 
+
+Differences in climate-growth relationships between spruce and aspen during non-anomalous weather ( periods dominated by weather conditions only moderately deviating from respective long-term means), suggests that growth responses may also differ between species during climatically extreme growing seasons.
+Methods:
+To obtain growth chronologies with amplified high-frequency variability, the series were detrended in the ARSTAN program, using a 32-year cubic smoothing spline with a 50% frequency response (Speer 2010)
+For aspens, extremely cold summers limited trees' physiological activity and resulted in consistently negative growth anomalies. This is caused by link between growth rate and tree viability. Years with severe environemntal activity manifest itself in the tree ring record as pointer years and have been shown to cause long-term declines in tree growth and delayed mortality. 
+Future climate will exhibit higher frequency of climatic extremes and the mixed stands may show a higher resilience under the future climates than monodominate communities. They conclude this from the evidence of the spatial and temporal niche separation between aspen and black spruce. 
+###Influence of annual weather on growth of pedunculate oak in southern Sweden
+Igor Drobyshev, 2008
+**Permanent notes:**
+The growth of Pedunculate oak in Europe is negatively affected by summer drought and spring frost. A study of pan-European oak pointer years was able to link them with period of temperature and precipitation anomales controlled by the North-Atlantic and Arctic circulation patterns. 
+Positiver growth anomalies were assocaited with extended periods of increased soil-water avalilability. Negative anomalies were realted to periods of lower air temperatures and reduced soil moisture. However, these studies focused on the effect of climatic extremes with no comparison with climatic controles over growth during climatic extremes and non-extremes years. 
+
+In germany, Pedunculate oak and European beech have show that much lesser growth response of oak trees to drought as compared with European beech, which might reflect the differences in root systems of these two species. 
+
+### Evolutionary and plastic responses to climate change in terrestrial plant populations
+Steven J. Franks, Sally Aitken, 2013
+**Permanent notes:**
+As climate changes, plant populations may no longer be optimally adapted to new conditions. Migration could a llow some populations to track suitable conditions and thus maintain their adaptive optimum. However, this might be hard in fragmented landscapes and for species with long generation lengths.
+
+Migration may allow a pop to stay in its climatic envelope but cause it to be out of synch with other environmental factors such as photoperiod or key mutualists such as pollinators. 
+
+Two meta-analysis of receiprocal transplant studies, one with 35 studies of plants have found that local adaptation is common but not universal with 71% of studies showing some evidence of local adaptation.
+
+Many tree species hav e shown strong evidence of local adaptataion to climate in provenacne experiments., which are common egarden experiments testing the provenance on tree survival, growth rates and other phenotypic traists. In a mewta an analysis of provenacne experiments for 59 tree species and 19 phenotypic traits, 90% of analyses found significant population differentiation for phenotypic traits and in most cases, this differentation was correlated with and attributed to variaton in climate.  Alberto and al. 2013.
+
+Dendrochrnology studies can be used to asssess variation in tree rings in common garden experiments although ontogenetic effects of aging need to be separated from effects of temporal fluctuation in climate. 
+
+Tree ring data from The Illingworth lodgepole pine provenance trial shows that average tree ring widths shows strong interactions between mean temperature of population origins and mean temperature of test sites, reflecting local adaptation and strong effects of site temperature and moisture --> phenotypic plasticity. Annual variation in ring width (climatic sensitivity showed weaker effects of site climate and provenance climate than average ring width.
+
+The studies they examined all showed of phenological phenotypic plasticity. 
+
+Vitasse et al 2010 showed that an elevational reciprocal transplant study of two European deciduous tree species, both timing of leaf emergence and senescence showed greater variation due to phenotypic plastricity than genetic differences. The most delayed senescence (non-linear) was in intermediate thermal environments. Likely the result of moisture dewficits resulting in premature senescence at high temperatures and resulted in a nonlinear reaction norm between temp and GS length for all populations. 
+
+###Sensitivity of leaf unfolding to experimental warming in three temperate tree species
+Ivan A. Janssens, 2013
+**Permanent notes:**
+Observed phenological trends in the last decades cannot be directly be used to extrapolate future pheno changes because the mechanisms guiding them aren't clear and because pheno responses of trees to warming may not be linear. Indeed, accurate predictions require an in-depth accurate mecchanistic understanding of leaf unfolding process and its sensitivity to environmental drivers, especially temperature and photoperiod. 
+
+Stages of leaf unfolding process:
+1. bud dormancy needs to be broken by exposure to cold temperatures during winter (chilling). A certain number of chilling units (i.e. function of daily temp (chilling days model) or  of hourly temperature (chilling hours model) below a cold treshold needs to be accumulated. 
+2. Once sufficient chilling has been accumulated, the second phase of dormancy is achieved. Sufficient warmth is needed to trigger bud burst, refered to as forcing. Requirements of forcing is either linked to a linear tempearture relation above a given temperature treshold or a sigmoid temperature function. Thus, the interaction of chilling and forcing requirements with temperature determines the tioming of leaf unfolding. 
+
+Warming trend increased forcing temperature accumulation, while in most boreal and temperate regions, winters are still sufficiently cold to ensure adequate chilling. 
+
+
+
