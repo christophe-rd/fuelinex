@@ -192,4 +192,9 @@ Stages of leaf unfolding process:
 Warming trend increased forcing temperature accumulation, while in most boreal and temperate regions, winters are still sufficiently cold to ensure adequate chilling. 
 
 
+## 23 January 2025
+###Global variation in thermal tolerances and vulnerability of endotherms to climate change
+**Permanent notes :**
+Birds seem to lab behind in tracking their climatic envelopes via shifts of their geographiocal ranges. It might suggests that birds may either be able to adapt rapidly to novel environemental conditions or the level of CC does not exceed their tolerance limits. 
 
+Their results support that birds thermal physiology is more directly linked to their ambien climatic conditions than mammal. The later can build burrows and dens to create their preferred microclimates unlike most species of birds.
