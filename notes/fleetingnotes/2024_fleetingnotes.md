@@ -1302,7 +1302,7 @@ They showed the importance of microclimatic conditions, especially solar radiati
 
 ###### An earlier start of growing season can affect tree radial growth through regulating cumulative growth rate
 
-**Permanent notes:**
+**Permanent notes:** YES
 
 The extent at which tree xylem growth will respond to warming and precipitation changes remains to be explored. Yes it is a fundamental question to predict the impacts of climate change on forest growth. 
 
@@ -1311,7 +1311,6 @@ Xylem growth in tree trucks (what the fuck is that) sequestrates the carbohydrat
 We can observe xylem growth dynamics by monitoring micro-cores on a fine spatial-temporal scale, but long-term and continuous monitoring is expensive and labor-consuming, expecially in cold regions. 
 
 They found a method based on process-based VS-model that comineds temperature, precipitation and photoperiod. The simulation results are more accurate. 
-# HERE
 
 Phenology helps us obtain the duration of the growing season, which determiens the amount of time available to develop functional xylem throught cell maturation and lignification. 
 
@@ -1327,7 +1326,7 @@ They showed that in their northen region, radial growth was promoted by advanced
 
 ###### Cold adaptation recorded in tree rings highlights risks associated with climate change and assisted migration
 
-**Permanent notes:**
+**Permanent notes:** YES 
 
 Environmental changes are going faster than plant populations can adapt. This mis-match is expected to destabilize ecosystems by decreasing productivity while increasing mortality. Maladapted plant populations may further contribute to climate change through reduced carbon sequestration or may even turn into significant source of CO2. To mitigate such consequences, assisted migration has been proposed for reforestation programs.
 
@@ -1340,8 +1339,8 @@ Tree rings can provide additional information for evaluating cold adaptation sin
 Methods: figure 2 for results of proveance trial
 
 ###### Differentiation and Non-Linear Responses in Temporal Phenotypic Plasticity of Seasonal Phenophases in a Common Garden of Crataegus monogyna Jacq.
-
-**Permanent notes:**
+Kristine Vander Mijnsbrugge, 2019
+**Permanent notes:** YES
 
 All individuals in a common garden share the same envionement, any average difference in a trait between provenances of the same species has a genetic origin. 
 

@@ -198,3 +198,54 @@ Warming trend increased forcing temperature accumulation, while in most boreal a
 Birds seem to lab behind in tracking their climatic envelopes via shifts of their geographiocal ranges. It might suggests that birds may either be able to adapt rapidly to novel environemental conditions or the level of CC does not exceed their tolerance limits. 
 
 Their results support that birds thermal physiology is more directly linked to their ambien climatic conditions than mammal. The later can build burrows and dens to create their preferred microclimates unlike most species of birds.
+
+## 24 January 2025
+### Comparison of the timing of spring phenological events between phenological garden trees and wild populations
+Calum J. Sweeney, Astrid Wingler, 2023
+**Permanent notes :**
+Advancing spring phenology can extend the GS, and increase carbon uptake. But it recent research suggeests that it may not be sequestrated in wood, casting doubt on the long-term carbon sink arrising from phenological change.
+
+Their results suggest taht genetic factors are the most likely cause for the different phenological timing between the clones and wild populations.
+
+There is a relationship between size and phenological timing where young trees leaf out earlier to take advantage of vernal light in woodland understories in spring. They highlight the importance of taking tree size and age intop account when interpretating pheno garden data.
+
+### Day length unlikely to constrain climate-driven shifts in leaf-out times of northern woody plants
+Constantin Zohner, Susanne Renner, 2016
+**Permanent notes :** 
+photoperiod limitation: idea that plant sensitivity to day length protects leaves against frost damage by guiding budburst into a safe time period. Experiments show that day length sensitive species react to spring temperatures only once day length increases. --? d-l senstive species may not react to warmer temperatures. 
+
+They showed a negative correlation between species' reliance on day length as a leaf-out signal and the winter duration in their native ranges. Two possible mechanisms on how photoperiod perception in plants may interact with warmin requirements:
+- Either plants need to reach a fixed photoperiod treshold before they perceive spring temperatures
+	Trees from longer winter region would have longer photoperiod tresholds because days are already long when min temp cross freezing treshold.
+- Forcing requirements gradually decrease with increasing photoperiod.
+	Photoperiod as a budburst regulator is less important in regions with long winters because days in spring are long before the risk the risk of frost has past. 
+	
+### Determination of intraspecific variation in seed weight, leaf functional traits, and sapling size of Betula ermanii using a common garden experiment
+Aye Myat Myat Paing, 2021
+**Permanent notes :** 
+Common garden experiments and provenance trials can help determine the genetic control of phenotypic traits. 
+
+### Differential responses to changes in growth temperature between trees from different functional groups and biomes: a review and synthesis of data
+DANIELLE A. WAY, 2010
+**Permanent notes :** 
+Dendrochronology studies have found a positive relationship between growth and warmer growing seaons, hwoerver, increasing temperatures since the 1950s have a lower than expected effect in a lot of Northern hemispehere species. This switch in growth response to temp in tree ring studies is known as the divergence problem. 
+
+Causes of divergence problem:
+- Drought stress in summer. E.g. Sierra Nevada increased mortality of fir and pine trees between 1980 and 2004 correlated with increasing temperatures
+- Shorter GS caused by increased snowfall and thus later snowmelt.
+- Summer temperatures are exceeding the thermal optimum for growth. 
+
+Trees from colder environments may benefit from some degree of climate warming, but not the species from warmer climates.
+
+Why is growth enhanced at higher temperature? Biochemical processes such as photosynthesis and respiration are enhanced at higher temperatures because of quicker enzyme function. Acclimatation may also increase performance. 
+
+Leaf traits were linked to changes in daytime temperature.
+
+High temperatures increase shoot elongation rates in crops and in trees: found that stem elongation rates were doubled.
+
+### Flowering phenological pattern in crowns of four temperate deciduous tree species and its reproductive implications
+O. Tal, 2010
+**Permanent notes:**
+Flowering phenology is a central process in reproductive biology (primack 1985), because it interacts with sex expression by determining whether sexes co-occur and the duration of each sex phase determines its effectivity.
+
+Time left for fruit ripening starts at the end of flowering and seed predation may be related to flowering phenology. 

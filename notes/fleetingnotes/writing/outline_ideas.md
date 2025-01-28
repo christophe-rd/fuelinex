@@ -9,6 +9,9 @@ Started on 12 November 2024
 
 ###### Drivers of autumn phenology
 
+#### Provenance trials:
+See permanent note :
+> Seed provenance trials and responses to local climates
 
 ### Methods
 
