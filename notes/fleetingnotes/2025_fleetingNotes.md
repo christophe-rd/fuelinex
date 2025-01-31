@@ -249,3 +249,42 @@ O. Tal, 2010
 Flowering phenology is a central process in reproductive biology (primack 1985), because it interacts with sex expression by determining whether sexes co-occur and the duration of each sex phase determines its effectivity.
 
 Time left for fruit ripening starts at the end of flowering and seed predation may be related to flowering phenology. 
+
+## 31 January 2025
+### Shrub expansion in tundra ecosystems: dynamics, impacts and research priorities
+**Permanent notes:**
+Isla H Myers-Smith, 2011
+
+Shrubs modify many ecosystem processes including snow depth and associate hydrologic dynamics, nutrient exchange and associated net carbon balance, albedo and associated energy fluxes. At this time, there is considerable uncertainty about the magnitude and direction of these feedbacks and these processes might drive them in various directions. However, dramatic changes to shrub abundance in tundra ecosystems could result in significant alterations to the global carbon cycle. 
+
+
+Temperature limits the reproduction and growth of shrub species in tundra ecosystems. The low pollen or seed viability in different populations of shrub near their range limits suggest that temperature limitaion of reproduction may determine the northern extent of many shrubs in the low Arctic. However, recruitment seems to increase in recent years in some places. It doesn't necessarily mean that it increases shrubs in tundra.
+
+In some studies, winter temp and snow correlates with growth in the following summer. Snow melt timing determines the length of the GS and snowpack provides protection from frost damage during the winter/spring. This suggests taht warmer ocnditions will promote shrub growth either directly: physiological processes. Indirectly: enhancing soil microbial activities taht supply nutrients for shrub uptake. However, increased summer temp is also linked to moisture deficits in summer which could offset expected growth increase, which has been observed in boreal trees.
+
+Recent research highlights that: (1) growth in shrub species is often strongly correlated with growing season temperatures; (2) disturbances such as fire and permafrost thaw can enhance shrub expansion; (3) herbivory can control shrub canopy architecture and limit expansion rates; (4) shrub canopies can alter surface albedo and increase atmospheric heating; and (5) shrub canopies can trap snow and insulate soils in the winter, yet shade soils and maintain shallower active layer depths during the summer.
+
+### Stable isotopes in tree rings
+Danny McCarroll*, Neil J. Loader, 2003
+**Permanent notes:**
+Chronologies with preserved trees in lakes and buildings, alongside bristlecone pines provide the basis for dendrochronological dating and were used to calibrate the radiocarbon timescale. Cite: Stuiver and Reimer, 1993
+
+The three main elements in wood (carbon, oxygen and hydrogen) all have more than one stable (non-radioactive) isotope. Carbon, for example, has two stable isotopes, 12C and 13C, each with six protons but with either six or seven neutrons. These isotopes have almost identical chemical properties but the difference in mass allows physical, chemical and biological processes to discriminate against one of them, thereby imparting an environmental signal. 
+
+Although the carbon of each annual tree ring has its origin in the CO2 of air, and O and H come from soil water and thus precipitation, the isotopic ratios in wood are very different to those in either air or water, so trees do not passively collect and store these elements. The primary value of the isotopic records in tree rings is not simply as samples of ancient air or water, but as sensitive bioindicators of the way that the components of air and water have been changed by the trees in response to the environments in which they lived.
+
+We know that climate will change, but the question is how it will change in different places. Models can predict this, but we need high resolution and spatially explicit evidence of the way climate changes behaved over space and over time. This info is obtainable from stable isotopes in tree rings. 
+
+###Timing and duration of European larch growing season along altitudinal gradients in the Swiss Alps
+2009
+**Permanent notes:**
+Linking growth processes and changes in environmental conditions are chalenged by a limited nb of replicates and observed years.
+
+Assessing impacts of climate change, info gained along an elevational gradient may be particularly useful because such gradients allow "space-for-time/warming experiments". This approach, long term changes in the timing and duration of tree growth per shift in degree C (=TIME) are substitudted by changes along altitudinal transects (=space)
+
+They showed that cambial is highly responsive to spring temperatures both under artificially manipulation and natural conditions. Temperature seems to be important to set the growth start, but no effect for growth end. However, it seems taht max growth rate and growth cessation seem to be controlled by photoperiod.
+
+### Tree and forest functioning in response to global warming
+Henrik Saxe
+**Permanent notes:**
+Development of reproductive structures in the autumn may be entirely a function of accumulated degree-days, aka thermal time : Sarvas 1974. Thus, they can be vulnerable to damage by early frosts when development continues late in autumn. Trees can afford this risk, balancing  loss of seed in some years against the production of large, well developed seeds in others. 

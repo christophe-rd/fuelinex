@@ -1359,7 +1359,7 @@ Phenotypic plasticity: range of phenotypes taht a plant can express as a functio
 Methods: cool table to describ phenophases
 
 ###### Interpreting common garden studies to understand cueing mechanisms of spring leafing phenology in temperate and boreal tree species
-**Permanent notes:**
+**Permanent notes:** YES
 
 In temperate and boreal regions, both photoperiod and light spectral properties (both red and far red(R:FR) and blue wavelenghts) change in greographically complicated ways during the perioid affecting leafing phenology.
 
@@ -1370,7 +1370,7 @@ R:FR affects plants via phytochromes, the main photoreceptors actrive at long wa
 ### 29 November
 
 ###### Seed transfer and climate change effects on radial growth of jack pine populations in a common garden in Petawawa, Ontario, Canada
-**Permanent notes:**
+**Permanent notes:** YES
 
 Method: common garden study. They did a provenance trial and took cores at 50 cm above ground to ensure a maxium number of tree rings. They used a 0.04 linear resolution step size for measurements.M
 
@@ -1461,22 +1461,23 @@ The climatic signal captured in tree-ring series is stronger in a stressful or c
 
 They showed that the genetic background of Pinus cembra had limited influence on the interannual fluctuations of radial tree growth and their resposnes to climatic variability
 
-###### Where, why and how? Explaining the low-temperature range limits of temperate tree specie
+###### Where, why and how? Explaining the low-temperature range limits of temperate tree species
 **Permanent notes:**
 
 They hypothesized that seed set will be diminished, seed quality and viability will be reduced and germination will be less successful in high compared to low-elevation seed provenances was falsified.  No evidence that reproductive potential at the upper range llimit is diminished under current climate conditions (for the species they studied. )
 
 Radial growth of their trees always correlated with growing season mean temperatur, irrespective of elevation. The annual variation of the length of the GS has an effect on radial growth only when temperatures are generally warmer. Because the timew required for new cell formation increases nonlineraly with decreasing temperatures., a longer season at low temperatures will only produce few additional cell rows, whereas a longer season at high temperatures can produce many more cell rows, particularly when spring is warm --> sets the size of the cambial zone. 
 
-Their common garden experiments revealed small, but consisten genetic differentiation of spriong phenology among provenances of seedlings originating from different elevations,e xcept for the treeline species which underlines the importance of the timing of growth and development for tree success. Fagus Sylvatica from high elevation provenances flushed earlier than those at low elevations as observed previously. 
+**THE FOLLOWING IS ALREADY IN slipbox
+** 
+** Their common garden experiments revealed small, but consisten genetic differentiation of spriong phenology among provenances of seedlings originating from different elevations,e xcept for the treeline species which underlines the importance of the timing of growth and development for tree success. Fagus Sylvatica from high elevation provenances flushed earlier than those at low elevations as observed previously. 
 
 Provenances from high elevations tended to set their buds earlier in autumn than low provenances. 
 
 Overall, phenology of populations from high elevations was less responsive to temperature and presumably more strongly tied to chilling requirements and or photoperiod than in populations from low elevations 
 
 Cool picture of the triangular control of species range limiets which outlines the species-specific trade-off between 1. Risk of freezing damage in spring, 2. Risk of tentering the dormant season with immature tissue 3. Timing of spring phenology.
-
-High-elevation provenances exhibited slower growth rates than low-elevation provenances in half of the studied species
+High-elevation provenances exhibited slower growth rates than low-elevation provenances in half of the studied species **
 
 They showed that leaf thickness and leaf mass per area increased with increasing elevation of the common garden. Provenances did not differ 
 
