@@ -288,3 +288,47 @@ They showed that cambial is highly responsive to spring temperatures both under 
 Henrik Saxe
 **Permanent notes:**
 Development of reproductive structures in the autumn may be entirely a function of accumulated degree-days, aka thermal time : Sarvas 1974. Thus, they can be vulnerable to damage by early frosts when development continues late in autumn. Trees can afford this risk, balancing  loss of seed in some years against the production of large, well developed seeds in others. 
+
+## 3 February 2025
+### Arctic amplification causes earlier onset of seasonal tree growth in northeastern Siberia
+Alexander V Kirdyanov, 2024
+**Permanent notes:**
+Artic and subartic are warming extremely fast, which exceeds the global average temperature increase by four times. DEFINE arctic amplification: The Arctic is warming twice to three times as fast as the rest of the planet due to sea ice loss. 
+ Boreal forest zone is experiencing shifts in vegetation structure and productivity, northward vegetation expansion, permafrost degradation and greenhouse gas emission from permafrost thawing. 
+The dynamics of boreal forest ecosystems withing the northern tree line ecotone, the transition from northen taiga to treeless tundra is largely controlled by GS temperatures. Current warming is believed to be among the main drivers of initiating an expansion of trees into the tundra as well as forest densification within the tundra.
+
+Rapid onset of tree cambial activity after snowmelt and increased temperature is the key adaptation at the beginning of the GS is Siberia Larch. There is a 24 h photoperiod which enables them to complete tree-ring formation within several weeks of the short GS. 
+
+Their results show a shift in tree growth dependance on temperature to earlier dates --> earlier start of the GS. Coincides with temporal changes of 2 climate parameters that affect the timing of GS: snowmelt and temperature preceding and during early GS. Thus, they show that in Siberia, radial growth of larch mainly depends on early summer temperature. 
+
+### Paleorecords reveal biological mechanisms crucial for reliable species range shift projections amid rapid climate change
+Victor Van Der Meersch, Isabelle Chuine, 2025
+**Permanent notes:**
+All model performance decreased as climatic dissimilarity increased. However, this decline was lower for PEMs, which suggests that mechanistic principles may be more reliable than CSDMs in projecting future species distributions under warming conditions. This shows that the biological mechanisms should be included for future and more robust model projections. 
+
+### Effects of Temperature Variations and Urban Heat Island on the Seasonal Development of Woody Plants in the South of Primorsky Krai
+A. A. Marchenko, 2024
+**Permanent notes**:
+Urban heat island (UHI) effect arises when urban areas experience higher temperatures than their rural surrounding. Urban vegetation is ahead of rural vegetation in terms of the timing of spring phenophases.
+
+### Beyond climate change attribution in conservation and ecological research
+Camille Parmesan, 2013
+**Permanent notes**:
+We know the attribution of global warming to greenhouse gases, but we further need to attribute biological events not merely to changing climate, but specifically to anthropogenic climate change (ACC), the component of change that has been driven by increase in GHG. \
+
+Process based models can be developped for few species for which we have both long observational time series and experimental studies. Ecological models rely often on physiological and developmental processes that relate on temp and precip. These models can document causal relationships between observed long-term chganges in a species and regional climatic changes. E.g. causally related northward and upward range shifts of the pine moth to warming winters that enhanced survival and feeding rates.
+
+Def:
+‘Detection of change is defined as the process of demonstrating that climate or a system affected by climate has changed in some defined statistical sense, without providing a reason for that change. An identified change is detected in observations if its likelihood of occurrence by chance due to internal variability alone is determined to be small, for example, < 10%’. 
+‘Attribution is defined as the process of evaluating the relative contributions of multiple causal factors to a change or event with an assignment of statistical confidence. The process of attribution requires the detection of a change in the observed variable or closely associated variables’.
+
+Biological processes are complex and vulnerable to misinterpretation. E.g. plants growin in regional warming regions did not advance flowering, but it's because the trend was countered by an opposing response to warmer winter temps that delayed spring events. 
+
+Inference can provide high confidence. E.g. of inferential methods: astronomers can infer the presence of invisible celestial objects (e.g. black hole) based on the behaviour of surrounding observational objects. Biological inference of ACC impacts is based on the principle of parsimony, as ACC allows for a parsimouneous explanation of the changes observatioons. 
+
+Global meta-analyses are likely to remain the most reliable, scientifically defensible and robust set of approaches both for detection and long-term change in biodiversity and to determine the extent to which those changes can be attributed to ACC.
+
+### Detection and attribution of anthropogenic climate change impacts
+**Permanent notes:**
+Cynthia Rosenzweig, 2013
+They criticize that CC detection and attribution have focused on the climate itself and they propose a focuse on CC impacts and the issues arising from teh detection and attribution of these impacts.
