@@ -1394,7 +1394,7 @@ They excluded the first years of rings to to 1. avoid the distinct trend related
 Radial growth represents actual, integrated measures of tree and stand wood production. Studies of this characteristic over long periods of time increases the reliability of modeling efforts and conclusions. They showed that the southern seed sources could out-perform local populations in diameter and height growth. Southern seed sources might be better adapted to warming temperatures.
 
 ###### Tree rings provide a new class of phenotypes for genetic associations that foster insights into adaptation of conifers to climate change
-**Permanent notes:**
+**Permanent notes:** YES
 
 Two genomic strategies are commonly used to search for genes involved in local adaptation to climate:
 
@@ -1427,14 +1427,14 @@ Methods: Cool figure showing BAI RAW chronologie, standardised and mean ring den
 They showed that tree-ring traits measured in common garden experiments offer great potential to unravel local adaptation in forests trees through a fine-scale retrospective and dynamic view of tree resposnes to past environmental variations
 
 ###### Tree-rings to climate relationships in nineteen provenances of four black pines sub-species (Pinus nigra Arn.) growing in a common garden from Northwest Tunisia
-**Permanent notes:**
+**Permanent notes:** YES
 
 Tree rings are very reliable indicators of forest health and decline. However, a large amount of factors contribute to ring-width variations which must be removed by standardization procedures from ring-width series in order to isolate the influence of climate. 
 
 Methods: All cores were mounted on wooden supports and thoroughly polished with progressively finer sand paper.
 
 ###### Cambial phenology, wood formation and temperature thresholds in two contrasting years at high altitude in southern Italy
-**Permanent notes:**
+**Permanent notes:**YES
 
 During the growing season, some variability exists in growth onset and duration becasue of intra-annual differences in weather, with cambium reactivation in spring being highly dependant on temperature.  Wood formation involves cambial cell division and cell expansion followed by secondary wall production. They are regulated by gene expression and hormonal signals, but also environmental factors, such as temperature and precipitation. They ask the question whether there is a link between changes in cambial phenology and intraannual wood formation. E.g. changes in duration of wood formation induced by a change in cambial phenology might result in modification to ring-width formaiton.
 
@@ -1445,7 +1445,7 @@ They showed taht spring temperatures modify the duration of xylogenesis which ha
 ### 2 December
 
 ###### Tree-ring variation, wood formation and phenology of beech (Fagus sylvatica) from a representative site in Slovenia, SE Central Europe
-**Permanent notes:**
+**Permanent notes:** YES
 The application of densitometry showed that within and between year density variations in beech provide more information at higher temporal resolution than tree-rings only. 
 
 Analysis of wood anotomy provides better resolution since the morphology of the cells records the effects of different factors on a finer scale during the time of wood formation. 
@@ -1455,29 +1455,25 @@ In Northern Germany, wood formation data weas combined with pheno data (Schhmitt
 Beech. They showed that peak wood formation happened from the end of May to the beginning of June which is more than 2 weeks before the summer solstice. Wood formation in the Netherlands ended in October and in the Netherlands in September.  
 
 ###### Tree-rings, genetics and the environment: Complex interactions at the rear edge of species distribution range
-**Permanent notes:**
+**Permanent notes:** YES
 
 The climatic signal captured in tree-ring series is stronger in a stressful or constrained environment
 
 They showed that the genetic background of Pinus cembra had limited influence on the interannual fluctuations of radial tree growth and their resposnes to climatic variability
 
 ###### Where, why and how? Explaining the low-temperature range limits of temperate tree species
-**Permanent notes:**
+**Permanent notes:** YES
 
 They hypothesized that seed set will be diminished, seed quality and viability will be reduced and germination will be less successful in high compared to low-elevation seed provenances was falsified.  No evidence that reproductive potential at the upper range llimit is diminished under current climate conditions (for the species they studied. )
 
 Radial growth of their trees always correlated with growing season mean temperatur, irrespective of elevation. The annual variation of the length of the GS has an effect on radial growth only when temperatures are generally warmer. Because the timew required for new cell formation increases nonlineraly with decreasing temperatures., a longer season at low temperatures will only produce few additional cell rows, whereas a longer season at high temperatures can produce many more cell rows, particularly when spring is warm --> sets the size of the cambial zone. 
 
-**THE FOLLOWING IS ALREADY IN slipbox
-** 
-** Their common garden experiments revealed small, but consisten genetic differentiation of spriong phenology among provenances of seedlings originating from different elevations,e xcept for the treeline species which underlines the importance of the timing of growth and development for tree success. Fagus Sylvatica from high elevation provenances flushed earlier than those at low elevations as observed previously. 
+**THE FOLLOWING IS ALREADY IN slipbox** 
 
-Provenances from high elevations tended to set their buds earlier in autumn than low provenances. 
+*Their common garden experiments revealed small, but consisten genetic differentiation of spriong phenology among provenances of seedlings originating from different elevations,e xcept for the treeline species which underlines the importance of the timing of growth and development for tree success. Fagus Sylvatica from high elevation provenances flushed earlier than those at low elevations as observed previously. Provenances from high elevations tended to set their buds earlier in autumn than low provenances. Overall, phenology of populations from high elevations was less responsive to temperature and presumably more strongly tied to chilling requirements and or photoperiod than in populations from low elevations*
 
-Overall, phenology of populations from high elevations was less responsive to temperature and presumably more strongly tied to chilling requirements and or photoperiod than in populations from low elevations 
-
-Cool picture of the triangular control of species range limiets which outlines the species-specific trade-off between 1. Risk of freezing damage in spring, 2. Risk of tentering the dormant season with immature tissue 3. Timing of spring phenology.
-High-elevation provenances exhibited slower growth rates than low-elevation provenances in half of the studied species **
+*Cool picture of the triangular control of species range limiets which outlines the species-specific trade-off between 1. Risk of freezing damage in spring, 2. Risk of tentering the dormant season with immature tissue 3. Timing of spring phenology.
+High-elevation provenances exhibited slower growth rates than low-elevation provenances in half of the studied species ***
 
 They showed that leaf thickness and leaf mass per area increased with increasing elevation of the common garden. Provenances did not differ 
 
@@ -1491,4 +1487,92 @@ Species range limits are neither winter temperature means, nor extremes are invo
 
 They propose a triangular control of species range limits (FIG 5). Where inherent freezing tolerance of foliage in spring selects for a certain phenological control of spring flushing, which truncates the length of GS, and thus, the time available for tissue maturation. 
 
-SEE LIZZIES GREATEST HITS IN ZOTERO AND ADD HERE. 
+### BET HEDGING IN A GUILD OF DESERT ANNUALS
+LAWRENCE VENABLE
+2007
+**Permanent notes:** 
+Bet hedging is a risk-spreading strategy used by organisms in highly variable environments. In humans endeavorrs as in reflected, e.g. hedge funds or "don't put your eggs in one basket".
+It's also pervasive in the biological world such as it's an unwelcome influence that spreads over a population.
+
+Bet hedging may be involved in characteristic of an organism that buffers it from temporal environemental variation. E.g. perrenial life cycle, variable diapause in animals from crustaceans and mosquitoes to sponges and fish (Look for diapause), resistance of weeds to eradication.
+
+Usually defined in terms of a trade-off between mean and variance of some performance criterion such as population growth, return on investment or Darwinian fitness (Look for this).
+
+Organisms with bet hedging traits should have long-term success, measured as geometric mean succeess.
+
+Link this to EGRET. Classic example of bet hedging is delayed germination in desert annuals. It buffers variation in reproductive success much as cash under the pillow or a conservative financial investment buffers a risky investment. Thus producing a fraction of dormant seeds is the hedge agains the variation associated with germination.
+
+There is no empirical examples of bet hedging that dirrectly assses temporal variation in survival and reproduction in the evolutionarily relevant natural environment and its associated with putative bet hedging traits.
+
+Species that experience greater variance in per capita reproductive success were more responsive to growing season precipitation. This shous be due to differences in physiology and life history. The demographic variation and variation in sensitivity to precipitaton are due, to a trade-off among species between growth rate and water use effiency.
+
+These data reveal an interesting community pattern: a guild of co-occuring lpants with a sprectrum of demographic variances and correlated germination. These differences are implicated in structuring plant communities and accounting for stable species coexistance in variable environments.
+
+The life history patterns that they showed validate long-standing life history predictions, but also provides an intriguing window on how physiologies and life histories are deployed in comm structures.
+
+### Character Displacement in Flowering Phenologies
+Scott Gleeson, 1981
+**Permanent notes:** 
+
+Discussion about the role of competition in interpretations of flowering phenologies have raised questions. More specifically, the hypothesis in dispute is that competition by plant species for pollinators can cause a divergence of flowering times, resulting in a regular sequence of blooming within a season.
+
+If we consider blooming time as a quantitative trait, it is a character displacement argument.
+
+There are 2 important components of a quantitative character that determine its displacement response: the mean and the variance.
+
+Character displacement hypothesis. The ideal system would be one in which a suite of plant species rely exclusively on a single pollinator species during a homogenous flowering season
+
+A lack of appropriate quantitative techniques concealed a basic problem. The very act of ordering blooming times into a sequential phenology produces an impression of regularity.
+
+Poole and Ratchcke presented a new statistical method for distinguishing an evenly spaced phenology from a random one. They showed (with computational error) that the studied flowering phenology wasn't different than random.
+
+The meaning of Poole and Rathcke's test depend on the null hypothesis of randomly spaced mean flowering times. If there were one optimal time to bloom for all plant species, in the absence of competition, all species would bloom simultaneously. Their test is more rigourous than the other that present a null hypothesis of simultaneous bloom (where a random phenology would doubtless be) because their null hypothesis corresponds to the more buologically interesting assumption of an initially disorganized community composed, e.g. of species colonising from a diversity of habitatts. Deviation from this condition would suggest a community that had acquired some organization in response to displacement pressure.
+
+competition in such communities would result in competitive exclusion and selective retention of immgrant species or coevolution by character displacement of the initially random species assemblage. Either cases would have various inhibitions to the emergence of a truly even phenology.
+
+If plant species are compressing their blooming periods in response to competition, we would expect a correlation between blooming duration and some measure of temporal aggregation i.e. more tightly clumped species are in a season , the shorter their blooming periods.
+
+### Climatic Changes Lead to Declining Winter Chill for Fruit and Nut Trees in California during 1950–2099
+eIKE Luedeling, 2009
+**Permanent notes:** 
+
+All fruit and nut crops have chilling requirements that need to be fulfilled each winter to ensure homogeneous flowering and fruitset.
+
+Insufficient winter chill can reduce crop yeilds and quality. When not fulfilled, trees display irregular and temporally spread out flowering leading to inhomogeneous crop dev.
+
+For species that rely on overlap between male and female flowering, such as walnuts and pistachios, insufficient chilling can reduce pollination and reduce crop yields.
+
+They used 2 different mathematical models : Chilling hours Model and Dynamic Model (superior in subtropical climates)
+
+Chilling hours model counts the number of hours during winter when temperatures are between 0 and 7.2 C.
+
+Dynamic model assumes that winter chill is accumultaed in a 2-step process. An intermidate chilling product is first formed by a process that requires cool temmperatures. This intermediate product whose formation is enhanced by moderate temperatures can be destroyed by high temperaturs. When a sufficient amount of intermidiate product has accumulated it's converted irreversibly into a chill portion.
+
+They propose the concept of "safe winter chill" which is the amount of chilling that can safely be expected in 90% of all years and quantify the change in area of safe winter chill for exemplary crop species. They believe that this metric is more useful for tree crop growers than mean winter chill, since it incorporates the economic need for an orchard operation to produce good yields in most years rather than in an average year.
+
+Climate change may have other consequence (positive or negative) than winter chilling modifications. Rising summer temperatures can be expected to be beneficial to some crops, while having
+
+### Constraints and Competition in the Evolution of Flowering Phenology
+John Kochmer, 1986
+**Permanent notes:**
+To explain flowering phenology, most empiral and theoritical studies have folloed the suggestion of Robertson 1895 that flowering time is modified by natural selection to avoid competition for pollinators. The fitness reduction driving this process may be the result of decreased seed-set casued by pollinator limitation, the low success of hybrid seeds produced by intraspecific pollination, loss of pollen, or pollen tube clogging.
+
+If many species compete for pollination, flowering times should become spread through the season. However, in many ecosystems, they do not fulfill predictions of the comp. hypothesis. In some cases, flowering times are aggregated or are statistically not different from random generated patterns. This highlights that community patterns of flowering result of optimization of pollination.
+
+Robertson 1924: Every natural group [of flowering plants] has a definite position. It begins at a given time, increases to a maximum point and then declines until all of its members are out of bloom. Their seasons do not coincide but they overlap
+
+Research question: do life history and phylogenetic constraints influence the evolution of flowering phenology in the animal-pollinated plants of temperate floras?
+
+They defice phylogenetic constraints to denote properties shared by the members of a monophyletic grop by virtue of their common ancestry and which lmiit the response of these taxa to directional selection.
+
+We can only talk about phylogenetic constraints when the taxa studied are truly monophyletic.
+
+3 hypothesis for the evolution of flowering time. 1. Competition in the absence of constraints. It's been argued that flowering times are mostly due to seasonal displacement of sympatric, synchronously flowering competitors as a means of minimizing fitness reduction. Should lead to seasonal displacement of the flowering ties of competitors throughout the season. If there is selection for divergent flowering times in the absence of phylogenetic or life form constraints, a flora should have the folowing properties a) families of a flora should not differ in flowering time. b) Selection for divergent flowering times should be strongest among members of a family, so there should be considerable selection pressure for species of a family to spread flowering times through the year. c) Members of a give family would have the same dates of flowering in different parts of the world only in theunlikely situation that selective pressures on flowering time are identifical in the 2 regions.
+
+Phylogenetic constraints hypothesis. If phylogenetic constraints affected flowering time, the following prediction should hold: a) Families have different phylogenetic constraints, if so, they would differ in mean flowering times. b) A family's total range of flowering should be a positive functinon of the nb of species in the family. c) if phylogentic constraints are global properties of families and if phylogenetic constraints are stronger than local selective pressures, species of a family should flower on similar dates regardless of their geographic locations.
+
+Life form constraint hypothesis: would predict that species of different life forms should differ significantly in mean flowering times, regardless of family membership.
+
+Their results fulfill the predictions of the phylogentic constraints hypothesis
+
+If we take a time frame of 1000 years, selection for woody species, fewer than 100 generations during which selection could have acted on phenology. Thus, not enough time for competitors to have achieved optimization of complex ecological characters such as flowering time.
