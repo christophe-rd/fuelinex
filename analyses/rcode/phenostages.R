@@ -15,11 +15,12 @@ options(stringsAsFactors=FALSE)
 library(dplyr)
 library(ggplot2)
 library(data.table)
+library(tidyverse)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder 
-directory <-"/Users/christophe_rouleau-desrochers/Documents/github/fuelinex/"
+directory <-"/Users/christophe_rouleau-desrochers/github/fuelinex/"
 setwd(directory)
 list.files()
 
@@ -28,17 +29,166 @@ phenostages <- read.csv2("analyses/input/2024_budburst_to_budset.csv", header = 
 head(phenostages)
 str(phenostages)
 
+# change notes column name
+colnames(phenostages)[6] <- "notes"
+
+# first, standardize the note column
+# clean the spaces and maybe later other stuff 
+phenostages$Notes <- gsub("doy (\\d+)", "doy\\1", phenostages$notes)
+unique(phenostages$Notes)
+unique(phenostages$notes)
+grep("lateral 4", phenostages$Notes)
+phenostages$Notes[391]
+# manual cleaning for format standardization
+phenostages$Notes[which(phenostages$Notes == "116: stage 3 not 4")] <- "doy116: stage 3 not 4"
+phenostages$Notes[which(phenostages$Notes == "116: stage 2 not 3")] <- "doy116: stage 2 not 3"
+phenostages$Notes[which(phenostages$Notes == "116: stage 1 not 2")] <- "doy116: stage 1 not 2"
+phenostages$Notes[which(phenostages$Notes == "probably dead. Doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
+phenostages$Notes[which(phenostages$Notes == "116: main stem 2, smaller branch 4; doy182: apical shoot almost dead")] <- "doy116: main stem 2, smaller branch 4; doy182: apical shoot almost dead"
+phenostages$Notes[which(phenostages$Notes == "116: stage 3 not 4; doy207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
+phenostages$Notes[which(phenostages$Notes == "doy207: apical shoot ate doy221: apical shoot dead")] <- "doy207: apical shoot ate; doy221: apical shoot dead"
+
+# add doyNA: when there is no doy associated with the note
+phenostages$Notes[which(phenostages$Notes == "dead")] <- "doyNA: dead"
+phenostages$Notes[which(phenostages$Notes == "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "doyNA: probably dead; doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
+phenostages$Notes[which(phenostages$Notes == "main branch dead")] <- "doyNA: main branch dead"
+phenostages$Notes[which(phenostages$Notes == "main 2. lateral 4; doy199: side shoot observed")] <- "doyNA: main 2; lateral 4; doy199: side shoot observed"
+phenostages$Notes[which(phenostages$Notes == "main maybe dead")] <- "doyNA: main maybe dead"
+phenostages$Notes[which(phenostages$Notes == "terminal buds seem dead; lateral 3")] <- "doyNA: terminal buds seem dead. lateral 3"
+phenostages$Notes[which(phenostages$Notes == "dead--dendrometer switch it?")] <- "doyNA: dead--dendrometer switch it?"
+phenostages$Notes[which(phenostages$Notes == "main 2; lateral 4; doy199: side shoot observed")] <- "doyNA: main 2, lateral 4; doy199: side shoot observed"
+phenostages$Notes[which(phenostages$Notes == "dead; side shoots sprouting")] <- "doyNA: dead. side shoots sprouting" 
+phenostages$Notes[which(phenostages$Notes == "probably dead; doy207: ijbol it's missing")] <- "doyNA: probably dead; doy207: ijbol it's missing" 
+
+#replace doyNA by doy000 so it's numerical
+phenostages$Notes <- ifelse(phenostages$Notes == "" | is.na(phenostages$Notes), phenostages$Notes, gsub("doyNA", "doy000", phenostages$Notes))
+
+extract_notes <- function(notes) {
+  if (notes == "") {
+    return(NULL)
+  }
+  # Split the notes by semicolon to handle multiple DOY entries
+  note_parts <- strsplit(notes, ";")[[1]]
+  # Extract DOY and note for each part
+  doy_notes <- lapply(note_parts, function(part) {
+    doy <- sub(".*doy(\\d+):.*", "\\1", part)
+    note <- sub(".*doy\\d+: ", "", part)
+    return(data.frame(DOY = doy, Note = note, stringsAsFactors = FALSE))
+  })
+  return(do.call(rbind, doy_notes))
+}
+# Apply the function to each row and combine results
+notes_list <- lapply(phenostages$Notes, extract_notes)
+# Handle NULL values in notes_list
+notes_list <- lapply(notes_list, function(x) if (is.null(x)) data.frame(DOY = NA, Note = NA, stringsAsFactors = FALSE) else x)
+# Combine into a single data frame
+notes_df <- do.call(rbind, notes_list)
+# Add tree_ID to the notes data frame
+notes_df$tree_ID <- rep(phenostages$tree_ID, sapply(notes_list, function(x) nrow(x)))
+# Pivot the data frame to wide format
+wide_notes <- reshape(notes_df, idvar = "tree_ID", timevar = "DOY", direction = "wide")
+# Clean up column names
+colnames(wide_notes) <- gsub("Note\\.", "", colnames(wide_notes))
+#remove na column
+wide_notes <- wide_notes[,c(1:2,4:ncol(wide_notes))]
+
 # Function to convert all doy columns to numeric without having tons of warnings: 
 #source: https://stackoverflow.com/questions/32846176/applying-as-numeric-only-to-elements-of-a-list-that-can-be-coerced-to-numeric-i
 convert_to_numeric <- function(x) {
   as.numeric(ifelse(grepl("^[0-9]+$", x), x, NA))
 }
 # # Convert to numeric
-# for (i in 7:ncol(phenostages)) {
-#   phenostages[, i] <- convert_to_numeric(phenostages[, i])
-# }
+for (i in 7:ncol(phenostages)) {
+  phenostages[, i] <- convert_to_numeric(phenostages[, i]) # at some point I should make sure I am not loosing any values
+}
 
-#### ACNE ####
+# convert to long format
+phenolong <- phenostages %>%
+  pivot_longer(
+    cols = -c(tree_ID, bloc, treatment, genus, species, notes, Notes),
+    names_to = "DOY",
+    values_to = "Phenostage",
+  ) %>%
+  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
+  select(ID_DOY, Phenostage)                  
+
+# convert notes wide df to long format
+noteslong <- wide_notes %>%
+  pivot_longer(
+    cols = -tree_ID,  
+    names_to = "DOY", 
+    values_to = "Notes"  
+  ) %>%
+  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
+  select(ID_DOY, Notes) 
+
+# merge phenostage+notes
+phenoNotes <- merge(phenolong, noteslong, by = "ID_DOY", all.x = TRUE)
+# separate again the doy and id
+phenoNotes$ID <- sub("(_\\d+)$", "", phenoNotes$ID_DOY)  
+phenoNotes$DOY <- sub(".*_(\\d+)$", "\\1", phenoNotes$ID_DOY) 
+phenoNotes$Species <- sub("^([A-Za-z]+)_.*", "\\1", phenoNotes$ID_DOY)
+phenoNotes$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", phenoNotes$ID_DOY)
+
+# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
+phenoNotes$Treatment <- ifelse(grepl("_nitro", phenoNotes$ID_DOY), 
+                               paste0(phenoNotes$Treatment, "_nitro"), 
+                               phenoNotes$Treatment)
+unique(phenoNotes$Treatment)
+# phenostages textual description
+phenophase_labels <- c(
+  "Bud dormant",
+  "Bud flush",
+  "Leaf emergence, still curly",
+  "Leaf is unrolled",
+  "Leaf is completely unfolded",
+  "Bud start to set, still some green",
+  "Bud changes color to red or green"
+)
+phenoNotes$phenophaseText <- phenophase_labels[phenoNotes$Phenostage + 1]
+
+phenoNOna <- phenoNotes[!is.na(phenoNotes$Phenostage),]
+
+# Select for each replicate one value each
+# Convert DOY to numeric
+phenoNOna$DOY <- as.numeric(phenoNOna$DOY)
+# Sort data by ID and DOY
+phenoNOna <- phenoNOna[order(phenoNOna$ID, phenoNOna$DOY), ]
+phenoNOna_filtered <- phenoNOna[!duplicated(phenoNOna[c("ID", "Phenostage")]), ]
+
+summary_stats <- aggregate(
+  DOY ~ phenophaseText + Species + Treatment, 
+  data = phenoNOna_filtered, 
+  FUN = function(x) c(mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE))
+)
+summary_stats$mean_DOY <- summary_stats$DOY[, "mean"]
+summary_stats$sd_DOY <- summary_stats$DOY[, "sd"]
+# summary_stats$DOY <- NULL  # Remove the old column
+
+# for now, just take dormant and unroled
+vec <- c("Bud dormant", "Leaf is completely unfolded")
+suby <- summary_stats[summary_stats$phenophaseText %in% vec, ]
+# Create the plot
+ggplot(suby, aes(x = mean_DOY, y = Species, color = phenophaseText)) +
+  geom_point(size = 3, alpha = 0.7) + 
+  geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
+                 height = 0.2, alpha = 0.5, linewidth = 0.6) + 
+  facet_wrap(~Treatment)+
+  theme_minimal() +
+  labs(
+    x = "Day of Year",
+    y = "Species",
+    title = "Phenophase 2024",
+    color = "Phenophase"
+  ) +
+  theme(axis.text.y = element_text(size = 10, face = "italic"),
+        axis.text.x = element_text(size = 10),
+        strip.text = element_text(size = 12, face = "bold"),
+        legend.position = "right")
+ 
+##### right now there is a problem with quma because they flushed late so i need to distinguish between spring dormant and bud is completely set.
+
+# Subset for species name
 acne <- subset(phenostages, genus =="acer")
 bepa <- subset(phenostages, genus =="betula")
 poba <- subset(phenostages, genus =="populus")
@@ -46,7 +196,22 @@ prvi <- subset(phenostages, genus =="prunus")
 pist <- subset(phenostages, genus =="pinus")
 quma <- subset(phenostages, genus =="quercus")
 
+#### ACNE ####
 head(acne)
+str(acne)
+# Convert the data frame from wide to long format
+# Convert the data frame from wide to long format
+
+# View the result
+head(long_df)
+acnecut <- wide_notes[1:50, c(1,6)]
+dput(acnecut)
+# first clean the note column
+
+unique(acnecut$Notes)
+
+# View the r
+
 acne_last_measurement<- acne[, "242"]
 bepa_last_measurement<- bepa[, "242"]
 prvi_last_measurement<- prvi[, "242"]
