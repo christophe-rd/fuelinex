@@ -332,3 +332,111 @@ Global meta-analyses are likely to remain the most reliable, scientifically defe
 **Permanent notes:**
 Cynthia Rosenzweig, 2013
 They criticize that CC detection and attribution have focused on the climate itself and they propose a focuse on CC impacts and the issues arising from teh detection and attribution of these impacts.
+
+## 7 February 2025
+### Canopy structure regulates autumn phenology by mediating the microclimate in temperate forests
+Xiaoyong Wu, 2024
+**Permanent notes:**
+The intricate interplay of factors ranging from soil to atmospheric conditions generates complex efects on autumn phenology, resulting in greater inter-crown variability inn autumn than spring. This results in high uncertainty in predictions of GS length and its associated carbon sequestration capactiy of temperate forests.
+
+Genetic variations among tree species play a big role in shaping phenotypic characteristic of trees, including autumn phenology. However, environmental may overshadow genetic influences through phenotypic plasticity. Radiation and temperature are usually the determinants of autumn phenology. Regions with cold temperature and low radiation go through senescence faster, because decreasing temperature and solar radiation can trigger the accumulation of abscisic acid, speed up chl degradation, reduce photopsyntheic enzyme activity and increase the risk of leaf frost = earlier leaf senesence.
+
+Microclimates : localized climate conditions directly experinenced by plant organisms. At a local scale, microclimate can exhibit big spatial heterogeneities and is a critical factor of ecoystem processes.
+
+The impact of canopy structure on Start of autumn can have 2 pathways:
+1. Modulates within-canopy light conditions, subsequently photosynthesis and carbon uptake. Increased photosynthesis during GS increases carbon uptake and saturates it after reaching a critical sugar concentration in sink organs. 
+Satuaration of carbon uptake can trigger photosynthetic feedback inhibition characterized by a metabolic shift to nutrient remobilizaqtion thus influencing leaf senescnce.
+2. By modulating within canopy temperature conditions. Canopies can mitigate diurnal temp extremes directly by reducing daytime highs and increasing night-time lows. This temperature-buffering effect becomes stronger in structurally complex forests, thus accelarating the accrual of cold temperatures which can advance leaf senescence by increasing abscisic acid content... 
+This supports the carbon-sink hypothesis is thus supported by increasing observations of negative relationships between GS productivity and leaf senescence timing 
+However, their results suggest that global light index has a stronger impact on autumn timing than buffered temperature, suggesting that carbon uptake may play a more important role in regulating leaf senescnce timing than cold temp. 
+INCLUDE fig4.
+
+They observed significant effect of canopy structure on autumn phenology induced by the regulation effect of canopy structure on microclimate conditions. This provide a new perspective for interpreting the local variations of autumn phenology in temp foress.
+
+#### From Roots to Leaves: Tree Growth Phenology in Forest Ecosystems
+Roberto Silvestro, Sergio Rossi, Yann Vitasse, 2025
+**Permanent notes:**
+Cool picture about timeline hiustory of phenology.
+Autumnal phenology and specifically budset are often used as a proxy for the end of growth. 
+After exposure to chilling conditions, buds move from endodormancy to ecodormancy, during which they are able to resume growth in response to warm conditions (i.e. forcing) and increasing photoperiod. These changes yield important biochemical feedbacks on plant carbon metabolism and the non-structural carbohydrates NSC dynamics. At this stage, giberellins increases and abscisic acid decreases, cell membrane fluidity increases and influx of calcium enters the meristematic cells, eventually triggering cell elongation and division triggering budbreak.
+Resumption of primary shoot growth relies on deep understandiong of physiological processes that occur during dormancy. Depending on the species:
+Primary growth will either stop after a few weeks (deterministic growth)
+Occur continuouslyy troughout the growing season (indeterministic growth)
+Occur during several periods of intermitent growth (polycyclic growth). This one allows a ceretain species to increase their resistance and flexibility to stress, such as drought, since they can re-flush once teh stress is releases and conditions become favourable again. 
+
+Wood growth phenology aka wood formation or xylogenesis refers to the timing of physiological phases occuring throughout the seasonal growth of wood in terms of both volume and mass. 
+Formation of the xylem (or growth rings) begins with cambial reactivation and cell production by cambial initals. Subsequent stages involve the differentiation of xylem cells , encopmpassing discrete events:
+1. Cell enlargement 
+2. Secondary wall formation and lignification 
+3. Programmed cell-death
+The different timings betwen theses phases constrain the overall length of the wood growin season. 
+
+Most studies have focused on conifers rather than angiosperms. Partly due to the simpler wood structure of conifers which is composed of approximately 90% tracheids. Angiosperms are more complex: vessels, fibers and in some species, tracheids. 
+
+Cambial activity marks the initial phase of wood formation,  characterized by reactivatiopn of the cambium, which is a layer of meristematic cells (i.e. cambial initials) that produces new xylem and phloem cells. In spring, when temperatures rise above 4-5 C, cambium can resume. Warming experiments support the importance of temperature on cambial activity.
+
+Photoperiod also plays an important role in xylem cell production. Rossi et al. found that the maximum rate of xylem production tops at summer solstice, when day length, NOT tempereature reaches its peak. After the solstice, cell production diminishes and eventually ceases. Suggests that trees evolved to synchronize their phenology and growth rates with day length, providing an advbantage in avoiding thermally unfavorable growth periods at the beginnning and ending of the season. 
+
+Water availability also plays a crucial role in defining phenology and dynamics of wood formation. E.g. mediteranean ecosystems, two peak of secondary growth activity: spring and autumn. This bimodal growth pattern is associated with changes in growth conditions where water stress suspends wood formation in the summer. During autumn, reactivation of growth in response to precipitation allows resumption of xylem cell differentiation and sometimes, cambial activity. 
+
+## 19 February 2025
+### Tree rings provide a new class of phenotypes for genetic associations that foster insights into adaptation of conifers to climate change
+Johann Housset, 2017
+**Permanent notes:**
+already in slipbox
+However, in tree species, the list of functional traits that closely reflect adaptation to climate is still rather limited and labor-intensive to evaluate (for a review, see Aitken & Bemmels, 2016). In particular, assessment of dendrometric traits usually consists of punctual measurements (e.g. height or diameter at a certain age) that are probably the cumulative result of many different climatic events and constraints that occurred throughout the tree’s lifespan.
+### Global patterns of mobile carbon stores in trees at the high-elevation tree linege
+Christian Korner, 2012
+**Permanent notes:**
+Architecture and associated aerodynamics are the primary reasons why trees are more strongly affected by low temp at lower elevations than smaller stature plants.
+They show that the cessation of growth in the cold in tree lines ecotones is not limited by carbon limitation. Plus, they argue that sink limitation is not a consequence of insufficient soil-nutrient availability in the cold but a direct limitation of meristmatic processes. So far, malnutrition has been identified at the tree line. 
+
+### Global warming-related tree growth decline and mortality on the north-eastern Tibetan plateau
+Eryuan Liang, 2016
+**Permanent notes:**
+In many forests worldwide, drought and warming have caused reductions in annual stem increment and productivity.
+
+Spruce in the Tibetan plateau show increased tree mortality of adult trees, but it's not accompanied by increasing recruitment rates which suggests that recent climate change is not accompanied by increasing recruitment rates. They suggest that CC type drought is driving spruce forests beyond the point of ecosystem resilience and toward stand level deforestation.
+
+### On the Below- and Aboveground Phenology in Deciduous Trees: Observing the Fine-Root Lifespan, Turnover Rate, and Phenology of Fagus sylvatica L., Quercus robur L., and Betula pendula Roth for Two Growing Seasons
+Bertold Mariën, 2021
+**Permanent notes:**
+We should define roots on a physiological basis and not on morphology.
+Fine-roots can add nutrients adn carbon into the soil throught their continuous growth and mortality. Fine root turnover rate: number of times in which the fine-root biomass is replaced within a given timeframe. This turnover account for 10 to 60% of the annual NPP in forests globally. 
+
+We know very little on the phenology of fine-roots in deciduous trees. There are 3 reasons we know less for bellow than above ground dynamics:
+1. Difficult to estimate fine-root lifespan, turover rate and phenology
+2. A lot of inter-annual variations within and among species, with very few trends.
+3. Distribution of root types and corresponding root characteristics show significant spatial variability
+
+They show that fine-roots of late successional species live longer than those of pioneer species.
+
+They didn't show any yearly patterns in belowground phenology of beech, oak or birch and no coupling between the below and above ground phenology of these species. 
+
+## 19 February 2025
+### Warm springs alter timing but not total growth of temperate deciduous trees
+Cameron Dow, Neil Pederson
+**Permanent notes:**
+Despite deforestation, the net effect of forests in still a carbon sink i.e. they are absorbing more CO2 than they are releasing despite the deforestation and land use changes. This is because forests are growing more i.e. more CO2 absorption. This absorption offsets about 20% of human caused-CO2 ewmissions. 
+Of this important carbon sink, 47% happens in temperate forests.
+
+Earlier initiation of growth doesn't necessarily translate to earlier, faster or greater stem growth. Rather, stem growth is dependant on environemental conditions on hourly to daily timescales and annual growth is more closely linked to conditions within the growin seaosn than to growing season length. 
+
+Plus, growth of broaleaf deciduous trees may be sink saturated, such that longer GS with more carbon fixation do not necessarily augment growth. 
+
+Tree-ring records can examine annual growth but not growth seasonality. This reveals that gowth of temperate deciduous trees tends to be most sensitive to temperature or potential evapotranspiration between late spring and early summer. Some evidence suggest that warmer springs mayu have a modest positive effect on growth. W	hich does not align with the findings that warming spring temperatures increase anual forest CO2 uptake in temp deciduous forests. Further readings: 
+*Gao, S. et al. An earlier start of the thermal growing season enhances tree growth in cold humid areas but not in dry areas. Nat. Ecol. Evol. 6, 397–404 (2022).
+McMahon, S. M. & Parker, G. G. A general model of intra-annual tree growth using dendrometer bands. Ecol. Evol. 5, 243–254 (2015).*
+
+Methods:
+The yearly analysis of growth was performed separately between ring-porous and diffuse-porous species because they differ in their timing of growth.
+To test if warm spring temperatures might result in storage of non-structural carbogydrates that would augment growth the folllowing year, they extended the analysis to examine correlations between Ring width index(RWI) and Tmax of the previous year. 
+
+Their results show  that warmer spring temperatures in the temperate deciduous forests of eastern North America advance the timing of stem diameter growth but have little effect on annual increments
+
+Their results are contradicting the concept that an earlier start to growth would increase anual NPP, they show that warm springs either speeds up the deceleration of stem expansion or otherwise fail to translate extended GS into increased stem growth, thus having negligible effect on totral annual growth for most species and locations. Thus, the decelaration of stem expansion which occurs in mid-summer near the time of peak canopy greenness is driven by cues other than photosynthate limitation, such as water stress, nutrient limitation, day length or sink limitation of stem growth. This supports the evidence of a sink limitation of stem growth, in which CC factors known to enhance photosynthesis, sich as longer GS or increased CO2, does NOT correspond to increased stem growth. 
+
+It remains possible that warming spring temperatures could ultimately increase ANPP, through indirect mechanisms. And understanding how warming spring temperatures are influencing carbon allocaiton within ecosystems remains 
+
+The timing of peak growth in June and July conincides with the timing of the greatest sensitive of annual growth to Tmax. Consistent with the finding that demonstrates the sensitivity of growth to drought stress or high temperatures during the peak GS
+

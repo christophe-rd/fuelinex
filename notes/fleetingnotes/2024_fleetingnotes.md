@@ -1,4 +1,6 @@
-Fleeting notes 2024
+# Fleeting notes 2024
+
+### ALL OF THESE NOTES ARE NOW ADDED TO SLIPBOX
 
 **Fleeting notes 2024**
 
@@ -1490,7 +1492,7 @@ They propose a triangular control of species range limits (FIG 5). Where inheren
 ### BET HEDGING IN A GUILD OF DESERT ANNUALS
 LAWRENCE VENABLE
 2007
-**Permanent notes:** 
+**Permanent notes:** YES
 Bet hedging is a risk-spreading strategy used by organisms in highly variable environments. In humans endeavorrs as in reflected, e.g. hedge funds or "don't put your eggs in one basket".
 It's also pervasive in the biological world such as it's an unwelcome influence that spreads over a population.
 
@@ -1506,13 +1508,13 @@ There is no empirical examples of bet hedging that dirrectly assses temporal var
 
 Species that experience greater variance in per capita reproductive success were more responsive to growing season precipitation. This shous be due to differences in physiology and life history. The demographic variation and variation in sensitivity to precipitaton are due, to a trade-off among species between growth rate and water use effiency.
 
-These data reveal an interesting community pattern: a guild of co-occuring lpants with a sprectrum of demographic variances and correlated germination. These differences are implicated in structuring plant communities and accounting for stable species coexistance in variable environments.
+These data reveal an interesting community pattern: a guild of co-occurring plants with a spectrum of demographic variances and correlated germination. These differences are implicated in structuring plant communities and accounting for stable species coexistence in variable environments.
 
 The life history patterns that they showed validate long-standing life history predictions, but also provides an intriguing window on how physiologies and life histories are deployed in comm structures.
 
 ### Character Displacement in Flowering Phenologies
 Scott Gleeson, 1981
-**Permanent notes:** 
+**Permanent notes:** YES
 
 Discussion about the role of competition in interpretations of flowering phenologies have raised questions. More specifically, the hypothesis in dispute is that competition by plant species for pollinators can cause a divergence of flowering times, resulting in a regular sequence of blooming within a season.
 
@@ -1534,12 +1536,9 @@ If plant species are compressing their blooming periods in response to competiti
 
 ### Climatic Changes Lead to Declining Winter Chill for Fruit and Nut Trees in California during 1950–2099
 eIKE Luedeling, 2009
-**Permanent notes:** 
+**Permanent notes:** YES
 
-All fruit and nut crops have chilling requirements that need to be fulfilled each winter to ensure homogeneous flowering and fruitset.
-
-Insufficient winter chill can reduce crop yeilds and quality. When not fulfilled, trees display irregular and temporally spread out flowering leading to inhomogeneous crop dev.
-
+≈
 For species that rely on overlap between male and female flowering, such as walnuts and pistachios, insufficient chilling can reduce pollination and reduce crop yields.
 
 They used 2 different mathematical models : Chilling hours Model and Dynamic Model (superior in subtropical climates)
@@ -1554,7 +1553,7 @@ Climate change may have other consequence (positive or negative) than winter chi
 
 ### Constraints and Competition in the Evolution of Flowering Phenology
 John Kochmer, 1986
-**Permanent notes:**
+**Permanent notes:** YES
 To explain flowering phenology, most empiral and theoritical studies have folloed the suggestion of Robertson 1895 that flowering time is modified by natural selection to avoid competition for pollinators. The fitness reduction driving this process may be the result of decreased seed-set casued by pollinator limitation, the low success of hybrid seeds produced by intraspecific pollination, loss of pollen, or pollen tube clogging.
 
 If many species compete for pollination, flowering times should become spread through the season. However, in many ecosystems, they do not fulfill predictions of the comp. hypothesis. In some cases, flowering times are aggregated or are statistically not different from random generated patterns. This highlights that community patterns of flowering result of optimization of pollination.
