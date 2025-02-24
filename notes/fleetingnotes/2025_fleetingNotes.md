@@ -440,3 +440,36 @@ It remains possible that warming spring temperatures could ultimately increase A
 
 The timing of peak growth in June and July conincides with the timing of the greatest sensitive of annual growth to Tmax. Consistent with the finding that demonstrates the sensitivity of growth to drought stress or high temperatures during the peak GS
 
+## 21 February 2025
+### Why longer seasons with climate change may not increase tree growth
+**Permanent Notes:** 
+E.M. Wolkovich, Janneke Hille Ris Lambers
+
+Recent work (good citations here) question the assumption that longer GS increase tree growth. These studies include observations along elevational and latitudinal gradients, classic experiments in lab settings (good old paper here) to trends in ecosystem fluxes with warming.  This disconnect can be explained by diverse mechanisms from the complex nature of CC (drought/heat stress) to internal limits on plant growht. 
+
+Small scale field warming studies find that phenologically advancing species also grow more with warming (link to cleland 2012). Observationally, there is a similar trend.
+
+Most studies in the paper tested the hypothesis that longer seasons with CC increase growth via either increased time to grow or because longer seasons are usually warmer. 
+
+Some studies tested the hypothesis that high temp paired with low precip produce negative correlatons of season length with growth. Some experimental and wood phenology (xylogenesis) studies suggested fundamental internal constraints that prevent trees from responding to longer seasons, yet these hypothesis have been tested in radically different ways and on different species!
+
+Mechanisms that can limit/disrupt the positive effects opf longer GS fall into 2 categories: 
+1. External factors: drought which could impact ecosystem-level trends at regional scales
+2. Internal physiological constraints: which could be universal accross plants (E.g. zophner 2023).
+
+External drivers: temp too low or too warm (35-45C) can slow down bio processes/lead to tissue death.
+
+Internal constraints: when and how growth is initiated and ceases is under genetic and developmental control, and thus plant's internal programming could limit growth responses to longer seasons. We know that populations vary in their growth and its responses to extended seasons, reflecting differences in genetic and developmental controls that likely evolved to limit tissue loss to rare early or late-season events.
+Populations vary predictably in their end-of-season phenology with more poleward going through budset earlier. This means that longer seasons are generally driven by spring phenology which appears far more flexible and advanced more rapidly than fall events
+
+Trade-offs between vegetative and reproductive investments may produce important growth response differences across years within individuals, as well as betwen species. Years of high reproductive output can reduce growth. For species that mast, high reprod copuld especially impact measures of wood growth. Higher temp may trigger masting in the following year; if true, then reduced growth in years following warm summers may not indicate temperatures too high for grwoth, but instead shifting investment to reproduction
+
+Wood growth in evergreen species is generally thought to come from current season photosynthesate while deciduous species may more often use stored carbon resources. These diffeernces would suggest that season length by growth relationships may be more apparent via lagged effects in deciduous species, but this is rarely studied and not well supported.
+
+Species that budburst earlier and more readily produce addtional leaves (e.g. leaf flush after budset) may grow more with longer seasons vs those that budburst later and flush with primary growth only once. Also, species that vary in their tresholds accross their ranges mnay obscure any overall relationship between growth and GS length. 
+
+Phylogenetic comparative methods can moved research away from treating species identify as simple groups e.g. fagus sylvatica, quercus robur) or into big groups(evergreen vs deciduous). They now treat species as a suite of correlated observations, separated by their evolutionary distance. 
+
+While juvenile trees are more flexible than their adult forms, they usually provide predictable inference in differences across species and populations, so should be integrated into studies.
+
+Experiments could also inform a better model of lag effects across species, with small scale studies sampling saplings multiple years after manipulation (vs common pratice of destroying samples)
