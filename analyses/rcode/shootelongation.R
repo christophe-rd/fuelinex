@@ -13,24 +13,42 @@ options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder  
-directory_path <- "/Users/christophe_rouleau-desrochers/Documents/github/fuelinex/"
+directory_path <- "/Users/christophe_rouleau-desrochers/github/fuelinex/"
 
 # Set Working Directory
 setwd(directory_path)
 
 # Load librairies
-library(readxl)
 library(ggplot2)
-library(data.table)
 
 # Read csv
-shootelongation <- read.csv2("analyses/input/shoot_elongation.csv", header = TRUE, sep = ",", check.names = FALSE)
-head(shootelongation)
+shoot <- read.csv2("analyses/input/2024ShootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
+head(shoot)
+colnames(shoot)[6] <- "notes"
 
-# Convert all chr values that should be numeric, numeric
-for (i in 7:length(colnames(shootelongation))) {
-  shootelongation[,i]<-as.numeric(shootelongation[,i])
+# Convert all chr values that should be numeric
+for (i in 7:length(colnames(shoot))) {
+  shoot[,i]<-as.numeric(shoot[,i])
 }
+
+# Check the notes column
+unique(shoot$Notes)
+#=== === === === === === === === === === === === === === === === === === === ===
+# Clean the notes Column #
+#=== === === === === === === === === === === === === === === === === === === ===
+shoot$Notes <- gsub("doy (\\d+)", "doy\\1", phenostages$notes)  
+# clean the spaces and maybe later other stuff 
+shoot$Notes <- gsub("doy (\\d+)", "doy\\1", shoot$notes)
+# check which note doesn't have a doy associated with it and add doy NA for these cases
+indices_to_fix <- which(!grepl("^doy\\d+:", shoot$Notes) & shoot$Notes != "")
+                        
+# add doy Na in front of the following list
+for (i in indices_to_fix) {
+  shoot$Notes[i] <- paste0("doy000: ", shoot$Notes[i])
+}
+
+# manual cleaning for format standardization
+shoot$Notes[which(shoot$notes == "doy164:(discrepancy)")] <- "doy164: (discrepancy)"
 
 #=== === === === === === === === === === === === === === === === === === === ===
 #### ACNE #####

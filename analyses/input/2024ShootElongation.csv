@@ -1,4 +1,4 @@
-tree_ID,bloc,treatment,genus,species,Note,128,129,130,131,136,137,143,150,157,164,171,178,185,192,199,206,213,220,227,234,241
+Ôªøtree_ID,bloc,treatment,genus,species,Note,128,129,130,131,136,137,143,150,157,164,171,178,185,192,199,206,213,220,227,234,241
 Acne_CoolS/CoolF_B1_R1,1,CoolS/CoolF,acer,acer_negundo,,9,,,,12.2,,13.1,13.8,14.4,14.8,14.8,14.2,14.3,14.1,,14.5,,14.3,,14.3,
 Acne_CoolS/CoolF_B1_R2,1,CoolS/CoolF,acer,acer_negundo,,4.6,,,,8.9,,10.8,11.6,11.8,12.7,12.7,12.7,12.4,12.3,,12.3,,12.5,,12.5,
 Acne_CoolS/CoolF_B1_R3,1,CoolS/CoolF,acer,acer_negundo,,8.8,,,,14,,15.7,16.9,17.2,17.5,17.5,17.5,17.5,17.4,,17.5,,17,,17,
@@ -233,7 +233,7 @@ Pist_WarmS/CoolF_B2_R6,2,WarmS/CoolF,pinus,pinus_strobus,,,,8.1,,12.4,,14.2,14.5
 Pist_WarmS/CoolF_B2_R7,2,WarmS/CoolF,pinus,pinus_strobus,,,,6.3,,7.6,,7.4,7.3,7.3,7.5,7.1,7,7.4,7.9,,7,,7.6,,7.6,
 Pist_WarmS/CoolF_B2_R8,2,WarmS/CoolF,pinus,pinus_strobus,,,,6.1,,8.3,,9,9.2,9.3,9.9,9.5,9.4,9.8,9.8,,9.1,,9.8,,9.8,
 Pist_WarmS/CoolF_B2_R9,2,WarmS/CoolF,pinus,pinus_strobus,,,,3.9,,7.9,,10.2,11.5,12.9,13.5,12.8,13.2,13.1,14.5,,12.8,,13.1,,13.1,
-Pist_WarmS/CoolF_B2_R10,2,WarmS/CoolF,pinus,pinus_strobus,doy 206: red mark maybe peeled off girl…,,,12.9,,16.6,,18,18.6,18.4,18.6,18.2,18.7,18.8,18.8,,17.1,,18.4,,18.4,
+Pist_WarmS/CoolF_B2_R10,2,WarmS/CoolF,pinus,pinus_strobus,doy 206: red mark maybe peeled off girl‚Ä¶,,,12.9,,16.6,,18,18.6,18.4,18.6,18.2,18.7,18.8,18.8,,17.1,,18.4,,18.4,
 Pist_WarmS/CoolF_B3_R11,3,WarmS/CoolF,pinus,pinus_strobus,doy143: previous measurement possibly from another shoot,,,1.2,,1.9,,1.2,1.1,0.9,1.1,1.3,1,0.8,0.5,,1.9,,1.2,,1.2,
 Pist_WarmS/CoolF_B3_R12,3,WarmS/CoolF,pinus,pinus_strobus,,,,5.7,,7.2,,7.8,7.8,7.7,8,7.8,7.7,7.6,7.7,,8.1,,8.4,,8.4,
 Pist_WarmS/CoolF_B3_R13,3,WarmS/CoolF,pinus,pinus_strobus,,,,6.7,,7.4,,7.4,7.4,7.4,7.8,7.4,7.5,7.7,7.1,,7.7,,7.7,,7.7,
@@ -384,7 +384,7 @@ Prvi_CoolS/CoolF_B2_R7_nitro,2,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,1.7,
 Prvi_CoolS/CoolF_B2_R8_nitro,2,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,0.8,,,0.8,,0.8,0.8,0.7,0.9,0.9,0.9,0.7,0.6,,0.6,,0.6,,0.6,
 Prvi_CoolS/CoolF_B2_R9_nitro,2,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,1.7,,,1.7,,1.6,1.7,1.7,1.7,1.8,1.8,1.5,1.9,,1.6,,1.6,,1.6,
 Prvi_CoolS/CoolF_B2_R10_nitro,2,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,0.7,,,0.6,,0.6,0.5,0.6,0.6,0.5,0.5,0.5,0.2,,0.5,,0.5,,0.5,
-Prvi_CoolS/CoolF_B3_R11_nitro,3,CoolS/CoolF_nitro,prunus,prunus_virginiana,initial measurement … probably dead,,na,,,na,,na,na,na,na,na,na,na,na,,na,,na,,na,
+Prvi_CoolS/CoolF_B3_R11_nitro,3,CoolS/CoolF_nitro,prunus,prunus_virginiana,initial measurement ‚Ä¶ probably dead,,na,,,na,,na,na,na,na,na,na,na,na,,na,,na,,na,
 Prvi_CoolS/CoolF_B3_R12_nitro,3,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,0.4,,,0.4,,0.4,0.4,0.4,0.5,0.6,0.4,0.5,0.2,,0.5,,0.5,,0.5,
 Prvi_CoolS/CoolF_B3_R13_nitro,3,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,1.2,,,1.2,,1.1,1.7,1.2,1.2,1.8,1.3,1.1,1,,1.5,,1.5,,1.5,
 Prvi_CoolS/CoolF_B3_R14_nitro,3,CoolS/CoolF_nitro,prunus,prunus_virginiana,,,1.8,,,5,,8.5,9.8,13.6,17.4,17.5,18,17.7,17.8,,18,,18,,18,

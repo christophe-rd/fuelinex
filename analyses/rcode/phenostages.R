@@ -25,7 +25,7 @@ setwd(directory)
 list.files()
 
 # Read data
-phenostages <- read.csv2("analyses/input/2024_budburst_to_budset.csv", header = TRUE, sep = ",", check.names = FALSE)
+phenostages <- read.csv2("analyses/input/2024BudburstToBudset.csv", header = TRUE, sep = ",", check.names = FALSE)
 head(phenostages)
 str(phenostages)
 
@@ -35,10 +35,6 @@ colnames(phenostages)[6] <- "notes"
 # first, standardize the note column
 # clean the spaces and maybe later other stuff 
 phenostages$Notes <- gsub("doy (\\d+)", "doy\\1", phenostages$notes)
-unique(phenostages$Notes)
-unique(phenostages$notes)
-grep("lateral 4", phenostages$Notes)
-phenostages$Notes[391]
 # manual cleaning for format standardization
 phenostages$Notes[which(phenostages$Notes == "116: stage 3 not 4")] <- "doy116: stage 3 not 4"
 phenostages$Notes[which(phenostages$Notes == "116: stage 2 not 3")] <- "doy116: stage 2 not 3"
@@ -47,7 +43,7 @@ phenostages$Notes[which(phenostages$Notes == "probably dead. Doy137: main shoot 
 phenostages$Notes[which(phenostages$Notes == "116: main stem 2, smaller branch 4; doy182: apical shoot almost dead")] <- "doy116: main stem 2, smaller branch 4; doy182: apical shoot almost dead"
 phenostages$Notes[which(phenostages$Notes == "116: stage 3 not 4; doy207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
 phenostages$Notes[which(phenostages$Notes == "doy207: apical shoot ate doy221: apical shoot dead")] <- "doy207: apical shoot ate; doy221: apical shoot dead"
-
+phenostages$Notes[which(phenostages$Notes == "doy262:bud bursting again")] <- "doy262:bud bursting again"
 # add doyNA: when there is no doy associated with the note
 phenostages$Notes[which(phenostages$Notes == "dead")] <- "doyNA: dead"
 phenostages$Notes[which(phenostages$Notes == "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "doyNA: probably dead; doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
@@ -62,6 +58,8 @@ phenostages$Notes[which(phenostages$Notes == "probably dead; doy207: ijbol it's 
 
 #replace doyNA by doy000 so it's numerical
 phenostages$Notes <- ifelse(phenostages$Notes == "" | is.na(phenostages$Notes), phenostages$Notes, gsub("doyNA", "doy000", phenostages$Notes))
+
+
 
 extract_notes <- function(notes) {
   if (notes == "") {
@@ -135,18 +133,22 @@ phenoNotes$Treatment <- ifelse(grepl("_nitro", phenoNotes$ID_DOY),
                                paste0(phenoNotes$Treatment, "_nitro"), 
                                phenoNotes$Treatment)
 unique(phenoNotes$Treatment)
+
+# Now, to avoid mixing up autumn and spring phenophases, I will change the phenophase 0 to 7 which corresponds to the last stage of budset.
+phenoNotes$Phenostage[phenoNotes$DOY > 176 & phenoNotes$Phenostage == 0] <- 7
 # phenostages textual description
 phenophase_labels <- c(
-  "Bud dormant",
-  "Bud flush",
-  "Leaf emergence, still curly",
-  "Leaf is unrolled",
-  "Leaf is completely unfolded",
-  "Bud start to set, still some green",
-  "Bud changes color to red or green"
+  "Bud dormant", #0
+  "Bud swollen", #1
+  "Bud opened, leaves visible but curly", #2
+  "Leaf out but not completely unfolded", #3
+  "Leaf fully unfolded", #4
+  "Bud start to set, still some green", #5
+  "Bud changes color to red or green", #6
+  "Bud is fully set" #7
 )
 phenoNotes$phenophaseText <- phenophase_labels[phenoNotes$Phenostage + 1]
-
+View(phenoNotes)
 phenoNOna <- phenoNotes[!is.na(phenoNotes$Phenostage),]
 
 # Select for each replicate one value each
@@ -166,14 +168,18 @@ summary_stats$sd_DOY <- summary_stats$DOY[, "sd"]
 # summary_stats$DOY <- NULL  # Remove the old column
 
 # for now, just take dormant and unroled
-vec <- c("Bud dormant", "Leaf is completely unfolded")
+vec <- c("Leaf fully unfolded", "Bud is fully set")
 suby <- summary_stats[summary_stats$phenophaseText %in% vec, ]
+# and select only for growing season extension treatments
+vectreat <- c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF")
+suby <- suby[suby$Treatment %in% vectreat, ]
+
 # Create the plot
-ggplot(suby, aes(x = mean_DOY, y = Species, color = phenophaseText)) +
+ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
   geom_point(size = 3, alpha = 0.7) + 
   geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
                  height = 0.2, alpha = 0.5, linewidth = 0.6) + 
-  facet_wrap(~Treatment)+
+  facet_wrap(~Species)+
   theme_minimal() +
   labs(
     x = "Day of Year",
