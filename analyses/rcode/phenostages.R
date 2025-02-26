@@ -109,7 +109,7 @@ phenolong <- phenostages %>%
   ) %>%
   unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
   select(ID_DOY, Phenostage)                  
-
+head(pheno)
 # convert notes wide df to long format
 noteslong <- wide_notes %>%
   pivot_longer(
