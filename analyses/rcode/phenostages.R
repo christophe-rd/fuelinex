@@ -109,7 +109,7 @@ phenolong <- phenostages %>%
   ) %>%
   unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
   select(ID_DOY, Phenostage)                  
-head(pheno)
+
 # convert notes wide df to long format
 noteslong <- wide_notes %>%
   pivot_longer(
@@ -148,7 +148,7 @@ phenophase_labels <- c(
   "Bud is fully set" #7
 )
 phenoNotes$phenophaseText <- phenophase_labels[phenoNotes$Phenostage + 1]
-View(phenoNotes)
+
 phenoNOna <- phenoNotes[!is.na(phenoNotes$Phenostage),]
 
 # Select for each replicate one value each
@@ -174,24 +174,38 @@ suby <- summary_stats[summary_stats$phenophaseText %in% vec, ]
 vectreat <- c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF")
 suby <- suby[suby$Treatment %in% vectreat, ]
 
+#create small df for shoot elongation measurements
+shootperiods <- data.frame(species=c("Acne", "Bepa", "Pist", "Poba", "Prvi", "Quma"), start = c(128,128,130,150,128,143), end=c(157,157,234,196,180,206))
+
 # Create the plot
+# Sample data for shoot elongation periods
+
+# Plot
+
 ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
   geom_point(size = 3, alpha = 0.7) + 
   geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
                  height = 0.2, alpha = 0.5, linewidth = 0.6) + 
-  facet_wrap(~Species)+
+  # Add shoot elongation period lines (aligned with species)
+  geom_segment(data = shootperiods, aes(x = start, xend = end, y = 4.5, yend = 4.5),
+               color = "black", linewidth = 1, linetype = "dashed") +
+  # Add text annotation for shoot elongation (aligned with species)
+  # geom_text(data = shootperiods, aes(x = (start + end) / 2, y = 4.7, label = "Shoot Elongation"), 
+  #           vjust = 2, hjust = 0.5, color = "black", size = 4) +
+  facet_wrap(~Species, scales = "free_y") +  # Adjust y-axis scales if needed
   theme_minimal() +
   labs(
     x = "Day of Year",
-    y = "Species",
+    y = "Treatment",
     title = "Phenophase 2024",
     color = "Phenophase"
   ) +
-  theme(axis.text.y = element_text(size = 10, face = "italic"),
-        axis.text.x = element_text(size = 10),
-        strip.text = element_text(size = 12, face = "bold"),
-        legend.position = "right")
- 
+  theme(
+    axis.text.y = element_text(size = 10, face = "italic"),
+    axis.text.x = element_text(size = 10),
+    strip.text = element_text(size = 12, face = "bold"),
+    legend.position = "right"
+  )
 ##### right now there is a problem with quma because they flushed late so i need to distinguish between spring dormant and bud is completely set.
 
 # Subset for species name

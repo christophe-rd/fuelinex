@@ -13,23 +13,24 @@ options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder  
-directory_path <- "/Users/christophe_rouleau-desrochers/github/fuelinex/"
+directory_path <- "/Users/christophe_rouleau-desrochers/github/fuelinex/analyses/"
 
 # Set Working Directory
 setwd(directory_path)
 
 # Load librairies
 library(ggplot2)
+library(dplyr)
 
 # Read csv
-shoot <- read.csv2("analyses/input/2024ShootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
+shoot <- read.csv2("input/2024ShootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
 head(shoot)
 colnames(shoot)[6] <- "notes"
 
-# Convert all chr values that should be numeric
-for (i in 7:length(colnames(shoot))) {
-  shoot[,i]<-as.numeric(shoot[,i])
-}
+# # Convert all chr values that should be numeric
+# for (i in 7:length(colnames(shoot))) {
+#   shoot[,i]<-as.numeric(shoot[,i])
+# }
 
 # Check the notes column
 # unique(shoot$Notes)
@@ -81,13 +82,13 @@ for (i in 7:length(colnames(shoot))) {
 # #remove na column
 # wide_notes <- wide_notes[,c(1:2,4:ncol(wide_notes))]
 
-convert_to_numeric <- function(x) {
-  as.numeric(ifelse(grepl("^[0-9]+$", x), x, NA))
-}
+# convert_to_numeric <- function(x) {
+#   as.numeric(ifelse(grepl("^[0-9]+$", x), x, NA))
+# }
 # # Convert to numeric
-for (i in 7:ncol(shoot)) {
-  shoot[, i] <- convert_to_numeric(shoot[, i]) # at some point I should make sure I am not loosing any values
-}
+# for (i in 7:ncol(shoot)) {
+#   shoot[, i] <- convert_to_numeric(shoot[, i]) # at some point I should make sure I am not loosing any values
+# }
 
 # convert to long format
 str(shoot)
@@ -113,6 +114,7 @@ head(longshoot)
 # longshoot <- merge(phenolong, noteslong, by = "ID_DOY", all.x = TRUE)
 
 # separate again the doy and id
+longshoot$ShootElongation <- as.numeric(longshoot$ShootElongation)
 longshoot$ID <- sub("(_\\d+)$", "", longshoot$ID_DOY)  
 longshoot$DOY <- sub(".*_(\\d+)$", "\\1", longshoot$ID_DOY) 
 longshoot$Species <- sub("^([A-Za-z]+)_.*", "\\1", longshoot$ID_DOY)
@@ -126,7 +128,9 @@ unique(longshoot$Treatment)
 head(longshoot)
 
 # remove na shoot elongation values
-longshootnona <- longshoot[!is.na(longshoot$ShootElongation),]
+longshootnona <- longshoot[!is.na(longshoot$ShootElongation),] # there is really something wrong that Ill have to investigate here. I get very different numbers of rows whenever i remove the NAS
+nrow(longshoot)
+nrow(longshootnona)
 # find the first doy for every replicate
 first_doy <- aggregate(DOY ~ ID, data = longshootnona, FUN = min)
 first_values <- merge(longshootnona, first_doy, by = c("ID", "DOY"))
@@ -137,9 +141,17 @@ mergedshoot <- merge(longshootnona, first_values, by = "ID")
 mergedshoot$adjustedShootElong <- mergedshoot$ShootElongation - mergedshoot$First_ShootElongation
 # get mean measurement per doy, species and treatement i.e. mean per replicate
 mean_stats <- aggregate(adjustedShootElong ~ Species + Treatment + DOY, data = mergedshoot, FUN = mean, na.rm = TRUE)
+# temporarily remove the measurement from doy 171 for all species
+head(mean_stats)
+mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
 # select only the non nitro treatments for now
-vec
-ggplot(mean_stats) +
+vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
+green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F")
+
+nonitro <- subset(mean_stats, Treatment %in% vec)
+
+#shoot elongation plot
+shootelongation <- ggplot(nonitro) +
   geom_line(aes(x = DOY, y = adjustedShootElong, color = Treatment, group = Treatment)) + 
   facet_wrap(~Species, scales = "free_y") +  # Allow y-axis scales to vary by facet
   theme_minimal() +
@@ -149,12 +161,26 @@ ggplot(mean_stats) +
     title = "Phenophase 2024",
     color = "Treatment"  # Updated legend title
   ) +
+  scale_color_manual(values=green_palette)+
+  theme_classic() + 
   theme(
     axis.text.y = element_text(size = 10, face = "italic"),
     axis.text.x = element_text(size = 10),
     strip.text = element_text(size = 12, face = "bold"),
-    legend.position = "right"
+    legend.position = "right" 
   )
+getwd()
+ggsave("figures/shootElongationbySpp.pdf", shootelongation)
+
+
+
+# quick observations timeline:
+# ACNE: 128 to 157
+# Bepa: 128 to 157
+# Pist: 130 to 234
+# Poba: 150 to 241
+# Prvi: 128 to 206
+# Quma: 143 to 206
 # === === ===  === === ===  === === ===  === === ===  === === ===  === === ===  
 
 
@@ -383,7 +409,7 @@ poba.long.total.mean.plot
 #=== === === === === === === === === === === === === === === === === === === ===
 
 # Subset for prvi
-prvi <- subset(shootelongation, genus == "prunus")
+prvi <- subset(shoot, genus == "prunus")
 
 # Select essential column 
 prvi.sel <- prvi[, c(1, 3, 8, 11, 13:length(colnames(prvi)))]
