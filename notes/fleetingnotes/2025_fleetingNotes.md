@@ -473,3 +473,24 @@ Phylogenetic comparative methods can moved research away from treating species i
 While juvenile trees are more flexible than their adult forms, they usually provide predictable inference in differences across species and populations, so should be integrated into studies.
 
 Experiments could also inform a better model of lag effects across species, with small scale studies sampling saplings multiple years after manipulation (vs common pratice of destroying samples)
+
+## 5 March 2025
+For lab meeting
+### Spring comes earlier but not equally among species
+Inouye Brian
+
+News and Views: they talk about recent work on terrestrial phenological events by presenting deirdre's paper and Lang et al.'s paper.
+Lang et al added data from citizen science networks to increase their species number to 2600 ish
+: some are advancing their timing more than others, some are not changing their phenology, and some are even showing delayed timing rather than advances.
+
+###Canopy structure regulates autumn phenology by mediating the microclimate in temperate forests
+DO NOT ADD TO PERMANENT NOTES
+Xiaoyong Wu, 2024
+
+They observed relationships between canopy structure and autumn phenology across six temperate forest sites. These relationshs are induced by the regulation effect of canopy structure on microclimate conditions.
+
+improves the prediction accuracy and reduces the projected delay in the start of autumn over the remainder of the century.
+This provide a new perspective for interpreting the local variations of autumn phenology in temp forests.
+
+
+
