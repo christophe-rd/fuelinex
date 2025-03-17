@@ -1,12 +1,12 @@
 #2025 Fleeting Notes
 ## 10 January 2025
-###Increased autumn productivity permits temperate trees to compensate for spring frost damage
+### Increased autumn productivity permits temperate trees to compensate for spring frost damage
 ##### Permanent notes: 
 Constantin M. Zohner , Alexander Rockinger and Susanne S. Renner
 2018.
-
+??
 ### Convergence of leaf‐out towards minimum risk of freezing damage in temperate trees
-##### Permanent notes: 
+##### Permanent notes: YES
 Armando Lenz, Christian Korner, Yann Vitasse, Sabrina Russo. 2016
 Leaf-out occurs when the probability to encounter freezing damage approaches zero irrespective of climatic conditions (low vs high elevation) and species (early- and late-flushing species.
 
@@ -17,13 +17,12 @@ Species with a small safety margin against freezing (*define safety margin*) lik
 Species that employ photoperiod co-control of leaf-out (E.g. F. Sylvatica) can leaf-out closer to the period with a high probability of freeing damage than species relying more strongly on temperature controle.
 
 ### Effects of Genetic Perturbation on Seasonal Life History Plasticity
-##### Permanent notes: 
-Amity Wilczek et al. 2009
+##### Permanent notes: YES
 
 They showed that A. thaliana ecotypes can't be divided into 2 discrete classes of winter-annual and rapid-cyling genotypes. Rather, most ecotypes may be capable of both life histories but vary in the sensitivity and timing of the rapid transition between them. Natural variation in flowering pathways may have the greatest phenotypic expression and exposure to antural selection in climates that permit late-summer germination.
 
 ### European deciduous trees exhibit similar safety margins against damage by spring freeze events along elevational gradients
-##### Permanent notes: 
+##### Permanent notes: YES
 Yann Vitasse, Christian Korner, 2013
 
 A major part of freeing resistance is to maintain membrane fluidity during the freezing process and to tolerate freezing-induced dehydration in the cell plasma.
