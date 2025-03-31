@@ -305,6 +305,35 @@ Victor Van Der Meersch, Isabelle Chuine, 2025
 **Permanent notes:**
 All model performance decreased as climatic dissimilarity increased. However, this decline was lower for PEMs, which suggests that mechanistic principles may be more reliable than CSDMs in projecting future species distributions under warming conditions. This shows that the biological mechanisms should be included for future and more robust model projections. 
 
+#### What is the most important background information/literature/findings relevant to the study? (Hint: This should be in the introduction section). 
+To evaluate model reliability, we can compare predictions to observations from previous time periods i.e. hindcasting. 
+
+We don't have exact matches of the expected 21st century warming conditions, but the dissimilarity between 20th and 21st century is similar to the range we experienced since the beginning of the Holocene: abrupt climate warming followed by a long and uninterrupted climatic stability. 
+
+To model species distributions, we mostly used CSDMs (aka niche models) which infer statistical relationship between observations of species occurences and environmental predictors.
+
+Alternative: process-explicit models (PEMs process based models) which rely on explicit formulations of the mechanisms driving the distribution of a given species (e.g. physiological, ecological, and or demographic process). Because they rely on biological processes, they are believed to provide more reliable predictions of species distribution changes under new climate.
+
+We don't know wether they provide more reliable predictions than CSdms
+
+Objectives:
+1. Assess which modelling approach best predicts pas species distributions and 
+2. Whether model perfomance was related to their hypotheses(relationships describing explicit bio mechanisms or not) or to their calibration methods (calibrated on species occurence data or not)
+
+To do so, comapred 3 types of models: CSDMs, PEMs (expert PEMs) and fitted PEMs calibrated in the same way as CSDMs (inverse calibration using species occurence data and a novel type of algorithm
+
+#### What is the major finding and why is it important?
+All models showed a decrease of their performance when moving further into the past. 
+Their results suggest that transferability and robustness of models are more strongly influenced by the processes explicitly represented in the models than by their method of calibration. 
+
+PEMs may be more reliable under futur climatic conditions. Moving to what correlates with what to why and how things happen. More robust framework, grounded in mechanistic principles, for understanding and predicting species range shifts.
+**PEMS provide not only more detailed mechanistic understanding of the effects of environmental conditions on species fitness, they are also more robust than CSDMs in novel climates.**
+#### What are the major limitations of this study?
+They can't account for long or rare dispersion events or human influence. Plus, they focused on well known tree species for which we have a lot mechanistic understanding. However, it might not be the case for a lot of species and CSDMs might be more reliable for not well understood species. 
+#### Which figure do you consider the most important and why? (Max: 100 words)
+Figure 3: shows that all models performance decrease with increased dissimilarity,but lower for process based models than correlative. It also shows that process models are more performant at predicting early holocene periods, but similar for mid to late holocene when there is less dissimilarity. Transferability: more transferable for early holocene when process based compared to correlative. 
+
+
 ### Effects of Temperature Variations and Urban Heat Island on the Seasonal Development of Woody Plants in the South of Primorsky Krai
 A. A. Marchenko, 2024
 **Permanent notes**:
@@ -472,6 +501,60 @@ Phylogenetic comparative methods can moved research away from treating species i
 While juvenile trees are more flexible than their adult forms, they usually provide predictable inference in differences across species and populations, so should be integrated into studies.
 
 Experiments could also inform a better model of lag effects across species, with small scale studies sampling saplings multiple years after manipulation (vs common pratice of destroying samples)
+
+
+## 27 February 2025
+### Advances in breeding phenology outpace latitudinal and elevational shifts for North American birds tracking temperature
+Montague H C Neate-Clegg 
+#### Paper notes for cons310. 
+With ongoing climate change, species must move, adapt or face extinction. Poweward latitudinal shifts are estimated to be occuring at 16.9 km per decade. However, many stydies find that shift rates lag behind our expectations based on teh rate of shifting thermal envelopes. The failure to predict shifts is might be attributed to a combination of other factors, such as precipitation gradients, biotic interactions, dispersal limitation or land-use change.
+
+Beyond the spatial dimensions, species are also responding to CC by shfting in time so they can track warming temperatures and resource peaks.
+
+Phenological shifts are often considered adaptive in terms of resource tracking, but rarely considered as an alternative to shifts in latitude/elevation. 
+
+Despite the consistency of phenological shifts, some species are not able to fully track warming temperatures
+
+
+### What is the most important background information/literature/findings relevant to the study? (Hint: This should be in the introduction section). 
+As climates warm, birds must track changing temperatures to prevent extirpation via spatial (latitude/elevation) or temporal (phenology) shifts. However, observed shift rates lag expectations, likely because single-dimensional spatial assessments underestimate species’ multidimensional climate responses.
+### What is the major finding and why is it important?
+Bird species are tracking warming temperature by advancing their breeding phenology at a faster rate than latitudinal or elevational shifts. This is important because it implies that phenological shifts could offer species an opportunity to maintain their thermal niche without having to move out of their current range. 
+
+### What are the major limitations of this study?
+While keeping the three dimensions to explain temperature tracking draws a more representative portrait, precipitation gradients and other adaptations (e.g. microclimate or morphology) could also affect temperature tracking. Also, since they rely on observational rather than experimental data, they lack an understanding of the underlying mechanisms that explain temperature tracking.
+
+### Which figure do you consider the most important and why? (Max: 100 words)
+Fig 1. because it shows the overall trend in temperature tracking for all three dimensions. It shows the temperature tracking trend accross species by either migrating nortward, to higher elevation, but also breeding earlier. The third pannel s
+
+Fig3a is a good visualization showing how breeding phenology contributes most to temperature tracking, yet most temperature tracking remains deficient. This underscores the critique that single-dimension studies (e.g. spatial shifts alone) fail to represent how species track warming temperature. Also, most species display the overall positive temperature tracking trend, but also shows that some species have a negative meaning that some species are shifting in the opposite direction of what is expected with warming temperature. Thus the figure shows that a better understanding of the mechanisms that drive species to track warming temperature is necessary to understand how they will respond to future warming temperature.
+
+1 What is the most important background information/literature/
+findings relevant to the study
+As climates warm, birds must track changing temperatures via spatial (latitude/elevation) or tem-
+poral (phenology) shifts to prevent climate extirpation. However, observed shift rates lag behind
+expectations, likely because previous studies focused on a single spatial gradient rather than both
+latitude and elevation along with temporal shifts.
+2 What is the major finding and why is it important?
+Bird species are tracking warming temperature by advancing their breeding phenology at a faster
+rate than latitudinal or elevational shifts. This is important because it implies that phenological
+shifts could give species an opportunity to maintain their thermal niche without having to move
+out of their current range.
+3 What are the major limitations of this study?
+While keeping the three dimensions to explain temperature tracking draws a more representative
+portrait, precipitation gradients and other adaptations (e.g. microclimate or morphology) could
+also affect species’ response to warming temperature. Also, since they rely on observational rather
+than experimental data, they lack an understanding of the underlying mechanisms that explain
+temperature tracking.
+4 Which figure do you consider the most important and why?
+Fig3a is a good visualization showing that breeding phenology contributes the most to temperature
+tracking, yet most temperature tracking remains deficient. This underscores the critique that
+single-dimension studies (e.g. spatial shifts alone) fail to represent how species track warming
+temperature. Also, most species display the overall positive temperature tracking trend, but also
+shows that some species have a negative meaning that some species are not shifting or in the
+opposite direction of what is expected with warming temperature (Fig3b). Thus, understanding
+the mechanisms that drive species to track warming temperature is crucial to predict how they will
+respond to future warming temperature.
 
 ## 5 March 2025
 For lab meeting
