@@ -574,5 +574,14 @@ They observed relationships between canopy structure and autumn phenology across
 improves the prediction accuracy and reduces the projected delay in the start of autumn over the remainder of the century.
 This provide a new perspective for interpreting the local variations of autumn phenology in temp forests.
 
+## 15 April 
+### Partially decoupled tree-ring width and leaf phenology response...
+They obtained info on GS changes over the last century by using 1. Calculations on meteorological measurements and 2. Phenological observations of buburst and 
+
+### A tree-ring based reconstruction of Delaware...
+They considered a no-pooling model: regression coefficients for each streamflow series are modeled independently
+Full-pooling model: streamflow consequences have the same regression coefficient for a specific tree ring series
+
+
 
 
