@@ -44,12 +44,10 @@ Thus, a short GS limits fruit ripening and seed maturation, potentially shaping 
 In addition to seed maturation, latitudinal tree species distribution has been sugested to be limited by min. metabolic requirements to fulfil life history traits.
 
 Tree species differ in their min. requirement of GSL that enables them to complete their annual life cycle successfully with respect to species-specific life history traits, e.g. seed related traits, wood anatomy,bud formation or leaf traits. Thus, species-specific min. GSL may bee the ultimate range-limiting factor.
-## 13 January 2025
-
 
 ## 14 January 2025
 ### Genomic evidence for West Antarctic Ice Sheet collapse during the Last Interglacial
-#### Permanent notes: 
+#### Permanent notes: YES
 CC is causing rapid changes in Antarctica including Antarctic Ice Sheet mass loss, with global impacts:
 
 1. Uncertainty in sea level rise projections
@@ -57,7 +55,7 @@ CC is causing rapid changes in Antarctica including Antarctic Ice Sheet mass los
 3.  It will continue to be a major contributor to Global Mean Sea Level (GMSL) rise under all 	CO2 emission scenarios
 4. Unclear whether WAIS is vulnerable to rapid ice loss or full collapse as a result of poor understanding of futur changes.
  
-  WAIS collapse could raise global sea level to 3.3 to 5 meters
+WAIS collapse could raise the global sea level to 3.3 to 5 meters
 
 In the Pleistocene, summer temperatures were much hotter and sea level were higher. There is no evidence whether WAIS completely collapsed at any time in the three million years since the Pliocene
 WAIS collapsed when global mean surface temperature  (GMST) was 0.5 to 1.5 C than the preindustrial. This suggests that the tipping point of future WAIS collapse is close. This will bring an significant increase in GMSL
@@ -66,7 +64,7 @@ WAIS collapsed when global mean surface temperature  (GMST) was 0.5 to 1.5 C tha
 ###Potential for evolutionary responses to climate change – evidence from tree populations
 
 FLORIAN J. ALBERTO, 2013
-#### Permanent notes:
+#### Permanent notes: YES
 Populations can respond to environmental change through phenotypic plasticity, by moving to a new area corresponding to environmental conditions they are adapted to, by genetically adapting to the new conditions, or by a combinations of these responses.
 Local adapation is more common in trees than in some other plant species. Trees are adapted to the current climate and they are thus potentially greatly influenced by the rapid changes in climate.
 
@@ -87,7 +85,7 @@ Criticism: commercially less important species are poorly represented in previou
 
 ### Dominant radial and height growth reveal comparable historical variations for common beech in north-eastern France
 Jean-Daniel Bontemps, 2010
-**Permanent notes:**
+**Permanent notes:** YES
 The accuracy of radial growth is questioned for investigating past forest productivity changes. 
 1. Radial growth of individual trees is sensitive to local competition dynamics driven by natural disturbances or sylviculture in managed ecosystems. These processes are independant of site fertility conditions, radial growth of trees isn't considered a good indicator of stand productivty potential in forestry compared to mean height. Sampling of trees is usually restricted to dominant trees which experience lower competition intensity and belong to a fairly stable population over time. 
 2. Radial growth is usually sampled at breast height. During severe climatic events, ring width reduction may be acute at breast height compared to other positions. Such events modify the relationship between ring size and tree volume increment. 
