@@ -19,3 +19,6 @@ Add to slipbox:
 - Effects of climate change on alpine plants and their pollinators
 
 - Forest phenology and a warmer climate – growing season extension in relation to climatic provenance
+
+## 29 April
+I didn't read grephon manuscript yet, but I should add fleeting notes in which I should add all the different pathways mentioned in the hypothesis figure. One of them should include the note on WUE created on 29 April 25

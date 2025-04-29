@@ -92,18 +92,18 @@ The accuracy of radial growth is questioned for investigating past forest produc
 
 ### Observed forest sensitivity to climate implies large changes in 21st century North American forest growth
 Noah D. Charney,, 2016
-**Permanent notes:**
+**Permanent notes:** YES
 The degree to which increased atmospheric CO2 will increase future plant growth (i.e. carbon fertilisation) remains an important unresolved effect. Different pathways can be taken to influence growth and tehse effectsa re integfrated within metrics of water-use efficiency (WUE). Increased WUE has been invoked to explain opbservations such as accelerated growth in free-air carbon enrichment experiments,but its role in reducing water-stress is not clear.
 ### Xylogenesis: Coniferous Trees of Temperate Forests Are ListeningtotheClimateTaleduringtheGrowingSeason But Only Remember the Last Words!
 Henri E. Cuny
-**Permanent notes:**
+**Permanent notes:** YES
 Wood formation (xylogenesis) can generate various wood forms in response to developmental or environmental constraints. Wood anatomy can be observed between different phylogenetic groups.
 Wood anatomy is known toa dapt to changes in environmental conditions in space or time. Some of the most spectacular variations in wood anatomy occur in a single tree ring. E.g. in confiers, the diameter and wall thickness of the most abundant cells (tracheids) are divided and multipilied by 5 when going from the beginning to the end of a tree ring. Usually well ordered along treee rings and more or less progressive. 
-
+	
 Plant development reslts in changes in signal concentration or in tissue sensitivity through the GS creating the typical tree-ring structure. May be tied to daylength
-
+	
 In contrast, the environmental theory proposes that the within-ring anatomical changes are driven mainly by climatic constraints. 
-
+	
 Cell enlargement is the plant process the most sensitive to water stress. Long lasting belief that decreasing water availability triggers the transition from wide earlywood cells to the narrow latewood cells (Good refs but don't tell if the belief is still accurate). In contrast, wall thickening involves numerous and complex metabolic processes which are considerted the most sensitive to temperature amopn all the physiological processes related to tree carbon balance.
 
 ### Growth variations of Common beech (Fagus sylvatica L.) under different climatic and environmental conditions in EuropeÐa dendroecological study
@@ -120,7 +120,7 @@ They recommend dendrochronological investigations with temporal and spatial comp
 
 ### Severe drought can delay autumn senescence of silver birch in the current year but advance it in the next year
 Inge Dox, Matteo Campioli
-**Permanent notes:**
+**Permanent notes:** YES
 For the Silver birch used in the study (in norway), cambial activation occurred by the end of April and bud burst occured about 2 weeks before cambial reactivation. But another year, it was the opposite. 
 
 Cambium reactivation took place or before budburst depending on the year. This can be because of birch's diffuse-porous character. Likely, not all conduits are fully embolized in birch in winter and it si therefore not necessary for birch to produce new condutis before leaf expansion in spring. (Are all birches diffuse-porous). Another study in Belgium on birches also found that cambium reactivation took place 19 days before budburst.
