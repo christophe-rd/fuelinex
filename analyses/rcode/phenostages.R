@@ -18,6 +18,9 @@ library(data.table)
 library(tidyverse)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
+## at some point I should add this function which selects rows after the same phenophase was recorded 3 times. Replace NumYs_in_Series with my phenophases
+# d <- d[(d$NumYs_in_Series>=3),] 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder 
 directory <-"/Users/christophe_rouleau-desrochers/github/fuelinex/"
