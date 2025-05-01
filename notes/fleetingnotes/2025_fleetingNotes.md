@@ -142,7 +142,7 @@ Difference in tree-ring width can be the result of 4 things:
 ## 20 January 2025
 ### Species specific growth responses of black spruce and trembling aspen may enhance resilience of boreal forest to climate change
 Igor Drobyshev and Yves Bergeron, 2013
-**Permanent notes**
+**Permanent notes** YES
 Dendroclimatic studies suggest that aspen growth is mostly influenced by climatic conditions of the year prior to growth. 
 
 Differences in climate-growth relationships between spruce and aspen during non-anomalous weather ( periods dominated by weather conditions only moderately deviating from respective long-term means), suggests that growth responses may also differ between species during climatically extreme growing seasons.
@@ -152,7 +152,7 @@ For aspens, extremely cold summers limited trees' physiological activity and res
 Future climate will exhibit higher frequency of climatic extremes and the mixed stands may show a higher resilience under the future climates than monodominate communities. They conclude this from the evidence of the spatial and temporal niche separation between aspen and black spruce. 
 ###Influence of annual weather on growth of pedunculate oak in southern Sweden
 Igor Drobyshev, 2008
-**Permanent notes:**
+**Permanent notes:** YES
 The growth of Pedunculate oak in Europe is negatively affected by summer drought and spring frost. A study of pan-European oak pointer years was able to link them with period of temperature and precipitation anomales controlled by the North-Atlantic and Arctic circulation patterns. 
 Positiver growth anomalies were assocaited with extended periods of increased soil-water avalilability. Negative anomalies were realted to periods of lower air temperatures and reduced soil moisture. However, these studies focused on the effect of climatic extremes with no comparison with climatic controles over growth during climatic extremes and non-extremes years. 
 
