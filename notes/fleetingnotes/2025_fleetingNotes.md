@@ -108,7 +108,7 @@ Cell enlargement is the plant process the most sensitive to water stress. Long l
 
 ### Growth variations of Common beech (Fagus sylvatica L.) under different climatic and environmental conditions in EuropeÐa dendroecological study
 Christoph Dittmar
-**Permanent notes:**
+**Permanent notes:** YES
 Dendrochronological studies on beech. Good description of their methods.
 Chronologies are of good quality if they have the following features:
 1. High average cross-correlation for ring series derived from trees within the site
@@ -160,7 +160,7 @@ In germany, Pedunculate oak and European beech have show that much lesser growth
 
 ### Evolutionary and plastic responses to climate change in terrestrial plant populations
 Steven J. Franks, Sally Aitken, 2013
-**Permanent notes:**
+**Permanent notes:** YES
 As climate changes, plant populations may no longer be optimally adapted to new conditions. Migration could a llow some populations to track suitable conditions and thus maintain their adaptive optimum. However, this might be hard in fragmented landscapes and for species with long generation lengths.
 
 Migration may allow a pop to stay in its climatic envelope but cause it to be out of synch with other environmental factors such as photoperiod or key mutualists such as pollinators. 
@@ -179,7 +179,7 @@ Vitasse et al 2010 showed that an elevational reciprocal transplant study of two
 
 ###Sensitivity of leaf unfolding to experimental warming in three temperate tree species
 Ivan A. Janssens, 2013
-**Permanent notes:**
+**Permanent notes:** yes
 Observed phenological trends in the last decades cannot be directly be used to extrapolate future pheno changes because the mechanisms guiding them aren't clear and because pheno responses of trees to warming may not be linear. Indeed, accurate predictions require an in-depth accurate mecchanistic understanding of leaf unfolding process and its sensitivity to environmental drivers, especially temperature and photoperiod. 
 
 Stages of leaf unfolding process:
@@ -191,7 +191,7 @@ Warming trend increased forcing temperature accumulation, while in most boreal a
 
 ## 23 January 2025
 ###Global variation in thermal tolerances and vulnerability of endotherms to climate change
-**Permanent notes :**
+**Permanent notes :** YES
 Birds seem to lab behind in tracking their climatic envelopes via shifts of their geographiocal ranges. It might suggests that birds may either be able to adapt rapidly to novel environemental conditions or the level of CC does not exceed their tolerance limits. 
 
 Their results support that birds thermal physiology is more directly linked to their ambien climatic conditions than mammal. The later can build burrows and dens to create their preferred microclimates unlike most species of birds.
@@ -199,7 +199,7 @@ Their results support that birds thermal physiology is more directly linked to t
 ## 24 January 2025
 ### Comparison of the timing of spring phenological events between phenological garden trees and wild populations
 Calum J. Sweeney, Astrid Wingler, 2023
-**Permanent notes :**
+**Permanent notes :** YES
 Advancing spring phenology can extend the GS, and increase carbon uptake. But it recent research suggeests that it may not be sequestrated in wood, casting doubt on the long-term carbon sink arrising from phenological change.
 
 Their results suggest taht genetic factors are the most likely cause for the different phenological timing between the clones and wild populations.
