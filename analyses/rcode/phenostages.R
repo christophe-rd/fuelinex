@@ -161,6 +161,60 @@ phenoNOna$DOY <- as.numeric(phenoNOna$DOY)
 phenoNOna <- phenoNOna[order(phenoNOna$ID, phenoNOna$DOY), ]
 phenoNOna_filtered <- phenoNOna[!duplicated(phenoNOna[c("ID", "Phenostage")]), ]
 
+
+phenoNOna_filtered$Group <- paste(phenoNOna_filtered$Species, phenoNOna_filtered$Treatment, sep="__SEP__")
+
+# 2) Keep only the unique (ID, Group, Phenostage) combinations
+df_unique <- unique(phenoNOna_filtered[, c("ID","Group","Phenostage")])
+
+# 3) Build a contingency table: rows = Group; cols = Phenostage
+tab <- table(df_unique$Group, df_unique$Phenostage)
+
+# 4) Convert that table to a wide data.frame
+wide <- as.data.frame.matrix(tab)
+wide$Group <- rownames(wide)         # pull the Group keys back into a column
+
+# 5) Split Group back into Species & Treatment
+splits <- do.call(rbind, strsplit(wide$Group, "__SEP__", fixed=TRUE))
+colnames(splits) <- c("Species","Treatment")
+
+# 6) Assemble final data.frame
+res <- data.frame(
+  splits,
+  # ensure columns 0–4 are in order:
+  wide[, as.character(0:7)],
+  row.names = NULL,
+  check.names = FALSE
+)
+
+# 7) Tidy up column names
+colnames(res)[3:10] <- paste0("Stage_", 0:7)
+
+write.csv(res, "analyses/output/nobservations.csv", row.names = FALSE)
+
+df_long <- pivot_longer(
+  res,
+  cols = starts_with("Stage_"),
+  names_to = "Stage",
+  names_prefix = "Stage_",
+  values_to = "Count"
+)
+
+
+ggplot(df_long, aes(x = Stage, y = Treatment, fill = Count)) +
+  geom_tile(color = "white") +
+  facet_wrap(~ Species) +
+  scale_alpha(range = c(0.1, 1)) +  # lower = more transparent, upper = more opaque
+  labs(
+    title = "Phenophase Heatmap",
+    x = "Phenophase Stage",
+    y = "Species",
+    fill = "Stage",
+    alpha = "Count"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 summary_stats <- aggregate(
   DOY ~ phenophaseText + Species + Treatment, 
   data = phenoNOna_filtered, 
@@ -211,6 +265,14 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
   )
 ##### right now there is a problem with quma because they flushed late so i need to distinguish between spring dormant and bud is completely set.
 
+
+
+
+
+
+
+
+
 # Subset for species name
 acne <- subset(phenostages, genus =="acer")
 bepa <- subset(phenostages, genus =="betula")
@@ -232,6 +294,8 @@ dput(acnecut)
 # first clean the note column
 
 unique(acnecut$Notes)
+
+
 
 # View the r
 
@@ -286,6 +350,7 @@ head(acne.merged)
 head(acne.long)
 ggplot(acne.merged, aes (x=doy, y=mean)) + 
   geom_bar(stat = "identity", position="dodge")
+
 
 
 
