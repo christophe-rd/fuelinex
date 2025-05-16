@@ -580,6 +580,35 @@ They obtained info on GS changes over the last century by using 1. Calculations 
 They considered a no-pooling model: regression coefficients for each streamflow series are modeled independently
 Full-pooling model: streamflow consequences have the same regression coefficient for a specific tree ring series
 
+## 16 May 
+### Regression and other Stories
+3 challenges of statistics:
+1. Generalizing from sample to population: problem associated with survey sampling but actually asrises in nearly every application of statistical inference
+2. Generalizing from treatment to control group: problem associated with causal inference which is implicitly or explicitly part of the interpretation of most regressions we've seen
+3. Generalizing from observed measuremenbts to the underlying constructs of interest, as most of the time out data do not record exactly what we would ideally like to study
 
+Regression models: mathematical models for predicting an outcome variable from a set of predictors.
+### Regression and other Stories Chapter 4
+Statistical inference is a set of operations on data that yield estimates and uncertainty statements about predictions and parameters of some underlying process or population. It is used to learn from incomplete or imperfect data. There are 3 paradigms for thinking of the role of inference: 
 
+1. Sampling model: we want to know the mean and standard deviation of women in the US. For that we must use a subset of that population. 
+2. Measurement error model: learning aspects of some underlying pattern or law (e.g. a and b in the mode yi=a+bx), but the data are measured with error (yi = a+bxi+Ei). Measurement error need not to be additive: multiplicative models can make sense for positive datga and discrewte distributions are needed formodeling discrete data. 
+3. Model error referes to the inevitable imperfections of the models that we apply to real data.
+
+Sampling distriution: set of possible datasets that could have been observated if the data collection process had been re-done along with the probabilities of these possible values. 
+- Determined by the data collection process or the model used to represent that process. 
+- In general, it will not be known as it depends on aspects of the population, not merely on the observed data.
+
+Parameters: unknown numbers that determine a statistical model. E.g. yi=a+bxi+Ei, in which Ei are normally distributed with mean 0 and standard deviation σ
+- Parameters a and b are cofficients
+- σ is called a scale or variance parameter.
+
+We can think of parameters as that they can be used to simulate new (hypothetical) data from the model.
+
+Estimand or quantity of interest: some summary of parameters or data that someone wants to estimate. 
+
+Standard error: estimated standard deviation of an estimate and can give us a sense of our uncertainty about the quantity of interest. In the book, they summarize uncertainty using simulation and give the term " standard error" to cover any measure of uncertainty that is comparable to the posterior standard deviation.
+ - It gets smaller as sample size gets larger.
+Confidence interval: large values of a parameter or quantity of interest that are roughly consistent with the data, given the assumed sampling distribution.
+- If the model is correct, in repeated application, 50 and 95% CI will include the true value 50 and 95% of the time. 
 
