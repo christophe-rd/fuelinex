@@ -192,29 +192,32 @@ colnames(res)[3:10] <- paste0("Stage_", 0:7)
 
 write.csv(res, "analyses/output/nobservations.csv", row.names = FALSE)
 
-df_long <- pivot_longer(
-  res,
-  cols = starts_with("Stage_"),
-  names_to = "Stage",
-  names_prefix = "Stage_",
-  values_to = "Count"
-)
+df_long <- res %>%
+  pivot_longer(
+    cols = starts_with("Stage_"),
+    names_to  = "Stage",
+    names_prefix = "Stage_",
+    values_to = "Pct"
+  ) %>%
+  mutate(Stage = factor(Stage, levels = as.character(0:7)))
 
-
-ggplot(df_long, aes(x = Stage, y = Treatment, fill = Count)) +
+df_long <- subset(df_long, Species != "Segi")
+heatmap <- ggplot(df_long, aes(x = Stage, y = Treatment, fill = Pct)) +
   geom_tile(color = "white") +
-  facet_wrap(~ Species) +
-  scale_alpha(range = c(0.1, 1)) +  # lower = more transparent, upper = more opaque
+  scale_fill_viridis_c(option = "magma", name = "Number of replicates", direction = -1) +
+  facet_wrap(~ Species, ncol = 2, scales = "free_y") +
   labs(
-    title = "Phenophase Heatmap",
-    x = "Phenophase Stage",
-    y = "Species",
-    fill = "Stage",
-    alpha = "Count"
+    title = "Number of replicates that with recorded phenostage X Species X Treatments",
+    x     = "Stage",
+    y     = "Treatment"
   ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid = element_blank()
+  )
+ggsave("analyses/figures/heatmap.pdf", plot = heatmap, width = 8, height = 6)
+ggsave("analyses/figures/heatmap.jpeg", plot = heatmap)
 summary_stats <- aggregate(
   DOY ~ phenophaseText + Species + Treatment, 
   data = phenoNOna_filtered, 
