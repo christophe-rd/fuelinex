@@ -208,8 +208,8 @@ There is a relationship between size and phenological timing where young trees l
 
 ### Day length unlikely to constrain climate-driven shifts in leaf-out times of northern woody plants
 Constantin Zohner, Susanne Renner, 2016
-**Permanent notes :** 
-photoperiod limitation: idea that plant sensitivity to day length protects leaves against frost damage by guiding budburst into a safe time period. Experiments show that day length sensitive species react to spring temperatures only once day length increases. --? d-l senstive species may not react to warmer temperatures. 
+**Permanent notes :**YES
+photoperiod limitation: idea that plant sensitivity to day length protects leaves against frost damage by guiding budburst into a safe time period. Experiments show that day length sensitive species react to spring temperatures only once day length increases. Because daylength won't change under climate change, photosensitive species species may not react to warmer temperatures. 
 
 They showed a negative correlation between species' reliance on day length as a leaf-out signal and the winter duration in their native ranges. Two possible mechanisms on how photoperiod perception in plants may interact with warmin requirements:
 - Either plants need to reach a fixed photoperiod treshold before they perceive spring temperatures
@@ -219,12 +219,12 @@ They showed a negative correlation between species' reliance on day length as a 
 	
 ### Determination of intraspecific variation in seed weight, leaf functional traits, and sapling size of Betula ermanii using a common garden experiment
 Aye Myat Myat Paing, 2021
-**Permanent notes :** 
+**Permanent notes :** NO BUT IRRELEVANT
 Common garden experiments and provenance trials can help determine the genetic control of phenotypic traits. 
 
 ### Differential responses to changes in growth temperature between trees from different functional groups and biomes: a review and synthesis of data
 DANIELLE A. WAY, 2010
-**Permanent notes :** 
+**Permanent notes :**  YES
 Dendrochronology studies have found a positive relationship between growth and warmer growing seaons, hwoerver, increasing temperatures since the 1950s have a lower than expected effect in a lot of Northern hemispehere species. This switch in growth response to temp in tree ring studies is known as the divergence problem. 
 
 Causes of divergence problem:
@@ -242,14 +242,14 @@ High temperatures increase shoot elongation rates in crops and in trees: found t
 
 ### Flowering phenological pattern in crowns of four temperate deciduous tree species and its reproductive implications
 O. Tal, 2010
-**Permanent notes:**
+**Permanent notes:** YES
 Flowering phenology is a central process in reproductive biology (primack 1985), because it interacts with sex expression by determining whether sexes co-occur and the duration of each sex phase determines its effectivity.
 
 Time left for fruit ripening starts at the end of flowering and seed predation may be related to flowering phenology. 
 
 ## 31 January 2025
 ### Shrub expansion in tundra ecosystems: dynamics, impacts and research priorities
-**Permanent notes:**
+**Permanent notes:** YES
 Isla H Myers-Smith, 2011
 
 Shrubs modify many ecosystem processes including snow depth and associate hydrologic dynamics, nutrient exchange and associated net carbon balance, albedo and associated energy fluxes. At this time, there is considerable uncertainty about the magnitude and direction of these feedbacks and these processes might drive them in various directions. However, dramatic changes to shrub abundance in tundra ecosystems could result in significant alterations to the global carbon cycle. 
@@ -263,7 +263,7 @@ Recent research highlights that: (1) growth in shrub species is often strongly c
 
 ### Stable isotopes in tree rings
 Danny McCarroll*, Neil J. Loader, 2003
-**Permanent notes:**
+**Permanent notes:** YES
 Chronologies with preserved trees in lakes and buildings, alongside bristlecone pines provide the basis for dendrochronological dating and were used to calibrate the radiocarbon timescale. Cite: Stuiver and Reimer, 1993
 
 The three main elements in wood (carbon, oxygen and hydrogen) all have more than one stable (non-radioactive) isotope. Carbon, for example, has two stable isotopes, 12C and 13C, each with six protons but with either six or seven neutrons. These isotopes have almost identical chemical properties but the difference in mass allows physical, chemical and biological processes to discriminate against one of them, thereby imparting an environmental signal. 
@@ -274,7 +274,7 @@ We know that climate will change, but the question is how it will change in diff
 
 ###Timing and duration of European larch growing season along altitudinal gradients in the Swiss Alps
 2009
-**Permanent notes:**
+**Permanent notes:** YES
 Linking growth processes and changes in environmental conditions are chalenged by a limited nb of replicates and observed years.
 
 Assessing impacts of climate change, info gained along an elevational gradient may be particularly useful because such gradients allow "space-for-time/warming experiments". This approach, long term changes in the timing and duration of tree growth per shift in degree C (=TIME) are substitudted by changes along altitudinal transects (=space)
@@ -283,24 +283,22 @@ They showed that cambial is highly responsive to spring temperatures both under 
 
 ### Tree and forest functioning in response to global warming
 Henrik Saxe
-**Permanent notes:**
+**Permanent notes:** YES
 Development of reproductive structures in the autumn may be entirely a function of accumulated degree-days, aka thermal time : Sarvas 1974. Thus, they can be vulnerable to damage by early frosts when development continues late in autumn. Trees can afford this risk, balancing  loss of seed in some years against the production of large, well developed seeds in others. 
 
 ## 3 February 2025
 ### Arctic amplification causes earlier onset of seasonal tree growth in northeastern Siberia
 Alexander V Kirdyanov, 2024
-**Permanent notes:**
+**Permanent notes:** YES
 Artic and subartic are warming extremely fast, which exceeds the global average temperature increase by four times. DEFINE arctic amplification: The Arctic is warming twice to three times as fast as the rest of the planet due to sea ice loss. 
  Boreal forest zone is experiencing shifts in vegetation structure and productivity, northward vegetation expansion, permafrost degradation and greenhouse gas emission from permafrost thawing. 
 The dynamics of boreal forest ecosystems withing the northern tree line ecotone, the transition from northen taiga to treeless tundra is largely controlled by GS temperatures. Current warming is believed to be among the main drivers of initiating an expansion of trees into the tundra as well as forest densification within the tundra.
 
 Rapid onset of tree cambial activity after snowmelt and increased temperature is the key adaptation at the beginning of the GS is Siberia Larch. There is a 24 h photoperiod which enables them to complete tree-ring formation within several weeks of the short GS. 
 
-Their results show a shift in tree growth dependance on temperature to earlier dates --> earlier start of the GS. Coincides with temporal changes of 2 climate parameters that affect the timing of GS: snowmelt and temperature preceding and during early GS. Thus, they show that in Siberia, radial growth of larch mainly depends on early summer temperature. 
-
 ### Paleorecords reveal biological mechanisms crucial for reliable species range shift projections amid rapid climate change
 Victor Van Der Meersch, Isabelle Chuine, 2025
-**Permanent notes:**
+**Permanent notes:** YES
 All model performance decreased as climatic dissimilarity increased. However, this decline was lower for PEMs, which suggests that mechanistic principles may be more reliable than CSDMs in projecting future species distributions under warming conditions. This shows that the biological mechanisms should be included for future and more robust model projections. 
 
 #### What is the most important background information/literature/findings relevant to the study? (Hint: This should be in the introduction section). 
@@ -325,7 +323,7 @@ All models showed a decrease of their performance when moving further into the p
 Their results suggest that transferability and robustness of models are more strongly influenced by the processes explicitly represented in the models than by their method of calibration. 
 
 PEMs may be more reliable under futur climatic conditions. Moving to what correlates with what to why and how things happen. More robust framework, grounded in mechanistic principles, for understanding and predicting species range shifts.
-**PEMS provide not only more detailed mechanistic understanding of the effects of environmental conditions on species fitness, they are also more robust than CSDMs in novel climates.**
+PEMS provide not only more detailed mechanistic understanding of the effects of environmental conditions on species fitness, they are also more robust than CSDMs in novel climates.
 #### What are the major limitations of this study?
 They can't account for long or rare dispersion events or human influence. Plus, they focused on well known tree species for which we have a lot mechanistic understanding. However, it might not be the case for a lot of species and CSDMs might be more reliable for not well understood species. 
 #### Which figure do you consider the most important and why? (Max: 100 words)
@@ -334,19 +332,19 @@ Figure 3: shows that all models performance decrease with increased dissimilarit
 
 ### Effects of Temperature Variations and Urban Heat Island on the Seasonal Development of Woody Plants in the South of Primorsky Krai
 A. A. Marchenko, 2024
-**Permanent notes**:
+**Permanent notes**: YES
 Urban heat island (UHI) effect arises when urban areas experience higher temperatures than their rural surrounding. Urban vegetation is ahead of rural vegetation in terms of the timing of spring phenophases.
 
 ### Beyond climate change attribution in conservation and ecological research
 Camille Parmesan, 2013
-**Permanent notes**:
+**Permanent notes**: YES
 We know the attribution of global warming to greenhouse gases, but we further need to attribute biological events not merely to changing climate, but specifically to anthropogenic climate change (ACC), the component of change that has been driven by increase in GHG. \
 
 Process based models can be developped for few species for which we have both long observational time series and experimental studies. Ecological models rely often on physiological and developmental processes that relate on temp and precip. These models can document causal relationships between observed long-term chganges in a species and regional climatic changes. E.g. causally related northward and upward range shifts of the pine moth to warming winters that enhanced survival and feeding rates.
 
 Def:
 ‘Detection of change is defined as the process of demonstrating that climate or a system affected by climate has changed in some defined statistical sense, without providing a reason for that change. An identified change is detected in observations if its likelihood of occurrence by chance due to internal variability alone is determined to be small, for example, < 10%’. 
-‘Attribution is defined as the process of evaluating the relative contributions of multiple causal factors to a change or event with an assignment of statistical confidence. The process of attribution requires the detection of a change in the observed variable or closely associated variables’.
+
 
 Biological processes are complex and vulnerable to misinterpretation. E.g. plants growin in regional warming regions did not advance flowering, but it's because the trend was countered by an opposing response to warmer winter temps that delayed spring events. 
 
@@ -355,14 +353,14 @@ Inference can provide high confidence. E.g. of inferential methods: astronomers 
 Global meta-analyses are likely to remain the most reliable, scientifically defensible and robust set of approaches both for detection and long-term change in biodiversity and to determine the extent to which those changes can be attributed to ACC.
 
 ### Detection and attribution of anthropogenic climate change impacts
-**Permanent notes:**
+**Permanent notes:** YES
 Cynthia Rosenzweig, 2013
 They criticize that CC detection and attribution have focused on the climate itself and they propose a focuse on CC impacts and the issues arising from teh detection and attribution of these impacts.
 
 ## 7 February 2025
 ### Canopy structure regulates autumn phenology by mediating the microclimate in temperate forests
 Xiaoyong Wu, 2024
-**Permanent notes:**
+**Permanent notes:** YES
 The intricate interplay of factors ranging from soil to atmospheric conditions generates complex efects on autumn phenology, resulting in greater inter-crown variability inn autumn than spring. This results in high uncertainty in predictions of GS length and its associated carbon sequestration capactiy of temperate forests.
 
 Genetic variations among tree species play a big role in shaping phenotypic characteristic of trees, including autumn phenology. However, environmental may overshadow genetic influences through phenotypic plasticity. Radiation and temperature are usually the determinants of autumn phenology. Regions with cold temperature and low radiation go through senescence faster, because decreasing temperature and solar radiation can trigger the accumulation of abscisic acid, speed up chl degradation, reduce photopsyntheic enzyme activity and increase the risk of leaf frost = earlier leaf senesence.
@@ -381,8 +379,8 @@ They observed significant effect of canopy structure on autumn phenology induced
 
 #### From Roots to Leaves: Tree Growth Phenology in Forest Ecosystems
 Roberto Silvestro, Sergio Rossi, Yann Vitasse, 2025
-**Permanent notes:**
-Cool picture about timeline hiustory of phenology.
+**Permanent notes:** YES
+Cool picture about timeline history of phenology.
 Autumnal phenology and specifically budset are often used as a proxy for the end of growth. 
 After exposure to chilling conditions, buds move from endodormancy to ecodormancy, during which they are able to resume growth in response to warm conditions (i.e. forcing) and increasing photoperiod. These changes yield important biochemical feedbacks on plant carbon metabolism and the non-structural carbohydrates NSC dynamics. At this stage, giberellins increases and abscisic acid decreases, cell membrane fluidity increases and influx of calcium enters the meristematic cells, eventually triggering cell elongation and division triggering budbreak.
 Resumption of primary shoot growth relies on deep understandiong of physiological processes that occur during dormancy. Depending on the species:
