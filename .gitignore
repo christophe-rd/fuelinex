@@ -4,6 +4,7 @@
 *.blg
 *.out
 *.synctex.gz
+*.gz
 *.RData 
 *.DS_Store
 *.DS_Store
