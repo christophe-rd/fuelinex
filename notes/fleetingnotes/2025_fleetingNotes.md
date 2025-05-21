@@ -601,6 +601,7 @@ Parameters: unknown numbers that determine a statistical model. E.g. yi=a+bxi+Ei
 - Parameters a and b are cofficients
 - σ is called a scale or variance parameter.
 
+
 We can think of parameters as that they can be used to simulate new (hypothetical) data from the model.
 
 Estimand or quantity of interest: some summary of parameters or data that someone wants to estimate. 
@@ -609,4 +610,3 @@ Standard error: estimated standard deviation of an estimate and can give us a se
  - It gets smaller as sample size gets larger.
 Confidence interval: large values of a parameter or quantity of interest that are roughly consistent with the data, given the assumed sampling distribution.
 - If the model is correct, in repeated application, 50 and 95% CI will include the true value 50 and 95% of the time. 
-
