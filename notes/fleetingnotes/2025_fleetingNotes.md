@@ -610,3 +610,7 @@ Standard error: estimated standard deviation of an estimate and can give us a se
  - It gets smaller as sample size gets larger.
 Confidence interval: large values of a parameter or quantity of interest that are roughly consistent with the data, given the assumed sampling distribution.
 - If the model is correct, in repeated application, 50 and 95% CI will include the true value 50 and 95% of the time. 
+
+## 21 May
+### A four step Bayesian workflow for improving ecological science
+Test/simulated data is essential for this workflo. With this kind of data, I simulate data from my model in such way that I can use the resulting data to test if my model code is correct (i.e. i fix vaclues for my model paramaters and test how well my model recovers them)
