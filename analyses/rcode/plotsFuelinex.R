@@ -4,8 +4,8 @@
 
 
 # housekeeping
-rm(list=ls())  
-options(stringsAsFactors=FALSE)
+# rm(list=ls())  
+# options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Load librairies
@@ -31,13 +31,13 @@ library(tidyverse)
 #### Number of observations in 2024 for each Species X treatments ####
 ### === === === === === === === === === === === === ###
 # 1) Add sep
-d$Group <- paste(d$Species, filtered_df$Treatment, sep="__SEP__")
+d$Group <- paste(d$Species, d$Treatment, sep="__SEP__")
 
 # 2) Keep only the unique (ID, Group, Phenostage) combinations
-df_unique <- unique(d[, c("ID","Group","Phenostage")])
+df_unique <- unique(d[, c("ID","Group","phenostageNum")])
 
 # 3) Build a contingency table: rows = Group; cols = Phenostage
-tab <- table(df_unique$Group, df_unique$Phenostage)
+tab <- table(df_unique$Group, df_unique$phenostageNum)
 
 # 4) Convert that table to a wide data.frame
 wide <- as.data.frame.matrix(tab)
@@ -59,7 +59,7 @@ res <- data.frame(
 # 7) Tidy up column names
 colnames(res)[3:10] <- paste0("Stage_", 0:7)
 
-write.csv(res, "analyses/output/2024nobservations.csv", row.names = FALSE)
+write.csv(res, "output/2024nobservations.csv", row.names = FALSE)
 
 df_long <- res %>%
   pivot_longer(
@@ -133,4 +133,3 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
     strip.text = element_text(size = 12, face = "bold"),
     legend.position = "right"
   )
-w
