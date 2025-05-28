@@ -85,8 +85,8 @@ heatmap <- ggplot(df_long, aes(x = Stage, y = Treatment, fill = Pct)) +
     axis.text.x = element_text(angle = 45, hjust = 1),
     panel.grid = element_blank()
   )
-ggsave("analyses/figures/heatmap.pdf", plot = heatmap, width = 8, height = 6)
-ggsave("analyses/figures/heatmap.jpeg", plot = heatmap)
+ggsave("figures/heatmap.pdf", plot = heatmap, width = 8, height = 6)
+ggsave("figures/heatmap.jpeg", plot = heatmap)
 
 ### === === === === === === === === === === === === ###
 #### Shoot elongation X Budburst and budset ####
