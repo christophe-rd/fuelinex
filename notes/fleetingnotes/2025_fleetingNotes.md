@@ -614,3 +614,40 @@ Confidence interval: large values of a parameter or quantity of interest that ar
 ## 21 May
 ### A four step Bayesian workflow for improving ecological science
 Test/simulated data is essential for this workflo. With this kind of data, I simulate data from my model in such way that I can use the resulting data to test if my model code is correct (i.e. i fix vaclues for my model paramaters and test how well my model recovers them)
+
+## 27 May
+#### Effects of temperature and water deficit on cambial activity and woody ring features in Picea mariana saplings
+Lorena Balducci, Annie Deslauriers, Sergio Rossi 2013
+Tree sapling banks form a reserve of individuals to regenerate the stands following abiotic and biotic disturbances. With climate change, increased temperature and drought will threathen the regeneration and survival of forest stands. In boreal forests, temperature is the most important factor for tree growth. Cambial activity and cell differentiation are determined by temperature. 
+
+Wood density is a key parameter for determinaing carbon investment and it depends on tracheid characteristics. Numerous studies shows that wood densitry of conifers can be stricktly correlated to environmental conditions, in particular, temperature.
+They collected stem disks collected 2cm above the root collar of each selected seedling. They cut the cross-sections with a rotary microtome. 
+
+### How Anatomical and Morphological Characteristics Affect the Flexural Properties of two Angiosperm Species at the Sapling Stage
+Seray Özden Keleş, 2020
+Note on this article: it is not well written. The author is single and not well cited. A lot of oversimplification in the article, but he does what I am doing which is rare.
+Trees are exposed to many physiological (drought stress, frost), biological (i.e. fungal infection) and mechanical (wind exposure, pull of gravity, self-weight) stresses during their life span. 
+
+Trees in their juvenile (early) life stage of growth are known as sapling. During these stages, they are highly susceptible to environmental and climate conditions because their growth depends on highly on physiological and biochemical changes.
+
+Tapering: difference in the size of length and diameter, which is an allometric property of the tree (define allometry). It enables hydraulic safety, flexibility and mechanical support against wind-induced bending stresses and thus it can be regarded as a long-term adaptation strtategy of trees to their environmental conditions.
+
+### Recent Widespread Tree Growth Decline Despite Increasing Atmospheric CO2
+Lucas Silva 2010
+Synergetic effects of recent climate change and increased CO2 are expected to stimulate priomary production. Dendrochronological studies that have been identifiing unprecedented tree growth cannot well attribute that to CO2 fertilization or recent changes in climate. 
+
+Tree growth using tree ring width converted to basal area increment (BAI) is a reliable proxy for total carbon uptake. 
+
+In mature trees, ring width declines with age, thus, declining growth may be impossible to detect based on changes in ring width alone. The conversion of ring width to BAI overcomes this problem. Unlike width, age-related trends in unstandardized BAI are generally positive and it can be maintained for many decades after trees reach maturity. 
+
+Using red oak, red maple, red pine, and black spruce, they found decline in BAI for all species and latitudes in spite of consisten long-term increases in WUE. BAI and WUE trends for the young trees follow the same pattern as for the oldest trees, recent growth decline cannot be attributed to aging. 
+
+Warmer climates may also cause a decelaration in tree growth by increasing rates of respiration. However, growth is not limited by carbon and acclimation of respiration is likely occuring, respiration cannot explain growth declines. It's possible that warming-induced canopy dieback could produce such effects.
+
+Non-climatic explanations for tree decline: autogenic succession and endogenous increasing light competition. They ruled these out because they sampled canopy trees and their species are in diverse successional groups.
+
+Nutrient limitation. Experiments demonstre that photosynthetic capacity is mostly limited by nutrient limitations, which may reduce WUE and BAI. We know that nitrogen has an important role in regulating tree growth. However, the relative importance of nitrogen to other nutrients may have decreased becaue of atmospheric deposition and other nutrients now appear to be equal in importace as nitrogen in determining limits to ecosystem productivity and tree growth rates.
+
+They suggest that their growth decline can explained by drought stress or nutrient limitation.
+
+As ring width declines with age, we need to overcome this problem with BAI, which yield linearly positive trends in BAI over the past few decades. BAI = pi(Rsquare of n - Rsquare of n-1) where R is the tree radius
