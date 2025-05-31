@@ -158,4 +158,3 @@ chlorolongwnotes$chlValue <- as.numeric(chlorolongwnotes$chlValue)
 leafdrop <- leafdrop
 greenleafcover <- greencovlongwnotes
 chl <- chlorolongwnotes
-str(chl)
