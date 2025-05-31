@@ -651,3 +651,43 @@ Nutrient limitation. Experiments demonstre that photosynthetic capacity is mostl
 They suggest that their growth decline can explained by drought stress or nutrient limitation.
 
 As ring width declines with age, we need to overcome this problem with BAI, which yield linearly positive trends in BAI over the past few decades. BAI = pi(Rsquare of n - Rsquare of n-1) where R is the tree radius
+
+## 29 May 2025
+### A simple explanation for declining temperature sensitivity with warming
+E. M. Wolkovich C. J. Chamberlain  D. M. Buonaiuto  A. K. Ettinger, Andrew gelman, I. Morales-Castilla 2021
+With rising temperatures, a huge body of litterature has documented changes in temperature sensitivity i.e. the magnitude of a biological resposne scaled per degree C. There is growing evidence that responses to temperature are declining in recent decades or taht lower sensitivities in warmer, urban areas.
+
+Researchers suggest that weaker temperature sensitivities are evidence of increased light limitation in the tundra or a decline in the relative importance of warm spring temperatures for spring phenological events in the temperate zone, as other environmental triggers (e.g. winter temperatures that determine "chilling"_) play a larger role. Yet we don't know what are the biological mechanisms underlying these changes. 
+
+Missing mechanisms may be hidden in the data as environmental factors moderate bio processes in complex ways, they are strongly corrrelated in nature and temperature variance shifts over time and space. 
+
+Criticism: use methods with assumptions of linearity to calculate temperature sensitivities, relying on linear regression to compute a change in quantity days to leafout or carbon sequestered over a fixed time, e.g. per degree C, thus ignoring that many bio reponses to temp, especially events, are nonlinear. 
+
+Biological responses are often the result of continuous nonlinear processes that depend on temperature, which are discretized into temporal units for measurements. E.g. leafout occurs when a certain thermal sum is reached and plants will reach this treshold more quickly (in calendar time) when average temp are warmer. Biologically, however, plants require the same temperature sum to trigger leafout at high and low average temperatures. 
+
+They use a simple model where leafout occurs after a thermal sum is met, by holding the temperature treshold for leafout constant and examine how estimated sensitivities (measured in days per degree C, using linear regression) shift with warming. They argue that this simple thermal sum model is the null model for studies of biological events across different temperatures. With this model, they find** declining sensitivities with warming ** Under this model, constant temperature sensitivity would be evidence that temperature treschol ius not constant and the mechanisms underlying the leafout process have changed.
+
+Using long-term tree leafout data from Europe, correcting for non-linearityty (by log vtransforming), they found little evidence of declining sensitivity with warming. 
+
+In spring phenology, where declining sensitivities are often reported, warming may increase the role of chilling and daylength -potentially increasing the thermal sum required for leafout at lower values of these cues.
+
+They found that an increase in thermal sum required for leafout should yield a larger in magnitude temperature sensitivities, not smalle, as often expected.
+
+## 30 May 2025
+### Spatial and temporal shifts in photoperiod with climate change
+A. K. Ettinger, D. M. Buonaiuto, C. J. Chamberlain, I. Morales-Castilla, and E. M. Wolkovich, 2020
+Photoperiod is a useful cue to synchronize activities because it's consistent across years, compared to temperature and precipitation. It may prevent woody plants from leafing out during "false spring" events. 
+
+Recent evidence suggest that photoperiod may restrict phenology where it may limit pheno shifts of certain species such that they won't track rising temperatures. But it's controversial. Exclusion of photoperiod in model forescasting is problematic because the photoperiod that species experience at critical developmental stages as they undergo climate change-induced shifts in space and time won't be stable.
+
+Temporal shifts will yield much larger changes in experienced photoperiod than latitudinal shifts. E.g. Consider a tree species that bursts its buds at latitude 45°, on average around day of year 91 (April 2), when daylength is 12.8 h. If the species’ phenology shifts 30 d earlier over the next century (i.e. a rate of 3 d per decade, as has been observed, Parmesan & Yohe, 2003), it will experience a daylength that is 1.6 h shorter. This 1.6 h decrease in daylength is equivalent to moving up 28.5° in latitude on this day of the year. However, if the same species shifts its range up in latitude 0.5° (i.e. 60 km over the next century, comparable to observed rates, Chen et al., 2011; Parmesan & Yohe, 2003), it will experience a daylength that differs by <1 min on the same day of the year.
+
+Environmental conditions play a role: different combinations of ambient temperature and photoperiod may explain the variation in photoperiod sensitivity (across events, species, latitudes, populations and ecotypes). Temperature cues can overide some photperiod requirements under certain conditions. In this case, future phenological shifts may occur at different rates than past shifts with warming. It could also be caused by genetic control. There could be differences in genetic control as there is stronger local adaptation in photoperiod cues for budset than for budburst. 
+
+Species and population level in variation in photoperiod sensitivity may scale up to alter communities as climate change progresses. E.g. a pop that is insensitive top photoperiod can better respond to warming springs and increase their GS which yields a higher performance in plants and animals. 
+
+Fall photoperiod affects photosynthesis, growth and budset in wood plants and photperiod-induced declines in photosynthetic capacity may constrain carbon sequestration ven if warming prolong leaf senescence.
+
+For some species, photoperiod responses are qualitative (i.e. there is a treshold photoperiod with long-day responses differing from short-day responses). Some are quantitative. Photoperiod seems to interact with temperature to affect phenology and this would explain the divergenty effects of photoperiod observed across studies in woody plants. 
+
+
