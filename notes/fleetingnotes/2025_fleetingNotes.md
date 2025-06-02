@@ -654,6 +654,7 @@ As ring width declines with age, we need to overcome this problem with BAI, whic
 
 ## 29 May 2025
 ### A simple explanation for declining temperature sensitivity with warming
+**Permanent notes:** YES
 E. M. Wolkovich C. J. Chamberlain  D. M. Buonaiuto  A. K. Ettinger, Andrew gelman, I. Morales-Castilla 2021
 With rising temperatures, a huge body of litterature has documented changes in temperature sensitivity i.e. the magnitude of a biological resposne scaled per degree C. There is growing evidence that responses to temperature are declining in recent decades or taht lower sensitivities in warmer, urban areas.
 
@@ -675,6 +676,7 @@ They found that an increase in thermal sum required for leafout should yield a l
 
 ## 30 May 2025
 ### Spatial and temporal shifts in photoperiod with climate change
+**Permanent notes:**  YES
 A. K. Ettinger, D. M. Buonaiuto, C. J. Chamberlain, I. Morales-Castilla, and E. M. Wolkovich, 2020
 Photoperiod is a useful cue to synchronize activities because it's consistent across years, compared to temperature and precipitation. It may prevent woody plants from leafing out during "false spring" events. 
 
