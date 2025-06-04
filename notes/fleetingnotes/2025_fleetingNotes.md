@@ -684,12 +684,48 @@ Recent evidence suggest that photoperiod may restrict phenology where it may lim
 
 Temporal shifts will yield much larger changes in experienced photoperiod than latitudinal shifts. E.g. Consider a tree species that bursts its buds at latitude 45°, on average around day of year 91 (April 2), when daylength is 12.8 h. If the species’ phenology shifts 30 d earlier over the next century (i.e. a rate of 3 d per decade, as has been observed, Parmesan & Yohe, 2003), it will experience a daylength that is 1.6 h shorter. This 1.6 h decrease in daylength is equivalent to moving up 28.5° in latitude on this day of the year. However, if the same species shifts its range up in latitude 0.5° (i.e. 60 km over the next century, comparable to observed rates, Chen et al., 2011; Parmesan & Yohe, 2003), it will experience a daylength that differs by <1 min on the same day of the year.
 
-Environmental conditions play a role: different combinations of ambient temperature and photoperiod may explain the variation in photoperiod sensitivity (across events, species, latitudes, populations and ecotypes). Temperature cues can overide some photperiod requirements under certain conditions. In this case, future phenological shifts may occur at different rates than past shifts with warming. It could also be caused by genetic control. There could be differences in genetic control as there is stronger local adaptation in photoperiod cues for budset than for budburst. 
+Environmental conditions play a role: different combinations of ambient temperature and photoperiod may explain the variation in photoperiod sensitivity (across events, species, latitudes, populations and ecotypes). Temperature cues can overide some photoperiod requirements under certain conditions. In this case, future phenological shifts may occur at different rates than past shifts with warming. It could also be caused by genetic control. There could be differences in genetic control as there is stronger local adaptation in photoperiod cues for budset than for budburst. 
 
 Species and population level in variation in photoperiod sensitivity may scale up to alter communities as climate change progresses. E.g. a pop that is insensitive top photoperiod can better respond to warming springs and increase their GS which yields a higher performance in plants and animals. 
 
-Fall photoperiod affects photosynthesis, growth and budset in wood plants and photperiod-induced declines in photosynthetic capacity may constrain carbon sequestration ven if warming prolong leaf senescence.
+Fall photoperiod affects photosynthesis, growth and budset in wood plants and photoperiod-induced declines in photosynthetic capacity may constrain carbon sequestration even if warming prolongs leaf senescence.
 
 For some species, photoperiod responses are qualitative (i.e. there is a treshold photoperiod with long-day responses differing from short-day responses). Some are quantitative. Photoperiod seems to interact with temperature to affect phenology and this would explain the divergenty effects of photoperiod observed across studies in woody plants. 
 
+## 4 June 2025
+### The increasing relevance of phenology to conservation
+**Permanent notes:**
+A. K. Ettinger, C. J. Chamberlain and E. M. Wolkovich
+Understanding climate change impacts on breeding phen ology of sensitive species can inform tourism planning to prevent ecological and/or economic harm. CC will  lead to new management challenges as seasonal patterns will be discrupted. 
 
+Populations, communities or ecosystems with high pheno diversity may be more resilient to CC. A portfolio of pheno strategies can result in a higher probability of survival with uncertain CC.  
+
+### Winter temperatures predominate in spring phenological responses to warming
+**Permanent notes:**
+A. K. Ettinger, C. J. Chamberlain, I. Morales-Castilla, D. M. Buonaiuto, E. M. Wolkovich
+Chilling, forcing and photoperiod provide a route to budburst. E.g. for some species, a cool winter will lower the amount of forcing required to trigger budburst. Also, photoperiod could trigger budburst given low chilling and/or forcing. One of these cues, may be absent in some species but dominate in others.
+
+Many previous studies attribute advances in budburst to increased forcing. Their results, however, suggest that for most species, chilling has a greater effect on budburst than forcing.
+
+The mechanisms aren't well understood. Plants appear to accumulate forcing only after they have exited endodormancy and entered ecodormancy, thought to occur when chilling requirements are met. 
+
+Their results support their hypotheses that chilliing and/or photoperiod cues may underlie declining sensitivities to warming. Under this hypothesis, warming increases forcing and thus advances budburst but such advances become muted if warming declines chilling, and shorter photoperiods experienced during budburst. 
+
+They found that declining sensitivities are the same in magnitude as those predicted from a statistical artefact.
+
+### Integrating experiments to predict interactive cue effects on spring phenology with warming
+**Permanent notes:**
+A. K. Ettinger, C. J. Chamberlain, I. Morales-Castilla, D. M. Buonaiuto, E. M. Wolkovich
+
+Chilling, forcing and photoperiod, may produce nonlinear responses. They can occur through 2 pathways: 
+1. Though each sinbgle cue can yield linear reponses in the mid-range of cue levels, extremely high or low levels can produce threshold responses. These are rare and thus unlikely to explain recent shift observations. 
+2. Interactions can produce nonlinearities (most suported)
+
+Estimating interactions from observational data (where cues covary) often produce spurious results. This is unlike growth chamber studies designed to understand and estimate multiple cues that can tease out interactive effects. They are great because they increase our understanding of interactions from a simple statistical perspective (how the effect of one cue depends on another).
+
+Controlled-environment studies have shown that chilling, forcing and photoperiod cues together determine the transition from dormancy to growth (first observed as budburst).
+
+Robust statistical tests for interactions come from experimental designs taht include most or all combinations of all elvels of cues studied (factorial design).
+The statistical power needed to robustly estimte an interaction is much greater than a simple main effect (e.g. effect of forcing or photoperiod alone). It requires a 16 times greater sample size. Section 16.4 in ROS. \
+
+They suggest that experiment designs should include values of cues within the current and projected futures specie's range rather than focusing on extreme comparisons only. 
