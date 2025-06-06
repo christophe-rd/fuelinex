@@ -89,7 +89,7 @@ ggsave("figures/heatmap.pdf", plot = heatmap, width = 8, height = 6)
 ggsave("figures/heatmap.jpeg", plot = heatmap)
 
 ### === === === === === === === === === === === === ###
-#### Shoot elongation X Budburst and budset ####
+#### Budburst and budset ####
 ### === === === === === === === === === === === === ###
 # mean and sd for each phenophase X Species X Treatment
 summary_stats <- aggregate(
