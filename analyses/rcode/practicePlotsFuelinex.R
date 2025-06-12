@@ -13,6 +13,7 @@ library(dplyr)
 library(ggplot2)
 library(data.table)
 library(tidyverse)
+library(ggridges)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
 ## at some point I should add this function which selects rows after the same phenophase was recorded 3 times. Replace NumYs_in_Series with my phenophases
@@ -63,7 +64,7 @@ write.csv(res, "output/2024nobservations.csv", row.names = FALSE)
 
 
 # 8) Define the target species
-target_species <- c("Acne", "Bepa")
+target_species <- c("Pist")
 df_long <- res %>%
   pivot_longer(
     cols = starts_with("Stage_"),
@@ -105,7 +106,7 @@ summary_stats$mean_DOY <- summary_stats$DOY[, "mean"]
 summary_stats$sd_DOY <- summary_stats$DOY[, "sd"]
 
 # for now, just take dormant and unroled
-vec <- c("Leaf fully unfolded", "Bud is fully set")
+vec <- c("Leaf fully unfolded","Bud is fully set")
 suby <- summary_stats[summary_stats$phenophaseText %in% vec, ]
 # and select only for growing season extension treatments
 vectreat <- c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF")
@@ -115,15 +116,27 @@ suby <- suby[suby$Species %in% target_species, ]
 # Create the plot
 # Sample data for shoot elongation periods
 # Plot
-ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
-  geom_point(size = 3, alpha = 0.7) + 
-  geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
-                 height = 0.2, alpha = 0.5, linewidth = 0.6) + 
-  
+# ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
+#   geom_point(size = 3, alpha = 0.7) + 
+#   geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
+#                  height = 0.2, alpha = 0.5, linewidth = 0.6) + 
+
+
+df_subset <- d %>%
+  filter(
+    phenophaseText %in% c("Leaf fully unfolded","Bud is fully set"),
+    Treatment %in% c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF"),
+    Species %in% target_species
+  )
+
+
+ggplot(df_subset, aes(x=DOY,y=Treatment, fill = Treatment)) + 
+  geom_density_ridges(alpha = 0.7) + 
+  #facet_wrap(~ phenophaseText)
   # Add text annotation for shoot elongation (aligned with species)
   # geom_text(data = shootperiods, aes(x = (start + end) / 2, y = 4.7, label = "Shoot Elongation"), 
   #           vjust = 2, hjust = 0.5, color = "black", size = 4) +
-  facet_wrap(~Species, scales = "free_y") +  # Adjust y-axis scales if needed
+  facet_wrap(~phenophaseText, scales = "free_y") +  # Adjust y-axis scales if needed
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -137,3 +150,5 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
     strip.text = element_text(size = 12, face = "bold"),
     legend.position = "right"
   )
+
+phenophase_labels
