@@ -3,7 +3,7 @@
 # Goal is to clean shoot elongation measurements for 2024
 
 # housekeeping 
-rm(list=ls())  
+rm(list=ls())      
 options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
@@ -16,11 +16,14 @@ setwd(directory_path)
 # Load librairies
 library(ggplot2)
 library(dplyr)
+library(tidyverse)
 
 # Read csv
 shoot <- read.csv2("input/2024ShootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
-head(shoot)
+shoot25 <- read.csv2("input/2025ShootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
+head(shoot25)
 colnames(shoot)[6] <- "notes"
+colnames(shoot25)[6] <- "notes"
 
 # # Convert all chr values that should be numeric
 # for (i in 7:length(colnames(shoot))) {
@@ -165,6 +168,91 @@ shootelongation <- ggplot(nonitro) +
     legend.position = "right" 
   )
 getwd()
+ggsave("figures/shootElongationbySpp.pdf", shootelongation)
+
+#### Do the same for 2025! ####
+names(shoot25)[names(shoot25) == "163 "] <- "163"
+shoot25 <- shoot25[, 1:ncol(shoot25)-1]
+
+longshoot25 <- shoot25 %>%
+  pivot_longer(
+    cols = -c(tree_ID, bloc, treatment, genus, species, notes),
+    names_to = "DOY",
+    values_to = "ShootElongation",
+  ) %>%
+  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
+  select(ID_DOY, ShootElongation)                  
+head(longshoot25)
+
+# convert notes wide df to long format
+# noteslong <- wide_notes %>%
+#   pivot_longer(
+#     cols = -tree_ID,  
+#     names_to = "DOY", 
+#     values_to = "Notes"  
+#   ) %>%
+#   unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
+#   select(ID_DOY, Notes) 
+# merge phenostage+notes
+# longshoot <- merge(phenolong, noteslong, by = "ID_DOY", all.x = TRUE)
+
+# separate again the doy and id
+longshoot25$ShootElongation <- as.numeric(longshoot25$ShootElongation)
+longshoot25$ID <- sub("(_\\d+)$", "", longshoot25$ID_DOY)  
+longshoot25$DOY <- sub(".*_(\\d+)$", "\\1", longshoot25$ID_DOY) 
+longshoot25$Species <- sub("^([A-Za-z]+)_.*", "\\1", longshoot25$ID_DOY)
+longshoot25$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", longshoot25$ID_DOY)
+
+# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
+longshoot25$Treatment <- ifelse(grepl("_nitro", longshoot25$ID_DOY), 
+                              paste0(longshoot25$Treatment, "_nitro"), 
+                              longshoot25$Treatment)
+unique(longshoot25$Treatment)
+head(longshoot25)
+
+# remove na shoot elongation values
+longshoot25nona <- longshoot25[!is.na(longshoot25$ShootElongation),] # there is really something wrong that Ill have to investigate here. I get very different numbers of rows whenever i remove the NAS
+nrow(longshoot25)
+nrow(longshoot25nona)
+# find the first doy for every replicate
+first_doy <- aggregate(DOY ~ ID, data = longshoot25nona, FUN = min)
+first_values <- merge(longshoot25nona, first_doy, by = c("ID", "DOY"))
+first_values <- first_values[, c("ID", "ShootElongation")]
+colnames(first_values) <- c("ID", "First_ShootElongation")
+# merge back to have first measurement in df
+mergedshoot <- merge(longshoot25nona, first_values, by = "ID") 
+mergedshoot$adjustedShootElong <- mergedshoot$ShootElongation - mergedshoot$First_ShootElongation
+# get mean measurement per doy, species and treatement i.e. mean per replicate
+mean_stats <- aggregate(adjustedShootElong ~ Species + Treatment + DOY, data = mergedshoot, FUN = mean, na.rm = TRUE)
+# temporarily remove the measurement from doy 171 for all species
+head(mean_stats)
+mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
+# select only the non nitro treatments for now
+vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
+green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "blue", "red")
+
+nonitro <- subset(mean_stats, Treatment %in% vec)
+
+#shoot elongation plot
+shootelongation25 <- ggplot(mean_stats) +
+  geom_line(aes(x = DOY, y = adjustedShootElong, color = Treatment, group = Treatment)) + 
+  facet_wrap(~Species, scales = "free_y") +  # Allow y-axis scales to vary by facet
+  theme_minimal() +
+  labs(
+    x = "Day of Year",
+    y = "Adjusted Shoot Elongation",  # Updated y-axis label
+    title = "Phenophase 2024",
+    color = "Treatment"  # Updated legend title
+  ) +
+  scale_color_manual(values=green_palette)+
+  theme_classic() + 
+  theme(
+    axis.text.y = element_text(size = 10, face = "italic"),
+    axis.text.x = element_text(size = 10),
+    strip.text = element_text(size = 12, face = "bold"),
+    legend.position = "right" 
+  )
+shootelongation25
 ggsave("figures/shootElongationbySpp.pdf", shootelongation)
 
 
