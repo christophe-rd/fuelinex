@@ -64,7 +64,7 @@ write.csv(res, "output/2024nobservations.csv", row.names = FALSE)
 
 
 # 8) Define the target species
-target_species <- c("Pist")
+target_species <- c("Quma")
 df_long <- res %>%
   pivot_longer(
     cols = starts_with("Stage_"),
@@ -122,6 +122,7 @@ suby <- suby[suby$Species %in% target_species, ]
 #                  height = 0.2, alpha = 0.5, linewidth = 0.6) + 
 
 
+
 df_subset <- d %>%
   filter(
     phenophaseText %in% c("Leaf fully unfolded","Bud is fully set"),
@@ -141,7 +142,7 @@ ggplot(df_subset, aes(x=DOY,y=Treatment, fill = Treatment)) +
   labs(
     x = "Day of Year",
     y = "Treatment",
-    title = "Phenophase 2024",
+    title = "Quma Phenophases 2024",
     color = "Phenophase"
   ) +
   theme(
@@ -152,3 +153,5 @@ ggplot(df_subset, aes(x=DOY,y=Treatment, fill = Treatment)) +
   )
 
 phenophase_labels
+suby$Species
+summary(suby$Species)
