@@ -729,3 +729,13 @@ Robust statistical tests for interactions come from experimental designs taht in
 The statistical power needed to robustly estimte an interaction is much greater than a simple main effect (e.g. effect of forcing or photoperiod alone). It requires a 16 times greater sample size. Section 16.4 in ROS. \
 
 They suggest that experiment designs should include values of cues within the current and projected futures specie's range rather than focusing on extreme comparisons only. 
+
+## 18 June
+### Influence of temperate forest autumn leaf phenology on segmentation of tree species from UAV imagery using deep learning
+Myriam Cloutier, Mickael Germain, Etienne Laliberte
+
+We need to to monitor vegetation and detect changes in biodiversity in the context of climate change. However, traditonal field surveys methods are labor intensive and time consuming which makes challenging to conduct repeated forest surveys
+
+When acquired repeatedly across a growing season, UAV imagery data combined with deep learning can leverage species-specific phenological patterns. 
+
+
