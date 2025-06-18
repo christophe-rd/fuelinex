@@ -32,6 +32,16 @@ setwd("/Users/christophe_rouleau-desrochers/github/wildchrokie/analyses")
 #### Step 2. Simulate data ####
 # === === === === === === === === === === === === === === === === 
 n_trees <- 30  # 30 trees
-treatment <- 2
-n <- n_trees * n_trees
+treatment <- c("cscf", "wfws")
+
+#
+n <- n_trees * treatment
+
+
+
+
+
+
+
+
 
