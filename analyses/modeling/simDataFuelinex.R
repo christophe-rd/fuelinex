@@ -12,7 +12,9 @@ library(dplyr)
 library(ggplot2)
 library(rstanarm)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+set.seed(123)
 runmodels <- FALSE
+setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
 # === === === === === === === === === === === === === === === === 
 #### Step 1. Come up with a model ####
@@ -22,20 +24,23 @@ runmodels <- FALSE
 # === === === === === === === === === === === === === === === === 
 #### Step 2. Simulate data ####
 # === === === === === === === === === === === === === === === === 
+
+# === === === === === === === #
+##### Biomass X Gdd cons #####
+# === === === === === === === #
 a <- 1.5
 b <- 0.4
-
+sigma_ids <- 0.8/2.57
 sigma_y <- 0.3
 
 # replicates per treatment
-n_pertreat <- 30
+n_pertreat <- 100
 # treatment
 treat <- c("cc", "ww")
 # total number of trees
 n <- n_pertreat * length(treat)
 
 # partial pooling
-sigma_ids <- 0.8 / 2.57
 a_ids <- rnorm(n, 0, sigma_ids)
 
 # gdd for W/W
@@ -54,11 +59,12 @@ error <- rnorm(n, 0, sigma_y)
 biomass <- a + a_ids + b * gddcons + error
 
 # create ids by treatements
-ids <- paste0(rep(treat, each = n_pertreat), "_", rep(1:n_pertreat, times = 2))
+tree_ids <- 1:n_trees                               
+ids <- rep(tree_ids, times = length(treat_levels))  
 
 # create df
-simdf <- data.frame(
-  id = ids,
+simdf_biomass <- data.frame(
+  ids = ids,
   treat = rep(treat, each = n_pertreat),
   gdd = c(gdd_cc, gdd_ww),  
   gddcons = gddcons,        
@@ -67,30 +73,121 @@ simdf <- data.frame(
   a_ids = a_ids,
   biomass = biomass
 )
-simdf
+simdf_biomass
 
 # look up difference by treatment
-treatcomparison <- ggplot(simdf, aes(x = treat, y = biomass, color = treat)) +
-  geom_jitter(width = 0.1, alpha = 0.6, size = 2) +
-  stat_summary(fun.data = mean_cl_normal, 
-               geom = "pointrange", 
-               size = 0.8,
-               color = "black") +
-  scale_color_manual(values = c("cc" = "#1f78b4", "ww" = "#33a02c")) +
-  labs(x = "", 
-       y = "", 
-       title = "") +
+treatcomparison_biomass <- ggplot(simdf_biomass, aes(x = treat, y = biomass, color = treat)) +
+  geom_boxplot(
+    width = 0.3, 
+    alpha = 0.2, 
+    outlier.shape = NA,
+    color = "black"   
+  ) +
+  geom_jitter(
+    width = 0.1, 
+    alpha = 0.6, 
+    size = 2
+  ) +
+  scale_color_manual(values = c("cc" = "#1f78b4", "ww" = "#FF8C00")) +
   theme_minimal() +
-  theme(legend.position = "none") 
-# save ggplot
-ggsave("figures/treatcomparison.jpeg", treatcomparison, width = 6, height = 4)
+  theme(
+    legend.position = "none",  
+    plot.title = element_text(hjust = 0.5)
+  )
+treatcomparison_biomass
+ggsave("figures/sim/treatcomparison_biomass.jpeg", treatcomparison_biomass, width = 6, height = 4)
 
-ggplot(simdf, aes(x = gddcons, y = biomass, color = treat)) +
-  geom_point()+
-  # Customize appearance
-  scale_color_manual(values = c("cc" = "#1f78b4", "ww" = "#33a02c")) +
-  labs(x = "", 
-       y = "", 
-       title = "") +
+####### Model #######
+if(runmodels) {
+  fitbiomass <- stan_lmer(
+    biomass ~ gddcons + (1 | ids),  
+    data = simdf_biomass,
+    chains = 4,
+    iter = 4000,
+    core=4
+  )
+}
+
+
+
+# === ===  === ===  === ===  === === #
+##### CC, WW on leaf drop date #####
+# === ===  === ===  === ===  === === #
+# b is + because leaf drop is later when more gdd (estimated here from leaf out to budset)
+a <- 230
+b <- 5 
+sigma_y <- 3
+
+# replicates per treatment
+n_pertreat <- 100
+treat <- c("cc", "ww")
+n <- n_pertreat * length(treat)
+
+# partial pooling
+sigma_ids <- 2 / 2.57
+a_ids <- rnorm(n, 0, sigma_ids)
+
+# gdd for each treatment
+gdd_cc <- round(rnorm(n_pertreat, 2000, 100))
+gdd_ww <- round(rnorm(n_pertreat, 1600, 100))
+
+# scaled predictor
+gddcons <- c(gdd_cc, gdd_ww) / 200
+
+# error term
+error <- rnorm(n, 0, sigma_y)
+
+# simulate leaf-out date
+ldd <- a + a_ids + b * gddcons + error
+
+# IDs
+ids <- paste0(rep(treat, each = n_pertreat), "_", rep(1:n_pertreat, times = 2))
+
+# data frame
+simdf <- data.frame(
+  ids = ids,
+  treat = rep(treat, each = n_pertreat),
+  gdd = c(gdd_cc, gdd_ww),
+  gddcons = gddcons,
+  a = a,
+  b = b,
+  a_ids = a_ids,
+  ldd = ldd
+)
+simdf
+
+hist(simdf$ldd)
+
+# look up difference by treatment
+treatcomparison_ldd <- ggplot(simdf, aes(x = treat, y = ldd, color = treat)) +
+  geom_boxplot(
+    width = 0.3, 
+    alpha = 0.2, 
+    outlier.shape = NA,
+    color = "black"   
+  ) +
+  geom_jitter(
+    width = 0.1, 
+    alpha = 0.6, 
+    size = 2
+  ) +
+  scale_color_manual(values = c("cc" = "#1f78b4", "ww" = "#FF8C00")) +
   theme_minimal() +
-  theme(legend.position = "none") 
+  theme(
+    legend.position = "none",  
+    plot.title = element_text(hjust = 0.5)
+  )
+treatcomparison_ldd
+ggsave("figures/sim/treatcomparison_ldd.jpeg", treatcomparison_ldd, width = 6, height = 4)
+
+# run model!
+if(runmodels) {
+  fitldd <- stan_lmer(
+    ldd ~ gddcons + (1 | ids),  
+    data = simdf,
+    chains = 4,
+    iter = 4000,
+    core=4
+  )
+}
+
