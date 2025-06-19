@@ -406,27 +406,27 @@ Water availability also plays a crucial role in defining phenology and dynamics 
 ## 19 February 2025
 ### Tree rings provide a new class of phenotypes for genetic associations that foster insights into adaptation of conifers to climate change
 Johann Housset, 2017
-**Permanent notes:**
-already in slipbox
+**Permanent notes:** YES
 However, in tree species, the list of functional traits that closely reflect adaptation to climate is still rather limited and labor-intensive to evaluate (for a review, see Aitken & Bemmels, 2016). In particular, assessment of dendrometric traits usually consists of punctual measurements (e.g. height or diameter at a certain age) that are probably the cumulative result of many different climatic events and constraints that occurred throughout the tree’s lifespan.
+
 ### Global patterns of mobile carbon stores in trees at the high-elevation tree linege
 Christian Korner, 2012
-**Permanent notes:**
+**Permanent notes:** YES
 Architecture and associated aerodynamics are the primary reasons why trees are more strongly affected by low temp at lower elevations than smaller stature plants.
 They show that the cessation of growth in the cold in tree lines ecotones is not limited by carbon limitation. Plus, they argue that sink limitation is not a consequence of insufficient soil-nutrient availability in the cold but a direct limitation of meristmatic processes. So far, malnutrition has been identified at the tree line. 
 
 ### Global warming-related tree growth decline and mortality on the north-eastern Tibetan plateau
 Eryuan Liang, 2016
-**Permanent notes:**
+**Permanent notes:** YES
 In many forests worldwide, drought and warming have caused reductions in annual stem increment and productivity.
 
 Spruce in the Tibetan plateau show increased tree mortality of adult trees, but it's not accompanied by increasing recruitment rates which suggests that recent climate change is not accompanied by increasing recruitment rates. They suggest that CC type drought is driving spruce forests beyond the point of ecosystem resilience and toward stand level deforestation.
 
 ### On the Below- and Aboveground Phenology in Deciduous Trees: Observing the Fine-Root Lifespan, Turnover Rate, and Phenology of Fagus sylvatica L., Quercus robur L., and Betula pendula Roth for Two Growing Seasons
 Bertold Mariën, 2021
-**Permanent notes:**
+**Permanent notes:**  YES
 We should define roots on a physiological basis and not on morphology.
-Fine-roots can add nutrients adn carbon into the soil throught their continuous growth and mortality. Fine root turnover rate: number of times in which the fine-root biomass is replaced within a given timeframe. This turnover account for 10 to 60% of the annual NPP in forests globally. 
+Fine-roots can add nutrients and carbon into the soil throught their continuous growth and mortality. Fine root turnover rate: the number of times in which the fine-root biomass is replaced within a given timeframe. This turnover account for 10 to 60% of the annual NPP in forests globally. 
 
 We know very little on the phenology of fine-roots in deciduous trees. There are 3 reasons we know less for bellow than above ground dynamics:
 1. Difficult to estimate fine-root lifespan, turover rate and phenology
@@ -440,7 +440,7 @@ They didn't show any yearly patterns in belowground phenology of beech, oak or b
 ## 19 February 2025
 ### Warm springs alter timing but not total growth of temperate deciduous trees
 Cameron Dow, Neil Pederson
-**Permanent notes:**
+**Permanent notes:** YES
 Despite deforestation, the net effect of forests in still a carbon sink i.e. they are absorbing more CO2 than they are releasing despite the deforestation and land use changes. This is because forests are growing more i.e. more CO2 absorption. This absorption offsets about 20% of human caused-CO2 ewmissions. 
 Of this important carbon sink, 47% happens in temperate forests.
 
@@ -448,7 +448,9 @@ Earlier initiation of growth doesn't necessarily translate to earlier, faster or
 
 Plus, growth of broaleaf deciduous trees may be sink saturated, such that longer GS with more carbon fixation do not necessarily augment growth. 
 
-Tree-ring records can examine annual growth but not growth seasonality. This reveals that gowth of temperate deciduous trees tends to be most sensitive to temperature or potential evapotranspiration between late spring and early summer. Some evidence suggest that warmer springs mayu have a modest positive effect on growth. W	hich does not align with the findings that warming spring temperatures increase anual forest CO2 uptake in temp deciduous forests. Further readings: 
+Tree-ring records can examine annual growth but not growth seasonality. 
+This reveals that the growth of temperate deciduous trees tends to be most sensitive to temperature or potential evapotranspiration between late spring and early summer. Some evidence suggests that warmer springs mayu have a modest positive effect on growth. W	hich does not align with the findings that warming spring temperatures increase anual forest CO2 uptake in temp deciduous forests. Further readings: 
+
 *Gao, S. et al. An earlier start of the thermal growing season enhances tree growth in cold humid areas but not in dry areas. Nat. Ecol. Evol. 6, 397–404 (2022).
 McMahon, S. M. & Parker, G. G. A general model of intra-annual tree growth using dendrometer bands. Ecol. Evol. 5, 243–254 (2015).*
 
@@ -460,7 +462,7 @@ Their results show  that warmer spring temperatures in the temperate deciduous f
 
 Their results are contradicting the concept that an earlier start to growth would increase anual NPP, they show that warm springs either speeds up the deceleration of stem expansion or otherwise fail to translate extended GS into increased stem growth, thus having negligible effect on totral annual growth for most species and locations. Thus, the decelaration of stem expansion which occurs in mid-summer near the time of peak canopy greenness is driven by cues other than photosynthate limitation, such as water stress, nutrient limitation, day length or sink limitation of stem growth. This supports the evidence of a sink limitation of stem growth, in which CC factors known to enhance photosynthesis, sich as longer GS or increased CO2, does NOT correspond to increased stem growth. 
 
-It remains possible that warming spring temperatures could ultimately increase ANPP, through indirect mechanisms. And understanding how warming spring temperatures are influencing carbon allocaiton within ecosystems remains 
+It remains possible that warming spring temperatures could ultimately increase ANPP, through indirect mechanisms. And understanding how warming spring temperatures are influencing carbon allocation within ecosystems remains a key outstanding question
 
 The timing of peak growth in June and July conincides with the timing of the greatest sensitive of annual growth to Tmax. Consistent with the finding that demonstrates the sensitivity of growth to drought stress or high temperatures during the peak GS
 
