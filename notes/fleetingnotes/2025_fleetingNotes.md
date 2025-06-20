@@ -740,4 +740,53 @@ We need to to monitor vegetation and detect changes in biodiversity in the conte
 
 When acquired repeatedly across a growing season, UAV imagery data combined with deep learning can leverage species-specific phenological patterns. 
 
+## 20 June
+### Triggers of tree mortality under drought
+Brendan Choat Belinda Medlyn, 2018
+Forests accoutn for 45% of globalterrestrial carbon stocks and have key roles in hydrological and nutrient cycles,
 
+There is a lot of evidence that rising CO2 benefits forests, with CO2 fertilization enabling an increaseed leaf area index, enhanced water-use efficiency and greater uptake of carbon gloabally. 
+
+However, extreme-climate eventsw such as heat waves, droughts, fires and storms may offst these benefits and increase mortality and a net loss of CO2 in the atm. Drought and associated disturbances have the greatest effect globally. 
+
+Recent projections indicate that land surface warming may lead to longer and more intense droughts, which highlights the importance for accuratee projections of the effect of drought on forest ecosytems. 
+
+Land plants require an efficient long-distance transport pathway to lift water from the soil to the leaves at a rate that satisfies transpiration (See: Xylem structure and the ascent of sap). In trees, xylem supplies water for all aspects of plant function, including photosynthesis, growth and reproduction. Damage to this hydraulic supply network causes severe water stress and can cause tree death during drought, which has been shown by experiments where hydraulic failure thresholds caused tree death. Field studies also showed that extensive canopy death happened during natural drought events. 
+
+Co-occuring factors may also have a role in the death of trees during natural droughts. E.g. in the absence of catastrophic hydraulic failure, the disruption of partial water transport and regulation of water loss may lead to increased likelihood of mortality through depletion of sugar reserves used in respiration and increased vulnerability to pests and pathogens. This shows taht hydraulic traits occupy a central role in determining survival during drought and the effects of drought on carbon dynamics. 
+
+Increased temperature will worsen droughts. When natural droughts will occur, they will set in more quickly and be of greater intensity. Warmer tempeeratures result in greater evapotranspiration (sum of evaporation and plant transpiration), thus drying soil and plants faster that would be the case at lower temperatures. These droughts are called "global change-type droughts" and had severe effects on exposed ecoystems including mass tree mortality. 
+
+Drought is the most widespread stress factor that affects forest carbon balance. E.g. in Texas and California, extreme droughts are estimated to have killed 300 million and 102 million trees, respectively. 
+
+In tropical forests, young trees are mostly impacted by droughts, but large, old trees are also vulnerable 
+
+Trees prevent dessication injury by using a plumbing system of hollow dead cells (vessels or tracheids) to tranport water from the soil to the leaves. Xylem transport relies on a mechanism in which liquid water is held under tension, enabling trees to lift water to the canopy at little energy costs. However, liquid water under tension exists in a metastable state, similar to that of a superheated liquid. In this state, water is prone to cavitation, a sudden phase change from liquid watr to gas that creates a bubble (embolism)
+
+During drought, reduced transpiration lafs to declines in soil moisture, often accompanied by higher tempeeratures and increased evaporative demand from the ATM. Combined, these factors induce water stress in plants, mnanifested as increased tension in the xylem sap. It's measurable by the water potential, measured in the xylem, which is increasingly negative during droughts.
+
+Stomata close before reaching the threshold at which cavitation is initiated, despite the negative consequence of stomatal closure. 
+Consequences on short time scale: rapid cessation of photosynthetic CO2 assimilation, loss of canopy evaporatie coolin through transpiration and greater probability of photodamage.
+Consquences on long time scale: low photosynthetic rates associated with drought-induced stomatal closure can leaed to depletioin of non NSC pools which interferes with translocation of sugars throught the phloem and the production of chemical defence compounds. 
+
+The fact taht stomatal closure occurs before cavitation despite these costs suggests that avoidance of xylem cavitation is of paramount importance for long-term survival of trees.
+
+After stomatal closure continues to decrease, becoming more negative as water is lost through cuticular conductance, stomatal leakiness and other tissues such as bark. Numbers of biophysical and physiological mechanisms lead to high water loss rates compared to when the stomata are fully open. If drought persists, water potential will ultimately reach a critical threshold at which emboli begin to propagate through the xylem which ocurs through the hydraulic pathway including roots, stems and leaves.
+
+To predict mortality from hydraulic thresholds, hydraulic failure is the most fully elaborated mechanism and currently holds the most promise for predictive models. It's a well-understood biophysical process that is amenable to modelling with failure thresholds that can be readily established for a given species or population.
+
+They highlight critical gaps in our ability to describe the hydraulic patway and its eventual failure. The following gaps that hinder model development and parameterization and have received little attention:
+1. Dynamics of canopy leaf area during drought
+	Leaf shedding occurs during drought adn can mitigate water stress to the remaininng foliage, slowing down thee rate of dessication (hydraulic fuse hypothesis), but is poorly captureed in models
+2. Dependance of plant water status on soil water potential
+3. Process of plant dessiccation in very dry soil 
+
+Recovery of trees after drought is complex, dynamic and determined by at least: 
+1. The degree of damage to the apical anc cambial meristematic tissues
+2. Functional status of the remainig hydraulic pathway
+3. Overall health of tres (i.e. remaining foliage and roots)
+4. Water, NSC and nutrients that are available during the recovery phase
+
+Regrowth of xylem is a the primary means by which trees recover hydraulic capacity aftger drought.
+
+When drought has caused considerable deaeth of above ground biomass, recovery may be facilitated by resprouting of stems from epicormic buds or lignotubers.
