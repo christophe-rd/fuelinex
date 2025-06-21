@@ -790,3 +790,29 @@ Recovery of trees after drought is complex, dynamic and determined by at least:
 Regrowth of xylem is a the primary means by which trees recover hydraulic capacity aftger drought.
 
 When drought has caused considerable deaeth of above ground biomass, recovery may be facilitated by resprouting of stems from epicormic buds or lignotubers.
+
+## 21 June
+### Widespread spring phenology effects on drought recovery of Northern Hemisphere ecosystems
+Yang Li, Xiuchen Wu, 2022
+Drought reecovery from a single extreme drought event within the growing season has beeen widely studied, but the interactions between vegetation phenoly (SOS and EOS) and drought timing are unknown.
+
+Phenology has huge impacts on drought recovery through biophysical mechanisms. E.g. changs in spring phenology drive evapotranspiration and thus alter thee amount of water available to support vegetation growth in subsequent seasons. Spring phenology can directly influence the health and physiology of vegetation, which medates the ability of vegetation to recover from drought. 
+
+Vegetation phenology interacts with drought timing and thus determines subsequent growth. 
+- On ne hand, spring phenology strongly governs growth and soil water consumption in the GS, influencing drought recovery
+- On the other hand, changes in temp and snow accumulation during the non-GS can directly determine subsequent spring phenology through biological processes, influencing drought recovery
+
+*INCLUDE FIGURE 1!*
+
+Phenolog is impacted by CC and factors such as shifting drought seasonality are already reshaping the vulnerability of ecosystems to intensified extreme drought events to a currently unknown degree. Quantifying these feedbacks require a deep understand of the interactions betweeen phenology, drought timing, biocliming factors and drought recovery.
+
+
+They showed that spring phenologyduring the drought year postopned drought recovery when extreme drought events occurent in mid-GS. Earliere spring phenology probably led to a longerGS and increased vegetative growth, increasing evapotranspiration and thus increased thee drawdown of soil moisture, resulting in progressive water stress. Thus, it caused more negative effects on water supply during summer and autumn, periods most senstitive to water availability and thus postponed vegeattion recovery from mid- and late-GS drought. A mechanism supported by their findings that:
+1. Growth can't fully recover from an extreme drought within a single GS for a majority of events when they occur in the mid-GS.
+2. Spring phenology and drought recovery show a negative relationship when extreme droughts occured in mid-GS 
+Early phenolog = +spring frost = less NSC = negative imbalance in carbon supply for sustaining drought recovery. 
+*LINK WITH THE NOTES THAT EARLY SPRING PHENOLOGY INCREASE DROUGHT INTENSITY IN THE SUMMER*
+
+In contrast, they also showed that earlier spring phenology during the drought year shortened drought recovery wheras delayed spring phenology lengtthened drought recoveery when extreme drought events occured early in the GS. Cause: effects of spring phenology on vegetaion physiology outweighted the biophysical effects of drought recovery. Earlier spring pheno increased groth and led to positive effects on subsequent vegetation growth. Effects of phenology on soil moisture were lower when drought occur early because of the weaker progressive water consumption from the start of spring to the beginning of the extreme drought. 
+
+For drought recovery in the subsequent GS, delayed phenology in the subsequent year slowed down growth and led to longe drought recovery. 
