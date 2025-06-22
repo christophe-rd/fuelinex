@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{authblk}
 \usepackage{setspace}
+\usepackage{natbib}
+%\usepackage{cite}
 \usepackage[margin=1in]{geometry}
 \usepackage{array}
 \usepackage{graphicx}
@@ -42,7 +44,7 @@
 Climate change impacts on biological systems and how phenological trends are already shifting with warming temperatures. 
 \begin{enumerate}
 % 1)
-	\item  Trends of spring and autumn phenological events and their drivers (Walther, 2002)
+	\item  Trends of spring and autumn phenological events and their drivers \citep{walther_ecological_2002}
 % 2)
 	\item Evidence of declining sensitivity to warming, predominance of winter temperature in spring phenological responses (Ettinger 2020)
 %Long-term trends suggest that the pace of spring events advancement is slowing down.  Counterinteraction of warmer winters that delays spring phenology because of non-met chilling requirements, which increase forcing requirements --> later budburst 
@@ -82,13 +84,13 @@ Climate change impacts on biological systems and how phenological trends are alr
 \hline
 \textbf{} & \multicolumn{1}{c|}{\textbf{}} \\
 \hline
-\textbf{Mechanisms} & — Hot temperature + low precipitation (i.e. global-change-type drought)= $\uparrow$ evapotranspiration$\rightarrow$ less water in soil $\rightarrow$ cavitation $\rightarrow$ embolism $\rightarrow$ hydraulic failure (Tyree02) = tissue death (Choat18); 
+\textbf{Mechanisms} & — Hot temperature + low precipitation (i.e. global-change-type drought)= $\uparrow$ evapotranspiration$\rightarrow$ less water in soil $\rightarrow$ cavitation $\rightarrow$ embolism $\rightarrow$ hydraulic failure (Tyree02) = tissue death \citep{choat_triggers_2018}; 
 
 — Earlier spring phenology = longer GS $\rightarrow$ increases vegetative growth $\rightarrow$ increases evapotranspiration $\rightarrow$ increases drawdown of soil moisture = progressive water stress (Li23)
 
-— Long-term vs short-term stomatal responses and consequences on tissue death (Choat18); 
+— Long-term vs short-term stomatal responses and consequences on tissue death \citep{choat_triggers_2018}; 
 
-— Recovery and its determinants (Choat18; Li23)\\
+— Recovery and its determinants \citep{choat_triggers_2018,li_widespread_2023}\\
 \hline
 \textbf{Global trend of occurrence} & — $\uparrow$ precipitation anomalies since 1990 (Trenberth14);  
 
@@ -364,6 +366,9 @@ Fig. **
 \label{fig:sample}
 \end{figure}
 %%%
+
+\bibliographystyle{nature} % set citation style 
+\bibliography{Exported_Items.bib}
 
 % old text
 %\section*{Chapter 2.1. Wildchrokie: Phenological observations coupling with tree-ring width measurements for a 6-year common garden experiment} While the assumption that a longer growing season leads to increased growth is an intuitive and common one, recent evidence shows that this may not be the case. 
