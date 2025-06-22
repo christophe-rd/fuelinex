@@ -747,21 +747,23 @@ Forests accoutn for 45% of globalterrestrial carbon stocks and have key roles in
 
 There is a lot of evidence that rising CO2 benefits forests, with CO2 fertilization enabling an increaseed leaf area index, enhanced water-use efficiency and greater uptake of carbon gloabally. 
 
-However, extreme-climate eventsw such as heat waves, droughts, fires and storms may offst these benefits and increase mortality and a net loss of CO2 in the atm. Drought and associated disturbances have the greatest effect globally. 
-
+Already in slipbox:
+*However, extreme-climate eventsw such as heat waves, droughts, fires and storms may offst these benefits and increase mortality and a net loss of CO2 in the atm. Drought and associated disturbances have the greatest effect globally. 
+*
 Recent projections indicate that land surface warming may lead to longer and more intense droughts, which highlights the importance for accuratee projections of the effect of drought on forest ecosytems. 
 
 Land plants require an efficient long-distance transport pathway to lift water from the soil to the leaves at a rate that satisfies transpiration (See: Xylem structure and the ascent of sap). In trees, xylem supplies water for all aspects of plant function, including photosynthesis, growth and reproduction. Damage to this hydraulic supply network causes severe water stress and can cause tree death during drought, which has been shown by experiments where hydraulic failure thresholds caused tree death. Field studies also showed that extensive canopy death happened during natural drought events. 
 
 Co-occuring factors may also have a role in the death of trees during natural droughts. E.g. in the absence of catastrophic hydraulic failure, the disruption of partial water transport and regulation of water loss may lead to increased likelihood of mortality through depletion of sugar reserves used in respiration and increased vulnerability to pests and pathogens. This shows taht hydraulic traits occupy a central role in determining survival during drought and the effects of drought on carbon dynamics. 
 
-Increased temperature will worsen droughts. When natural droughts will occur, they will set in more quickly and be of greater intensity. Warmer tempeeratures result in greater evapotranspiration (sum of evaporation and plant transpiration), thus drying soil and plants faster that would be the case at lower temperatures. These droughts are called "global change-type droughts" and had severe effects on exposed ecoystems including mass tree mortality. 
+Increased temperature will worsen droughts. When natural droughts will occur, they will set in more quickly and be of greater intensity. Warmer temperatures result in greater evapotranspiration (sum of evaporation and plant transpiration), thus drying soil and plants faster that would be the case at lower temperatures. These droughts are called "global change-type droughts" and had severe effects on exposed ecoystems including mass tree mortality. 
 
-Drought is the most widespread stress factor that affects forest carbon balance. E.g. in Texas and California, extreme droughts are estimated to have killed 300 million and 102 million trees, respectively. 
-
+Already in slipbox:
+*Drought is the most widespread stress factor that affects forest carbon balance. E.g. in Texas and California, extreme droughts are estimated to have killed 300 million and 102 million trees, respectively. 
+*
 In tropical forests, young trees are mostly impacted by droughts, but large, old trees are also vulnerable 
 
-Trees prevent dessication injury by using a plumbing system of hollow dead cells (vessels or tracheids) to tranport water from the soil to the leaves. Xylem transport relies on a mechanism in which liquid water is held under tension, enabling trees to lift water to the canopy at little energy costs. However, liquid water under tension exists in a metastable state, similar to that of a superheated liquid. In this state, water is prone to cavitation, a sudden phase change from liquid watr to gas that creates a bubble (embolism)
+Trees prevent dessication injury by using a plumbing system of hollow dead cells (vessels or tracheids) to tranport water from the soil to the leaves. Xylem transport relies on a mechanism in which liquid water is held under tension, enabling trees to lift water to the canopy at little energy costs. However, liquid water under tension exists in a metastable state, similar to that of a superheated liquid. In this state, water is prone to cavitation, a sudden phase change from liquid water to gas that creates a bubble (embolism)
 
 During drought, reduced transpiration lafs to declines in soil moisture, often accompanied by higher tempeeratures and increased evaporative demand from the ATM. Combined, these factors induce water stress in plants, mnanifested as increased tension in the xylem sap. It's measurable by the water potential, measured in the xylem, which is increasingly negative during droughts.
 
@@ -794,7 +796,7 @@ When drought has caused considerable deaeth of above ground biomass, recovery ma
 ## 21 June
 ### Widespread spring phenology effects on drought recovery of Northern Hemisphere ecosystems
 Yang Li, Xiuchen Wu, 2022
-Drought reecovery from a single extreme drought event within the growing season has beeen widely studied, but the interactions between vegetation phenoly (SOS and EOS) and drought timing are unknown.
+Drought recovery from a single extreme drought event within the growing season has beeen widely studied, but the interactions between vegetation phenoly (SOS and EOS) and drought timing are unknown.
 
 Phenology has huge impacts on drought recovery through biophysical mechanisms. E.g. changs in spring phenology drive evapotranspiration and thus alter thee amount of water available to support vegetation growth in subsequent seasons. Spring phenology can directly influence the health and physiology of vegetation, which medates the ability of vegetation to recover from drought. 
 
@@ -807,12 +809,30 @@ Vegetation phenology interacts with drought timing and thus determines subsequen
 Phenolog is impacted by CC and factors such as shifting drought seasonality are already reshaping the vulnerability of ecosystems to intensified extreme drought events to a currently unknown degree. Quantifying these feedbacks require a deep understand of the interactions betweeen phenology, drought timing, biocliming factors and drought recovery.
 
 
-They showed that spring phenologyduring the drought year postopned drought recovery when extreme drought events occurent in mid-GS. Earliere spring phenology probably led to a longerGS and increased vegetative growth, increasing evapotranspiration and thus increased thee drawdown of soil moisture, resulting in progressive water stress. Thus, it caused more negative effects on water supply during summer and autumn, periods most senstitive to water availability and thus postponed vegeattion recovery from mid- and late-GS drought. A mechanism supported by their findings that:
+They showed that spring phenology during the drought year postopned drought recovery when extreme drought events occurent in mid-GS. Earliere spring phenology probably led to a longerGS and increased vegetative growth, increasing evapotranspiration and thus increased thee drawdown of soil moisture, resulting in progressive water stress. Thus, it caused more negative effects on water supply during summer and autumn, periods most senstitive to water availability and thus postponed vegeattion recovery from mid- and late-GS drought. A mechanism supported by their findings that:
 1. Growth can't fully recover from an extreme drought within a single GS for a majority of events when they occur in the mid-GS.
 2. Spring phenology and drought recovery show a negative relationship when extreme droughts occured in mid-GS 
 Early phenolog = +spring frost = less NSC = negative imbalance in carbon supply for sustaining drought recovery. 
 *LINK WITH THE NOTES THAT EARLY SPRING PHENOLOGY INCREASE DROUGHT INTENSITY IN THE SUMMER*
 
 In contrast, they also showed that earlier spring phenology during the drought year shortened drought recovery wheras delayed spring phenology lengtthened drought recoveery when extreme drought events occured early in the GS. Cause: effects of spring phenology on vegetaion physiology outweighted the biophysical effects of drought recovery. Earlier spring pheno increased groth and led to positive effects on subsequent vegetation growth. Effects of phenology on soil moisture were lower when drought occur early because of the weaker progressive water consumption from the start of spring to the beginning of the extreme drought. 
-
 For drought recovery in the subsequent GS, delayed phenology in the subsequent year slowed down growth and led to longe drought recovery. 
+
+### Leaf-out phenology of temperate woody plants: from trees to ecosystems
+Polgar, Caroline, 2011
+*already read this article but found something interesiting that i didn't note previously*
+Ring porous species, such as oaks, ashes (Fraxinus spp.), and hickories (Carya spp.), have less uniform vessel elements, producing larger vessels in the spring and smaller ones later in the growing season. Their large vessels suffer more damage from winter freezing, requiring them to produce new vessels in the spring to transport water and often leading them to leaf-out later than coexisting diffuse porous species
+
+### Evidence of anthropogenic impacts on global drought frequency, duration, and intensity
+Felicia Chiang, 2021
+Using a spatial, model-based meteorological perspective to assess drought attribution to anthropogenic forcing across space. They shoiw taht the presence of anthropogenic forcing has increased the frequency, duration and intensity of SPI-based droughts, specifically in Americas, Mediterranean and western/south Africa and estearn Asia. 
+
+Their limitations include a poor inclusion of anthropogenic aerosol emissions since we don't have a good understand of aerosol feedbacks.
+
+They also examined temporal shifts between large time periods, minimizing the influence of short-term interdecadal internal variability on their results. 
+
+Other types of drought e.g. hydrological, agricultural and meteorological (the one investigated in their study)
+
+### Chapter 8: Droughts, Floods, and Wildfire
+https://science2017.globalchange.gov/chapter/8/
+The Intergovernmental Panel on Climate Change Fifth Assessment Report (IPCC AR5) concluded “there is low confidence in detection and attribution of changes in (meteorological) drought over global land areas since the mid-20th century, owing to observational uncertainties and difficulties in distinguishing decadal-scale variability in drought from long-term trends.” As they noted, this was a weaker attribution statement than in the Fourth Assessment Report, which had concluded “that an increased risk of drought was more likely than not due to anthropogenic forcing during the second half of the 20th century.” 
