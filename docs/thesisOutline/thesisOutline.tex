@@ -5,6 +5,7 @@
 \usepackage{authblk}
 \usepackage{setspace}
 \usepackage{natbib}
+\usepackage{hyperref}
 %\usepackage{cite}
 \usepackage[margin=1in]{geometry}
 \usepackage{array}
@@ -18,9 +19,6 @@
 \usepackage{xcolor}
 \sethlcolor{yellow}
 \linenumbers
-
-%%%%%% Bibliography %%%%%%
-% Replace "sample" in the \addbibresource line below with the name of your .bib file.
 
 %%%%%%%%%%%%%%%%%
 \title{Thesis outline}
@@ -46,7 +44,7 @@ Climate change impacts on biological systems and how phenological trends are alr
 % 1)
 	\item  Trends of spring and autumn phenological events and their drivers \citep{walther_ecological_2002}
 % 2)
-	\item Evidence of declining sensitivity to warming, predominance of winter temperature in spring phenological responses (Ettinger 2020)
+	\item Evidence of declining sensitivity to warming, predominance of winter temperature in spring phenological responses (\textit{to work on}) \citep{ettinger_winter_2020}
 %Long-term trends suggest that the pace of spring events advancement is slowing down.  Counterinteraction of warmer winters that delays spring phenology because of non-met chilling requirements, which increase forcing requirements --> later budburst 
 %Include in main text: Deacclimatation forms during spring
 %Autumn phenological events are delayed, but the trend is not as clear as spring's. Description of mechanistic drivers of autumn phenology vs spring
@@ -55,62 +53,60 @@ Climate change impacts on biological systems and how phenological trends are alr
 % Interaction of chilling, forcing and photoperiod: Ettinger 2020.
 % See:Photoperiod perception interaction with warming requirements (Zohner 2016)
 % 3)
-	\item Mechanisms that could limit growth despite having a longer growing season:
-		\begin{enumerate} 
-			\item spring frosts (e.g.: Zohner 20)
-			\item extreme heat induced physiological stress (e.g. Salomón 22, Stangler17)
-			\item increased drought frequency, intensity and duration 
-		\end{enumerate}
-		\textbf{Spring frosts} \\
+	\item Mechanisms that could limit growth despite having a longer growing season: \\
+	\par
+		\textbf{3.1. Spring frosts} \\
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|p{12cm}|}
 \hline
 \textbf{} & \multicolumn{1}{c|}{\textbf{}} \\
 \hline
-\textbf{Mechanisms} & Early warm spells $\rightarrow$ early leaf out $\rightarrow$ hard frost (<-2C) $\rightarrow$ tissue death = loss of photosynthetic capacity (Polgar 2011); Response: second cohort of leaves are more efficient and mitigate carbon sequestration loss (Reinmann23) \\
+
+\textbf{Mechanisms} & Early warm spells $\rightarrow$ early leaf out $\rightarrow$ hard frost ($<$-2Celsius) $\rightarrow$ tissue death = loss of photosynthetic capacity \cite{polgar_leafout_2011}; Response: second cohort of leaves are more efficient and mitigate carbon sequestration loss \cite{reinmann_compensatory_2023} \\
 \hline
-\textbf{Global trend of occurrence} & Most vulnerable regions are the ones with no past risk of occurrence (); $\uparrow$ in Europe and East Asia, but $\downarrow$ North America; Global trend is controversial (Reinmann23) \\
+\textbf{Global trend of occurrence} & Most vulnerable regions are the ones with no past risk of occurrence (); $\uparrow$ in Europe and East Asia, but $\downarrow$ North America; Global trend is controversial \cite{reinmann_compensatory_2023} \\
 \hline
-\textbf{Consequences (Individual and Ecosystem level consequences)} & Loss of vegetative tissue = $\downarrow$ photosynthesis = $\downarrow$ and remobilization of NSC to repair damaged tissues = $\downarrow$ secondary growth (Meyer24); Loss of reproductive tissue (higher flower mortality) (REF); Costs for orchards and stuff (Reinmann23) \\
+\textbf{Consequences (Individual and Ecosystem level consequences)} & Loss of vegetative tissue = $\downarrow$ photosynthesis = $\downarrow$ and remobilization of NSC to repair damaged tissues = $\downarrow$ secondary growth (Meyer24); Loss of reproductive tissue (higher flower mortality) (REF); Costs for orchards and stuff \cite{reinmann_compensatory_2023} \\
 \hline
 \textbf{Differences across species/provenance} & \\
 \hline
 \end{tabular}
-}
-	\textbf{Drought} \\
-	
+} 
+
+\clearpage
+	\textbf{3.2. Drought} \\
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|p{12cm}|}
 \hline
 \textbf{} & \multicolumn{1}{c|}{\textbf{}} \\
 \hline
-\textbf{Mechanisms} & — Hot temperature + low precipitation (i.e. global-change-type drought)= $\uparrow$ evapotranspiration$\rightarrow$ less water in soil $\rightarrow$ cavitation $\rightarrow$ embolism $\rightarrow$ hydraulic failure (Tyree02) = tissue death \citep{choat_triggers_2018}; 
+\textbf{Mechanisms} & — Hot temperature + low precipitation (aka global-change-type drought \cite{tyree_xylem_2002})= $\uparrow$ evapotranspiration$\rightarrow$ less water in soil $\rightarrow$ cavitation $\rightarrow$ embolism $\rightarrow$ hydraulic failure \cite{tyree_xylem_2002} = tissue death \citep{choat_triggers_2018}; 
 
-— Earlier spring phenology = longer GS $\rightarrow$ increases vegetative growth $\rightarrow$ increases evapotranspiration $\rightarrow$ increases drawdown of soil moisture = progressive water stress (Li23)
+— Earlier spring phenology = longer GS $\rightarrow$ increases vegetative growth $\rightarrow$ increases evapotranspiration $\rightarrow$ increases drawdown of soil moisture = progressive water stress \cite{li_widespread_2023}
 
 — Long-term vs short-term stomatal responses and consequences on tissue death \citep{choat_triggers_2018}; 
 
 — Recovery and its determinants \citep{choat_triggers_2018,li_widespread_2023}\\
 \hline
-\textbf{Global trend of occurrence} & — $\uparrow$ precipitation anomalies since 1990 (Trenberth14);  
+\textbf{Global trend of occurrence} & — $\uparrow$ precipitation anomalies since 1990 \cite{trenberth_global_2014};  
 
-— Models often exclude PDO/ENSO which limit the capacity to attribute increasing droughts to CC  (Trenberth14); 
+— Models often exclude PDO/ENSO which limit the capacity to attribute increasing droughts to CC  \cite{trenberth_global_2014}; 
 
-— Weak evidence of detection and attribution of changes in meteorological drought since the mid-20th century (IPCC AR5); 
+— Weak evidence of detection and attribution of changes in meteorological drought since the mid-20th century \cite{intergovernmental_panel_on_climate_change_detection_2014}; 
 
-— Using a spacial, model-based perspeective, anthropogenic forcing increased the frequency, duration and intensity of SPI-based droughts for Americas, Mediterreanean, W/S Africa and E Asia (Chiang 21) \\
+— Using a spacial, model-based perspective, anthropogenic forcing increased the frequency, duration and intensity of SPI-based droughts for Americas, Mediterreanean, W/S Africa and E Asia \cite{chiang_evidence_2021} \\
 \hline
 \textbf{Consequences (Individual and Ecosystem level consequences)} & — Recurring droughts may limit trees' ability to recover from other types of stress.
 
-—Tree mortality (E.g. Texas and California extreme droughts are estimated to have killed 300 and 102 million trees (Li23)\\
+—Tree mortality (E.g. Texas and California extreme droughts are estimated to have killed 300 and 102 million trees \cite{li_widespread_2023}\\
 \hline
 \textbf{Differences across species/provenance} &  \\
 \hline
 \end{tabular}
-}
+} \\
+\par
 
-\textbf{Heat waves}\\
-
+\textbf{3.3. Heat waves : \textit{needs to be filled}}\\
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|p{12cm}|}
 \hline
@@ -141,30 +137,30 @@ Climate change impacts on biological systems and how phenological trends are alr
 		\textbf{Early SOS}\\
 		\textit{Pros} 
 			\begin {itemize}
-				\item Potential competitive ability of carbon uptake at the individual and stand level (increased productivity) (Estiarte, 2015); 
+				\item Potential competitive ability of carbon uptake at the individual and stand level (increased productivity) \cite{estiarte_alteration_2015}; 
 				\item More days to reach fruit maturity (REF). 
 			\end {itemize}
 		\textit{Cons}: 
 			\begin {itemize}
-				\item Trophic mismatch (though limited support) (Loughnan 2024)
-				\item Incre	ased summer drought-induced stress (Li23)
-				\item Increases the period that trees are susceptible to LSF (Meyer 24)
+				\item Trophic mismatch (though limited support) \cite{loughnan_phenology_2024}
+				\item Incre	ased summer drought-induced stress \cite{li_widespread_2023}
+				\item Increases the period that trees are susceptible to LSF \cite{meyer_frost_2024}
 				\item Increased pest and disease pressure (REF)
-				\item Soil nutrient depletion (e.g. Reich 2006)
+				\item Soil nutrient depletion (REF)
 			\end {itemize}
 		\textbf{Late SOS} \\
 		\textit{Pros}: 
 			\begin {itemize}
-				\item Photosynthesis can occur for longer, increasing carbon sequestration (Keenan, 2014) 
+				\item Photosynthesis can occur for longer, increasing carbon sequestration \cite{keenan_net_2014}
 				\item May increase nutrient resorption efficiency (REF)
-				\item May delay frost exposure (Gunderson, 2012)
+				\item May delay frost exposure \cite{gunderson_forest_2012}
 			\end {itemize}
 		\textit{Cons}: 
 			\begin {itemize}
-				\item Delayed leaf senescence could kill leaves (cold spell) before nutrient resorption (Estiarte, 2015)
-				\item Phenological mismatches (REF)
-				\item Disruption of dormancy cycles --chilling requirements not met
-				\item Extension of pest life cycles (Ayres, 2000)
+				\item Delayed leaf senescence could kill leaves (cold spell) before nutrient resorption \cite{estiarte_alteration_2015}
+				\item Phenological mismatches \cite{piao_plant_2019}
+				\item Disruption of dormancy cycles --chilling requirements not met (\textit{to work on})
+				\item Extension of pest life cycles (E.g. \cite{bentz_western_2023})
 			\end {itemize}
 \end{enumerate}
 
@@ -193,7 +189,7 @@ Using tree ring data to investigate the relationship between phenology and growt
 %Growh rate increased by temperature, depends on \textbf{when} it is warmer. 
 % Include in main text: Long seasons at low temperature will produce fewer cell rows than at warmer temperature.
 % 3) 
-	\item Which is more important? How fast a tree grows or how long it grows for
+	\item Which is more important? How fast does a tree grow, or how long does it grow for?
 %how growth rate may have a more direct influence on tree growth than the growing season length. 
 % 4)
 	\item Methods to measure tree growth and why using tree ring images may better capture tree growth response than traditional diameter and height measurements.
@@ -367,8 +363,10 @@ Fig. **
 \end{figure}
 %%%
 
-\bibliographystyle{nature} % set citation style 
+\section {References}
 \bibliography{Exported_Items.bib}
+\bibliographystyle{nature} % set citation style 
+
 
 % old text
 %\section*{Chapter 2.1. Wildchrokie: Phenological observations coupling with tree-ring width measurements for a 6-year common garden experiment} While the assumption that a longer growing season leads to increased growth is an intuitive and common one, recent evidence shows that this may not be the case. 
