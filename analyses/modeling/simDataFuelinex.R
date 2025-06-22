@@ -30,7 +30,7 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 # === === === === === === === #
 a <- 5
 b <- 0.9
-rep <- 15
+rep <- 50
 sigma_y <- 0.3
 sigma_treat <- 0.4
 error <- rnorm(rep, 0, sigma_y)
@@ -43,14 +43,14 @@ ids_ww <- paste0(rep("ww", each = rep), "", 1:rep)
 n_ids_ww <- length(ids_ww)
 
 # partial pooling
-a_ids_ww <- rnorm(n_ids_ww, 0, sigma_treat)
+a_treat_ww <- rnorm(rep, 0, sigma_treat)
 
 # gdd per treatment and devide by constant
 gdd_ww <- round(rnorm(rep, 2000, 100))
 gddcons_ww <- gdd_ww / 200
 
 # calculate biomass
-biomass_ww <- a + a_ids_ww + b * gddcons_ww + error
+biomass_ww <- a + a_treat_ww + b * gddcons_ww + error
 
 # set df
 sim_biomass_ww <- data.frame(
@@ -59,8 +59,8 @@ sim_biomass_ww <- data.frame(
   gddcons = gddcons_ww,
   b = b,
   a = a,
-  a_ids = a_ids_ww,
-  sigma_y = sigma_y,
+  a_ids = a_treat_ww,
+  sigma_treat = sigma_treat,
   biomass = biomass_ww
 )
 sim_biomass_ww
@@ -74,14 +74,14 @@ ids_cc <- paste0(rep("cc", each = rep), "", 1:rep)
 n_ids_cc <- length(ids_cc)
 
 # partial pooling
-a_ids_cc <- rnorm(n_ids_cc, 0, sigma_treat)
+a_treat_cc <- rnorm(rep, 0, sigma_treat)
 
 # gdd per treatment and devide by constant
 gdd_cc <- round(rnorm(rep, 1600, 100))
 gddcons_cc <- gdd_cc / 200
 
 # calculate biomass
-biomass_cc <- a + a_ids_cc + b * gddcons_cc + error
+biomass_cc <- a + a_treat_cc + b * gddcons_cc + error
 
 # set df
 sim_biomass_cc <- data.frame(
@@ -90,26 +90,29 @@ sim_biomass_cc <- data.frame(
   gddcons = gddcons_cc,
   b = b,
   a = a,
-  a_ids = a_ids_cc,
-  sigma_y = sigma_y,
+  a_ids = a_treat_cc,
+  sigma_treat = sigma_treat,
   biomass = biomass_cc
 )
+sim_biomass_cc
 
 # === === === === === === === === === #
 # bind both biomass df
-sim_biomass_biomass <- rbind(sim_biomass_ww, sim_biomass_cc)
+sim_biomass <- rbind(sim_biomass_ww, sim_biomass_cc)
 # === === === === === === === === === #
-simplot <- ggplot(sim_biomass_biomass, aes(x = gddcons, y = biomass, color = treat)) +
+
+simplot <- ggplot(sim_biomass, aes(x = gddcons, y = biomass, color = treat)) +
   geom_point() +
   scale_color_manual(values = c("ww" = "#FF8C00", "cc" = "#1f78b4")) +
   # geom_smooth(method = "lm", se = FALSE) +
   theme_minimal()
 simplot
-
+# save ggplot
+ggsave("figures/sim/simplot_biomass.jpeg", simplot, width = 6, height = 4)
 
 
 # look up difference by treat
-treatcomparison_biomass <- ggplot(sim_biomass_biomass, aes(x = treat, y = biomass, color = treat)) +
+treatcomparison_biomass <- ggplot(sim_biomass, aes(x = treat, y = biomass, color = treat)) +
   geom_boxplot(
     width = 0.3, 
     alpha = 0.2, 
@@ -132,18 +135,18 @@ ggsave("figures/sim/treatcomparison_biomass.jpeg", treatcomparison_biomass, widt
 
 ####### Model #######
 if(runmodels) {
-  fitbiomass <- stan_lmer(
+  fitbiomass_ww <- stan_lmer(
     biomass ~ gddcons + (1 | ids),  
     data = sim_biomass_ww,
     chains = 4,
     iter = 4000,
     core=4
   )
-  fitbiomass
+  fitbiomass_ww
   }
 
 # parameter recovery
-fitef_biomass <- ranef(fitbiomass)
+fitef_biomass <- ranef(fitbiomass_ww)
 ids_df <- fitef_biomass$ids
 
 # Now extract the tree IDs and intercepts
@@ -151,7 +154,7 @@ biomass_a_idswithranef <- data.frame(
   ids = rownames(ids_df),
   fit_biomass_a_ids = ids_df[["(Intercept)"]]
 )
-inter_biomass <- as.data.frame(posterior_interval(fitbiomass))
+inter_biomass <- as.data.frame(posterior_interval(fitbiomass_ww))
 inter_biomass$messyids <- rownames(inter_biomass)
 biomass_a_ids_messy <- subset(inter_biomass, grepl("ids", messyids))
 biomass_a_ids_messy$ids <- sub(".*ids:([^]]+)]", "\\1", biomass_a_ids_messy$messyids)
@@ -173,7 +176,7 @@ plot_a_ids_mergedwithranef<- ggplot(a_ids_mergedwithranef, aes(x = sim_biomass_a
   # labs(x = "Simulated a_ids", y = "Model a_ids", title = "") +
   theme_minimal()
 plot_a_ids_mergedwithranef
-ggsave("figures/a_ids_mergedwithranef.jpeg", plot_a_ids_mergedwithsum, width = 8, height = 6)
+ggsave("figures/sim/biomass_a_ids_mergedwithranef.jpeg", plot_a_ids_mergedwithranef, width = 8, height = 6)
 
 
 # === ===  === ===  === ===  === === #
