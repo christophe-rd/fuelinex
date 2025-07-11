@@ -25,14 +25,20 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 #### Step 2. Simulate data ####
 # === === === === === === === === === === === === === === === === 
 
+
+
+### do this: reconcile script grouping errors because my model doesn't converge ds
+
+
+
 # === === === === === === === #
 ##### Biomass X Gdd cons #####
 # === === === === === === === #
 a <- 5
 b <- 0.9
 rep <- 50
-sigma_y <- 0.3
-sigma_treat <- 0.4
+sigma_y <- 0.6
+sigma_treat <- 0.2
 error <- rnorm(rep, 0, sigma_y)
 
 # === === === === === === === === === #
@@ -65,6 +71,25 @@ sim_biomass_ww <- data.frame(
 )
 sim_biomass_ww
 plot(biomass~gddcons, sim_biomass_ww)
+
+
+# First, run model with ww only
+fitbiomass_ww <- stan_glm(
+  biomass ~ gddcons,  
+  data = sim_biomass_ww,
+  chains = 4,
+  iter = 4000,
+  core=4
+) # ok, so that works
+
+# Second, run model with ww only, but partial pool for ids
+fitbiomass_ww <- stan_lmer(
+  biomass ~ gddcons + (1 | ids),  
+  data = sim_biomass_ww,
+  chains = 4,
+  iter = 4000,
+  core=4
+) 
 
 # === === === === === === === === === #
 ### treatment cc ###
@@ -135,15 +160,19 @@ ggsave("figures/sim/treatcomparison_biomass.jpeg", treatcomparison_biomass, widt
 
 ####### Model #######
 if(runmodels) {
-  fitbiomass_ww <- stan_lmer(
-    biomass ~ gddcons + (1 | ids),  
-    data = sim_biomass_ww,
+  fitbiomass <- stan_lmer(
+    biomass ~ gddcons + (1 | treat),  
+    data = sim_biomass,
     chains = 4,
     iter = 4000,
     core=4
   )
-  fitbiomass_ww
+  fitbiomass
   }
+
+# round to 2 digits for all columns
+sim_biomass2 <- as.data.frame(lapply(sim_biomass, function(x) if(is.numeric(x)) round(x, 3) else x))
+
 
 # parameter recovery
 fitef_biomass <- ranef(fitbiomass_ww)
