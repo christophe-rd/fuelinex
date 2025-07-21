@@ -836,3 +836,13 @@ Other types of drought e.g. hydrological, agricultural and meteorological (the o
 ### Chapter 8: Droughts, Floods, and Wildfire
 https://science2017.globalchange.gov/chapter/8/
 The Intergovernmental Panel on Climate Change Fifth Assessment Report (IPCC AR5) concluded “there is low confidence in detection and attribution of changes in (meteorological) drought over global land areas since the mid-20th century, owing to observational uncertainties and difficulties in distinguishing decadal-scale variability in drought from long-term trends.” As they noted, this was a weaker attribution statement than in the Fourth Assessment Report, which had concluded “that an increased risk of drought was more likely than not due to anthropogenic forcing during the second half of the 20th century.” 
+
+## 21 July 2025
+### Phenology is a major determinant of tree species range
+Isabelle Chuine and Elisabeth G. Beaubien
+
+In phenofit, the model doesn't focus on productivity and competition as in other models, but on survival and reproductive success as a function of the match between a plant's life cycle and local seasonal fluctuations in climate. However, the seasonal coordination of phenology to climate does impact on competitive relationships via its influence on vegetative and reproductive performance. This mismatch may result in 1. frost injuries, 2. drought injuries and 3. failure to produce mature fruits and seeds if autumnal frosts occur before maturation or if summers are too cool or too short.
+
+Phenofit estimates the fundamental niche i.e. the hyper volume defined by the environmental dimension within which that species can survivre and reproduce, whereas realiuzed niche (considered by the present distributions) i.e. fundamental niche reduced by competition, distubance regime and other biotic interaction.
+
+The model presents a close fit between realized and fundamental niche which suggests taht there are no dispersal limits for sugar maple and quaking aspens and that their distributions must be  currently at equilibrium  with climate. 
