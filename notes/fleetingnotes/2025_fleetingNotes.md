@@ -846,3 +846,4 @@ In phenofit, the model doesn't focus on productivity and competition as in other
 Phenofit estimates the fundamental niche i.e. the hyper volume defined by the environmental dimension within which that species can survivre and reproduce, whereas realiuzed niche (considered by the present distributions) i.e. fundamental niche reduced by competition, distubance regime and other biotic interaction.
 
 The model presents a close fit between realized and fundamental niche which suggests taht there are no dispersal limits for sugar maple and quaking aspens and that their distributions must be  currently at equilibrium  with climate. 
+
