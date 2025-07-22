@@ -2,14 +2,11 @@
 # CRD
 # Goal is to clean senescence monitoring in 2024
 
-# housekeeping 
-rm(list=ls())  
-options(stringsAsFactors=FALSE)
-options(max.print = 200) 
 # Load librairies
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+
 # Set the path 
 setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses/")
 
@@ -155,6 +152,6 @@ chlorolongwnotes <- chlorolongwnotes[,c("ID","Species", "Treatment", "Replicate"
 chlorolongwnotes$DOY <- as.numeric(chlorolongwnotes$DOY)
 chlorolongwnotes$chlValue <- as.numeric(chlorolongwnotes$chlValue)
 # rename df for something better
-leafdrop <- leafdrop
-greenleafcover <- greencovlongwnotes
-chl <- chlorolongwnotes
+leafdrop24 <- leafdrop
+greenleafcover24 <- greencovlongwnotes
+chl24 <- chlorolongwnotes

@@ -204,7 +204,8 @@ d <- subset(d, select = c(
   "Year",
   "Notes"))
 
-head(d)
+# rename 
+phenostage24 <- d
 
 write_csv2(d, "output/2024PhenostageCleaned.csv")
 
