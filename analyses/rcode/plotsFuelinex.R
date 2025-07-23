@@ -133,3 +133,39 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
     strip.text = element_text(size = 12, face = "bold"),
     legend.position = "right"
   )
+
+### === === === === === ###
+#### Shoot elongation ####
+### === === === === === ###
+# get mean measurement per doy, species and treatement i.e. mean per replicate
+mean_stats <- aggregate(adjustedShootElong ~ Species + Treatment + DOY, data = mergedshoot, FUN = mean, na.rm = TRUE)
+# temporarily remove the measurement from doy 171 for all species
+head(mean_stats)
+mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
+# select only the non nitro treatments for now
+vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
+green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F")
+
+nonitro <- subset(mean_stats, Treatment %in% vec)
+
+#shoot elongation plot
+shootelongation <- ggplot(nonitro) +
+  geom_line(aes(x = DOY, y = adjustedShootElong, color = Treatment, group = Treatment)) + 
+  facet_wrap(~Species, scales = "free_y") +  # Allow y-axis scales to vary by facet
+  theme_minimal() +
+  labs(
+    x = "Day of Year",
+    y = "Adjusted Shoot Elongation",  # Updated y-axis label
+    title = "Phenophase 2024",
+    color = "Treatment"  # Updated legend title
+  ) +
+  scale_color_manual(values=green_palette)+
+  theme_classic() + 
+  theme(
+    axis.text.y = element_text(size = 10, face = "italic"),
+    axis.text.x = element_text(size = 10),
+    strip.text = element_text(size = 12, face = "bold"),
+    legend.position = "right" 
+  )
+getwd()
+ggsave("figures/shootElongationbySpp.pdf", shootelongation)
