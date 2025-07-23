@@ -23,13 +23,18 @@ source <- FALSE
 ### === === === === === === === === === === ###
 ##### Start with 2024 #####
 ### === === === === === === === === === === ###
-# 1. Get phenostages
+# 1. Get phenostages: named d
 source("cleaning/source/2024cleaningPhenostages.R") 
 
+# 2. Get senesence: named leafdrop24, greenleafcover24 and chl24
+source("cleaning/source/2024cleaningSenescence.R") 
+
+# 3. Get shoot elongation: named shootelongation24
+source("cleaning/source/2024cleaningShootElongation.R") 
 if (source){
   # 2. Get senescence
-  source("cleaning/source/2024cleaningSenescence.R") 
+  
   # 3. Get shootelongation 
-  source("cleaning/source/2024cleaningShootElongation.R") 
+  
 }
 
