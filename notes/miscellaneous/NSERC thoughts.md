@@ -1,0 +1,11 @@
+#### NSERC thoughts
+
+I am preparing an NSERC proposal and since the last couple of years, a lot of changes have been made to NSERC:
+1. Increase from 21000 to 40000. This has shown a positive increase that was crutially necessary to catch up to the money PhD candidates make in other countries of similar GDP than Canada.
+2. No change to the quotas given to the universities.
+
+Looking at that, this increase of money means that a lot more people will apply for funding through NSERC, which means they will become increasingly competitive. These were already excredibly hard to obtain, and in my opinion this just means that only a small fractions of students with exceptional/perfect resumes will obtain these awards. Letting alone the ones that have great grades, put tremendous efforts into their education but will fall short by being excluded from this funding opportunity. That alone is one thing. The other is that by almost doubling the amount each student received, less funding will be provided to PIs through NSERC discovery, meaning, again, less productive labs will receive less funding which *again* will lead to increased student being rejected and not being able to access grad school. 
+
+But where all of this really bummed me out is when I learned that now, up to 15% of all awards can be given to international students. If that 15% were paired with a 15% increase in the total amount of awards, I wouldn't have any problems. But this isn't the case.
+
+With all the political mess south of Canada's border, brain drain US-->Canada is likely to induce vast consequences in the research of each country. I would be far from suprised -- and honestly kind of expecting-- that this "up to 15%" will soon because "15% of all awards will be given to international students". With that context, what I oversee is less, but better paid awards for domestic students and also, well paid international students that come to educate themselves and will likely leave the country and won't be paying taxes afterwards. 
