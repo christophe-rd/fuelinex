@@ -27,3 +27,6 @@ species: species
 **mildew**: powdery mildew found on the leaves of trees. Mostly for Acne
 
 **sawfly** sawfly catterpillar dammage on some bepas.
+
+### 2025Chltoocomparison.xlsx
+Since last fall, two different chl measurement tools were used,,t his file contains measurements for approximately the same leaf at the same place, but measured using both tools, to get an overall chlorophyll convertion factor.
