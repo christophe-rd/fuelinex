@@ -1,6 +1,6 @@
-# 20 May 2024
+# 1 August 2025
 # CRD
-# Goal is to clean phenology observations for 2024 from budburst to budset
+# Goal is to clean phenology observations for 2025 from budburst to budset
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Load librair1ies
@@ -10,13 +10,12 @@ library(tidyverse)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder 
-# directory <-"/Users/christophe_rouleau-desrochers/github/fuelinex/"
-# setwd(directory)
-# list.files()
+directory <-"/Users/christophe_rouleau-desrochers/github/fuelinex/analyses"
+setwd(directory)
+list.files()
 
 # Read data
-phenostages <- read.csv2("input/2024BudburstToBudset.csv", header = TRUE, sep = ",", check.names = FALSE)
-head(phenostages)
+phenostages <- read.csv2("input/2025BudburstToBudset.csv", header = TRUE, sep = ",", check.names = FALSE)
 str(phenostages)
 
 # change notes column name
@@ -25,26 +24,10 @@ colnames(phenostages)[6] <- "notes"
 # first, standardize the note column
 # clean the spaces and maybe later other stuff 
 phenostages$Notes <- gsub("doy (\\d+)", "doy\\1", phenostages$notes)
+
 # manual cleaning for format standardization
-phenostages$Notes[which(phenostages$notes == "116: stage 3 not 4")] <- "doy116: stage 3 not 4"
-phenostages$Notes[which(phenostages$notes == "116: stage 2 not 3")] <- "doy116: stage 2 not 3"
-phenostages$Notes[which(phenostages$notes == "116: stage 1 not 2")] <- "doy116: stage 1 not 2"
-phenostages$Notes[which(phenostages$notes == "probably dead. Doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
-phenostages$Notes[which(phenostages$notes == "116: main stem 2, smaller branch 4; doy182: apical shoot almost dead")] <- "doy116: main stem 2, smaller branch 4; doy182: apical shoot almost dead"
-phenostages$Notes[which(phenostages$notes == "116: stage 3 not 4; doy207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
-phenostages$Notes[which(phenostages$notes == "doy207: apical shoot ate doy221: apical shoot dead")] <- "doy207: apical shoot ate; doy221: apical shoot dead"
-phenostages$Notes[which(phenostages$notes == "doy262:bud bursting again")] <- "doy262:bud bursting again"
-# add doyNA: when there is no doy associated with the note
-phenostages$Notes[which(phenostages$notes == "dead")] <- "doyNA: dead"
-phenostages$Notes[which(phenostages$notes == "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "doyNA: probably dead; doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
-phenostages$Notes[which(phenostages$notes == "main branch dead")] <- "doyNA: main branch dead"
-phenostages$Notes[which(phenostages$notes == "main 2. lateral 4; doy199: side shoot observed")] <- "doyNA: main 2; lateral 4; doy199: side shoot observed"
-phenostages$Notes[which(phenostages$notes == "main maybe dead")] <- "doyNA: main maybe dead"
-phenostages$Notes[which(phenostages$notes == "terminal buds seem dead; lateral 3")] <- "doyNA: terminal buds seem dead. lateral 3"
-phenostages$Notes[which(phenostages$notes == "dead--dendrometer switch it?")] <- "doyNA: dead--dendrometer switch it?"
-phenostages$Notes[which(phenostages$notes == "main 2; lateral 4; doy199: side shoot observed")] <- "doyNA: main 2, lateral 4; doy199: side shoot observed"
-phenostages$Notes[which(phenostages$notes == "dead; side shoots sprouting")] <- "doyNA: dead. side shoots sprouting" 
-phenostages$Notes[which(phenostages$notes == "probably dead; doy 207: ijbol it's missing")] <- "doyNA: probably dead; doy207: ijbol it's missing" 
+phenostages$Notes[which(phenostages$notes == "doy62: probably the replicate missing its tag. Pheno stage 1 on doy62. confirming on doy69 that this is the replicate with a missing tag.")] <- "doy62: probably the replicate missing its tag; doy62: Pheno stage 1; doy69: confirming that this is the replicate with a missing tag."
+phenostages$Notes[which(phenostages$notes == "doy97:flowering bud emerging")] <- "doy97: flowering bud emerging"
 
 #replace doyNA by doy000 so it's numerical
 phenostages$Notes <- ifelse(phenostages$Notes == "" | is.na(phenostages$Notes), phenostages$Notes, gsub("doyNA", "doy000", phenostages$Notes))
@@ -121,10 +104,11 @@ phenoNotes$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", phenoNotes$ID_DOY)
 phenoNotes$Treatment <- ifelse(grepl("_nitro", phenoNotes$ID_DOY), 
                                paste0(phenoNotes$Treatment, "_nitro"), 
                                phenoNotes$Treatment)
-unique(phenoNotes$Treatment)
+unique(phenoNotes$Notes)
 
 # Now, to avoid mixing up autumn and spring phenophases, I will change the phenophase 0 to 7 which corresponds to the last stage of budset.
 phenoNotes$Phenostage[phenoNotes$DOY > 176 & phenoNotes$Phenostage == 0] <- 7
+
 # phenostages textual description
 phenophase_labels <- c(
   "Bud dormant", #0
@@ -191,7 +175,7 @@ d$phenostageNum <- d$Phenostage
 # re-add bloc column
 d$Bloc <- sub(".+_(B\\d+)_.*", "\\1", d$ID)
 # add year column
-d$Year <- 2024
+d$Year <- 2025
 d <- subset(d, select = c(
   "ID", 
   "Species", 
@@ -204,7 +188,7 @@ d <- subset(d, select = c(
   "Notes"))
 
 # rename 
-phenostage24 <- d
+phenostage25 <- d
 
-write_csv2(d, "output/2024PhenostageCleaned.csv")
+write_csv2(d, "output/2025PhenostageCleaned.csv")
 

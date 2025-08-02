@@ -20,10 +20,10 @@ source <- FALSE
 #### Get cleaned data ! ####
 ### === === === === === === === === === === ###
 
-### === === === === === === === === === === ###
-##### Start with 2024 #####
-### === === === === === === === === === === ###
-# 1. Get phenostages: named d
+### === === ###
+##### 2024 #####
+### === === ###
+# 1. Get phenostages: named phenostage24
 source("cleaning/source/2024cleaningPhenostages.R") 
 
 # 2. Get senesence: named leafdrop24, greenleafcover24 and chl24
@@ -31,10 +31,20 @@ source("cleaning/source/2024cleaningSenescence.R")
 
 # 3. Get shoot elongation: named shootelongation24
 source("cleaning/source/2024cleaningShootElongation.R") 
-if (source){
-  # 2. Get senescence
-  
-  # 3. Get shootelongation 
-  
-}
+
+### === === ###
+##### 2025 #####
+### === === ###
+# 1. Get phenostages: named phenostage25
+source("cleaning/source/2024cleaningPhenostages.R") 
+
+# 2. 
+
+# 3. Get shoot elongation: named shoot25
+source("cleaning/source/2025cleaningShootElongation.R") 
+
+### === === === === === === === === === ###
+##### Diameter and height measurements #####
+### === === === === === === === === === ###
+
 

@@ -12,6 +12,7 @@ setwd(directory_path)
 # Load librairies
 library(ggplot2)
 library(dplyr)
+library(tidyr)
 
 # Read csv
 shoot25 <- read.csv2("input/2025shootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
@@ -34,7 +35,7 @@ for (i in 7:length(colnames(shoot25))) {
 }
 
 # Check the notes column
-unique(shoot25$Notes)
+unique(shoot25$notes)
 #=== === === === === === === === === === === === === === === === === === === ===
 # Clean the notes Column #
 #=== === === === === === === === === === === === === === === === === === === ===
@@ -50,16 +51,16 @@ for (i in indices_to_fix) {
 }
 
 # manual cleaning for format standardization
-shoot25$Notes[which(shoot25$notes == "doy164:(discrepancy)")] <- "doy164: (discrepancy)"
+shoot25$Notes[which(shoot25$Notes == "doy164:(discrepancy)")] <- "doy164: (discrepancy)"
 
 # === === ===  === === ===  === === ===  === === ===  === === ===  === === ===
 # for now i comment the note manipulation as I need to make sure they are clean first
-extract_notes <- function(notes) {
-  if (notes == "") {
+extract_notes <- function(Notes) {
+  if (Notes == "") {
     return(NULL)
   }
-  # Split the notes by semicolon to handle multiple DOY entries
-  note_parts <- strsplit(notes, ";")[[1]]
+  # Split the Notes by semicolon to handle multiple DOY entries
+  note_parts <- strsplit(Notes, ";")[[1]]
   # Extract DOY and note for each part
   doy_notes <- lapply(note_parts, function(part) {
     doy <- sub(".*doy(\\d+):.*", "\\1", part)

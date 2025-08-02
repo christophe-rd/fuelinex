@@ -138,20 +138,34 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
 #### Shoot elongation ####
 ### === === === === === ###
 # get mean measurement per doy, species and treatement i.e. mean per replicate
-mean_stats <- aggregate(adjustedShootElong ~ Species + Treatment + DOY, data = mergedshoot, FUN = mean, na.rm = TRUE)
+shoot25
+mean_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
+                        data = shoot25, FUN = mean, na.rm = TRUE)
+sd_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
+                        data = shoot25, FUN = sd, na.rm = TRUE)
+colnames(sd_stats)
+
+# merge mean and sd dfs by species, treatment and DOY
+mean_stats$id <- paste0(mean_stats$Species, "_", mean_stats$Treatment, "_", mean_stats$DOY)
+sd_stats$id <- paste0(sd_stats$Species, "_", sd_stats$Treatment, "_", sd_stats$DOY)
+sd_stats2 <- sd_stats[, c(5,4)]
+colnames(sd_stats2) <- c("id", "sd")
+mergeforplot <- merge(mean_stats, sd_stats2, by = "id")
+
 # temporarily remove the measurement from doy 171 for all species
 head(mean_stats)
 mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
 # select only the non nitro treatments for now
+
 vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
-green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F")
+green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "orange", "lightblue")
 
 nonitro <- subset(mean_stats, Treatment %in% vec)
 
 #shoot elongation plot
 shootelongation <- ggplot(nonitro) +
   geom_line(aes(x = DOY, y = adjustedShootElong, color = Treatment, group = Treatment)) + 
-  facet_wrap(~Species, scales = "free_y") +  # Allow y-axis scales to vary by facet
+  facet_wrap(~Species, scales = "free_y") +  
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -169,3 +183,22 @@ shootelongation <- ggplot(nonitro) +
   )
 getwd()
 ggsave("figures/shootElongationbySpp.pdf", shootelongation)
+
+
+# let's try something
+test <- subset(shoot25, Species != "Segi")
+
+shootelong2025XSppXTreat <- ggplot(test) +
+  geom_line(aes(x = DOY, y = adjustedshootElong, group = ID, color = Species)) + 
+  facet_wrap(Species~Treatment, scales = "free_y") +  
+  theme_minimal() +
+  labs(
+    x = "Day of Year",
+    y = "Adjusted Shoot Elongation", 
+    title = "Shoot elongation 2025",
+    color = ""  # Updated legend title
+  ) +
+  scale_color_manual(values=green_palette)+
+  theme_classic()
+# save!
+ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
