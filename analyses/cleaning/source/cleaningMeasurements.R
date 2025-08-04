@@ -74,5 +74,8 @@ iddiamtochange <- binded$tree_ID[which(binded$year == "2025" & binded$valid_diam
 binded$Diameter[which(binded$tree_ID %in% iddiamtochange & binded$year == "2024")] <- NA
 
 # write up csv
-write.csv2(binded, "output/cleanedMeasurements.csv")
+### reorganize to its nicer to play with
+bindedtowrite <- binded[, c("tree_ID", "bloc", "treatment", "genus", "species", "year", "month", "doy", "Height", "Diameter", "notes")]
+
+write.csv2(bindedtowrite, "output/cleanedMeasurements.csv")
 
