@@ -57,6 +57,8 @@ binded2 <- rbind(w2024, w2025)
 # remove all the dead trees
 binded <- subset(binded2, notes != "dead")
 
+binded2 <- subset(binded, Heigh)
+
 #### Go through the notes ####
 # make changes if necessary
 notesdf <- subset(binded, notes != "")
@@ -73,9 +75,11 @@ binded$Diameter <- binded$diameter
 iddiamtochange <- binded$tree_ID[which(binded$year == "2025" & binded$valid_diameter == "no")]
 binded$Diameter[which(binded$tree_ID %in% iddiamtochange & binded$year == "2024")] <- NA
 
+#
+
 # write up csv
 ### reorganize to its nicer to play with
 bindedtowrite <- binded[, c("tree_ID", "bloc", "treatment", "genus", "species", "year", "month", "doy", "Height", "Diameter", "notes")]
 
-write.csv2(bindedtowrite, "output/cleanedMeasurements.csv")
+write.csv2(bindedtowrite, "output/cleanedMeasurements.csv", row.names = FALSE)
 
