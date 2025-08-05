@@ -85,31 +85,51 @@ colnames(wide_notes) <- gsub("Note\\.", "", colnames(wide_notes))
 wide_notes <- wide_notes[,c(1:2,4:ncol(wide_notes))]
 
 # convert to long format
-longshoot25 <- shoot25 %>%
-  pivot_longer(
-    cols = -c(tree_ID, bloc, treatment, genus, species, notes, Notes),
-    names_to = "DOY",
-    values_to = "shootElongation"
-  ) %>%
-  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
-  select(ID_DOY, shootElongation)
+cols <- c("tree_ID", "bloc", "treatment", "genus", "species", "notes", "Notes")
+measure_cols <- setdiff(names(shoot25), cols)
+# reshape from wide to long
+long_df <- reshape(
+  shoot25,
+  varying = measure_cols,
+  v.names = "shootElongation",
+  timevar = "DOY",
+  times = measure_cols,
+  idvar = "tree_ID",
+  direction = "long"
+)
+# create ID_DOY
+long_df$ID_DOY <- paste(long_df$tree_ID, long_df$DOY, sep = "_")
+# select the cols i want and remove anoying rownames
+longshoot25 <- long_df[, c("ID_DOY", "shootElongation")]
+rownames(longshoot25) <- NULL
 
-vals <- longshoot25$shootElongation[!is.na(longshoot25$shootElongation)]
-
+### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
+vals <- longdf25$shootElongation[!is.na(longdf25$shootElongation)]
 # Find entries that are NOT valid decimal numbers
 invalid_vals <- unique(vals[!grepl("^[-]?[0-9]+(\\.[0-9]+)?$", vals)])
+### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
 
 # convert notes wide df to long format
-noteslong <- wide_notes %>%
-  pivot_longer(
-    cols = -tree_ID,
-    names_to = "DOY",
-    values_to = "Notes"
-  ) %>%
-  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%
-  select(ID_DOY, Notes)
+idcol <- "tree_ID"
+measure_cols <- setdiff(names(wide_notes), idcol)
+# reshape to long format
+long_notes <- reshape(
+  wide_notes,
+  varying = measure_cols,
+  v.names = "Notes",
+  timevar = "DOY",
+  times = measure_cols,
+  idvar = "tree_ID",
+  direction = "long"
+)
+# ID_DOY 
+long_notes$ID_DOY <- paste(long_notes$tree_ID, long_notes$DOY, sep = "_")
+# select only ID_DOY and Notes
+longnotes25 <- long_notes[, c("ID_DOY", "Notes")]
+rownames(longnotes25) <- NULL
+
 # merge phenostage+notes
-longshoot25 <- merge(longshoot25, noteslong, by = "ID_DOY", all.x = TRUE)
+longshoot25 <- merge(longshoot25, longnotes25, by = "ID_DOY", all.x = TRUE)
 
 # separate again the doy and id
 longshoot25$shootElongation <- as.numeric(longshoot25$shootElongation)

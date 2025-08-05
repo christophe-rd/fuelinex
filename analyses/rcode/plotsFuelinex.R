@@ -164,7 +164,7 @@ nonitro <- subset(mean_stats, Treatment %in% vec)
 
 #shoot elongation plot
 shootelongation <- ggplot(nonitro) +
-  geom_line(aes(x = DOY, y = adjustedShootElong, color = Treatment, group = Treatment)) + 
+  geom_line(aes(x = DOY, y = adjustedshootElong, color = Treatment, group = Treatment)) + 
   facet_wrap(~Species, scales = "free_y") +  
   theme_minimal() +
   labs(
@@ -181,11 +181,11 @@ shootelongation <- ggplot(nonitro) +
     strip.text = element_text(size = 12, face = "bold"),
     legend.position = "right" 
   )
-getwd()
+shootelongation
 ggsave("figures/shootElongationbySpp.pdf", shootelongation)
 
 
-# let's try something
+# let's try something else
 test <- subset(shoot25, Species != "Segi")
 
 shootelong2025XSppXTreat <- ggplot(test) +
@@ -202,6 +202,31 @@ shootelong2025XSppXTreat <- ggplot(test) +
   theme_classic()
 # save!
 ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
+
+##### Plots when they stopped elongating #####
+# 2024
+shoot24forstop <- shoot24[order(shoot24$ID, shoot24$DOY), ]
+## split by replicate, look at the first delta < 0.2
+stopelong25 <- do.call(rbind,
+                       by(shoot24, shoot24$ID, function(df) {
+                         inc<- c(NA, diff(df$shootElongation))
+                         idx<- which(inc < 0.2)[1] 
+                         if (length(idx)) df[idx, c("ID", "DOY")]
+                       })
+)
+row.names(stopelong25) <- NULL
+
+# 2025
+shoot25forstop <- shoot25[order(shoot25$ID, shoot25$DOY), ]
+## split by replicate, look at the first delta < 0.2
+stopelong25 <- do.call(rbind,
+                    by(shoot25, shoot25$ID, function(df) {
+                      inc<- c(NA, diff(df$shootElongation))
+                      idx<- which(inc < 0.2)[1] 
+                      if (length(idx)) df[idx, c("ID", "DOY")]
+                    })
+)
+row.names(stopelong25) <- NULL
 
 ### === === === === === === === === ### ###
 #### Height and diameter measurements ####
