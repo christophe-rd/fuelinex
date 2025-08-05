@@ -205,28 +205,73 @@ ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width =
 
 ##### Plots when they stopped elongating #####
 # 2024
-shoot24forstop <- shoot24[order(shoot24$ID, shoot24$DOY), ]
+shoot24forstop <- shoot2024[order(shoot2024$ID, shoot2024$DOY), ]
 ## split by replicate, look at the first delta < 0.2
-stopelong25 <- do.call(rbind,
-                       by(shoot24, shoot24$ID, function(df) {
+stopelong24 <- do.call(rbind,
+                       by(shoot24forstop, shoot24forstop$ID, function(df) {
                          inc<- c(NA, diff(df$shootElongation))
                          idx<- which(inc < 0.2)[1] 
                          if (length(idx)) df[idx, c("ID", "DOY")]
                        })
 )
-row.names(stopelong25) <- NULL
+row.names(stopelong24) <- NULL
+stopelong24$year <- as.character(2024)
 
 # 2025
-shoot25forstop <- shoot25[order(shoot25$ID, shoot25$DOY), ]
+shoot25forstop <- shoot2025[order(shoot2025$ID, shoot2025$DOY), ]
+
 ## split by replicate, look at the first delta < 0.2
 stopelong25 <- do.call(rbind,
-                    by(shoot25, shoot25$ID, function(df) {
+                    by(shoot25forstop, shoot25forstop$ID, function(df) {
                       inc<- c(NA, diff(df$shootElongation))
                       idx<- which(inc < 0.2)[1] 
                       if (length(idx)) df[idx, c("ID", "DOY")]
                     })
 )
 row.names(stopelong25) <- NULL
+stopelong25$year <- as.character(2025)
+
+# bind 2024 and 2024
+shootelongbinded <- rbind(stopelong24, stopelong25)
+
+# readd columns
+shootelongbinded$Species <- sub("^([^_]+)_.*", "\\1", shootelongbinded$ID)
+shootelongbinded$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", shootelongbinded$ID)
+
+# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
+shootelongbinded$Treatment <- ifelse(grepl("_nitro", shootelongbinded$ID), 
+                                paste0(shootelongbinded$Treatment, "_nitro"), 
+                                shootelongbinded$Treatment)
+
+
+shootelongforplot <- shootelongbinded[!is.na(shootelongbinded$DOY),]
+shootelongforplot$DOY <- as.numeric(shootelongforplot$DOY)
+
+# select only species that stopped elongating as of 5 August 2025
+sub <- subset(shootelongforplot, Species %in% c("Acne", "Prvi", "Pist", "Quma"))
+
+# PLOT
+shootelongstop <- ggplot(sub) +
+  geom_point(aes(x = year, y = DOY, color = Treatment),
+             position = position_jitter(width = 0.1), alpha = 0.5) +
+  # Mean point per Species + Treatment + year
+  stat_summary(aes(x = year, y = DOY, group = interaction(Species, Treatment, year)),
+               fun = mean,
+               geom = "point",
+               color = "black",
+               size = 2) +
+  
+  # Error bar (SE) per Species + Treatment + year
+  stat_summary(
+    aes(x = year, y = DOY, group = interaction(Species, Treatment, year)),
+    fun.data = mean_se,
+    geom = "linerange",
+    color = "black"
+  )+
+  facet_wrap(Species~Treatment, ncol = 6, nrow = 7, scales = "free_y") +
+  theme_minimal()
+# ggsave
+ggsave("figures/shootelongstop.pdf", shootelongstop, width = 16, height = 12)
 
 ### === === === === === === === === ### ###
 #### Height and diameter measurements ####
