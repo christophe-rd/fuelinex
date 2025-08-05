@@ -104,7 +104,7 @@ longshoot25 <- long_df[, c("ID_DOY", "shootElongation")]
 rownames(longshoot25) <- NULL
 
 ### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
-vals <- longdf25$shootElongation[!is.na(longdf25$shootElongation)]
+vals <- longshoot25$shootElongation[!is.na(longshoot25$shootElongation)]
 # Find entries that are NOT valid decimal numbers
 invalid_vals <- unique(vals[!grepl("^[-]?[0-9]+(\\.[0-9]+)?$", vals)])
 ### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
