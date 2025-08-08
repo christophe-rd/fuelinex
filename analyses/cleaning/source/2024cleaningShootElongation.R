@@ -110,7 +110,7 @@ longdf24 <- reshape(
 longdf24$ID_DOY <- paste(longdf24$tree_ID, longdf24$DOY, sep = "_")
 # select the cols i want and remove anoying rownames
 longdf24 <- longdf24[, c("ID_DOY", "shootElongation")]
-rownames(longshoot24) <- NULL
+rownames(longdf24) <- NULL
 
 ### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
 vals <- longdf24$shootElongation[!is.na(longdf24$shootElongation)]
