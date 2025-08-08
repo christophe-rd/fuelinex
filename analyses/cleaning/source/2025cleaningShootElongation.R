@@ -53,6 +53,12 @@ for (i in indices_to_fix) {
 # manual cleaning for format standardization
 shoot25$Notes[which(shoot25$Notes == "doy164:(discrepancy)")] <- "doy164: (discrepancy)"
 
+shoot25$`149`[which(shoot25$tree_ID == "Acne_CoolS/CoolF_B3_R15")] <- 6.3
+
+acne <- subset(shoot25, genus=="acer")
+sub <- subset(acne, treatment == "CoolS/CoolF_nitro")
+View(subset(acne, shootElongation<4))
+
 # === === ===  === === ===  === === ===  === === ===  === === ===  === === ===
 # for now i comment the note manipulation as I need to make sure they are clean first
 extract_notes <- function(Notes) {
@@ -155,6 +161,12 @@ colnames(first_values) <- c("ID", "First_shootElongation")
 # merge back to have first measurement in df
 mergedshoot25 <- merge(longshootnona25, first_values, by = "ID") 
 mergedshoot25$adjustedshootElong <- mergedshoot25$shootElongation - mergedshoot25$First_shootElongation
+
+
+# manual cleaning of outliers resulting of data collection mistake
+acne <- subset(shoot2025, Species=="Acne")
+subset(acne, Treatment == "CoolS/CoolF_nitro")
+View(subset(acne, shootElongation<4))
 
 # rename file
 shoot2025 <- mergedshoot25

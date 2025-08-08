@@ -2,10 +2,9 @@
 # 27 May 2025
 # Goal is to start visualization for fuelinex
 
-
 # housekeeping
-# rm(list=ls())  
-# options(stringsAsFactors=FALSE)
+rm(list=ls()) 
+options(stringsAsFactors = FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Load librairies
@@ -15,26 +14,20 @@ library(data.table)
 library(tidyverse)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
-## at some point I should add this function which selects rows after the same phenophase was recorded 3 times. Replace NumYs_in_Series with my phenophases
-# d <- d[(d$NumYs_in_Series>=3),] 
-
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Set the path to your directory folder 
-# directory <-"/Users/christophe_rouleau-desrochers/github/fuelinex/"
-# setwd(directory)
-# list.files()
+setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
-# Read data
-# run cleaning phenostages first
+# run cleaning cleanall 
+source("cleaning/cleanAllFuelinex.R")
 
 ### === === === === === === === === === === === === ###
 #### Number of observations in 2024 for each Species X treatments ####
 ### === === === === === === === === === === === === ###
 # 1) Add sep
-d$Group <- paste(d$Species, d$Treatment, sep="__SEP__")
+phenostage24$Group <- paste(phenostage24$Species, phenostage24$Treatment, sep="__SEP__")
 
 # 2) Keep only the unique (ID, Group, Phenostage) combinations
-df_unique <- unique(d[, c("ID","Group","phenostageNum")])
+df_unique <- unique(phenostage24[, c("ID","Group","phenostageNum")])
 
 # 3) Build a contingency table: rows = Group; cols = Phenostage
 tab <- table(df_unique$Group, df_unique$phenostageNum)
@@ -85,6 +78,7 @@ heatmap <- ggplot(df_long, aes(x = Stage, y = Treatment, fill = Pct)) +
     axis.text.x = element_text(angle = 45, hjust = 1),
     panel.grid = element_blank()
   )
+heatmap
 ggsave("figures/heatmap.pdf", plot = heatmap, width = 8, height = 6)
 ggsave("figures/heatmap.jpeg", plot = heatmap)
 
@@ -94,7 +88,7 @@ ggsave("figures/heatmap.jpeg", plot = heatmap)
 # mean and sd for each phenophase X Species X Treatment
 summary_stats <- aggregate(
   DOY ~ phenophaseText + Species + Treatment, 
-  data = d, 
+  data = phenostage24, 
   FUN = function(x) c(mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE))
 )
 
@@ -138,11 +132,10 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
 #### Shoot elongation ####
 ### === === === === === ###
 # get mean measurement per doy, species and treatement i.e. mean per replicate
-shoot25
 mean_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
-                        data = shoot25, FUN = mean, na.rm = TRUE)
+                        data = shoot2025, FUN = mean, na.rm = TRUE)
 sd_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
-                        data = shoot25, FUN = sd, na.rm = TRUE)
+                        data = shoot2025, FUN = sd, na.rm = TRUE)
 colnames(sd_stats)
 
 # merge mean and sd dfs by species, treatment and DOY
@@ -163,14 +156,14 @@ green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "orange", "lightb
 nonitro <- subset(mean_stats, Treatment %in% vec)
 
 #shoot elongation plot
-shootelongation <- ggplot(nonitro) +
+shootelongation <- ggplot(mean_stats) +
   geom_line(aes(x = DOY, y = adjustedshootElong, color = Treatment, group = Treatment)) + 
   facet_wrap(~Species, scales = "free_y") +  
   theme_minimal() +
   labs(
     x = "Day of Year",
     y = "Adjusted Shoot Elongation",  # Updated y-axis label
-    title = "Phenophase 2024",
+    title = "Shoot elongation 2025",
     color = "Treatment"  # Updated legend title
   ) +
   scale_color_manual(values=green_palette)+
@@ -184,12 +177,11 @@ shootelongation <- ggplot(nonitro) +
 shootelongation
 ggsave("figures/shootElongationbySpp.pdf", shootelongation)
 
-
 # let's try something else
-test <- subset(shoot25, Species != "Segi")
+test <- subset(shoot2025, Species != "Segi")
 
 shootelong2025XSppXTreat <- ggplot(test) +
-  geom_line(aes(x = DOY, y = adjustedshootElong, group = ID, color = Species)) + 
+  geom_line(aes(x = DOY, y = shootElongation, group = ID, color = Species)) + 
   facet_wrap(Species~Treatment, scales = "free_y") +  
   theme_minimal() +
   labs(
@@ -200,6 +192,7 @@ shootelong2025XSppXTreat <- ggplot(test) +
   ) +
   scale_color_manual(values=green_palette)+
   theme_classic()
+shootelong2025XSppXTreat
 # save!
 ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
 
