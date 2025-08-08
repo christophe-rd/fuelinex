@@ -12,6 +12,7 @@ setwd(directory_path)
 # Load librairies
 library(ggplot2)
 library(dplyr)
+library(tidyr)
 
 # Read csv
 shoot25 <- read.csv2("input/2025shootElongation.csv", header = TRUE, sep = ",", check.names = FALSE)
@@ -34,7 +35,7 @@ for (i in 7:length(colnames(shoot25))) {
 }
 
 # Check the notes column
-unique(shoot25$Notes)
+unique(shoot25$notes)
 #=== === === === === === === === === === === === === === === === === === === ===
 # Clean the notes Column #
 #=== === === === === === === === === === === === === === === === === === === ===
@@ -50,16 +51,16 @@ for (i in indices_to_fix) {
 }
 
 # manual cleaning for format standardization
-shoot25$Notes[which(shoot25$notes == "doy164:(discrepancy)")] <- "doy164: (discrepancy)"
+shoot25$Notes[which(shoot25$Notes == "doy164:(discrepancy)")] <- "doy164: (discrepancy)"
 
 # === === ===  === === ===  === === ===  === === ===  === === ===  === === ===
 # for now i comment the note manipulation as I need to make sure they are clean first
-extract_notes <- function(notes) {
-  if (notes == "") {
+extract_notes <- function(Notes) {
+  if (Notes == "") {
     return(NULL)
   }
-  # Split the notes by semicolon to handle multiple DOY entries
-  note_parts <- strsplit(notes, ";")[[1]]
+  # Split the Notes by semicolon to handle multiple DOY entries
+  note_parts <- strsplit(Notes, ";")[[1]]
   # Extract DOY and note for each part
   doy_notes <- lapply(note_parts, function(part) {
     doy <- sub(".*doy(\\d+):.*", "\\1", part)
@@ -84,31 +85,51 @@ colnames(wide_notes) <- gsub("Note\\.", "", colnames(wide_notes))
 wide_notes <- wide_notes[,c(1:2,4:ncol(wide_notes))]
 
 # convert to long format
-longshoot25 <- shoot25 %>%
-  pivot_longer(
-    cols = -c(tree_ID, bloc, treatment, genus, species, notes, Notes),
-    names_to = "DOY",
-    values_to = "shootElongation"
-  ) %>%
-  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
-  select(ID_DOY, shootElongation)
+cols <- c("tree_ID", "bloc", "treatment", "genus", "species", "notes", "Notes")
+measure_cols <- setdiff(names(shoot25), cols)
+# reshape from wide to long
+long_df <- reshape(
+  shoot25,
+  varying = measure_cols,
+  v.names = "shootElongation",
+  timevar = "DOY",
+  times = measure_cols,
+  idvar = "tree_ID",
+  direction = "long"
+)
+# create ID_DOY
+long_df$ID_DOY <- paste(long_df$tree_ID, long_df$DOY, sep = "_")
+# select the cols i want and remove anoying rownames
+longshoot25 <- long_df[, c("ID_DOY", "shootElongation")]
+rownames(longshoot25) <- NULL
 
+### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
 vals <- longshoot25$shootElongation[!is.na(longshoot25$shootElongation)]
-
 # Find entries that are NOT valid decimal numbers
 invalid_vals <- unique(vals[!grepl("^[-]?[0-9]+(\\.[0-9]+)?$", vals)])
+### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
 
 # convert notes wide df to long format
-noteslong <- wide_notes %>%
-  pivot_longer(
-    cols = -tree_ID,
-    names_to = "DOY",
-    values_to = "Notes"
-  ) %>%
-  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%
-  select(ID_DOY, Notes)
+idcol <- "tree_ID"
+measure_cols <- setdiff(names(wide_notes), idcol)
+# reshape to long format
+long_notes <- reshape(
+  wide_notes,
+  varying = measure_cols,
+  v.names = "Notes",
+  timevar = "DOY",
+  times = measure_cols,
+  idvar = "tree_ID",
+  direction = "long"
+)
+# ID_DOY 
+long_notes$ID_DOY <- paste(long_notes$tree_ID, long_notes$DOY, sep = "_")
+# select only ID_DOY and Notes
+longnotes25 <- long_notes[, c("ID_DOY", "Notes")]
+rownames(longnotes25) <- NULL
+
 # merge phenostage+notes
-longshoot25 <- merge(longshoot25, noteslong, by = "ID_DOY", all.x = TRUE)
+longshoot25 <- merge(longshoot25, longnotes25, by = "ID_DOY", all.x = TRUE)
 
 # separate again the doy and id
 longshoot25$shootElongation <- as.numeric(longshoot25$shootElongation)
@@ -136,5 +157,5 @@ mergedshoot25 <- merge(longshootnona25, first_values, by = "ID")
 mergedshoot25$adjustedshootElong <- mergedshoot25$shootElongation - mergedshoot25$First_shootElongation
 
 # rename file
-shoot25 <- mergedshoot25
+shoot2025 <- mergedshoot25
 

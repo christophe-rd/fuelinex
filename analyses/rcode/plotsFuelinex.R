@@ -1,5 +1,5 @@
-# 27 May 2025
 # CRD
+# 27 May 2025
 # Goal is to start visualization for fuelinex
 
 
@@ -138,20 +138,34 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
 #### Shoot elongation ####
 ### === === === === === ###
 # get mean measurement per doy, species and treatement i.e. mean per replicate
-mean_stats <- aggregate(adjustedShootElong ~ Species + Treatment + DOY, data = mergedshoot, FUN = mean, na.rm = TRUE)
+shoot25
+mean_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
+                        data = shoot25, FUN = mean, na.rm = TRUE)
+sd_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
+                        data = shoot25, FUN = sd, na.rm = TRUE)
+colnames(sd_stats)
+
+# merge mean and sd dfs by species, treatment and DOY
+mean_stats$id <- paste0(mean_stats$Species, "_", mean_stats$Treatment, "_", mean_stats$DOY)
+sd_stats$id <- paste0(sd_stats$Species, "_", sd_stats$Treatment, "_", sd_stats$DOY)
+sd_stats2 <- sd_stats[, c(5,4)]
+colnames(sd_stats2) <- c("id", "sd")
+mergeforplot <- merge(mean_stats, sd_stats2, by = "id")
+
 # temporarily remove the measurement from doy 171 for all species
 head(mean_stats)
 mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
 # select only the non nitro treatments for now
+
 vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
-green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F")
+green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "orange", "lightblue")
 
 nonitro <- subset(mean_stats, Treatment %in% vec)
 
 #shoot elongation plot
 shootelongation <- ggplot(nonitro) +
-  geom_line(aes(x = DOY, y = adjustedShootElong, color = Treatment, group = Treatment)) + 
-  facet_wrap(~Species, scales = "free_y") +  # Allow y-axis scales to vary by facet
+  geom_line(aes(x = DOY, y = adjustedshootElong, color = Treatment, group = Treatment)) + 
+  facet_wrap(~Species, scales = "free_y") +  
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -167,5 +181,162 @@ shootelongation <- ggplot(nonitro) +
     strip.text = element_text(size = 12, face = "bold"),
     legend.position = "right" 
   )
-getwd()
+shootelongation
 ggsave("figures/shootElongationbySpp.pdf", shootelongation)
+
+
+# let's try something else
+test <- subset(shoot25, Species != "Segi")
+
+shootelong2025XSppXTreat <- ggplot(test) +
+  geom_line(aes(x = DOY, y = adjustedshootElong, group = ID, color = Species)) + 
+  facet_wrap(Species~Treatment, scales = "free_y") +  
+  theme_minimal() +
+  labs(
+    x = "Day of Year",
+    y = "Adjusted Shoot Elongation", 
+    title = "Shoot elongation 2025",
+    color = ""  # Updated legend title
+  ) +
+  scale_color_manual(values=green_palette)+
+  theme_classic()
+# save!
+ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
+
+##### Plots when they stopped elongating #####
+# 2024
+shoot24forstop <- shoot2024[order(shoot2024$ID, shoot2024$DOY), ]
+## split by replicate, look at the first delta < 0.2
+stopelong24 <- do.call(rbind,
+                       by(shoot24forstop, shoot24forstop$ID, function(df) {
+                         inc<- c(NA, diff(df$shootElongation))
+                         idx<- which(inc < 0.2)[1] 
+                         if (length(idx)) df[idx, c("ID", "DOY")]
+                       })
+)
+row.names(stopelong24) <- NULL
+stopelong24$year <- as.character(2024)
+
+# 2025
+shoot25forstop <- shoot2025[order(shoot2025$ID, shoot2025$DOY), ]
+
+## split by replicate, look at the first delta < 0.2
+stopelong25 <- do.call(rbind,
+                    by(shoot25forstop, shoot25forstop$ID, function(df) {
+                      inc<- c(NA, diff(df$shootElongation))
+                      idx<- which(inc < 0.2)[1] 
+                      if (length(idx)) df[idx, c("ID", "DOY")]
+                    })
+)
+row.names(stopelong25) <- NULL
+stopelong25$year <- as.character(2025)
+
+# bind 2024 and 2024
+shootelongbinded <- rbind(stopelong24, stopelong25)
+
+# readd columns
+shootelongbinded$Species <- sub("^([^_]+)_.*", "\\1", shootelongbinded$ID)
+shootelongbinded$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", shootelongbinded$ID)
+
+# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
+shootelongbinded$Treatment <- ifelse(grepl("_nitro", shootelongbinded$ID), 
+                                paste0(shootelongbinded$Treatment, "_nitro"), 
+                                shootelongbinded$Treatment)
+
+
+shootelongforplot <- shootelongbinded[!is.na(shootelongbinded$DOY),]
+shootelongforplot$DOY <- as.numeric(shootelongforplot$DOY)
+
+# select only species that stopped elongating as of 5 August 2025
+sub <- subset(shootelongforplot, Species %in% c("Acne", "Prvi", "Pist", "Quma"))
+
+# PLOT
+shootelongstop <- ggplot(sub) +
+  geom_point(aes(x = year, y = DOY, color = Treatment),
+             position = position_jitter(width = 0.1), alpha = 0.5) +
+  # Mean point per Species + Treatment + year
+  stat_summary(aes(x = year, y = DOY, group = interaction(Species, Treatment, year)),
+               fun = mean,
+               geom = "point",
+               color = "black",
+               size = 2) +
+  
+  # Error bar (SE) per Species + Treatment + year
+  stat_summary(
+    aes(x = year, y = DOY, group = interaction(Species, Treatment, year)),
+    fun.data = mean_se,
+    geom = "linerange",
+    color = "black"
+  )+
+  facet_wrap(Species~Treatment, ncol = 6, nrow = 7, scales = "free_y") +
+  theme_minimal()
+# ggsave
+ggsave("figures/shootelongstop.pdf", shootelongstop, width = 16, height = 12)
+
+### === === === === === === === === ### ###
+#### Height and diameter measurements ####
+### === === === === === === === === ### ###
+mea <- read.csv2("output/cleanedMeasurements.csv")
+colnames(meawide)
+meawide <- reshape(mea,
+                   timevar = "year",
+                   idvar = "tree_ID",
+                   direction = "wide")
+# reorganize columns
+meawide <- meawide[, c("tree_ID",
+                       "bloc.2024",
+                       "treatment.2024",
+                       "genus.2024",
+                       "species.2024",
+                       "Height.2024",
+                       "Diameter.2024",
+                       "Height.2025",
+                       "Diameter.2025",
+                       "notes.2024")]
+# clean colnames
+colnames(meawide) <- c("tree_ID",
+                        "bloc",
+                        "treatment",
+                        "genus",
+                        "species",
+                        "Height2024",
+                        "Diameter2024",
+                        "Height2025",
+                        "Diameter2025",
+                        "notes")
+
+# height and diameter increment
+meawide$heighincrement <- meawide$Height2025-meawide$Height2024
+meawide$diameterincrement <- meawide$Diameter2025-meawide$Diameter2024
+
+# remove tree_ID that are -
+meawide2 <- subset(meawide, heighincrement >= 0 & diameterincrement >= 0)
+
+# remove segi for now
+meawide3 <- subset(meawide2, genus != "sequoiadendron")
+
+# HEIGHT
+heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "height increment X treament X species",
+       y = "Height Increment (cm)",
+       x = "Treatment") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("figures/heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+
+# DIAMETER
+diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement, color = treatment)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "diameter increment X treament X species",
+       y = "diameter Increment (cm)",
+       x = "Treatment") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)

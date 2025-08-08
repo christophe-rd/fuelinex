@@ -26,30 +26,28 @@ colnames(phenostages)[6] <- "notes"
 # clean the spaces and maybe later other stuff 
 phenostages$Notes <- gsub("doy (\\d+)", "doy\\1", phenostages$notes)
 # manual cleaning for format standardization
-phenostages$Notes[which(phenostages$Notes == "116: stage 3 not 4")] <- "doy116: stage 3 not 4"
-phenostages$Notes[which(phenostages$Notes == "116: stage 2 not 3")] <- "doy116: stage 2 not 3"
-phenostages$Notes[which(phenostages$Notes == "116: stage 1 not 2")] <- "doy116: stage 1 not 2"
-phenostages$Notes[which(phenostages$Notes == "probably dead. Doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
-phenostages$Notes[which(phenostages$Notes == "116: main stem 2, smaller branch 4; doy182: apical shoot almost dead")] <- "doy116: main stem 2, smaller branch 4; doy182: apical shoot almost dead"
-phenostages$Notes[which(phenostages$Notes == "116: stage 3 not 4; doy207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
-phenostages$Notes[which(phenostages$Notes == "doy207: apical shoot ate doy221: apical shoot dead")] <- "doy207: apical shoot ate; doy221: apical shoot dead"
-phenostages$Notes[which(phenostages$Notes == "doy262:bud bursting again")] <- "doy262:bud bursting again"
+phenostages$Notes[which(phenostages$notes == "116: stage 3 not 4")] <- "doy116: stage 3 not 4"
+phenostages$Notes[which(phenostages$notes == "116: stage 2 not 3")] <- "doy116: stage 2 not 3"
+phenostages$Notes[which(phenostages$notes == "116: stage 1 not 2")] <- "doy116: stage 1 not 2"
+phenostages$Notes[which(phenostages$notes == "probably dead. Doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
+phenostages$Notes[which(phenostages$notes == "116: main stem 2, smaller branch 4; doy182: apical shoot almost dead")] <- "doy116: main stem 2, smaller branch 4; doy182: apical shoot almost dead"
+phenostages$Notes[which(phenostages$notes == "116: stage 3 not 4; doy207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
+phenostages$Notes[which(phenostages$notes == "doy207: apical shoot ate doy221: apical shoot dead")] <- "doy207: apical shoot ate; doy221: apical shoot dead"
+phenostages$Notes[which(phenostages$notes == "doy262:bud bursting again")] <- "doy262:bud bursting again"
 # add doyNA: when there is no doy associated with the note
-phenostages$Notes[which(phenostages$Notes == "dead")] <- "doyNA: dead"
-phenostages$Notes[which(phenostages$Notes == "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "doyNA: probably dead; doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
-phenostages$Notes[which(phenostages$Notes == "main branch dead")] <- "doyNA: main branch dead"
-phenostages$Notes[which(phenostages$Notes == "main 2. lateral 4; doy199: side shoot observed")] <- "doyNA: main 2; lateral 4; doy199: side shoot observed"
-phenostages$Notes[which(phenostages$Notes == "main maybe dead")] <- "doyNA: main maybe dead"
-phenostages$Notes[which(phenostages$Notes == "terminal buds seem dead; lateral 3")] <- "doyNA: terminal buds seem dead. lateral 3"
-phenostages$Notes[which(phenostages$Notes == "dead--dendrometer switch it?")] <- "doyNA: dead--dendrometer switch it?"
-phenostages$Notes[which(phenostages$Notes == "main 2; lateral 4; doy199: side shoot observed")] <- "doyNA: main 2, lateral 4; doy199: side shoot observed"
-phenostages$Notes[which(phenostages$Notes == "dead; side shoots sprouting")] <- "doyNA: dead. side shoots sprouting" 
-phenostages$Notes[which(phenostages$Notes == "probably dead; doy207: ijbol it's missing")] <- "doyNA: probably dead; doy207: ijbol it's missing" 
+phenostages$Notes[which(phenostages$notes == "dead")] <- "doyNA: dead"
+phenostages$Notes[which(phenostages$notes == "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "doyNA: probably dead; doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
+phenostages$Notes[which(phenostages$notes == "main branch dead")] <- "doyNA: main branch dead"
+phenostages$Notes[which(phenostages$notes == "main 2. lateral 4; doy199: side shoot observed")] <- "doyNA: main 2; lateral 4; doy199: side shoot observed"
+phenostages$Notes[which(phenostages$notes == "main maybe dead")] <- "doyNA: main maybe dead"
+phenostages$Notes[which(phenostages$notes == "terminal buds seem dead; lateral 3")] <- "doyNA: terminal buds seem dead. lateral 3"
+phenostages$Notes[which(phenostages$notes == "dead--dendrometer switch it?")] <- "doyNA: dead--dendrometer switch it?"
+phenostages$Notes[which(phenostages$notes == "main 2; lateral 4; doy199: side shoot observed")] <- "doyNA: main 2, lateral 4; doy199: side shoot observed"
+phenostages$Notes[which(phenostages$notes == "dead; side shoots sprouting")] <- "doyNA: dead. side shoots sprouting" 
+phenostages$Notes[which(phenostages$notes == "probably dead; doy 207: ijbol it's missing")] <- "doyNA: probably dead; doy207: ijbol it's missing" 
 
 #replace doyNA by doy000 so it's numerical
 phenostages$Notes <- ifelse(phenostages$Notes == "" | is.na(phenostages$Notes), phenostages$Notes, gsub("doyNA", "doy000", phenostages$Notes))
-
-
 
 extract_notes <- function(notes) {
   if (notes == "") {
@@ -65,6 +63,7 @@ extract_notes <- function(notes) {
   })
   return(do.call(rbind, doy_notes))
 }
+
 # Apply the function to each row and combine results
 notes_list <- lapply(phenostages$Notes, extract_notes)
 # Handle NULL values in notes_list

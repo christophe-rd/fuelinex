@@ -847,3 +847,21 @@ Phenofit estimates the fundamental niche i.e. the hyper volume defined by the en
 
 The model presents a close fit between realized and fundamental niche which suggests taht there are no dispersal limits for sugar maple and quaking aspens and that their distributions must be  currently at equilibrium  with climate. 
 
+## 7 August 2025
+### Monitoring Individual Tree Phenology in a Multi-Species Forest Using High Resolution UAV Images
+Jasper Kleinsmann, Jan Verbesselt, and Lammert Kooistra
+Sattelite data are subject to inherent limitations from weather conditions and coarse spatial and temporal resolutions. In mixed-speciues environements, sattelite derived phenology tracking isn't good because the sattelite pixel exceeds the size of individual tree crowns, often.
+
+Unmanned aerial vehicles (UAVs) equipped with RGB or multi-spectral sensors can provide reliable data at the centimeter scale. They can monitor forests using their fundamental biological units: individual trees. They promise significant time, labor and cost benefits.
+
+Fawcett (2020) manually delineated tree crowns and successfully estimated SOS.  Berra 2019 automatically delinated thousands of tree crowns based on NDVI and green chromatic coordinate GCC. SOS and EOS ina. mixed-species forest in Japan successfully estimated SOS and EOS.  
+
+### Influence of temperate forest autumn leaf phenology on segmentation of tree species from UAV imagery using deep learning
+Myriam Cloutier, Mickael Germain, Etienne Laliberte
+To ensure the imagery was well geore ferenced, we positioned 25 ground control points (GCPs) throughout the area. The coordinates of the ground control points were then measured using two Emlid Reach RS2 RTK GNSS receivers, one as a base on a geodetic marker and one as a rover.
+
+The protocol used to generate the orthomosaics was adapted from Over et al. (2021) .
+
+The type of model used for training is a CNN, specifically a U-Net (Ronneberger et al., 2015), whichis a semanticsegmentation algorithm.
+
+We chose U-Net as our architecture because of its success in other individual tree classification problems (James and Bradshaw, 2020; Korznikov et al., 2021; Schiefer et al., 2020; Wagner et al., 2019).
