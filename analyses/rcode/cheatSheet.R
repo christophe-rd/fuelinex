@@ -14,3 +14,17 @@ nbobsperID <- d %>% count(plantNickname)
 
 ### Extracting Characters from a specific position
 cg18$species<-substr(cg18$Ind, 0,6) # here $species will return the characters from the position 0 to 6a
+
+library(dslabs)
+data(murders)
+### Order by a specific column e.g. 
+index <- order(murders$total) # this index returns a vector by number of murders
+murders$state[index] # then by indexing this vector to the states, I have my states ordered in number of murders
+
+#### Looks for entries in a vector and returns the entry to access them
+index <- match(c("New York", "Florida", "Texas"), murders$state)
+
+### %in%
+x <- c("a", "b", "c", "d", "e", "f")
+y <- c("a", "d", "f")
+y %in% x
