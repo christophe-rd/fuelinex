@@ -245,26 +245,27 @@ sub <- subset(shootelongforplot, Species %in% c("Acne", "Prvi", "Pist", "Quma"))
 
 # PLOT
 shootelongstop <- ggplot(sub) +
-  geom_point(aes(x = year, y = DOY, color = Treatment),
-             position = position_jitter(width = 0.1), alpha = 0.5) +
+  geom_point(aes(x = Treatment, y = DOY, color = year),
+             position = position_jitter(width = 0.1), alpha = 0.2) +
   # Mean point per Species + Treatment + year
-  stat_summary(aes(x = year, y = DOY, group = interaction(Species, Treatment, year)),
+  stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
+                   color = year),
                fun = mean,
                geom = "point",
-               color = "black",
+               
                size = 2) +
-  
   # Error bar (SE) per Species + Treatment + year
-  stat_summary(
-    aes(x = year, y = DOY, group = interaction(Species, Treatment, year)),
+  stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
+                   color = year),
     fun.data = mean_se,
-    geom = "linerange",
-    color = "black"
+    geom = "linerange"
   )+
-  facet_wrap(Species~Treatment, ncol = 6, nrow = 7, scales = "free_y") +
-  theme_minimal()
+  facet_wrap(~Species, ncol = 6, nrow = 7, scales = "free_y") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+shootelongstop
 # ggsave
-ggsave("figures/shootelongstop.pdf", shootelongstop, width = 16, height = 12)
+ggsave("figures/shootelongstop.pdf", shootelongstop, width = 12, height = 8)
 
 ### === === === ###
 #### Senescence ####
@@ -273,18 +274,35 @@ ggsave("figures/shootelongstop.pdf", shootelongstop, width = 16, height = 12)
 # --- --- --- --- --- #
 ##### GreenessLoss #####
 # --- --- --- --- --- #
+greenesslossnona <- leafdrop24[!is.na(leafdrop24$greenessLoss), 1:ncol(leafdrop24)-1]
+str(greenesslossnona)
+
+greenessloss <- ggplot(greenesslossnona, aes(x = treatment, y = greenessLoss, color = treatment)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "diameter increment X treament X species",
+       y = "diameter Increment (cm)",
+       x = "Treatment") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+greenessloss
+ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+
 
 # --- --- --- --- --- #
 ##### Leaf Drop #####
 # --- --- --- --- --- #
-
+leafdrop24
 # --- --- --- --- --- --- --- ---  #
-##### Visual reen leaf cover #####
+##### Visual green leaf cover #####
 # --- --- --- --- --- --- --- --- #
-
+greenleafcover24
 # --- --- --- --- --- --- --- --- --- #
 ##### Chlorophyll measurements #####
 # --- --- --- --- --- --- --- --- --- #
+chl24
 
 ### === === === === === === === === ### ###
 #### Height and diameter measurements ####
@@ -353,3 +371,4 @@ diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement, color
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+
