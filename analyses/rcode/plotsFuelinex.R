@@ -266,6 +266,26 @@ shootelongstop <- ggplot(sub) +
 # ggsave
 ggsave("figures/shootelongstop.pdf", shootelongstop, width = 16, height = 12)
 
+### === === === ###
+#### Senescence ####
+### === === === ###
+
+# --- --- --- --- --- #
+##### GreenessLoss #####
+# --- --- --- --- --- #
+
+# --- --- --- --- --- #
+##### Leaf Drop #####
+# --- --- --- --- --- #
+
+# --- --- --- --- --- --- --- ---  #
+##### Visual reen leaf cover #####
+# --- --- --- --- --- --- --- --- #
+
+# --- --- --- --- --- --- --- --- --- #
+##### Chlorophyll measurements #####
+# --- --- --- --- --- --- --- --- --- #
+
 ### === === === === === === === === ### ###
 #### Height and diameter measurements ####
 ### === === === === === === === === ### ###
