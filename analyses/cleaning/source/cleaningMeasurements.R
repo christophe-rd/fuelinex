@@ -57,8 +57,6 @@ binded2 <- rbind(w2024, w2025)
 # remove all the dead trees
 binded <- subset(binded2, notes != "dead")
 
-binded2 <- subset(binded, Heigh)
-
 #### Go through the notes ####
 # make changes if necessary
 notesdf <- subset(binded, notes != "")
