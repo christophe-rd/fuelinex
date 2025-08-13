@@ -173,7 +173,7 @@ chlorolong <- reshape(
   direction = "long"
 )
 
-tmp <- do.call(rbind, strsplit(as.character(chl_long$DOY_measurement), "_"))
+tmp <- do.call(rbind, strsplit(as.character(chlorolong$DOY_measurement), "_"))
 chlorolong$DOY <- tmp[, 1]
 chlorolong$measurement <- tmp[, 2]
 rownames(chlorolong) <- NULL
@@ -193,3 +193,4 @@ chlorolongwnotes$chlValue <- as.numeric(chlorolongwnotes$chlValue)
 
 # reorganize columns 
 chl24 <- chlorolongwnotes[,c("tree_ID","bloc", "treatment", "genus", "species", "DOY", "measurement", "chlValue", "Note")]
+
