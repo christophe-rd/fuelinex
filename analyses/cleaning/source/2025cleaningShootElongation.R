@@ -164,10 +164,11 @@ mergedshoot25$adjustedshootElong <- mergedshoot25$shootElongation - mergedshoot2
 
 
 # manual cleaning of outliers resulting of data collection mistake
-acne <- subset(shoot2025, Species=="Acne")
+run=FALSE
+if(run){acne <- subset(shoot2025, Species=="Acne")
 subset(acne, Treatment == "CoolS/CoolF_nitro")
 View(subset(acne, shootElongation<4))
-
+}
 # rename file
 shoot2025 <- mergedshoot25
 
