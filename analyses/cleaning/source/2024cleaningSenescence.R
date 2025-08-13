@@ -112,6 +112,9 @@ leafdrop <- leafdrop[, c("tree_ID", "bloc", "treatment", "genus", "species",
 names(leafdrop) <- sub("^DOY\\.", "", names(leafdrop))
 
 leafdrop24 <- leafdrop
+leafdrop24$greenessLoss <- as.numeric(leafdrop24$greenessLoss)
+leafdrop24$leafDrop <- as.numeric(leafdrop24$leafDrop)
+
 
 ### === === === === === === === === === ###
 #### Organize chl and green leaf cover ####
