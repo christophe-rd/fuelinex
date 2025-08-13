@@ -290,7 +290,7 @@ ggsave("figures/shootelongstop.pdf", shootelongstop, width = 16, height = 12)
 #### Height and diameter measurements ####
 ### === === === === === === === === ### ###
 mea <- read.csv2("output/cleanedMeasurements.csv")
-colnames(meawide)
+
 meawide <- reshape(mea,
                    timevar = "year",
                    idvar = "tree_ID",

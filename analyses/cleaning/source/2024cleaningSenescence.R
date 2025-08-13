@@ -75,13 +75,16 @@ notes_df$tree_ID <- rep(sub$tree_ID, sapply(notes_list, function(x) nrow(x)))
 # change 000 to NA
 notes_df$DOY[which(notes_df$DOY == "000")] <- NA
 
+# readd columns by merge
+notesmerged <- merge(notes_df, senescence[, c("tree_ID", "bloc", "treatment", "genus", "species")], by = "tree_ID", all.x = TRUE)
+
 ### === === === === === === === === === === === === ###
 #### Get a column for leaf drop and greeness loss ####
 ### === === === === === === === === === === === === ###
 # subset only for comments about loss of greeness or lost leaves
-unique(notes_df$Note)
+unique(notesmerged$Note)
 vec <- c("no green leaves", "last leaves fell", "cant measure chl", "no leaves")
-subby <- subset(notes_df, Note %in% vec)
+subby <- subset(notesmerged, Note %in% vec)
 # Rename comments for ease of use
 subby$Note[which(subby$Note == "no green leaves")] <- "greenessLoss" 
 subby$Note[which(subby$Note == "cant measure chl")] <- "greenessLoss"
@@ -89,14 +92,25 @@ subby$Note[which(subby$Note == "last leaves fell")] <- "leafDrop"
 subby$Note[which(subby$Note == "no leaves")] <- "leafDrop" 
 
 # reshape to get 3 cols
-agg <- aggregate(DOY ~ tree_ID + Note, data = subby, FUN = function(x) x[1])
+agg <- aggregate(DOY ~ tree_ID + Note + bloc + treatment + genus + species, data = subby, FUN = function(x) x[1])
+
 leafdrop <- reshape(
   agg,
-  idvar = "tree_ID",
+  idvar   = c("tree_ID", "bloc", "treatment", "genus", "species"),
   timevar = "Note",
-  direction = "wide"
+  direction = "wide",
+  v.names = "DOY"
 )
+
+## Rename DOY.greenessLoss -> greenessLoss, DOY.leafDrop -> leafDrop
 names(leafdrop) <- sub("^DOY\\.", "", names(leafdrop))
+
+## Keep only the columns you asked for (DOY now lives in the two note columns)
+leafdrop <- leafdrop[, c("tree_ID", "bloc", "treatment", "genus", "species",
+                 "greenessLoss", "leafDrop")]
+
+names(leafdrop) <- sub("^DOY\\.", "", names(leafdrop))
+
 leafdrop24 <- leafdrop
 
 ### === === === === === === === === === ###
