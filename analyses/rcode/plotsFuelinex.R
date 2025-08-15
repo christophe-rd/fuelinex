@@ -12,6 +12,7 @@ library(dplyr)
 library(ggplot2)
 library(data.table)
 library(tidyverse)
+library(ggdist)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
 # Set the path to your directory folder 
@@ -252,7 +253,6 @@ shootelongstop <- ggplot(sub) +
                    color = year),
                fun = mean,
                geom = "point",
-               
                size = 2) +
   # Error bar (SE) per Species + Treatment + year
   stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
@@ -347,16 +347,58 @@ meawide2 <- subset(meawide, heighincrement >= 0 & diameterincrement >= 0)
 meawide3 <- subset(meawide2, genus != "sequoiadendron")
 
 # HEIGHT
+wildtime <- FALSE
+
+if(wildtime) {Ppop1<-ggplot()+
+  stat_pointinterval(data=lopred,aes(x=spp,y=.epred,color=site),.width = c(.5,.9),position=pd)+
+  coord_cartesian(ylim=c(110,150))+ylab("leafout") +
+  xlab("")+
+  ggthemes::theme_few() +
+  scale_colour_viridis_d()
+
+pop1a<-ggplot()+
+  stat_pointinterval(data=lopred2,aes(x=0,y=.epred,shape=site,color=as.factor(year)),.width = c(.5,.9),position=pd)+coord_cartesian(ylim=c(110,150))+ylab("leafout")+
+  xlab("")+ggthemes::theme_few()+scale_colour_viridis_d()+scale_x_discrete()
+
+pop2<-ggplot()+
+  stat_pointinterval(data=bspred,aes(x=spp,y=.epred,color=site),.width = c(.5,.9),position=pd)+
+  ylab("budset")+coord_cartesian(ylim=c(230,290))+
+  xlab("")+ggthemes::theme_few()+scale_colour_viridis_d()
+
+po21a<-ggplot()+
+  stat_pointinterval(data=bspred2,aes(x=0,y=.epred,shape=site,color=as.factor(year)),.width = c(.5,.9),position=pd)+coord_cartesian(ylim=c(230,290))+ylab("buset")+
+  xlab("")+ggthemes::theme_few()+scale_colour_viridis_d()+scale_x_discrete()
+
+jpeg("figures/fittedpopulations.jpeg",width = 12,height=6,unit='in',res=200)
+ggpubr::ggarrange(pop1,pop2,ncol=1,common.legend=TRUE)
+dev.off()
+}
+
+# --- ---- ----- ------------- ------------- ------------- ------------- -------------
+# try something else 
+sub <- subset(meawide3, genus == "acer")
+
+heightstatpoint <- 
+  ggplot(data=meawide3, aes(x = treatment, y = heighincrement, color=treatment)) +
+  stat_pointinterval(position= "identity", size = 2) +
+  geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 0.4) +
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("figures/heightIncrementstatpointinterval.jpg", heightstatpoint, width = 10, height = 6, units = "in", dpi = 300)
+
+# --- ---- ----- ------------- ------------- ------------- ------------- -------------
 heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
-  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
   labs(title = "height increment X treament X species",
        y = "Height Increment (cm)",
        x = "Treatment") +
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+heightplot
 ggsave("figures/heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
 
 # DIAMETER
