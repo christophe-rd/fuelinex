@@ -7,22 +7,26 @@
 \usepackage{amsmath,latexsym,amssymb,wasysym} % improving structure
 \usepackage{natbib}
 \usepackage{hyperref} % to get the little green boxes around the refs
-\usepackage{times} % setting font to times
+%\usepackage{times} % setting font to times
+\usepackage{fancyhdr} % for custom headers/footers
+
 \setstretch{1}
 %\setlength{\baselineskip}{0.167in} 
 \setlength\parindent{0pt} % no indents throughout
+
 %%%%%%%%%%%%%%%%%
+% Setup header
+\pagestyle{fancy}
+\fancyhf{} % clear header/footer
+\fancyhead[R]{Christophe Rouleau-Desrochers} % name on right side
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
 
 %\title{Proposed Research Outline}
 %\date{\today}
 %\author{Christophe Rouleau-Desrochers}
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{\small
-\textbf{Christophe Rouleau-Desrochers} \\
-UBC Student Number: 49411424
-}
-\vspace{0cm}
 
 \section*{Climate change and tree growth: drones and experiments to refine forest carbon sequestration projections}
 
@@ -44,7 +48,7 @@ This work led to my research questions. What are the mechanisms pushing down tre
 % CHAPTER 1 %
 %<><><><><><><><><><><><><><><><><><><><>
 \textbf{Chapter 1: extended growing season experiment (Fuelinex) continuation}
-Shifts in phenophases have consequences on growth during the current growing season, but experiments to date have yet to quantify if longer seasons have lagging effects over the following years (REFS). Therefore, for the first two years of my proposed award tenure, I will expand my Master's work by analysing 2025 data and extend the project for a third consecutive (2026). Along with the continuation of phenological phase monitoring over the whole growing season, I will also collect the biomass and tree cross-sections at the end of the 2026 growing season. I will perform standard dendrochronological methods on them, scan them under a high-resolution scanner and perform ring width analysis. By using growth increment through tree rings, along with shoot elongation data collected for three seasons, I will investigate how the growing season lengths for the first year affects growth over two following years. With the expansion of my Master's work, I aim to assess tree species’ potential to prolong or stretch their activity schedule and if they can invest in growth increment over multiple growing seasons. 
+Shifts in phenophases have consequences on growth during the current growing season, but experiments to date have yet to quantify if longer seasons have lagging effects over the following years (REFS). Therefore, for the first two years of my proposed award tenure, I will expand my Master's work by analysing 2025 data and extend the project for a third consecutive (2026). Along with the continuation of phenological phase monitoring over the whole growing season, I will also collect the biomass and tree cross-sections at the end of the 2026 growing season. I will perform standard dendrochronological methods on them, scan them under a high-resolution scanner and perform ring width analysis. By using growth increment through tree rings, along with shoot elongation data collected for three seasons, I will investigate how the growing season lengths for the first year affects growth over two following years. With the expansion of my Master's work, I aim to assess tree species’ potential to prolong or stretch their activity schedule and if they can invest in growth increment over multiple growing seasons. \\
 
 %<><><><><><><><><><><><><><><><><><><><>
 % CHAPTER 2 %
@@ -64,8 +68,8 @@ Getting a better understanding of accross species differences in growth synchron
 %<><><><><><><><><><><><><><><><><><><><>
 % REFERENCES
 %<><><><><><><><><><><><><><><><><><><><>
-\section{References}
+\section*{References}
 \bibliography{bibproposed.bib}
-\bibliographystyle{nature} % set citation style 
+\bibliographystyle{ecolet} % set citation style 
 
 \end{document}
