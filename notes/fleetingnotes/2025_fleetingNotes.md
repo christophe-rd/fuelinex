@@ -862,6 +862,7 @@ To ensure the imagery was well geore ferenced, we positioned 25 ground control p
 
 The protocol used to generate the orthomosaics was adapted from Over et al. (2021) .
 
-The type of model used for training is a CNN, specifically a U-Net (Ronneberger et al., 2015), whichis a semanticsegmentation algorithm.
+The type of model used for training is a CNN, specifically a U-Net (Ronneberger et al., 2015), which is a semanticsegmentation algorithm.
 
 We chose U-Net as our architecture because of its success in other individual tree classification problems (James and Bradshaw, 2020; Korznikov et al., 2021; Schiefer et al., 2020; Wagner et al., 2019).
+
