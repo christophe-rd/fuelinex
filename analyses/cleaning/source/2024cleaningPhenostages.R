@@ -130,12 +130,11 @@ long_notes <- reshape(
 # ID_DOY 
 long_notes$ID_DOY <- paste(long_notes$tree_ID, long_notes$DOY, sep = "_")
 # select only ID_DOY and Notes
-longnotes25 <- long_notes[, c("ID_DOY", "Notes")]
-rownames(longnotes25) <- NULL
-
+longnotes24 <- long_notes[, c("ID_DOY", "Notes")]
+rownames(longnotes24) <- NULL
 
 # merge phenostage+notes
-phenoNotes <- merge(phenolong, noteslong, by = "ID_DOY", all.x = TRUE)
+phenoNotes <- merge(phenolong, longnotes24, by = "ID_DOY", all.x = TRUE)
 
 # Now, to avoid mixing up autumn and spring phenophases, I will change the phenophase 0 to 7 which corresponds to the last stage of budset.
 phenoNotes$Phenostage[phenoNotes$DOY > 176 & phenoNotes$Phenostage == 0] <- 7

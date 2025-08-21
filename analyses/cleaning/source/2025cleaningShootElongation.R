@@ -57,7 +57,6 @@ shoot25$`149`[which(shoot25$tree_ID == "Acne_CoolS/CoolF_B3_R15")] <- 6.3
 
 acne <- subset(shoot25, genus=="acer")
 sub <- subset(acne, treatment == "CoolS/CoolF_nitro")
-View(subset(acne, shootElongation<4))
 
 # === === ===  === === ===  === === ===  === === ===  === === ===  === === ===
 # for now i comment the note manipulation as I need to make sure they are clean first
