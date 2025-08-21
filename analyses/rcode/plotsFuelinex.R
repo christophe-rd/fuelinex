@@ -13,6 +13,8 @@ library(ggplot2)
 library(data.table)
 library(tidyverse)
 library(ggdist)
+library(colorspace)
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 
 # Set the path to your directory folder 
@@ -25,10 +27,10 @@ source("cleaning/cleanAllFuelinex.R")
 #### Number of observations in 2024 for each Species X treatments ####
 ### === === === === === === === === === === === === ###
 # 1) Add sep
-phenostage24$Group <- paste(phenostage24$Species, phenostage24$Treatment, sep="__SEP__")
+phenostage24$Group <- paste(phenostage24$species, phenostage24$treatment, sep="__SEP__")
 
 # 2) Keep only the unique (ID, Group, Phenostage) combinations
-df_unique <- unique(phenostage24[, c("ID","Group","phenostageNum")])
+df_unique <- unique(phenostage24[, c("tree_ID","Group","phenostageNum")])
 
 # 3) Build a contingency table: rows = Group; cols = Phenostage
 tab <- table(df_unique$Group, df_unique$phenostageNum)
@@ -88,7 +90,7 @@ ggsave("figures/heatmap.jpeg", plot = heatmap)
 ### === === === === === === === === === === === === ###
 # mean and sd for each phenophase X Species X Treatment
 summary_stats <- aggregate(
-  DOY ~ phenophaseText + Species + Treatment, 
+  DOY ~ phenophaseText + species + treatment, 
   data = phenostage24, 
   FUN = function(x) c(mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE))
 )
@@ -106,7 +108,7 @@ suby <- suby[suby$Treatment %in% vectreat, ]
 # Create the plot
 # Sample data for shoot elongation periods
 # Plot
-ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
+ggplot(suby, aes(x = mean_DOY, y = treatment, color = phenophaseText)) +
   geom_point(size = 3, alpha = 0.7) + 
   geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
                  height = 0.2, alpha = 0.5, linewidth = 0.6) + 
@@ -114,7 +116,7 @@ ggplot(suby, aes(x = mean_DOY, y = Treatment, color = phenophaseText)) +
   # Add text annotation for shoot elongation (aligned with species)
   # geom_text(data = shootperiods, aes(x = (start + end) / 2, y = 4.7, label = "Shoot Elongation"), 
   #           vjust = 2, hjust = 0.5, color = "black", size = 4) +
-  facet_wrap(~Species, scales = "free_y") +  # Adjust y-axis scales if needed
+  facet_wrap(~species, scales = "free_y") +  # Adjust y-axis scales if needed
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -152,7 +154,7 @@ mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
 # select only the non nitro treatments for now
 
 vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
-green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "orange", "lightblue")
+green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "#008000", "#7CFC00")
 
 nonitro <- subset(mean_stats, Treatment %in% vec)
 
@@ -347,59 +349,57 @@ meawide2 <- subset(meawide, heighincrement >= 0 & diameterincrement >= 0)
 meawide3 <- subset(meawide2, genus != "sequoiadendron")
 
 # HEIGHT
-wildtime <- FALSE
+cols <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
 
-if(wildtime) {Ppop1<-ggplot()+
-  stat_pointinterval(data=lopred,aes(x=spp,y=.epred,color=site),.width = c(.5,.9),position=pd)+
-  coord_cartesian(ylim=c(110,150))+ylab("leafout") +
-  xlab("")+
-  ggthemes::theme_few() +
-  scale_colour_viridis_d()
-
-pop1a<-ggplot()+
-  stat_pointinterval(data=lopred2,aes(x=0,y=.epred,shape=site,color=as.factor(year)),.width = c(.5,.9),position=pd)+coord_cartesian(ylim=c(110,150))+ylab("leafout")+
-  xlab("")+ggthemes::theme_few()+scale_colour_viridis_d()+scale_x_discrete()
-
-pop2<-ggplot()+
-  stat_pointinterval(data=bspred,aes(x=spp,y=.epred,color=site),.width = c(.5,.9),position=pd)+
-  ylab("budset")+coord_cartesian(ylim=c(230,290))+
-  xlab("")+ggthemes::theme_few()+scale_colour_viridis_d()
-
-po21a<-ggplot()+
-  stat_pointinterval(data=bspred2,aes(x=0,y=.epred,shape=site,color=as.factor(year)),.width = c(.5,.9),position=pd)+coord_cartesian(ylim=c(230,290))+ylab("buset")+
-  xlab("")+ggthemes::theme_few()+scale_colour_viridis_d()+scale_x_discrete()
-
-jpeg("figures/fittedpopulations.jpeg",width = 12,height=6,unit='in',res=200)
-ggpubr::ggarrange(pop1,pop2,ncol=1,common.legend=TRUE)
-dev.off()
-}
-
-# --- ---- ----- ------------- ------------- ------------- ------------- -------------
-# try something else 
-sub <- subset(meawide3, genus == "acer")
-
-heightstatpoint <- 
-  ggplot(data=meawide3, aes(x = treatment, y = heighincrement, color=treatment)) +
-  stat_pointinterval(position= "identity", size = 2) +
-  geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 0.4) +
-  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
-  theme_minimal()+
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("figures/heightIncrementstatpointinterval.jpg", heightstatpoint, width = 10, height = 6, units = "in", dpi = 300)
-
-# --- ---- ----- ------------- ------------- ------------- ------------- -------------
+# --- ---- ----- ------------- ------------- ------------- ------------- 
+# mean with line range sd
 heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
-  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
-  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
+  scale_color_manual(values = cols) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
-  labs(title = "height increment X treament X species",
+  labs(title = "Height increment X treatment X species",
        y = "Height Increment (cm)",
        x = "Treatment") +
-  theme_minimal()+
+  theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 heightplot
-ggsave("figures/heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+
+ggsave("figures/heightIncrement.jpg", heightplot, width = 10, height = 6, units = "in", dpi = 300)
+
+# violin
+heightviolin <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
+  geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
+  scale_color_manual(values = cols) +  
+  scale_fill_manual(values = cols) +  
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "Height increment X treatment X species",
+       y = "Height Increment (cm)",
+       x = "Treatment") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+heightviolin
+ggsave("figures/heightviolin.jpeg", heightviolin, width = 10, height = 6, units = "in", dpi = 300)
+
+# halfeye plot
+heighthalfeye <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment, fill = treatment)) +
+  geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 0.6) +
+  ggdist::stat_halfeye(
+    justification = -0.1, 
+    .width = 0, 
+    point_interval = ggdist::mean_qi
+  ) +
+  scale_color_manual(values = cols) +  
+  scale_fill_manual(values = cols) +  
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+heighthalfeye
+
+ggsave("figures/heighthalfeye.jpg", heighthalfeye, width = 10, height = 6, units = "in", dpi = 300)
 
 # DIAMETER
 diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement, color = treatment)) +
