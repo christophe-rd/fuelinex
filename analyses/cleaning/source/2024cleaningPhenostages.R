@@ -31,7 +31,7 @@ phenostages$Notes[which(phenostages$notes == "116: stage 2 not 3")] <- "doy116: 
 phenostages$Notes[which(phenostages$notes == "116: stage 1 not 2")] <- "doy116: stage 1 not 2"
 phenostages$Notes[which(phenostages$notes == "probably dead. Doy137: main shoot dead, sprouting from bottom, no phenomonitoring")] <- "probably dead. doy137: main shoot dead, sprouting from bottom, no phenomonitoring"
 phenostages$Notes[which(phenostages$notes == "116: main stem 2, smaller branch 4; doy182: apical shoot almost dead")] <- "doy116: main stem 2, smaller branch 4; doy182: apical shoot almost dead"
-phenostages$Notes[which(phenostages$notes == "116: stage 3 not 4; doy207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
+phenostages$Notes[which(phenostages$notes == "116: stage 3 not 4; doy 207; one side of the bud is still green")] <- "doy116: stage 3 not 4; doy207: one side of the bud is still green"
 phenostages$Notes[which(phenostages$notes == "doy207: apical shoot ate doy221: apical shoot dead")] <- "doy207: apical shoot ate; doy221: apical shoot dead"
 phenostages$Notes[which(phenostages$notes == "doy262:bud bursting again")] <- "doy262:bud bursting again"
 # add doyNA: when there is no doy associated with the note
@@ -42,9 +42,9 @@ phenostages$Notes[which(phenostages$notes == "main 2. lateral 4; doy199: side sh
 phenostages$Notes[which(phenostages$notes == "main maybe dead")] <- "doyNA: main maybe dead"
 phenostages$Notes[which(phenostages$notes == "terminal buds seem dead; lateral 3")] <- "doyNA: terminal buds seem dead. lateral 3"
 phenostages$Notes[which(phenostages$notes == "dead--dendrometer switch it?")] <- "doyNA: dead--dendrometer switch it?"
-phenostages$Notes[which(phenostages$notes == "main 2; lateral 4; doy199: side shoot observed")] <- "doyNA: main 2, lateral 4; doy199: side shoot observed"
 phenostages$Notes[which(phenostages$notes == "dead; side shoots sprouting")] <- "doyNA: dead. side shoots sprouting" 
-phenostages$Notes[which(phenostages$notes == "probably dead; doy 207: ijbol it's missing")] <- "doyNA: probably dead; doy207: ijbol it's missing" 
+phenostages$Notes[which(phenostages$notes == "probably dead; doy 207: ijbol it's missing")] <- "doyNA: probably dead" 
+phenostages$Notes[which(phenostages$notes == "main 2; lateral 4; doy 199: side shoot observed")] <- "doy199: side shoot observed"
 
 #replace doyNA by doy000 so it's numerical
 phenostages$Notes <- ifelse(phenostages$Notes == "" | is.na(phenostages$Notes), phenostages$Notes, gsub("doyNA", "doy000", phenostages$Notes))
@@ -85,43 +85,57 @@ convert_to_numeric <- function(x) {
   as.numeric(ifelse(grepl("^[0-9]+$", x), x, NA))
 }
 # # Convert to numeric
-for (i in 7:ncol(phenostages)) {
+for (i in 7:ncol(phenostages)-1) {
   phenostages[, i] <- convert_to_numeric(phenostages[, i]) # at some point I should make sure I am not loosing any values
 }
 
-# convert to long format
-phenolong <- phenostages %>%
-  pivot_longer(
-    cols = -c(tree_ID, bloc, treatment, genus, species, notes, Notes),
-    names_to = "DOY",
-    values_to = "Phenostage",
-  ) %>%
-  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
-  select(ID_DOY, Phenostage)                  
+# Convert to long
+idcols <- c("tree_ID", "bloc", "treatment", "genus", "species", "notes", "Notes")
+# cols to select
+measure_cols <- setdiff(names(phenostages), idcols)
+
+# Reshape to long
+phenolong <- reshape(
+  phenostages,
+  varying = measure_cols,
+  v.names = "Phenostage",
+  timevar = "DOY",
+  times = measure_cols,
+  idvar = "tree_ID",
+  direction = "long"
+)
+
+# Create ID_DOY
+phenolong$ID_DOY <- paste(phenolong$tree_ID, phenolong$DOY, sep = "_")
+
+# select cols
+phenolong <- phenolong[, c("ID_DOY", "tree_ID", "bloc", "treatment", "genus", "species", "DOY", "Phenostage")]
+
+rownames(phenolong) <- NULL
+
 
 # convert notes wide df to long format
-noteslong <- wide_notes %>%
-  pivot_longer(
-    cols = -tree_ID,  
-    names_to = "DOY", 
-    values_to = "Notes"  
-  ) %>%
-  unite("ID_DOY", tree_ID, DOY, sep = "_") %>%  
-  select(ID_DOY, Notes) 
+idcol <- "tree_ID"
+measure_cols <- setdiff(names(wide_notes), idcol)
+# reshape to long format
+long_notes <- reshape(
+  wide_notes,
+  varying = measure_cols,
+  v.names = "Notes",
+  timevar = "DOY",
+  times = measure_cols,
+  idvar = "tree_ID",
+  direction = "long"
+)
+# ID_DOY 
+long_notes$ID_DOY <- paste(long_notes$tree_ID, long_notes$DOY, sep = "_")
+# select only ID_DOY and Notes
+longnotes25 <- long_notes[, c("ID_DOY", "Notes")]
+rownames(longnotes25) <- NULL
+
 
 # merge phenostage+notes
 phenoNotes <- merge(phenolong, noteslong, by = "ID_DOY", all.x = TRUE)
-# separate again the doy and id
-phenoNotes$ID <- sub("(_\\d+)$", "", phenoNotes$ID_DOY)  
-phenoNotes$DOY <- sub(".*_(\\d+)$", "\\1", phenoNotes$ID_DOY) 
-phenoNotes$Species <- sub("^([A-Za-z]+)_.*", "\\1", phenoNotes$ID_DOY)
-phenoNotes$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", phenoNotes$ID_DOY)
-
-# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
-phenoNotes$Treatment <- ifelse(grepl("_nitro", phenoNotes$ID_DOY), 
-                               paste0(phenoNotes$Treatment, "_nitro"), 
-                               phenoNotes$Treatment)
-unique(phenoNotes$Treatment)
 
 # Now, to avoid mixing up autumn and spring phenophases, I will change the phenophase 0 to 7 which corresponds to the last stage of budset.
 phenoNotes$Phenostage[phenoNotes$DOY > 176 & phenoNotes$Phenostage == 0] <- 7
@@ -182,25 +196,24 @@ filter_phenostage <- function(df) {
   return(df[keep, ])
 }
 # apply function to df
-d <- do.call(rbind, lapply(split(phenoNOna, phenoNOna$ID), filter_phenostage))
+d <- do.call(rbind, lapply(split(phenoNOna, phenoNOna$tree_ID), filter_phenostage))
 rownames(d) <- NULL
 
 # Change rows order and remove the ones I don't want anymore
-d$phenostageNum <- d$Phenostage
+d$phenostageNum <- as.numeric(as.character(d$Phenostage))
 
-# re-add bloc column
-d$Bloc <- sub(".+_(B\\d+)_.*", "\\1", d$ID)
 # add year column
 d$Year <- 2024
 d <- subset(d, select = c(
-  "ID", 
-  "Species", 
-  "Treatment",
-  "Bloc",
+  "tree_ID", 
+  "bloc", 
+  "treatment",
+  "genus",
+  "species",
+  "Year",
+  "DOY",
   "phenostageNum",
   "phenophaseText", 
-  "DOY",
-  "Year",
   "Notes"))
 
 # rename 
