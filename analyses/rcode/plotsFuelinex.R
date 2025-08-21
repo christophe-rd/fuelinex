@@ -243,26 +243,29 @@ shootelongbinded$Treatment <- ifelse(grepl("_nitro", shootelongbinded$ID),
 shootelongforplot <- shootelongbinded[!is.na(shootelongbinded$DOY),]
 shootelongforplot$DOY <- as.numeric(shootelongforplot$DOY)
 
-# select only species that stopped elongating as of 5 August 2025
-sub <- subset(shootelongforplot, Species %in% c("Acne", "Prvi", "Pist", "Quma"))
-
 # PLOT
-shootelongstop <- ggplot(sub) +
+cols2 <- c("#00858a", "#e46e00")
+
+subforplot <- subset(shootelongforplot, Species != "Segi")
+
+shootelongstop <- ggplot(subforplot) +
   geom_point(aes(x = Treatment, y = DOY, color = year),
-             position = position_jitter(width = 0.1), alpha = 0.2) +
-  # Mean point per Species + Treatment + year
+             position = position_jitterdodge(dodge.width = 0.8, jitter.width = 0), 
+             alpha = 0.2) +
   stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
                    color = year),
                fun = mean,
                geom = "point",
-               size = 2) +
-  # Error bar (SE) per Species + Treatment + year
+               size = 2,
+               position = position_dodge(width = 0.8)) +
   stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
                    color = year),
-    fun.data = mean_se,
-    geom = "linerange"
+               fun.data = mean_se,
+               geom = "linerange",
+               position = position_dodge(width = 0.8)
   )+
-  facet_wrap(~Species, ncol = 6, nrow = 7, scales = "free_y") +
+  scale_color_manual(values = cols2) +  
+  facet_wrap(~Species, ncol = 3, nrow = 2, scales = "free_y") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 shootelongstop
