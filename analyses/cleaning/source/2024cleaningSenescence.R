@@ -17,6 +17,9 @@ senescence <- read.csv2("input/2024Senescence.csv", header = TRUE, sep = ",", ch
 
 colnames(senescence)[6] <- "notes"
 
+# remove evergreen species
+senescence <- subset(senescence, !(genus %in% c("pinus", "sequoiadendron")))
+
 ### === === === === ###
 #### Clean notes ####
 ### === === === === ###
