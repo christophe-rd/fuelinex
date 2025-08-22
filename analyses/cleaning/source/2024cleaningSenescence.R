@@ -214,3 +214,6 @@ chlorolongwnotes$chlValue <- as.numeric(chlorolongwnotes$chlValue)
 # reorganize columns 
 chl24 <- chlorolongwnotes[,c("tree_ID","bloc", "treatment", "genus", "species", "DOY", "measurement", "chlValue", "Note")]
 
+# add which meter it was used on each day
+chl24$meter <- ifelse(chl24$DOY <= 269, "ccm200plus", "minolta")
+
