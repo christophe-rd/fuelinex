@@ -105,7 +105,7 @@ long_df <- reshape(
 # create ID_DOY
 long_df$ID_DOY <- paste(long_df$tree_ID, long_df$DOY, sep = "_")
 # select the cols i want and remove anoying rownames
-longshoot25 <- long_df[, c("ID_DOY", "shootElongation")]
+longshoot25 <- long_df[, c("ID_DOY", "tree_ID", "bloc", "treatment", "genus", "species", "DOY", "shootElongation")]
 rownames(longshoot25) <- NULL
 
 ### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
@@ -136,18 +136,6 @@ rownames(longnotes25) <- NULL
 # merge phenostage+notes
 longshoot25 <- merge(longshoot25, longnotes25, by = "ID_DOY", all.x = TRUE)
 
-# separate again the doy and id
-longshoot25$shootElongation <- as.numeric(longshoot25$shootElongation)
-longshoot25$ID <- sub("(_\\d+)$", "", longshoot25$ID_DOY)  
-longshoot25$DOY <- sub(".*_(\\d+)$", "\\1", longshoot25$ID_DOY) 
-longshoot25$Species <- sub("^([A-Za-z]+)_.*", "\\1", longshoot25$ID_DOY)
-longshoot25$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", longshoot25$ID_DOY)
-
-# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
-longshoot25$Treatment <- ifelse(grepl("_nitro", longshoot25$ID_DOY), 
-                              paste0(longshoot25$Treatment, "_nitro"), 
-                              longshoot25$Treatment)
-
 # remove na shoot25 elongation values
 longshootnona25 <- longshoot25[!is.na(longshoot25$shootElongation),] 
 
@@ -168,6 +156,9 @@ if(run){acne <- subset(shoot2025, Species=="Acne")
 subset(acne, Treatment == "CoolS/CoolF_nitro")
 View(subset(acne, shootElongation<4))
 }
+
+mergedshoot25$DOY <- as.numeric(as.character(mergedshoot25$DOY))
+
 # rename file
 shoot2025 <- mergedshoot25
 
