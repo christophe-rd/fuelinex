@@ -2,9 +2,11 @@
 # 27 May 2025
 # Goal is to start visualization for fuelinex
 
-# housekeeping
-rm(list=ls()) 
-options(stringsAsFactors = FALSE)
+# Set the path to your directory folder 
+setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
+
+# run cleaning cleanall 
+source("cleaning/cleanAllFuelinex.R")
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Load librairies
@@ -14,14 +16,10 @@ library(data.table)
 library(tidyverse)
 library(ggdist)
 library(colorspace)
-
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
-
-# Set the path to your directory folder 
-setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
-
-# run cleaning cleanall 
-source("cleaning/cleanAllFuelinex.R")
+# Custom color palets
+variouspallet6 <- c("#41afaa", "#466eb4", "#af4b91", "#00a0e1", "#e6a532", "#d7642c")
+greenpallet <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "#008000", "#7CFC00")
 
 ### === === === === === === === === === === === === ###
 #### Number of observations in 2024 for each Species X treatments ####
@@ -29,7 +27,7 @@ source("cleaning/cleanAllFuelinex.R")
 # 1) Add sep
 phenostage24$Group <- paste(phenostage24$species, phenostage24$treatment, sep="__SEP__")
 
-# 2) Keep only the unique (ID, Group, Phenostage) combinations
+# 2) Keep only the unique (tree_ID, Group, Phenostage) combinations
 df_unique <- unique(phenostage24[, c("tree_ID","Group","phenostageNum")])
 
 # 3) Build a contingency table: rows = Group; cols = Phenostage
@@ -100,10 +98,11 @@ summary_stats$sd_DOY <- summary_stats$DOY[, "sd"]
 
 # for now, just take dormant and unroled
 vec <- c("Leaf fully unfolded", "Bud is fully set")
-suby <- summary_stats[summary_stats$phenophaseText %in% vec, ]
+suby <- subset(summary_stats, phenophaseText %in% vec)
+
 # and select only for growing season extension treatments
 vectreat <- c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF")
-suby <- suby[suby$Treatment %in% vectreat, ]
+suby <- subset(suby, treatment %in% vectreat)
 
 # Create the plot
 # Sample data for shoot elongation periods
@@ -135,15 +134,15 @@ ggplot(suby, aes(x = mean_DOY, y = treatment, color = phenophaseText)) +
 #### Shoot elongation ####
 ### === === === === === ###
 # get mean measurement per doy, species and treatement i.e. mean per replicate
-mean_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
+mean_stats <- aggregate(adjustedshootElong ~ species + treatment + DOY, 
                         data = shoot2025, FUN = mean, na.rm = TRUE)
-sd_stats <- aggregate(adjustedshootElong ~ Species + Treatment + DOY, 
+sd_stats <- aggregate(adjustedshootElong ~ species + treatment + DOY, 
                         data = shoot2025, FUN = sd, na.rm = TRUE)
 colnames(sd_stats)
 
 # merge mean and sd dfs by species, treatment and DOY
-mean_stats$id <- paste0(mean_stats$Species, "_", mean_stats$Treatment, "_", mean_stats$DOY)
-sd_stats$id <- paste0(sd_stats$Species, "_", sd_stats$Treatment, "_", sd_stats$DOY)
+mean_stats$id <- paste0(mean_stats$Species, "_", mean_stats$treatment, "_", mean_stats$DOY)
+sd_stats$id <- paste0(sd_stats$Species, "_", sd_stats$treatment, "_", sd_stats$DOY)
 sd_stats2 <- sd_stats[, c(5,4)]
 colnames(sd_stats2) <- c("id", "sd")
 mergeforplot <- merge(mean_stats, sd_stats2, by = "id")
@@ -154,14 +153,13 @@ mean_stats <- subset(mean_stats, !DOY == 164) # 164 and 192
 # select only the non nitro treatments for now
 
 vec <- c("CoolS/CoolF", "CoolS/WarmF", "WarmS/WarmF", "WarmS/CoolF")
-green_palette <- c("#006400", "#32CD32", "#66CDAA", "#ADFF2F", "#008000", "#7CFC00")
 
-nonitro <- subset(mean_stats, Treatment %in% vec)
+nonitro <- subset(mean_stats, treatment %in% vec)
 
 #shoot elongation plot
 shootelongation <- ggplot(mean_stats) +
-  geom_line(aes(x = DOY, y = adjustedshootElong, color = Treatment, group = Treatment)) + 
-  facet_wrap(~Species, scales = "free_y") +  
+  geom_line(aes(x = DOY, y = adjustedshootElong, color = treatment, group = treatment)) + 
+  facet_wrap(~species, scales = "free_y") +  
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -169,7 +167,7 @@ shootelongation <- ggplot(mean_stats) +
     title = "Shoot elongation 2025",
     color = "Treatment"  # Updated legend title
   ) +
-  scale_color_manual(values=green_palette)+
+  scale_color_manual(values=greenpallet)+
   theme_classic() + 
   theme(
     axis.text.y = element_text(size = 10, face = "italic"),
@@ -181,11 +179,11 @@ shootelongation
 ggsave("figures/shootElongationbySpp.pdf", shootelongation)
 
 # let's try something else
-test <- subset(shoot2025, Species != "Segi")
+test <- subset(shoot2025, genus != "sequoiadendron")
 
 shootelong2025XSppXTreat <- ggplot(test) +
-  geom_line(aes(x = DOY, y = shootElongation, group = ID, color = Species)) + 
-  facet_wrap(Species~Treatment, scales = "free_y") +  
+  geom_line(aes(x = DOY, y = shootElongation, group = tree_ID, color = species)) + 
+  facet_wrap(species~treatment, scales = "free_y") +  
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -193,7 +191,7 @@ shootelong2025XSppXTreat <- ggplot(test) +
     title = "Shoot elongation 2025",
     color = ""  # Updated legend title
   ) +
-  scale_color_manual(values=green_palette)+
+  scale_color_manual(values=greenpallet)+
   theme_classic()
 shootelong2025XSppXTreat
 # save!
@@ -201,27 +199,27 @@ ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width =
 
 ##### Plots when they stopped elongating #####
 # 2024
-shoot24forstop <- shoot2024[order(shoot2024$ID, shoot2024$DOY), ]
+shoot24forstop <- shoot2024[order(shoot2024$tree_ID, shoot2024$DOY), ]
 ## split by replicate, look at the first delta < 0.2
 stopelong24 <- do.call(rbind,
-                       by(shoot24forstop, shoot24forstop$ID, function(df) {
+                       by(shoot24forstop, shoot24forstop$tree_ID, function(df) {
                          inc<- c(NA, diff(df$shootElongation))
                          idx<- which(inc < 0.2)[1] 
-                         if (length(idx)) df[idx, c("ID", "DOY")]
+                         if (length(idx)) df[idx, c("tree_ID", "DOY")]
                        })
 )
 row.names(stopelong24) <- NULL
 stopelong24$year <- as.character(2024)
 
 # 2025
-shoot25forstop <- shoot2025[order(shoot2025$ID, shoot2025$DOY), ]
+shoot25forstop <- shoot2025[order(shoot2025$tree_ID, shoot2025$DOY), ]
 
 ## split by replicate, look at the first delta < 0.2
 stopelong25 <- do.call(rbind,
-                    by(shoot25forstop, shoot25forstop$ID, function(df) {
+                    by(shoot25forstop, shoot25forstop$tree_ID, function(df) {
                       inc<- c(NA, diff(df$shootElongation))
                       idx<- which(inc < 0.2)[1] 
-                      if (length(idx)) df[idx, c("ID", "DOY")]
+                      if (length(idx)) df[idx, c("tree_ID", "DOY")]
                     })
 )
 row.names(stopelong25) <- NULL
@@ -231,11 +229,11 @@ stopelong25$year <- as.character(2025)
 shootelongbinded <- rbind(stopelong24, stopelong25)
 
 # readd columns
-shootelongbinded$Species <- sub("^([^_]+)_.*", "\\1", shootelongbinded$ID)
-shootelongbinded$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", shootelongbinded$ID)
+shootelongbinded$Species <- sub("^([^_]+)_.*", "\\1", shootelongbinded$tree_ID)
+shootelongbinded$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", shootelongbinded$tree_ID)
 
 # Append "_nitro" if "nitro" appears anywhere in the ID_DOY
-shootelongbinded$Treatment <- ifelse(grepl("_nitro", shootelongbinded$ID), 
+shootelongbinded$Treatment <- ifelse(grepl("_nitro", shootelongbinded$tree_ID), 
                                 paste0(shootelongbinded$Treatment, "_nitro"), 
                                 shootelongbinded$Treatment)
 
@@ -279,35 +277,112 @@ ggsave("figures/shootelongstop.pdf", shootelongstop, width = 12, height = 8)
 # --- --- --- --- --- #
 ##### GreenessLoss #####
 # --- --- --- --- --- #
-greenesslossnona <- leafdrop24[!is.na(leafdrop24$greenessLoss), 1:ncol(leafdrop24)-1]
-str(greenesslossnona)
+greenesslossnona24 <- leafdrop24[!is.na(leafdrop24$greenessLoss), 1:ncol(leafdrop24)-1]
+str(greenesslossnona24)
 
-greenessloss <- ggplot(greenesslossnona, aes(x = treatment, y = greenessLoss, color = treatment)) +
+greenessloss24_plot <- ggplot(greenesslossnona24, aes(x = treatment, y = greenessLoss, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
-  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
-  labs(title = "diameter increment X treament X species",
-       y = "diameter Increment (cm)",
+  labs(title = "Time of greeness loss",
+       y = "DOY",
        x = "Treatment") +
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-greenessloss
-ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+greenessloss24_plot
+ggsave("figures/greenessloss24.jpg", greenessloss24_plot, width = 10, height = 6, units = "in", dpi = 300)
 
 
 # --- --- --- --- --- #
 ##### Leaf Drop #####
 # --- --- --- --- --- #
-leafdrop24
+leafdrop24nona <- leafdrop24[!is.na(leafdrop24$leafDrop), ]
+str(leafdrop24nona)
+
+leafdrop24_plot <- ggplot(leafdrop24nona, aes(x = treatment, y = leafDrop, color = treatment)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, 
+               color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", width = 0.2, 
+               color = "black", position = position_dodge(width = 0.5)) +
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "Time of leaf drop (no leaves left on tree)",
+       y = "DOY",
+       x = "Treatment") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+leafdrop24_plot
+ggsave("figures/leafdrop24.jpg", leafdrop24_plot, width = 10, height = 6, units = "in", dpi = 300)
+
 # --- --- --- --- --- --- --- ---  #
 ##### Visual green leaf cover #####
 # --- --- --- --- --- --- --- --- #
 greenleafcover24
+
+greenleafcover24_plot <- ggplot(greenleafcover24) +
+  geom_smooth(aes(x = DOY, y = greenCovPer, color = treatment)) + 
+  facet_wrap(~species, scales = "free_y") +  
+  theme_minimal() +
+  labs(
+    x = "DOY",
+    y = "Remaining greeenleaf cover (%)", 
+    title = "Greenleaf cover 2024",
+    color = "Treatments"  
+  ) +
+  scale_color_manual(values=greenpallet)+
+  theme_classic()
+greenleafcover24_plot
+ggsave("figures/greenleafcover24.jpg", greenleafcover24_plot, width = 10, height = 6, units = "in", dpi = 300)
 # --- --- --- --- --- --- --- --- --- #
 ##### Chlorophyll measurements #####
 # --- --- --- --- --- --- --- --- --- #
-chl24
+# until the conversion factor from ccm to minolta is done, I'll filter out all measurements from ccm
+chl24sub <- subset(chl24, DOY >269)
+
+# aggregate by measurement for means
+fun <- aggregate(chlValue ~ tree_ID + species + treatment + DOY + measurement,
+          data = chl24sub,
+          FUN = mean,
+          na.rm = TRUE)
+
+chl24_plot <- ggplot(fun) +
+  geom_smooth(aes(x = DOY, y = chlValue, color = treatment)) + 
+  facet_wrap(~species, scales = "free_y") +  
+  theme_minimal() +
+  labs(
+    x = "DOY",
+    y = "chlValue", 
+    title = "Chlorophyll measurements 2024",
+    color = ""  # Updated legend title
+  ) +
+  scale_color_manual(values=greenpallet)+
+  theme_classic()
+chl24_plot
+
+
+ggplot(chl24sub, aes(x = DOY, y = chlValue, group = tree_ID, color = treatment)) +
+  geom_line(alpha = 0.2) +  # faint lines for individuals
+  stat_summary(aes(group = interaction(species, treatment)), 
+               fun = mean, geom = "line", size = 1.2) +
+  facet_wrap(~ species) +
+  scale_color_manual(values = variouspallet6) 
+
+subby <- subset(fun, species == "acer_negundo")
+ggplot(subby, aes(x = DOY, y = chlValue,  color = tree_ID)) +
+  geom_line(alpha = 0.2) +  # faint lines for individuals
+  stat_summary(aes(group = interaction(species, treatment)), 
+               fun = mean, geom = "line", size = 1.2) +
+  facet_wrap(~ species)
+  # scale_color_manual(values = variouspallet6) 
+dens(chl24sub$chlValue)
+
+ggplot(chl24sub, aes(x = DOY, y = chlValue, color = treatment)) +
+  stat_summary(fun = mean, geom = "line", size = 1.2) +
+  stat_summary(fun.data = mean_se, geom = "ribbon", alpha = 0.2, aes(fill = treatment)) +
+  facet_wrap(~ species) +
+  scale_color_manual(values = variouspallet6) 
+
 
 ### === === === === === === === === ### ###
 #### Height and diameter measurements ####
@@ -352,7 +427,7 @@ meawide2 <- subset(meawide, heighincrement >= 0 & diameterincrement >= 0)
 meawide3 <- subset(meawide2, genus != "sequoiadendron")
 
 # HEIGHT
-cols <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
+variouspallet6 <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
 
 # --- ---- ----- ------------- ------------- ------------- ------------- 
 # mean with line range sd
@@ -360,7 +435,7 @@ heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = tr
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
   stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
-  scale_color_manual(values = cols) +  
+  scale_color_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
   labs(title = "Height increment X treatment X species",
        y = "Height Increment (cm)",
@@ -376,8 +451,8 @@ heightviolin <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = 
   geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
-  scale_color_manual(values = cols) +  
-  scale_fill_manual(values = cols) +  
+  scale_color_manual(values = variouspallet6) +  
+  scale_fill_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
   labs(title = "Height increment X treatment X species",
        y = "Height Increment (cm)",
@@ -395,8 +470,8 @@ heighthalfeye <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color =
     .width = 0, 
     point_interval = ggdist::mean_qi
   ) +
-  scale_color_manual(values = cols) +  
-  scale_fill_manual(values = cols) +  
+  scale_color_manual(values = variouspallet6) +  
+  scale_fill_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
