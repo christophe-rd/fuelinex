@@ -109,7 +109,7 @@ longdf24 <- reshape(
 # create ID_DOY
 longdf24$ID_DOY <- paste(longdf24$tree_ID, longdf24$DOY, sep = "_")
 # select the cols i want and remove anoying rownames
-longdf24 <- longdf24[, c("ID_DOY", "shootElongation")]
+longdf24 <- longdf24[, c("ID_DOY", "tree_ID", "bloc", "treatment", "genus", "species", "DOY", "shootElongation")]
 rownames(longdf24) <- NULL
 
 ### --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ###
@@ -140,30 +140,18 @@ rownames(longnotes24) <- NULL
 # merge phenostage+notes
 longshoot24 <- merge(longdf24, longnotes24, by = "ID_DOY", all.x = TRUE)
 
-# separate again the doy and id
-longshoot24$ShootElongation <- as.numeric(longshoot24$shootElongation)
-longshoot24$ID <- sub("(_\\d+)$", "", longshoot24$ID_DOY)  
-longshoot24$DOY <- sub(".*_(\\d+)$", "\\1", longshoot24$ID_DOY) 
-longshoot24$Species <- sub("^([A-Za-z]+)_.*", "\\1", longshoot24$ID_DOY)
-longshoot24$Treatment <- sub("^[^_]+_([^_]+)_B\\d+.*", "\\1", longshoot24$ID_DOY)
-
-# Append "_nitro" if "nitro" appears anywhere in the ID_DOY
-longshoot24$Treatment <- ifelse(grepl("_nitro", longshoot24$ID_DOY), 
-                               paste0(longshoot24$Treatment, "_nitro"), 
-                               longshoot24$Treatment)
-
 # remove na shoot elongation values
-longshootnona <- longshoot24[!is.na(longshoot24$ShootElongation),] 
+longshootnona <- longshoot24[!is.na(longshoot24$shootElongation),] 
 
 # find the first doy for every replicate
-first_doy <- aggregate(DOY ~ ID, data = longshootnona, FUN = min)
-first_values <- merge(longshootnona, first_doy, by = c("ID", "DOY"))
-first_values <- first_values[, c("ID", "ShootElongation")]
-colnames(first_values) <- c("ID", "First_ShootElongation")
+first_doy <- aggregate(DOY ~ tree_ID, data = longshootnona, FUN = min)
+first_values <- merge(longshootnona, first_doy, by = c("tree_ID", "DOY"))
+first_values <- first_values[, c("tree_ID", "shootElongation")]
+colnames(first_values) <- c("tree_ID", "First_ShootElongation")
 
 # merge back to have first measurement in df
-mergedshoot <- merge(longshootnona, first_values, by = "ID") 
-mergedshoot$adjustedShootElong <- mergedshoot$ShootElongation - mergedshoot$First_ShootElongation
+mergedshoot <- merge(longshootnona, first_values, by = "tree_ID") 
+mergedshoot$adjustedShootElong <- mergedshoot$shootElongation - mergedshoot$First_ShootElongation
 
 # rename file
 shoot2024 <- mergedshoot
