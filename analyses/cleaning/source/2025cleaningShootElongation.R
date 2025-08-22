@@ -140,13 +140,13 @@ longshoot25 <- merge(longshoot25, longnotes25, by = "ID_DOY", all.x = TRUE)
 longshootnona25 <- longshoot25[!is.na(longshoot25$shootElongation),] 
 
 # find the first doy for every replicate
-first_doy <- aggregate(DOY ~ ID, data = longshootnona25, FUN = min)
-first_values <- merge(longshootnona25, first_doy, by = c("ID", "DOY"))
-first_values <- first_values[, c("ID", "shootElongation")]
-colnames(first_values) <- c("ID", "First_shootElongation")
+first_doy <- aggregate(DOY ~ tree_ID, data = longshootnona25, FUN = min)
+first_values <- merge(longshootnona25, first_doy, by = c("tree_ID", "DOY"))
+first_values <- first_values[, c("tree_ID", "shootElongation")]
+colnames(first_values) <- c("tree_ID", "First_shootElongation")
 
 # merge back to have first measurement in df
-mergedshoot25 <- merge(longshootnona25, first_values, by = "ID") 
+mergedshoot25 <- merge(longshootnona25, first_values, by = "tree_ID") 
 mergedshoot25$adjustedshootElong <- mergedshoot25$shootElongation - mergedshoot25$First_shootElongation
 
 
