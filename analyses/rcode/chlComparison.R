@@ -40,7 +40,7 @@ chl$ccm200plus <- as.numeric(as.character(chl$ccm200plus))
 # remove NA rows
 chl <- chl[!is.na(chl$minolta), ]
 
-# simulate data
+# Simulate data ####
 set.seed(124)
 a <- 2
 b <- 3
@@ -69,6 +69,7 @@ sim <- data.frame(spp, ids, a, a_spp_values, b, sigma_y, ccm)
 sim
 plot(minol ~ ccm, sim)
 
+##### Fit simulated data #####
 fit <- stan_lmer(
   minol ~ ccm + (1|spp),
   data = sim,
@@ -77,7 +78,7 @@ fit <- stan_lmer(
   cores = 4
 )
 
-# Recover parameters ####
+##### Recover simulated data parameters #####
 fit_fixef <- fixef(fit)
 fit_ranef <- ranef(fit)
 
@@ -123,20 +124,36 @@ plot_a_spp_fit_sim <- ggplot(a_spp_fit_sim, aes(x = sim_a_spp, y = fit_a_spp)) +
 plot_a_spp_fit_sim
 ggsave("figures/Chl_a_spp_recovery.jpeg", plot_a_spp_fit_sim, width = 8, height = 6)
 
-
-
-
-
-plot(minolta ~ ccm200plus, chl)
-
-fit <- stan_lmer(
+# Fit to empirical data ####
+fitempir <- stan_lmer(
   minolta ~ ccm200plus + (1|species),
   data = chl,
   chains = 4,
-  iter = 4000,
+  iter = 2000,
   cores = 4
 )
-plot(fit)
-summary(fit)
+plot(fitempir)
+summary(fitempir)
+fitempir
 
-posterior_interval(fit, prob = 0.95)[c("(Intercept)", "ccm200plus"), ]
+##### Recover empirical model parameters #####
+fit_fixef <- fixef(fitempir)
+fit_ranef <- ranef(fitempir)
+
+spp_df <- fit_ranef$species
+
+# Now extract the tree IDs and intercepts
+a_sppwithranef <- data.frame(
+  species = rownames(spp_df),
+  a_spp = spp_df[["(Intercept)"]]
+)
+
+# add overall intercept
+a_sppwithranef$a <- fit_fixef["(Intercept)"]
+
+# add slope 
+a_sppwithranef$b <- fit_fixef["ccm200plus"]
+
+# sum intercept values 
+a_sppwithranef$total_a <- a_sppwithranef$a+a_sppwithranef$a_spp
+
