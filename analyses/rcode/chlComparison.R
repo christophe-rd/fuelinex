@@ -67,7 +67,10 @@ dens(ccm)
 minol <- ccm * b + a + a_spp_values + error
 sim <- data.frame(spp, ids, a, a_spp_values, b, sigma_y, ccm)
 sim
-plot(minol ~ ccm, sim)
+plot(minol ~ ccm200plus, chl)
+jpeg("figures/chlempirical.jpeg", width = 8, height = 6, units = "in",   res = 300, pointsize = 12)
+plot(chl$minolta ~ chl$ccm200plus)
+dev.off()
 
 ##### Fit simulated data #####
 fit <- stan_lmer(
@@ -165,3 +168,10 @@ ggplot(chl, aes(x = minolta, y = fit_y)) +
   theme_minimal()
 # save!
 ggsave("figures/chl_fitVSempirical.jpeg", width = 8, height = 6)
+
+# remove the outlier
+chlsub <- subset(chl, minolta <42 )
+ggplot(chlsub, aes(x = minolta, y = fit_y)) +
+  geom_point(color = "blue", size = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "red", linewidth = 1) + 
+  theme_minimal()
