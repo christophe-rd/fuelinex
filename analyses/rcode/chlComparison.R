@@ -1,19 +1,19 @@
 # CRD
 # 27 May 2025
-# Goal is to start visualization for fuelinex
+# Goal is to start find a convertion factor from two tools to measure chlorophyll
 
 # housekeeping
 rm(list=ls()) 
 options(stringsAsFactors = FALSE)
 options(max.print = 100) 
 
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# --- --# --- --# --- --# --- --# --- --- --- --- --- --- --- --- --- --- --- --
 # Load librairies
 library(ggplot2)
 library(rstanarm)
 library(rethinking)
 library(ggplot2)
-# --- --# --- --# --- --# --- --# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# --- --# --- --# --- --# --- --# --- --- --- --- --- --- --- --- --- --- --- --
 
 # Set the path to your directory folder 
 setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
@@ -46,12 +46,12 @@ a <- 2
 b <- 3
 sigma_y <- 0.8
 
-# error
-error <- rnorm(N, 0, 1.5)
-
 n_spp <- 50
 replicates <- 30
 N <- n_spp*replicates
+
+# error
+error <- rnorm(N, 0, 1.5)
 
 spp <- rep(1:n_spp, each = replicates)
 ids <- rep(1:replicates, times = n_spp)
@@ -157,3 +157,11 @@ a_sppwithranef$b <- fit_fixef["ccm200plus"]
 # sum intercept values 
 a_sppwithranef$total_a <- a_sppwithranef$a+a_sppwithranef$a_spp
 
+chl$fit_y <- fitempir$fitted.values
+
+ggplot(chl, aes(x = minolta, y = fit_y)) +
+  geom_point(color = "blue", size = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "red", linewidth = 1) + 
+  theme_minimal()
+# save!
+ggsave("figures/chl_fitVSempirical.jpeg", width = 8, height = 6)
