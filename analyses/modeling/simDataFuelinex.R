@@ -32,12 +32,12 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 # === === === === === === === #
 a <- 5
 b <- 0.9
-sigma_y <- 0.4
-sigma_treat <- 0.2
-sigma_spp <- 0.3
+sigma_y <- 0.3
+sigma_treat <- 0.4
+sigma_spp <- 0.5
 
-n_treat <- 20
-n_spp <- 25
+n_treat <- 30
+n_spp <- 40
 n_per_treat <- 20
 
 N <-n_treat*n_per_treat*n_spp
@@ -188,6 +188,30 @@ spptoplot
 a_spp_simXfit_plot <- ggplot(spptoplot, aes(x = a_spp, y = fit_a_spp)) +
   geom_point(color = "#046C9A", size = 2) +
   geom_errorbar(aes(ymin = fit_a_spp_per5, ymax = fit_a_spp_per95), width = 0, color = "darkgray", alpha=0.3) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
+  labs(x = "sim a_spp", y = "fit a_spp", title = "") +
+  theme_minimal()
+a_spp_simXfit_plot
+# ggsave!
+ggsave("figures/a_spp_simXfit_plot.jpeg", a_spp_simXfit_plot, width = 6, height = 6, units = "in", dpi = 300)
+
+# merge everything together to look at biomass
+t <- merge(sim_biomass, treat_df2, by = "treat")
+t2 <- merge(t, spp_df2, by = "spp")
+
+t2$fit_a <- mean(df_fit$`(Intercept)`)
+t2$fit_b <- mean(df_fit$gdd)
+
+t2$fit_biomass <- c(
+  t2$fit_a + 
+    t2$fit_a_treat + 
+    t2$fit_a_spp +
+    t2$fit_b * t2$gdd
+)
+
+a_spp_simXfit_plot <- ggplot(t2, aes(x = biomass, y = fit_biomass)) +
+  geom_point(color = "#046C9A", size = 2, alpha =0.2) +
+  # geom_errorbar(aes(ymin = fit_a_spp_per5, ymax = fit_a_spp_per95), width = 0, color = "darkgray", alpha=0.3) +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
   labs(x = "sim a_spp", y = "fit a_spp", title = "") +
   theme_minimal()
