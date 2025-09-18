@@ -1,0 +1,12 @@
+# NCEAS application
+
+## 17 September 2025
+
+#### “Turning data into action” can be taken in a variety of directions. Give an example from your own work where you’ve led or supported efforts to do this. (150 words max)
+One of my three MSc projects is to leverage the data from a citizen science program that has been ongoing for 10 years at the Arnold Arboretum of Harvard University. For all these years, citizen scientists have provided us with valuable phenology observations from 50 different trees in the Arboretum. While this is great and this data alone is extremely valuable, I aim to leverage this data and relate it to these tree's growth rings. For this, I went to the Arboretum and cored the trees. During my visit, I had the opportunity to present my project and research questions to the citizen scientists. I scanned the cores at high resolution, measured them and build a Bayesian hierchical model to understand if phenology can indicate tree growth patterns.
+
+#### What about your lived experience and/or work leads you to be interested in pursuing the intersection of environmental data science and real-world conservation issues? This could be anything from creating data visuals to effectively communicating science to policy makers or engaging with resource managers to align on scientific outcomes. (150 words max)
+In a world where the climate is rapidly changing, understanding which tree species will be best suited for new environmental conditions is critical. With my research, I aim guide decision makers into the trees best suited for urban ecosystems. With the tree ring data collected at the arboretum, paired with phenology observations from the citizen scientists, I'll be able to infer---in an urban environmental landscape---which trees respond best to climate anomalies, whether they are extreme drought, heat or spring frost events---three types of events of different severity both all projected to increase in frequency and severity with ongoing climate change. 
+
+#### How will attending this workshop advance your professional development? What are you hoping to achieve by the end of the workshop? (100 words max)
+Being a second-year MSc student, I am trying every day to absorb as much information from my peers as possible, through social events and through reading scientific litterature. I believe this is a very important part of my degree and I want to contribute to discussions that aim to bridge the---too rarely---gap between academia and the general public.

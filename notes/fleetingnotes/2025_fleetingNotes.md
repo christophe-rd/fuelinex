@@ -866,3 +866,22 @@ The type of model used for training is a CNN, specifically a U-Net (Ronneberger 
 
 We chose U-Net as our architecture because of its success in other individual tree classification problems (James and Bradshaw, 2020; Korznikov et al., 2021; Schiefer et al., 2020; Wagner et al., 2019).
 
+##18 September 2025
+###Title: Cross-biome synthesis of source versus sink limits to tree growth
+Antoine Cabon, Nicolas Delpierre
+Forest ecosystems constitute a net carbon (C) sink that offsets around 25% of yearly anthropogenic C emissions --- mitigating CC. 
+C allocation to aboveground wood biomass is the largest contributor to vegetation C storage, but C allocation is poorly understood and is a major uncertainty for projections of future forests' C storage potential. 
+
+Common reprensation of wood growth as a linear function of C assimilation is a major structural limitation of current vegetation models. 
+
+A fundamental debate revolves around the degree to which C assimilitation (source limitation) versus direct environmental limitations to cambial cell development (sink limitation) controls wood growth. Source limitation being the dominant paradigm.
+
+Yet, growing evidence suggest that cambial activity is typically more sensitive than photosynthesis to a range of environmental conditions including water, temperature and nutrients. 
+
+They show a widespread temporal decoupling between carbon assimilation and tree growth, underpinning the different climatic sensitivies of these 2 processes.
+
+### Divergent contributions of spring and autumn photosynthetic phenology to seasonal carbon uptake of subtropical vegetation in China
+Changhui Peng 
+Early spring and delayed autumns increased GPP and NPP during these 2 phases.
+
+Divergent rates of vegetation metabolic activity (photosynthesis and respiration) diversify the links between phenology and vegetation productivity. E.g. later fall compensates for decreased productivity during summer dur to a larger increase in photosynthesis compared to respiration in temperate forests.

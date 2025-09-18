@@ -32,22 +32,64 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 # === === === === === === === #
 a <- 5
 b <- 0.9
-sigma_y <- 0.3
-sigma_treat <- 0.4
-sigma_spp <- 0.5
+sigma_y <- 0.8
+sigma_treat <- 1
+sigma_spp <- 1.5
 
-n_treat <- 30
-n_spp <- 40
-n_per_treat <- 20
 
-N <-n_treat*n_per_treat*n_spp
+# alternative: 
+# site = gl(nsite, rep, length = ntot)
 
-error <- rnorm(N, 0, sigma_y)
+# number of spring treatments
+nspring <- 2
+nfall <- 2
+
+spring <- gl(nspring, n_per_treat, length = N) # 1 is cool and 2 is warm
+fall <- gl(nfall, n_per_treat, length = N)
+
+n_treat <- nspring + nfall
+n_spp <- 10
+n_per_treat <- 15
+
+N <- (nspring+nfall)*n_per_treat*n_spp
+
+treatcombo <-  paste(spring, fall, sep = "_")
 
 ids <- rep(rep(1:n_per_treat, times = n_treat), times = n_spp)
-treat <- rep(rep(1:n_treat, each = n_per_treat), times = n_spp)
+
 spp <- rep(rep(1:n_spp, each = n_per_treat), each = n_treat)
 
+coef <- data.frame(
+  ids = ids,
+  treat = treatcombo,
+  spp = spp,
+  fall = 
+)
+
+springdiff <- 20
+falldiff <- 20
+error <- rnorm(N, 0, sigma_y)
+
+# factors 
+fall
+spring
+
+# set up differences for each level
+warmspring <- 20
+warmfall <- 20
+coolspring <- -20
+coolfall <- -20
+
+# sigmas for each treatments
+sigma_warmspring <- 0.5
+sigma_warmfall <- 0.5
+sigma_coolspring <- 0.5
+sigma_coolfall <- 0.5
+
+coef
+
+
+# set a baseline 
 # partial pooling 
 ### here, I am not partial pooling on ids, because unlike wildchrokie, my ids here are replicates, so they are the repeated measurements
 a_treat <- rnorm(n_treat, 0, sigma_treat)
