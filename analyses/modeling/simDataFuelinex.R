@@ -75,10 +75,12 @@ fall
 spring
 
 # set up differences for each level
-warmspring <- 20
-warmfall <- 20
-coolspring <- -20
-coolfall <- -20
+warmspring <- 5
+warmfall <- 5
+coolspring <- -5
+coolfall <- -5
+
+rnorm(n_per_treat, )
 
 # sigmas for each treatments
 sigma_warmspring <- 0.5
