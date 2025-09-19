@@ -175,3 +175,7 @@ ggplot(chlsub, aes(x = minolta, y = fit_y)) +
   geom_point(color = "blue", size = 2) +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "red", linewidth = 1) + 
   theme_minimal()
+
+x <- seq(0,10,0.1)
+y <- 10+log(x)
+plot(y ~ x)
