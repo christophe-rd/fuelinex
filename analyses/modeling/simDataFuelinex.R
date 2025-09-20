@@ -6,6 +6,7 @@
 rm(list=ls())  
 options(stringsAsFactors=FALSE)
 options(max.print = 200) 
+options(digits = 3)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Load librairies
 library(dplyr)
@@ -13,7 +14,6 @@ library(ggplot2)
 library(rstanarm)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 set.seed(123)
-runmodels <- FALSE
 setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
 # === === === === === === === === === === === === === === === === 
@@ -30,110 +30,64 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 # === === === === === === === #
 ##### Biomass X Gdd cons #####
 # === === === === === === === #
-a <- 5
-b <- 0.9
+a <- 30
 sigma_y <- 0.8
 sigma_treat <- 1
 sigma_spp <- 1.5
+sigma_spring <- 0.4
+sigma_fall <- 0.8
 
-
-# alternative: 
-# site = gl(nsite, rep, length = ntot)
-
-# number of spring treatments
-nspring <- 2
-nfall <- 2
-
-spring <- gl(nspring, n_per_treat, length = N) # 1 is cool and 2 is warm
-fall <- gl(nfall, n_per_treat, length = N)
-
-n_treat <- nspring + nfall
-n_spp <- 10
+treat_norep <- c("cc", "cw","wc","ww")
+n_treat <- length(treat_norep)
 n_per_treat <- 15
+treat <- rep(treat_norep, each = n_per_treat)
 
-N <- (nspring+nfall)*n_per_treat*n_spp
+N <- n_per_treat*treat_norep
 
-treatcombo <-  paste(spring, fall, sep = "_")
+ids <- 1:N
 
-ids <- rep(rep(1:n_per_treat, times = n_treat), times = n_spp)
-
-spp <- rep(rep(1:n_spp, each = n_per_treat), each = n_treat)
-
-coef <- data.frame(
-  ids = ids,
-  treat = treatcombo,
-  spp = spp,
-  fall = 
-)
-
-springdiff <- 20
-falldiff <- 20
 error <- rnorm(N, 0, sigma_y)
 
-# factors 
-fall
-spring
-
-# set up differences for each level
-warmspring <- 5
-warmfall <- 5
-coolspring <- -5
-coolfall <- -5
-
-rnorm(n_per_treat, )
-
-# sigmas for each treatments
-sigma_warmspring <- 0.5
-sigma_warmfall <- 0.5
-sigma_coolspring <- 0.5
-sigma_coolfall <- 0.5
-
-coef
-
-
-# set a baseline 
-# partial pooling 
-### here, I am not partial pooling on ids, because unlike wildchrokie, my ids here are replicates, so they are the repeated measurements
-a_treat <- rnorm(n_treat, 0, sigma_treat)
-a_spp <- rnorm(n_spp, 0, sigma_spp)
-
-# gdd per treatment and devide by constant
-gdd <- rnorm(N, 2000, 100)/ 200
-
-# set df
-sim_biomass <- data.frame(
+coef <- data.frame(
+  a = a,
   ids = ids,
   treat = treat,
-  spp = spp,
-  a = a,
-  b = b,
-  gdd = gdd,
   error = error
 )
-sim_biomass
 
-sim_biomass$a_treat <-  a_treat[sim_biomass$treat]
-sim_biomass$a_spp <-  a_spp[sim_biomass$spp]
+coef$spring <- substr(coef$treat, 1,1)  # spring condition either warm or cool 
+coef$fall = substr(coef$treat, 2,2) # fall condition either warm or cool
+coef$a_spring = ifelse(coef$spring == "c",# divergence from the overall intercept for spring condition
+                       rnorm(length(coef$spring == "c"), -10, sigma_spring),
+                       rnorm(length(coef$spring == "w"), 10, sigma_spring))
+coef$a_fall = ifelse(coef$fall == "c", # divergence from the overall intercept for fall condition
+                     rnorm(length(coef$fall == "c"), -5, sigma_fall),
+                     rnorm(length(coef$fall == "w"), 5, sigma_fall))
 
-sim_biomass$ids_uni <- paste(sim_biomass$ids, sim_biomass$treat, sep = "_")
 
-# calculate biomass
-sim_biomass$biomass <- c(
-  sim_biomass$a + 
-    sim_biomass$a_treat + 
-    sim_biomass$a_spp +
-    sim_biomass$b * sim_biomass$gdd + 
-    sim_biomass$error
-)
-sim_biomass
+coef$a_full = coef$a + coef$a_spring + coef$a_fall + coef$error
 
+# visual of my sim data
+ggplot(coef) +
+  geom_vline(xintercept = 0, linetype = "dashed",
+             color = "black", alpha = 1, size = 1) +
+  geom_vline(aes(xintercept = a), 
+             color = "black", alpha = 1, size =5) +
+  geom_vline(aes(xintercept = a_full), 
+             color = "red", alpha = 0.3) +
+  geom_vline(aes(xintercept = a_spring),
+             color = "green", alpha = 0.8) +
+  geom_vline(aes(xintercept = a_fall),
+             color = "orange", alpha = 0.8) +
+  facet_wrap(~treat, nrow =1, ncol =4) +
+  theme_minimal()
 
 # run model
 fitbiomass <- stan_lmer(
-  biomass ~ gdd + (1 | treat) + (1 | spp),  
-  data = sim_biomass,
+  a_full ~ treat + (1 | ids),  
+  data = coef,
   chains = 4,
-  iter = 4000,
+  iter = 200,
   core=4
 ) 
 fitbiomass
