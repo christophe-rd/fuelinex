@@ -28,6 +28,8 @@ phenostages$Notes <- gsub("doy (\\d+)", "doy\\1", phenostages$notes)
 # manual cleaning for format standardization
 phenostages$Notes[which(phenostages$notes == "doy62: probably the replicate missing its tag. Pheno stage 1 on doy62. confirming on doy69 that this is the replicate with a missing tag.")] <- "doy62: probably the replicate missing its tag; doy62: Pheno stage 1; doy69: confirming that this is the replicate with a missing tag."
 phenostages$Notes[which(phenostages$notes == "doy97:flowering bud emerging")] <- "doy97: flowering bud emerging"
+phenostages$Notes[which(phenostages$notes == "doy204: previous measurement wrong" & phenostages$`204` == "5")] <- ""
+phenostages$Notes[which(phenostages$notes == "doy204: previous measurement wrong" & phenostages$`204` == "4")] <- "doy204: reflushed after water shortage"
 
 #replace doyNA by doy000 so it's numerical
 phenostages$Notes <- ifelse(phenostages$Notes == "" | is.na(phenostages$Notes), phenostages$Notes, gsub("doyNA", "doy000", phenostages$Notes))
