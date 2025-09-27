@@ -31,3 +31,6 @@ y %in% x
 
 # get mean, sd, 5.5. and 94.5% intevals along with a cool hist (from rethinking package)
 precis(d)
+
+# aggregate by multiple cols
+agg2 <- aggregate(d$lengthCM, by = list(d$name, d$Yearcor, d$sourceFolder), FUN = mean)
