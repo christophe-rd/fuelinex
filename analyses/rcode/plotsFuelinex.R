@@ -87,18 +87,18 @@ ggsave("figures/heatmap.jpeg", plot = heatmap)
 #### Budburst and budset ####
 ### === === === === === === === === === === === === ###
 # mean and sd for each phenophase X Species X Treatment
-summary_stats <- aggregate(
+budburstToSet_stats <- aggregate(
   DOY ~ phenophaseText + species + treatment, 
   data = phenostage24, 
   FUN = function(x) c(mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE))
 )
 
-summary_stats$mean_DOY <- summary_stats$DOY[, "mean"]
-summary_stats$sd_DOY <- summary_stats$DOY[, "sd"]
+budburstToSet_stats$mean_DOY <- budburstToSet_stats$DOY[, "mean"]
+budburstToSet_stats$sd_DOY <- budburstToSet_stats$DOY[, "sd"]
 
 # for now, just take dormant and unroled
 vec <- c("Leaf fully unfolded", "Bud is fully set")
-suby <- subset(summary_stats, phenophaseText %in% vec)
+suby <- subset(budburstToSet_stats, phenophaseText %in% vec)
 
 # and select only for growing season extension treatments
 vectreat <- c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF")
@@ -115,7 +115,7 @@ ggplot(suby, aes(x = mean_DOY, y = treatment, color = phenophaseText)) +
   # Add text annotation for shoot elongation (aligned with species)
   # geom_text(data = shootperiods, aes(x = (start + end) / 2, y = 4.7, label = "Shoot Elongation"), 
   #           vjust = 2, hjust = 0.5, color = "black", size = 4) +
-  facet_wrap(~species, scales = "free_y") +  # Adjust y-axis scales if needed
+  facet_wrap(~species, scales  = "free_y") +  # Adjust y-axis scales if needed
   theme_minimal() +
   labs(
     x = "Day of Year",
@@ -429,7 +429,7 @@ meawide3 <- subset(meawide2, genus != "sequoiadendron")
 # HEIGHT
 variouspallet6 <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
 
-# --- ---- ----- ------------- ------------- ------------- ------------- 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # mean with line range sd
 heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
@@ -491,4 +491,32 @@ diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement, color
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+
+# Conceptual figure of phenophases #####
+### Start with shoot2024. Didn't have time to finish but goal is to mimic fig 1 of korner2023
+
+head(shoot2024)
+
+budburstToSet_stats
+
+sub <- subset(budburstToSet_stats, species == "acer_negundo")
+
+sub2 <- subset(sub, treatment == "CoolS/CoolF")
+ggplot(df) +
+  geom_segment(aes(x = start_day, xend = end_day,
+                   y = process, yend = process),
+               size = 8, color = "forestgreen") +
+  geom_segment(aes(x = 1, xend = 365,
+                   y = process, yend = process),
+               size = 8, color = "grey90") +
+  geom_text(aes(x = end_day + 10, y = process,
+                label = paste(end_day - start_day, "d")),
+            hjust = 0, vjust = 0.5) +
+  scale_x_continuous(limits = c(0, 365), expand = c(0,0),
+                     breaks = seq(0, 365, 50)) +
+  labs(x = "Day of year", y = "") +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.y = element_text(size = 12),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank())
 
