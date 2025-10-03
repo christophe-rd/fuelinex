@@ -28,10 +28,10 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 ### do this: reconcile script grouping errors because my model doesn't converge ds
 
 # === === === === === === === #
-##### Biomass X Gdd cons #####
+##### Biomass as intercept only #####
 # === === === === === === === #
 a <- 30
-sigma_y <- 0.8
+sigma_y <- 2.5
 sigma_treat <- 1
 sigma_spp <- 1.5
 sigma_spring <- 0.4
@@ -42,7 +42,7 @@ n_treat <- length(treat_norep)
 n_per_treat <- 15
 treat <- rep(treat_norep, each = n_per_treat)
 
-N <- n_per_treat*treat_norep
+N <- n_per_treat*n_treat
 
 ids <- 1:N
 
@@ -67,12 +67,27 @@ coef$a_fall = ifelse(coef$fall == "c", # divergence from the overall intercept f
 
 coef$a_full = coef$a + coef$a_spring + coef$a_fall + coef$error
 
+hist(coef$error)
+
+ggplot(coef, aes(x = a_full, color = treat, fill = treat)) +
+  geom_density(alpha = 0.3) +
+  labs(
+    title = "densities of full intercepts per treatment",
+    x = "a_full",
+    y = "density"
+  ) +
+  scale_color_manual(values = wes_palette("Darjeeling1")) +
+  scale_fill_manual(values = wes_palette("Darjeeling1")) +
+  theme_minimal()
+ggsave("figures/densityintercepts.jpeg", width = 8, height = 6, units = "in", dpi = 300)
+  
+
 # visual of my sim data
 ggplot(coef) +
   geom_vline(xintercept = 0, linetype = "dashed",
-             color = "black", alpha = 1, size = 1) +
+             color = "black", alpha = 1, linewidth = 1) +
   geom_vline(aes(xintercept = a), 
-             color = "black", alpha = 1, size =5) +
+             color = "black", alpha = 1, linewidth =5) +
   geom_vline(aes(xintercept = a_full), 
              color = "red", alpha = 0.3) +
   geom_vline(aes(xintercept = a_spring),
