@@ -885,3 +885,43 @@ Changhui Peng
 Early spring and delayed autumns increased GPP and NPP during these 2 phases.
 
 Divergent rates of vegetation metabolic activity (photosynthesis and respiration) diversify the links between phenology and vegetation productivity. E.g. later fall compensates for decreased productivity during summer dur to a larger increase in photosynthesis compared to respiration in temperate forests.
+
+## 5 October 2025
+### Number of growth days and not length of the growth period  determines radial stem growth of temperate trees
+
+The curve model of annual radial growth is fast at the beginning and slow at the end of the growing growth perio
+
+On shorter time scales, cambial activity is non-linear. This intermittent growth activity can be caused by varying environmmental conditions driven by water deficits and droughts, internal tree process related to phenology or resource allocation or involve reponses to competition or pathogens. Not well-understood however because of absence of fine resolution data
+
+They found that annual day length patterns, particularly around the summer soltice set a window of opportunity for radial growth. Within that window, the water in air and soil is decisive for the probability of growth ad the temporal fluctualions cause highly intermittent growth patterns. The resulting number of days with growth are more important for total growth than stem phenology. They suggest for accounting intra-annual and species-specific responses to climate in tree and forest models to reduce the uncertainty of forest productivity predictions under ongoing global warming.
+
+### Limited physiological acclimation to recurrent heatwaves in two boreal tree species
+Increased CO2 in the atmosphere increase temperature which increase heat waves. Extreme heat can impact growth either directly through cell processes disruption or indirectly through effects of rising leaf-to-air vaport deficit (VPD)
+
+Increased temperature leads to reduced photosynthesis which can be attributed to: 
+1. Damage to photosynthetic machinery
+2. Inactivation of RUBISCO
+3. Reduction to RuBP regeneration
+4. Membrane stability (Markus2025Heat)
+5. Increased mitochondrial respiration and photorespiration
+
+Plants can usually tolerate heat, but most often not for long enough before water runs out during long heat waves.
+
+Heat waves result in 1. forest mortality 2. Carbon balance change of trees: photosynthesis declines at 40C whereas respiration declines at 45. Therefore, just a slight increase above 40 leads to carbon imbalance.
+
+Some species have thermal photosynthetic/respiratory acclimatation while others don't. Growth and survival will change depending on species to thermally acclimate to both photosynthesis and respiration 
+- This is explained by growth strategies of gymnosperms vs angiosperms (which are usually better)
+
+### Responses of tree species to heat waves and extreme  heat events
+Robert Teskey1, Timothy Wertin2, Ingvar Bauweraerts3, Maarten Ameye4, Mary Anne McGuire1 & Kathy Steppe
+
+Summertime extreme temperatures associated with prolonged heat waves, lasting for several weeks, now impact approximately 10% of land surfaces, up from only 1% in the 1960s. 
+
+An increase in the frequency and intensity of heat waves is expected to continue through the 21st century (Yao et al. 2013).
+
+### Heat waves: a hot topic in climate change research
+Heat wave is a period of excessively hot weather (5 or more consecutive days of prolonged heat in which the daily maximum temperature is higher than the average maximum temperature by 5 °C ), which may be accompanied by high humidity
+
+The more intense and more frequently occurring heat waves cannot be explained solely by natural climate variations and without human-made climate change
+
+A mechanism for the increase occurence of heat waves is a weakeking of the polar jet stream (important weather factor for middle latitude regions of North America, Europe and Asia) caused by global warming which increases the occurence of stationnary weather, resulting in heavy rain falls or heat waves. 
