@@ -65,16 +65,22 @@ ccm <- round(rnorm(N, 8, 3), 3)
 dens(ccm)
 
 minol <- ccm * b + a + a_spp_values + error
-sim <- data.frame(spp, ids, a, a_spp_values, b, sigma_y, ccm)
+sim <- data.frame(spp, ids, a, a_spp_values, b, sigma_y, ccm, minol)
 sim
-plot(minol ~ ccm200plus, chl)
+
+sim$log_minol <- log(sim$minol)
+sim$log_ccm <- log(sim$ccm)
+
+chl$log_minolta <- log(chl$minolta)
+chl$log_ccm <- log(chl$ccm)
+
 jpeg("figures/chlempirical.jpeg", width = 8, height = 6, units = "in",   res = 300, pointsize = 12)
 plot(chl$minolta ~ chl$ccm200plus)
 dev.off()
 
 ##### Fit simulated data #####
 fit <- stan_lmer(
-  minol ~ ccm + (1|spp),
+  minol ~ log_ccm + (1|spp),
   data = sim,
   chains = 4,
   iter = 2000,
