@@ -74,7 +74,7 @@ sim$log_ccm <- log(sim$ccm)
 chl$log_minolta <- log(chl$minolta)
 chl$log_ccm <- log(chl$ccm)
 
-jpeg("figures/chlempirical.jpeg", width = 8, height = 6, units = "in",   res = 300, pointsize = 12)
+jpeg("figures/chlempirical.jpeg", width = 8, height = 6, units = "in", res = 300, pointsize = 12)
 plot(chl$minolta ~ chl$ccm200plus)
 dev.off()
 
