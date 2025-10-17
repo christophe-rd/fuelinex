@@ -966,3 +966,23 @@ Prolonged exposure to high VPD can trigger absisic acid, which advance leaf sene
  Rising VPD also negatively affects NEP.
  
  Global atmospheric dryness will continue to increase in result to anthropogenic warming.
+ 
+ 
+## 17 October 2025
+### New frontiers in tree-ring research
+Jessie K Pearl 2020
+
+Tree-ring samples with low ring counts can contain multiple sprurious andstochastic growth patterns. Thus shorter ring series limit the confidence in cross-dating, the foundational process of visaully and statistically assigning years to tree-ring measurements. In addition, chronologies developed from short-ring series would only preserve high-frequency  variability, limiting the range of applications. A minimum of 50 rings is required to cross-date individuals. Samples with less than 50 rings are often disregarded because they are unsuable for conventional approcahes. *this applies mostly for archeology* **Good list of studies that use short-lived materials but for archeological**
+
+Two papers using bayes for tree-rings
+
+Wood anatomy is increasingly used by extracting data beyond traditional ring widths. Techniques such as the development of low cost techniques as the "blue intensity" proxy for latewood desity, high resolution imaging, and processing equipment, has allowed reserachers to delve into the microscopic component of wood anatomical features such as micro-anatomical analyses, in a wide range of applications.
+
+The character of annual rings, cell structure, timing of growth and markers for trauma can assist in answering a variety of agricultural, ecological and physiological questions previously unasnwered with ring width or density alone.
+
+Micro-wood anatomy research has expanded tree-ring studies into new geographical aeras to investivate growth patterns from the tropics, where conventional tree-ring data cannont be derived
+
+### Invest now, get paid later? Limits and opportunities of woody  plants to time growth in a future climate
+Frederik Baumgarten, , Sally Aitken, Yann Vitasse, Robert D Guy, EM Wolkovich NOT PUBLISHED
+
+The role of primary growth has been neglected, but it drives crown expansion and consequently, leaf area and its corresponding photosynthetic capactity which will determine biomass production (Girard2011Polycyclism*; Soolanayakanahally2015Comparative)
