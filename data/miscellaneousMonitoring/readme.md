@@ -30,3 +30,7 @@ species: species
 
 ### 2025Chltoocomparison.xlsx
 Since last fall, two different chl measurement tools were used,,t his file contains measurements for approximately the same leaf at the same place, but measured using both tools, to get an overall chlorophyll convertion factor.
+
+For 290, we monitored bloc 2 for all species, but since acne, prvi and quma have lost most of their leaves, we also monitored all the trees that still had leaves remaining. 
+
+The goal for this 3rd measurement was to get low chl values, when leaves have chl degraded
