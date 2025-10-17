@@ -574,14 +574,23 @@ This provide a new perspective for interpreting the local variations of autumn p
 
 ## 15 April 
 ### Partially decoupled tree-ring width and leaf phenology response...
-They obtained info on GS changes over the last century by using 1. Calculations on meteorological measurements and 2. Phenological observations of buburst and 
+**Permanent notes:** YES
+In temperate forests where trees are dormant in the winter, reactivation of the cambium occurs in the spring when new cells start to form, followed by cell expansion, which determines tree radial growth. The rate of radial growth and the duration of cambial activity will determine the annual tree-ring .
+
+The timing of xylogenis in relation to leaf phenology varies across species. Ring-porous species initiate its growth early i the season, where oak trees, for instance build up much of its tre-ring even budburst. For diffuse prous species, the start of xylogenesis is more synchronized with budburst and the duration of growth is considerably shorter than ring-porous and non-porous (e.g. pine and spruce)
+
+As growth before budburst indicate, tree exhibit varying degrees of ecological memory where growth may be influenced by conditions from the previous season
+
+They obtained info on GS changes over the last century by using 1. Calculations on meteorological measurements and 2. Phenological observations of budburst and leaf colouring.
 
 ### A tree-ring based reconstruction of Delaware...
+**Permanent notes:** NO BUT OK
 They considered a no-pooling model: regression coefficients for each streamflow series are modeled independently
 Full-pooling model: streamflow consequences have the same regression coefficient for a specific tree ring series
 
 ## 16 May 
 ### Regression and other Stories
+**Permanent notes:** YES
 3 challenges of statistics:
 1. Generalizing from sample to population: problem associated with survey sampling but actually asrises in nearly every application of statistical inference
 2. Generalizing from treatment to control group: problem associated with causal inference which is implicitly or explicitly part of the interpretation of most regressions we've seen
@@ -615,7 +624,8 @@ Confidence interval: large values of a parameter or quantity of interest that ar
 
 ## 21 May
 ### A four step Bayesian workflow for improving ecological science
-Test/simulated data is essential for this workflo. With this kind of data, I simulate data from my model in such way that I can use the resulting data to test if my model code is correct (i.e. i fix vaclues for my model paramaters and test how well my model recovers them)
+**Permanent notes:** YES
+Test/simulated data is essential for this workflow. With this kind of data, I simulate data from my model in such way that I can use the resulting data to test if my model code is correct (i.e. i fix values for my model parameters and test how well my model recovers them)
 
 ## 27 May
 #### Effects of temperature and water deficit on cambial activity and woody ring features in Picea mariana saplings
@@ -734,6 +744,7 @@ They suggest that experiment designs should include values of cues within the cu
 
 ## 18 June
 ### Influence of temperate forest autumn leaf phenology on segmentation of tree species from UAV imagery using deep learning
+**Permanent notes:**
 Myriam Cloutier, Mickael Germain, Etienne Laliberte
 
 We need to to monitor vegetation and detect changes in biodiversity in the context of climate change. However, traditonal field surveys methods are labor intensive and time consuming which makes challenging to conduct repeated forest surveys
@@ -742,6 +753,7 @@ When acquired repeatedly across a growing season, UAV imagery data combined with
 
 ## 20 June
 ### Triggers of tree mortality under drought
+**Permanent notes:**
 Brendan Choat Belinda Medlyn, 2018
 Forests accoutn for 45% of globalterrestrial carbon stocks and have key roles in hydrological and nutrient cycles,
 
@@ -795,6 +807,7 @@ When drought has caused considerable deaeth of above ground biomass, recovery ma
 
 ## 21 June
 ### Widespread spring phenology effects on drought recovery of Northern Hemisphere ecosystems
+**Permanent notes:**
 Yang Li, Xiuchen Wu, 2022
 Drought recovery from a single extreme drought event within the growing season has beeen widely studied, but the interactions between vegetation phenoly (SOS and EOS) and drought timing are unknown.
 
@@ -819,11 +832,13 @@ In contrast, they also showed that earlier spring phenology during the drought y
 For drought recovery in the subsequent GS, delayed phenology in the subsequent year slowed down growth and led to longe drought recovery. 
 
 ### Leaf-out phenology of temperate woody plants: from trees to ecosystems
+**Permanent notes:**
 Polgar, Caroline, 2011
 *already read this article but found something interesiting that i didn't note previously*
 Ring porous species, such as oaks, ashes (Fraxinus spp.), and hickories (Carya spp.), have less uniform vessel elements, producing larger vessels in the spring and smaller ones later in the growing season. Their large vessels suffer more damage from winter freezing, requiring them to produce new vessels in the spring to transport water and often leading them to leaf-out later than coexisting diffuse porous species
 
 ### Evidence of anthropogenic impacts on global drought frequency, duration, and intensity
+**Permanent notes:**
 Felicia Chiang, 2021
 Using a spatial, model-based meteorological perspective to assess drought attribution to anthropogenic forcing across space. They shoiw taht the presence of anthropogenic forcing has increased the frequency, duration and intensity of SPI-based droughts, specifically in Americas, Mediterranean and western/south Africa and estearn Asia. 
 
@@ -834,11 +849,13 @@ They also examined temporal shifts between large time periods, minimizing the in
 Other types of drought e.g. hydrological, agricultural and meteorological (the one investigated in their study)
 
 ### Chapter 8: Droughts, Floods, and Wildfire
+**Permanent notes:**
 https://science2017.globalchange.gov/chapter/8/
 The Intergovernmental Panel on Climate Change Fifth Assessment Report (IPCC AR5) concluded “there is low confidence in detection and attribution of changes in (meteorological) drought over global land areas since the mid-20th century, owing to observational uncertainties and difficulties in distinguishing decadal-scale variability in drought from long-term trends.” As they noted, this was a weaker attribution statement than in the Fourth Assessment Report, which had concluded “that an increased risk of drought was more likely than not due to anthropogenic forcing during the second half of the 20th century.” 
 
 ## 21 July 2025
 ### Phenology is a major determinant of tree species range
+**Permanent notes:**
 Isabelle Chuine and Elisabeth G. Beaubien
 
 In phenofit, the model doesn't focus on productivity and competition as in other models, but on survival and reproductive success as a function of the match between a plant's life cycle and local seasonal fluctuations in climate. However, the seasonal coordination of phenology to climate does impact on competitive relationships via its influence on vegetative and reproductive performance. This mismatch may result in 1. frost injuries, 2. drought injuries and 3. failure to produce mature fruits and seeds if autumnal frosts occur before maturation or if summers are too cool or too short.
@@ -849,6 +866,7 @@ The model presents a close fit between realized and fundamental niche which sugg
 
 ## 7 August 2025
 ### Monitoring Individual Tree Phenology in a Multi-Species Forest Using High Resolution UAV Images
+**Permanent notes:**
 Jasper Kleinsmann, Jan Verbesselt, and Lammert Kooistra
 Sattelite data are subject to inherent limitations from weather conditions and coarse spatial and temporal resolutions. In mixed-speciues environements, sattelite derived phenology tracking isn't good because the sattelite pixel exceeds the size of individual tree crowns, often.
 
@@ -857,6 +875,7 @@ Unmanned aerial vehicles (UAVs) equipped with RGB or multi-spectral sensors can 
 Fawcett (2020) manually delineated tree crowns and successfully estimated SOS.  Berra 2019 automatically delinated thousands of tree crowns based on NDVI and green chromatic coordinate GCC. SOS and EOS ina. mixed-species forest in Japan successfully estimated SOS and EOS.  
 
 ### Influence of temperate forest autumn leaf phenology on segmentation of tree species from UAV imagery using deep learning
+**Permanent notes:**
 Myriam Cloutier, Mickael Germain, Etienne Laliberte
 To ensure the imagery was well geore ferenced, we positioned 25 ground control points (GCPs) throughout the area. The coordinates of the ground control points were then measured using two Emlid Reach RS2 RTK GNSS receivers, one as a base on a geodetic marker and one as a rover.
 
@@ -868,6 +887,7 @@ We chose U-Net as our architecture because of its success in other individual tr
 
 ##18 September 2025
 ###Title: Cross-biome synthesis of source versus sink limits to tree growth
+**Permanent notes:**
 Antoine Cabon, Nicolas Delpierre
 Forest ecosystems constitute a net carbon (C) sink that offsets around 25% of yearly anthropogenic C emissions --- mitigating CC. 
 C allocation to aboveground wood biomass is the largest contributor to vegetation C storage, but C allocation is poorly understood and is a major uncertainty for projections of future forests' C storage potential. 
@@ -881,6 +901,7 @@ Yet, growing evidence suggest that cambial activity is typically more sensitive 
 They show a widespread temporal decoupling between carbon assimilation and tree growth, underpinning the different climatic sensitivies of these 2 processes.
 
 ### Divergent contributions of spring and autumn photosynthetic phenology to seasonal carbon uptake of subtropical vegetation in China
+**Permanent notes:**
 Changhui Peng 
 Early spring and delayed autumns increased GPP and NPP during these 2 phases.
 
@@ -888,7 +909,7 @@ Divergent rates of vegetation metabolic activity (photosynthesis and respiration
 
 ## 5 October 2025
 ### Number of growth days and not length of the growth period  determines radial stem growth of temperate trees
-
+**Permanent notes:**
 The curve model of annual radial growth is fast at the beginning and slow at the end of the growing growth perio
 
 On shorter time scales, cambial activity is non-linear. This intermittent growth activity can be caused by varying environmmental conditions driven by water deficits and droughts, internal tree process related to phenology or resource allocation or involve reponses to competition or pathogens. Not well-understood however because of absence of fine resolution data
@@ -896,6 +917,7 @@ On shorter time scales, cambial activity is non-linear. This intermittent growth
 They found that annual day length patterns, particularly around the summer soltice set a window of opportunity for radial growth. Within that window, the water in air and soil is decisive for the probability of growth ad the temporal fluctualions cause highly intermittent growth patterns. The resulting number of days with growth are more important for total growth than stem phenology. They suggest for accounting intra-annual and species-specific responses to climate in tree and forest models to reduce the uncertainty of forest productivity predictions under ongoing global warming.
 
 ### Limited physiological acclimation to recurrent heatwaves in two boreal tree species
+**Permanent notes:**
 Increased CO2 in the atmosphere increase temperature which increase heat waves. Extreme heat can impact growth either directly through cell processes disruption or indirectly through effects of rising leaf-to-air vaport deficit (VPD)
 
 Increased temperature leads to reduced photosynthesis which can be attributed to: 
@@ -913,6 +935,7 @@ Some species have thermal photosynthetic/respiratory acclimatation while others 
 - This is explained by growth strategies of gymnosperms vs angiosperms (which are usually better)
 
 ### Responses of tree species to heat waves and extreme  heat events
+**Permanent notes:**
 Robert Teskey1, Timothy Wertin2, Ingvar Bauweraerts3, Maarten Ameye4, Mary Anne McGuire1 & Kathy Steppe
 
 Summertime extreme temperatures associated with prolonged heat waves, lasting for several weeks, now impact approximately 10% of land surfaces, up from only 1% in the 1960s. 
@@ -920,8 +943,26 @@ Summertime extreme temperatures associated with prolonged heat waves, lasting fo
 An increase in the frequency and intensity of heat waves is expected to continue through the 21st century (Yao et al. 2013).
 
 ### Heat waves: a hot topic in climate change research
+**Permanent notes:**
 Heat wave is a period of excessively hot weather (5 or more consecutive days of prolonged heat in which the daily maximum temperature is higher than the average maximum temperature by 5 °C ), which may be accompanied by high humidity
 
 The more intense and more frequently occurring heat waves cannot be explained solely by natural climate variations and without human-made climate change
 
 A mechanism for the increase occurence of heat waves is a weakeking of the polar jet stream (important weather factor for middle latitude regions of North America, Europe and Asia) caused by global warming which increases the occurence of stationnary weather, resulting in heavy rain falls or heat waves. 
+
+## 16 October 2025
+### Impacts of rising atmospheric dryness on terrestrial ecosystem carbon cycle
+Wenping Yuan 2025
+**Permanent notes:**
+
+Vapor pressure deficit is a critical driver of terrrestrial GPP (i.e. rates of photosynthesis in terrestrial ecosystems). GPP has a fundamental role in determining the cabon budget of terrestrial ecosystems. The trend indicates that GPP decreases as VPD increases.
+
+Increasing VPD can influence both spring and fall phenology, which regulat the length of the growing season, ultimtately affecting vegetation productivity and terrestrial cabon sink.
+
+Prolonged exposure to high VPD can trigger absisic acid, which advance leaf senescence, but that's mostly relevant in tropical regions.
+
+ It can also limit leaf expansion rate, which is an important environmental factor affecting leaf expansion in woody plants and crops and grasses. The primary pathway is through reduction of epidermal cell number, which correlates with leaf size
+ 
+ Rising VPD also negatively affects NEP.
+ 
+ Global atmospheric dryness will continue to increase in result to anthropogenic warming.
