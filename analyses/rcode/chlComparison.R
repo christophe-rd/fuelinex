@@ -21,17 +21,20 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 # read csvs
 chl212 <- read.csv("input/2025-212_Chltoocomparison.csv")
 chl235 <- read.csv("input/2025-212_Chltoocomparison.csv")
+chl290 <- read.csv("input/2025-290_Chltoocomparison.csv")
 
 # add column with doy
 chl212$doy <- 212
 chl235$doy <- 235
+chl290$doy <- 290
 
 # create unique ids 
 chl212$tree_ID_doy <- paste(chl212$tree_ID, chl212$doy, sep = "_")
 chl235$tree_ID_doy <- paste(chl235$tree_ID, chl235$doy, sep = "_")
+chl290$tree_ID_doy <- paste(chl290$tree_ID, chl290$doy, sep = "_")
 
 # rbind 
-chl <- rbind(chl212, chl235)
+chl <- rbind(chl212, chl235,chl290)
 
 # convert minolta and ccm200plus cols to numeric
 chl$minolta <- as.numeric(as.character(chl$minolta))
@@ -83,7 +86,7 @@ fit <- stan_lmer(
   minol ~ log_ccm + (1|spp),
   data = sim,
   chains = 4,
-  iter = 2000,
+  iter = 4000,
   cores = 4
 )
 
@@ -185,3 +188,10 @@ ggplot(chlsub, aes(x = minolta, y = fit_y)) +
 x <- seq(0,10,0.1)
 y <- 10+log(x)
 plot(y ~ x)
+
+
+
+
+plot(chl$minolta ~ log(chl$ccm200plus))
+plot(log(chl$minolta) ~ chl$ccm200plus)
+plot(log(chl$minolta) ~ log(chl$ccm200plus))
