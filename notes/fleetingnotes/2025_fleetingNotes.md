@@ -982,7 +982,24 @@ The character of annual rings, cell structure, timing of growth and markers for 
 
 Micro-wood anatomy research has expanded tree-ring studies into new geographical aeras to investivate growth patterns from the tropics, where conventional tree-ring data cannont be derived
 
+## 20 October 2025
 ### Invest now, get paid later? Limits and opportunities of woody  plants to time growth in a future climate
-Frederik Baumgarten, , Sally Aitken, Yann Vitasse, Robert D Guy, EM Wolkovich NOT PUBLISHED
+Frederik Baumgarten,  Sally Aitken, Yann Vitasse, Robert D Guy, EM Wolkovich NOT PUBLISHED
 
 The role of primary growth has been neglected, but it drives crown expansion and consequently, leaf area and its corresponding photosynthetic capactity which will determine biomass production (Girard2011Polycyclism*; Soolanayakanahally2015Comparative)
+
+Plants have evolved multiple morphological adaptations to tolerate or avoid environmental stressors, but temporate and boreal perrenial species cope with these environmental fluctuations of temperature and moisture by avoding them temporally. They do this by aligning their phenology with a cycle of growth and dormancy over their lifespan. The transitions between (e.g. vegetative growth to reproduction to storage) the different resource allocations act as additional filters, narrowing the window of opportunity during which they grow
+
+
+For the stop of temporary break in vegetative growth, in perrenial plants: flowers are usually produced on lateral shoots or buds, preserving the main vegetative axis and allowing continued structural expansion. However, determinate growth also refers to a temporal suspension of the meristem, which leads to a time lag between the formation of organs and their expansion. 
+
+In their first years, all seedlings exhibit indeterminate growth. In the following years, many species preform thier new shoot increments during the previous GS, overwintering them as primordial shoots with leaves and internodes in harneded buds to be read-to go when spring arrives. Once the leaves flush and the internodes elongate, some species suppress further activity of the apical meristem for the rest of the season through internal control such as paradormancy, often regulated through photoperiod-induced hormonal changes.
+
+Indeterminate growth can occur either through the continuous activity of the shoot apical meristems forming new leaves and internodes without buds (free growth), or through the formation and subsequent flushing of buds mid-season without a period of dormancy, called second flushing or lammas growth.
+
+The concept of determinency is often presented as dichotomously, but species likely exist along a gradient of those strategies. E.g. many oaks are considered determinate, but can exhibit many flushes and similarly, douglas fir gradually adopts a more determinate growth habit with maturity. 
+
+Faster growth potential of indeterminate species allow them to outcompete other species, but it comes with higher turnover rates and shorter life spans thus, they are often earl successional pioneers. In addition, indeterminate growth enables greater phenotypic plasticity, as tissues are produced in real time in response to prevailing conditions. This flexibiliy can be useful in variable or disturbed environments. But it can increase the risk of late spring and early fall frosts and exposure to droughts later in the season, potentially offsetting the benefits 
+
+In contrast, determinate species preform tissues in advance and are thus more constrained by past conditions, particularly those experienced during bud formation. This strategy may increase bud survival, but reduced plasticity. As a result, determinate species, may exhibit stronger local adaptation and reduced short-term plasticity. E.g. western larch achieves much of its primary shoot growth from indeterminate growth and is less locally adapted than the sympatric species Douglas-fir, which is more deterministic. 
+
