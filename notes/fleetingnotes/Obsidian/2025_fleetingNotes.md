@@ -1,4 +1,4 @@
-#2025 Fleeting Notes
+
 ## 10 January 2025
 ### Increased autumn productivity permits temperate trees to compensate for spring frost damage
 ##### Permanent notes: 
@@ -1003,3 +1003,16 @@ Faster growth potential of indeterminate species allow them to outcompete other 
 
 In contrast, determinate species preform tissues in advance and are thus more constrained by past conditions, particularly those experienced during bud formation. This strategy may increase bud survival, but reduced plasticity. As a result, determinate species, may exhibit stronger local adaptation and reduced short-term plasticity. E.g. western larch achieves much of its primary shoot growth from indeterminate growth and is less locally adapted than the sympatric species Douglas-fir, which is more deterministic. 
 
+## 21 October 2025
+### Four ways to define the growing season
+*already notes on this but following up*
+Korner 2023
+Phenological season is employed when referring to a timeframe based on phenological observations rather than growth. The contrast between invisible developmental states and processes (hormones and metabolism) on one side and visible changes in appearance (phenology) on the other side, complicate definitions of the onset and end of a phenological season.
+
+### Wood formation in trees
+Christophe Plomion 2001
+
+The vascular cambium is derived from protocambium which in turns develops from the apical meristem. It develops diametral growth in shoots and roots and is of great significance for wood production. Cambial activity continuously renews the functional xylem and phloem. 
+
+Cambial zone includes the cambium, made up of juvenile cells, called initials and the phloem and xylem mother cells, which are both produced by the dividing cambial initials.
+Xylem cells always divide more compared with phloem mother cells, which explains the considerable disproportion existing between phloem and xylem tissues. 
