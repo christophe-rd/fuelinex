@@ -706,14 +706,14 @@ For some species, photoperiod responses are qualitative (i.e. there is a treshol
 
 ## 4 June 2025
 ### The increasing relevance of phenology to conservation
-**Permanent notes:**
+**Permanent notes: YES**
 A. K. Ettinger, C. J. Chamberlain and E. M. Wolkovich
 Understanding climate change impacts on breeding phen ology of sensitive species can inform tourism planning to prevent ecological and/or economic harm. CC will  lead to new management challenges as seasonal patterns will be discrupted. 
 
 Populations, communities or ecosystems with high pheno diversity may be more resilient to CC. A portfolio of pheno strategies can result in a higher probability of survival with uncertain CC.  
 
 ### Winter temperatures predominate in spring phenological responses to warming
-**Permanent notes:**
+**Permanent notes:** YES
 A. K. Ettinger, C. J. Chamberlain, I. Morales-Castilla, D. M. Buonaiuto, E. M. Wolkovich
 Chilling, forcing and photoperiod provide a route to budburst. E.g. for some species, a cool winter will lower the amount of forcing required to trigger budburst. Also, photoperiod could trigger budburst given low chilling and/or forcing. One of these cues, may be absent in some species but dominate in others.
 
@@ -726,19 +726,19 @@ Their results support their hypotheses that chilliing and/or photoperiod cues ma
 They found that declining sensitivities are the same in magnitude as those predicted from a statistical artefact.
 
 ### Integrating experiments to predict interactive cue effects on spring phenology with warming
-**Permanent notes:**
+**Permanent notes:** YES
 A. K. Ettinger, C. J. Chamberlain, I. Morales-Castilla, D. M. Buonaiuto, E. M. Wolkovich
 
 Chilling, forcing and photoperiod, may produce nonlinear responses. They can occur through 2 pathways: 
-1. Though each sinbgle cue can yield linear reponses in the mid-range of cue levels, extremely high or low levels can produce threshold responses. These are rare and thus unlikely to explain recent shift observations. 
+1. Though each single cue can yield linear responses in the mid-range of cue levels, extremely high or low levels can produce threshold responses. These are rare and thus unlikely to explain recent shift observations. 
 2. Interactions can produce nonlinearities (most suported)
 
 Estimating interactions from observational data (where cues covary) often produce spurious results. This is unlike growth chamber studies designed to understand and estimate multiple cues that can tease out interactive effects. They are great because they increase our understanding of interactions from a simple statistical perspective (how the effect of one cue depends on another).
 
 Controlled-environment studies have shown that chilling, forcing and photoperiod cues together determine the transition from dormancy to growth (first observed as budburst).
 
-Robust statistical tests for interactions come from experimental designs taht include most or all combinations of all elvels of cues studied (factorial design).
-The statistical power needed to robustly estimte an interaction is much greater than a simple main effect (e.g. effect of forcing or photoperiod alone). It requires a 16 times greater sample size. Section 16.4 in ROS. \
+Robust statistical tests for interactions come from experimental designs that include most or all combinations of all levels of cues studied (factorial design).
+The statistical power needed to robustly estimate an interaction is much greater than a simple main effect (e.g. effect of forcing or photoperiod alone). It requires a 16 times greater sample size. Section 16.4 in ROS. 
 
 They suggest that experiment designs should include values of cues within the current and projected futures specie's range rather than focusing on extreme comparisons only. 
 
@@ -1016,3 +1016,9 @@ The vascular cambium is derived from protocambium which in turns develops from t
 
 Cambial zone includes the cambium, made up of juvenile cells, called initials and the phloem and xylem mother cells, which are both produced by the dividing cambial initials.
 Xylem cells always divide more compared with phloem mother cells, which explains the considerable disproportion existing between phloem and xylem tissues. 
+
+## 22 October 2025
+### Height-Diameter Models with Random Coefficients and Site Variables for Tree Species of Central Maine
+Mike R. Saunders1, Robert G. Wagner
+
+The allometric relationship between tree diameter and tree height is widely used to estimate tree volume. This is therefore a fundamental commonent of many growth and yield process, forest planning and forest harvesting models.  However, it's highly site dependant and not constant over time. 
