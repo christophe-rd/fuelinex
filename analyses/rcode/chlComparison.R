@@ -136,62 +136,67 @@ plot_a_spp_fit_sim <- ggplot(a_spp_fit_sim, aes(x = sim_a_spp, y = fit_a_spp)) +
 plot_a_spp_fit_sim
 ggsave("figures/Chl_a_spp_recovery.jpeg", plot_a_spp_fit_sim, width = 8, height = 6)
 
+# === === === === === === === === === === === === === === === === === === === 
+
+# === === === === === === === === === === === === === === === === === === === 
 # Fit to empirical data ####
+plot(log10(chl$ccm200plus) ~ chl$minolta)
+
 fitempir <- stan_lmer(
-  minolta ~ ccm200plus + (1|species),
+  log10(chl$ccm200plus) ~ minolta + (1|species),
   data = chl,
   chains = 4,
-  iter = 2000,
+  iter = 4000,
   cores = 4
 )
-plot(fitempir)
-summary(fitempir)
-fitempir
 
 ##### Recover empirical model parameters #####
-fit_fixef <- fixef(fitempir)
-fit_ranef <- ranef(fitempir)
+df_fit <- as.data.frame(fitempir)
+aspp_cols <- colnames(df_fit)[grepl("species", colnames(df_fit))]
+aspp_cols <- aspp_cols[!grepl("Sigma", aspp_cols)]
 
-spp_df <- fit_ranef$species
+aspp_df <- df_fit[, colnames(df_fit) %in% aspp_cols]
+# change their names
+colnames(aspp_df) <- species_names <- sub(".*species:([a-z_]+)\\]", "\\1", colnames(aspp_df))
 
-# Now extract the tree IDs and intercepts
-a_sppwithranef <- data.frame(
-  species = rownames(spp_df),
-  a_spp = spp_df[["(Intercept)"]]
+#empty aspp df
+aspp_df2 <- data.frame(
+  species = character(ncol(aspp_df)),
+  fit_a_spp = numeric(ncol(aspp_df)),  
+  fit_a_spp_per5 = NA, 
+  fit_a_spp_per25 = NA,
+  fit_a_spp_per75 = NA,
+  fit_a_spp_per95 = NA
 )
+for (i in 1:ncol(aspp_df)) { # i = 1
+  aspp_df2$species[i] <- colnames(aspp_df)[i]         
+  aspp_df2$fit_a_spp[i] <- round(mean(aspp_df[[i]]),3)  
+  aspp_df2$fit_a_spp_per5[i] <- round(quantile(aspp_df[[i]], probs = 0.05), 3)
+  aspp_df2$fit_a_spp_per25[i] <- round(quantile(aspp_df[[i]], probs = 0.25), 3)
+  aspp_df2$fit_a_spp_per75[i] <- round(quantile(aspp_df[[i]], probs = 0.75), 3)
+  aspp_df2$fit_a_spp_per95[i] <- round(quantile(aspp_df[[i]], probs = 0.95), 3)
+}
 
-# add overall intercept
-a_sppwithranef$a <- fit_fixef["(Intercept)"]
+aspp_df2$b<- mean(df_fit$minolta)
+aspp_df2$a<- mean(df_fit$`(Intercept)`)
+aspp_df2$total_a <- aspp_df2$fit_a_spp+aspp_df2$a
 
-# add slope 
-a_sppwithranef$b <- fit_fixef["ccm200plus"]
+mergedempirfit <- merge(chl, aspp_df2[, c("species",
+                                "fit_a_spp", 
+                                "b",
+                                "a",
+                                "total_a")], by = "species")
 
-# sum intercept values 
-a_sppwithranef$total_a <- a_sppwithranef$a+a_sppwithranef$a_spp
-
-chl$fit_y <- fitempir$fitted.values
-
-ggplot(chl, aes(x = minolta, y = fit_y)) +
-  geom_point(color = "blue", size = 2) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "red", linewidth = 1) + 
+ggplot(mergedempirfit) +
+  geom_point(aes(x = minolta, y = log10(ccm200plus))) +
+  geom_abline(aes(intercept = total_a, slope = b, colour = species), 
+              linewidth = 0.5) +
+  labs(title = "", x = "minolta", y = "log(ccm200plus)") +
+  scale_colour_manual(values = wes_palette("Darjeeling1"))+
   theme_minimal()
-# save!
-ggsave("figures/chl_fitVSempirical.jpeg", width = 8, height = 6)
+ggsave("figures/chlObsFit.jpeg", width = 8, height = 6)
 
-# remove the outlier
-chlsub <- subset(chl, minolta <42 )
-ggplot(chlsub, aes(x = minolta, y = fit_y)) +
-  geom_point(color = "blue", size = 2) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "red", linewidth = 1) + 
+ggplot(a_sppwithranef) +
+  geom_abline(aes(intercept = total_a, slope = b, colour = species), linewidth = 1) +
+  labs(title = "", x = "minolta", y = "log(ccm200plus)") +
   theme_minimal()
-
-x <- seq(0,10,0.1)
-y <- 10+log(x)
-plot(y ~ x)
-
-
-
-
-plot(chl$minolta ~ log(chl$ccm200plus))
-plot(log(chl$minolta) ~ chl$ccm200plus)
-plot(log(chl$minolta) ~ log(chl$ccm200plus))
