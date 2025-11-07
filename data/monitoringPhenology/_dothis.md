@@ -1,2 +1,4 @@
 # do this
 Senescence doy307: check the two qumas that lost their leaves on that day and add the 307 to the doy of these two. For this, go in 300 and check which ones didnt have Y in last leaves fell.
+
+Measure all paint on prvi and remove that length to all measurements from 2025 winter because i measured them on the bottom of the line instead of the top
