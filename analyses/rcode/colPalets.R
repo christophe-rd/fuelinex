@@ -1,4 +1,4 @@
-# wes palettes
+# wes palettes ####
 
 $BottleRocket1
 [1] "#A42820" "#5F5647" "#9B110E" "#3F5151" "#4E2A1E" "#550307" "#0C1707"
@@ -72,3 +72,20 @@ $AsteroidCity2
 
 $AsteroidCity3
 [1] "#FBA72A" "#D3D4D8" "#CB7A5C" "#5785C1"
+
+
+# Gradients ####
+# https://wpdatatables.com/data-visualization-color-palette/
+# Pastel
+c("#fD7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7")
+
+# Blue to yellow
+"#115f9a", "#1984c5", "#22a7f0", "#48b5c4", "#76c68f", "#a6d75b", "#c9e52f", "#d0ee11", "#f4f100"
+
+# Grey to Red
+"#d7e1ee", "#cbd6e4", "#bfcbdb", "#b3bfd1", "#a4a2a8", "#df8879", "#c86558", "#b04238", "#991f17"
+
+# Blues
+"#0000b3", "#0010d9", "#0020ff", "#0040ff", "#0060ff", "#0080ff", "#009fff", "#00bfff", "#00ffff"
+
+# Color brewer #### 
