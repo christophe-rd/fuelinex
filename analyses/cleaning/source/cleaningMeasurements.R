@@ -14,11 +14,7 @@ options(stringsAsFactors=FALSE)
 library(ggplot2)
 
 # Set Working Directory
-# Set Working Directory
-if(length(grep("christophe", getwd()) > 0)) {
-} else if(length(grep("christophe", getwd())) > 0){
-  setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses/")
-} 
+setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
 # read it
 d<-read.csv("input/TreeMeasurements.csv", header=TRUE)
@@ -48,7 +44,36 @@ w2025$month <- ifelse(w2025$doy > 31 & w2025$doy < 60, "february", "march")
 colnames(w2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", "diameter", "diameterTrunk2", "height", "heightTrunk2", "doy", "notes", "valid_height", "valid_diameter", "year", "month")
 
 # Fall of 2025 
-#### To be continued
+f2025 <- d[, c(1:5, 12:16, 19, 19:ncol(d))]
+
+# add year column
+f2025$year <- 2025
+f2025$month <- ifelse(f2025$doy > 31 & f2025$doy < 60, "february", "march")
+
+# 
+test <- aggregate(
+  diameterFall25 ~ species,
+  f2025,
+  FUN = function(x) sum(is.na(x)),
+  na.action = na.pass
+)
+test
+
+# quick checks for measured species 
+pist <- subset(f2025, species == "pinus_strobus")
+pist$noteFall25[which(is.na(pist$diameterFall25))]
+
+prvi <- subset(f2025, species == "prunus_virginiana")
+prvi$noteWinter25[which(is.na(prvi$diameterFall25))]
+prvi$tree_ID[which(is.na(prvi$diameterFall25))]
+# the missing prvi are all dead
+
+quma <- subset(f2025, species == "quercus_macrocarpa")
+quma$noteWinter25[which(is.na(quma$diameterFall25))]
+
+# standardize colnames
+colnames(f2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", "diameter", "diameterTrunk2", "height", "heightTrunk2", "doy", "notes", "valid_height", "valid_diameter", "year", "month")
+
 
 
 # bind both dfs 
