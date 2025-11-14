@@ -23,3 +23,4 @@ Meta data for tree measurements. Moved from excel sheet to here because it messe
 | **height_2024_valid**      | The height measured in 2024 may be invalid in 2025 because the main shoot might have died. If yes, 2024 height is valid; if no, it is invalid and rejected. |
 | **noteWinter25**           | Notes of measurements in winter 2025.                                                                                                                      |
 
+*prviRedline*: because of a mistake in the height measurement for prvi **ONLY** of winter2025, I measured the width of the red mark, so I can substract these values from the hieght measurements of winter2025, so they correspond to the location of measurement for fall2025.
