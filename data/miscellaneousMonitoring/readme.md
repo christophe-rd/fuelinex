@@ -34,3 +34,6 @@ Since last fall, two different chl measurement tools were used,,t his file conta
 For 290, we monitored bloc 2 for all species, but since acne, prvi and quma have lost most of their leaves, we also monitored all the trees that still had leaves remaining. 
 
 The goal for this 3rd measurement was to get low chl values, when leaves have chl degraded
+
+### tagWeight.xlsx
+Selected 2 tags per treatment for quma B2 and weighted them so we can average and remove this value to all trees. Except Prvi cool warm r15.
