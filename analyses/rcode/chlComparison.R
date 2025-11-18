@@ -188,11 +188,12 @@ mergedempirfit <- merge(chl, aspp_df2[, c("species",
                                 "total_a")], by = "species")
 
 ggplot(mergedempirfit) +
-  geom_point(aes(x = minolta, y = log10(ccm200plus))) +
+  geom_point(aes(x = minolta, y = log10(ccm200plus), colour = species)) +
   geom_abline(aes(intercept = total_a, slope = b, colour = species), 
               linewidth = 0.5) +
   labs(title = "", x = "minolta", y = "log(ccm200plus)") +
-  scale_colour_manual(values = wes_palette("Darjeeling1"))+
+  scale_colour_manual(values = wes_palette("Darjeeling1")) +
+  facet_wrap(~ species) + 
   theme_minimal()
 ggsave("figures/chlObsFit.jpeg", width = 8, height = 6)
 
