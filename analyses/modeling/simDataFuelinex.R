@@ -68,6 +68,10 @@ coef$a_fall = ifelse(coef$fall == "c", # divergence from the overall intercept f
 coef$a_full = coef$a + coef$a_spring + coef$a_fall + coef$error
 
 hist(coef$error)
+hist(coef$a_spring)
+unique(coef$a_spring)
+ggplot(coef, aes(x = a_spring, color = treat, fill = treat)) +
+  geom_density(alpha = 0.3)
 
 ggplot(coef, aes(x = a_full, color = treat, fill = treat)) +
   geom_density(alpha = 0.3) +
