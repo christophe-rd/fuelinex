@@ -1022,3 +1022,71 @@ Xylem cells always divide more compared with phloem mother cells, which explains
 Mike R. Saunders1, Robert G. Wagner
 
 The allometric relationship between tree diameter and tree height is widely used to estimate tree volume. This is therefore a fundamental commonent of many growth and yield process, forest planning and forest harvesting models.  However, it's highly site dependant and not constant over time. 
+
+## 19 November 2025
+### In dendroecology: Low hanging DendroDynamic Fruits regarding Disturbances
+Neil Pederson
+Across eatern North America, drought killed trees in the first part of the 20th century, however, drought induced mortality has not been recorded over the last 30-50 years. Which is consistent with increased moisture availability in recent decades.
+
+Crossdating is not always conducted in all tree-ring studies because of difficulty of dating sopme species and particularly understory trees. Notably, some understory diffuse porous trees have week chronology interseries correlations and many locally absent rings.
+
+Locally absent rings:![[Screenshot 2025-11-19 at 10.41.36 AM.png]]
+
+### Regional growth decline of sugar maple (Acer saccharum) and its potential causes
+Neil Pederson 
+
+Future of sugar maple is uncertain because of :
+- Suite of decline symptoms: 
+	- Branch dieback and foliar discoloration
+	- Poor tissue nutrition
+	- Regeneration failure
+	- Elevated mortality
+
+Some have proposed to define a "decline disease" etiology for S. saccharum. Proximate causes :
+- Soil acidification and nutrietn depletion due toa cid rain
+- Insect outbreaks (e.g. forest tent caterpillar)
+- Armillaria pathogens
+- Density dependant competition
+- Climate mediated stress and injury
+Decline symptoms are more severe in populations with more than one of these.
+
+Projections indicate that sugar maple will experience one of the largest range reduction with climate change, but we don't know their climate sensitivity in extant A. saccharum populations.
+
+Climate-mediated injury  may also play a role such as defoliation due to early thaw---late frost event taht affected an area of 8700m across New enland in 2010. 
+
+They show negative growth rates despite relatively young age of these long-lived trees. They found no difference between base rich and poor soil stands. Although acidic deposition increased and climate became more favorable for sugar maple growth, they observed declining growth.
+
+Growing season precipitation increased during the period of growth decline in their region with synchronous increases in minimum temperatures and lengthening of GS, which should have increased growth, but only a small portion of trees increased growth rates during this time. This suggests that sugar maple growth decline is unrelated to moisture limitation.
+
+### Peak radial growth of diffuse-porous species occurs during  periods of lower water availability than for ring-porous and  coniferous trees
+Loïc D’Orangeville, Malcolm Itter, Dan Kneeshaw, J. William Munger, Andrew D. Richardson, James M. Dyer, David A. Orwig, Yude Pan and Neil Pederson
+
+Many tree-level traits also affect individual vulnerability under changing environmental conditions such as:
+- Carbon allocation strategies,
+- Previous disturbance history
+- Rooting depth
+- Water use efficiency
+- Wood structure
+Studies also suggest that larger trees may be more vulnerable to drought with serious implications for carbon sequestration.
+
+The timing of drought may also strongly influence drought vulnerability due to the highly seasonal nature of cambial activity nad its acute sensitivity to water availability.
+
+![[Screenshot 2025-11-19 at 11.20.47 AM.png]]
+
+Diffuse porous species display large, positive correaltions between leaf and diameter growth phenology across years. For ring-porous species, they found a weaker relationship between leaf and diameter growth phenology,.
+
+The later window of peak growth in diffuse-porous speceis derives from physiological differences in reactivation in teh region of the cambium. The first vessels are formed when leaves are developing or mature while the first vessels of ring-porous species are formed several weeks before budbreak, although ring-porous vessels become functional after bud break. While the mechanisms are not well understood, Auxin (indole-3-acetic acid) is an important promoter of cambium reactivation and has long been thought to originate from developing leaves
+
+They found that peak growth in diffuse-porous trees occured during high levels of evapotranspiration and water deficit than other species. In contrast, peak growth in ring-porous trees and conifers was completed before this period. Such pheno differences between species of different wood porosity highlight the importance of wood porosity as a predictor of species to climate conditions.
+
+They also found red maples that didn't grow.
+
+### Leaf out time correlates with wood anatomy across large  geographic scales and within local communities
+Jessica A. Savage, Thomas Kiecker, Natalie McMann , Daniel Park , Matthew Rothendler and Kennedy Mosher
+Recent meta-analysis suggest that wood anatomy may explain differences in leaf phenology among species, but there is conflicting evidence from this.
+
+If a relationship between wood anatomy and leaf phenology proves robust across taxa, we could use wood anatomy as a proxy for leaf phenology in larger studies. However, from a hydraulic perspective, this relationship is weak because:
+1. Species should exhibity differences in how much functional xylem they require at leaf out dpedning on their leaf water use, leaf area and the coordination between new wood development and leaf expension.
+2. Average conduit diameter predicts xylem conductance in the spring
+
+Their results suggest that leaf out time was positively correlated witha verage vessel diameter for the studied deciduous trees, but they can't use wood anatomy as a proxy for leaf phenology
