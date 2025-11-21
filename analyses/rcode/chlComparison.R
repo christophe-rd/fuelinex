@@ -18,6 +18,8 @@ library(ggplot2)
 # Set the path to your directory folder 
 setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
+runsimdata <- FALSE
+
 # read csvs
 chl212 <- read.csv("input/2025-212_Chltoocomparison.csv")
 chl235 <- read.csv("input/2025-212_Chltoocomparison.csv")
@@ -43,6 +45,8 @@ chl$ccm200plus <- as.numeric(as.character(chl$ccm200plus))
 # remove NA rows
 chl <- chl[!is.na(chl$minolta), ]
 
+
+if (runsimdata) {
 # Simulate data ####
 set.seed(124)
 a <- 2
@@ -139,6 +143,8 @@ ggsave("figures/Chl_a_spp_recovery.jpeg", plot_a_spp_fit_sim, width = 8, height 
 # === === === === === === === === === === === === === === === === === === === 
 
 # === === === === === === === === === === === === === === === === === === === 
+
+}
 # Fit to empirical data ####
 plot(log10(chl$ccm200plus) ~ chl$minolta)
 
@@ -201,3 +207,18 @@ ggplot(a_sppwithranef) +
   geom_abline(aes(intercept = total_a, slope = b, colour = species), linewidth = 1) +
   labs(title = "", x = "minolta", y = "log(ccm200plus)") +
   theme_minimal()
+
+# transform chl2024 measurements of ccm200plus to the scale of minolta
+# minolta = (ccm - a - asp)/b
+chl24 <- read.csv("output/chl24.csv")
+
+# let's start with one species
+ccm <- subset(chl24, meter == "ccm200plus")
+ccm$chlValuecorrected <- ccm$chlValue
+ccm$chlValuecorrected[which(ccm$meter == "ccm200plus")] <- 
+  log(ccm$chlValue)*0.0282 + 0.137
+
+# slope = 0.0282
+# a_spp = 0.019
+# a = 0.137
+
