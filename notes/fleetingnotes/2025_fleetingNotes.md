@@ -1090,3 +1090,24 @@ If a relationship between wood anatomy and leaf phenology proves robust across t
 2. Average conduit diameter predicts xylem conductance in the spring
 
 Their results suggest that leaf out time was positively correlated witha verage vessel diameter for the studied deciduous trees, but they can't use wood anatomy as a proxy for leaf phenology
+
+### Data analysis using regression and multilevel/hierarchical modelling
+Gelman and Hill
+
+**What is a hierarchical model?**:
+- AKA multilevel model and they are called hierarchical for 2 reasons:
+	1. From the structure of the data (e.g. students clustered within schools)
+	2. From the model itself, which has its own hierarchy, with the parameters of the within-school regressions at the bottom, controlled by the hyperparameters  of the upper-level model
+**Why avoiding the term "random effects"**:
+- Multilevel models are often known as random-effects or mixed-effects models
+- The regression coefficients that are being modeled are called **random effects**
+	- In the sense that they are considered random outcomes of a process identified with the model that is predicting them
+- In contrast, **fixed effects** correspond either to parameters that: 
+	- do not vary (e.g. fitting the regression line for each of the schools) 
+	- that vary but are not modeled themselves (e.g. fitting a least squares regression model with various predictors, including indicators for the schools) 
+
+In a mixed-effects model, there are both fixed and random effects (e.g. varying intercepts $\alpha_j$  have a group-level model, but $\beta$  is fixed and does not vary by group)
+
+Fixed effects can be viewed as special cases of random effects, in which the higer level variance is set to 0 or infinity
+- Therefore, in this framework, all regression parameters are "random" and the term "multilevel" is all-encomposasing
+Fixed and random and mixed effects are confusing and often misleading, so we avoid them
