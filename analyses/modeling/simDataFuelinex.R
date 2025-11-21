@@ -33,45 +33,75 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 a <- 30
 sigma_y <- 2.5
 sigma_treat <- 1
-sigma_spp <- 1.5
+sigma_sp <- 10
 sigma_spring <- 0.4
 sigma_fall <- 0.8
 
-treat_norep <- c("cc", "cw","wc","ww")
+# treat and sp group ids
+treat_norep <- c("cc", "cw", "wc", "ww")
+sp_norep <- 1:4
+
+# n of treat and sp and number of replicates per species, per treatment
 n_treat <- length(treat_norep)
-n_per_treat <- 15
-treat <- rep(treat_norep, each = n_per_treat)
+n_sp <- length(sp_norep)
+n_per_sp_per_treat <- 100
 
-N <- n_per_treat*n_treat
+sp <- rep(rep(sp_norep, each = n_per_sp_per_treat), times = n_treat)
+sp
+treat <- rep(rep(treat_norep, each = n_per_sp_per_treat), each = n_sp)
+treat
+N <- length(sp)
 
-ids <- 1:N
+ids <- 1: N
 
 error <- rnorm(N, 0, sigma_y)
 
 coef <- data.frame(
-  a = a,
   ids = ids,
   treat = treat,
+  sp = sp,
+  a = a,
   error = error
 )
+coef
 
+# add effect of treatments on intercept
 coef$spring <- substr(coef$treat, 1,1)  # spring condition either warm or cool 
 coef$fall = substr(coef$treat, 2,2) # fall condition either warm or cool
-coef$a_spring = ifelse(coef$spring == "c",# divergence from the overall intercept for spring condition
+coef$aspring = ifelse(coef$spring == "c",# divergence from the overall intercept for spring condition
                        rnorm(length(coef$spring == "c"), -10, sigma_spring),
                        rnorm(length(coef$spring == "w"), 10, sigma_spring))
-coef$a_fall = ifelse(coef$fall == "c", # divergence from the overall intercept for fall condition
+coef$afall = ifelse(coef$fall == "c", # divergence from the overall intercept for fall condition
                      rnorm(length(coef$fall == "c"), -5, sigma_fall),
                      rnorm(length(coef$fall == "w"), 5, sigma_fall))
 
 
-coef$a_full = coef$a + coef$a_spring + coef$a_fall + coef$error
 
+
+# add effect of species on intercept
+asp <- rnorm(n_sp, mean = 0, sigma_sp)
+coef$asp <- asp[coef$sp]
+
+# joing everything together
+coef$a_full <-  
+  coef$a + 
+  coef$aspring + 
+  coef$afall + 
+  coef$asp +
+  coef$error
+coef
 hist(coef$error)
-hist(coef$a_spring)
-unique(coef$a_spring)
-ggplot(coef, aes(x = a_spring, color = treat, fill = treat)) +
+hist(coef$aspring)
+unique(coef$aspring)
+ggplot(coef, aes(x = aspring, color = treat, fill = treat)) +
   geom_density(alpha = 0.3)
+
+v <- c(unique(coef$a - 10 - 5), # cc
+       unique(coef$a + 10 + 5), # ww
+       unique(coef$a + 10 - 5), # wc
+       unique(coef$a - 10 + 5)  # cw
+       )
+asp
 
 ggplot(coef, aes(x = a_full, color = treat, fill = treat)) +
   geom_density(alpha = 0.3) +
@@ -80,26 +110,14 @@ ggplot(coef, aes(x = a_full, color = treat, fill = treat)) +
     x = "a_full",
     y = "density"
   ) +
+  geom_vline(aes(xintercept = a+asp)) +
+  # geom_vline(xintercept = v) +
+  facet_wrap(~sp) +
   scale_color_manual(values = wes_palette("Darjeeling1")) +
   scale_fill_manual(values = wes_palette("Darjeeling1")) +
   theme_minimal()
-ggsave("figures/densityintercepts.jpeg", width = 8, height = 6, units = "in", dpi = 300)
+ggsave("figures/densityintercept_with_asp.jpeg", width = 8, height = 6, units = "in", dpi = 300)
   
-
-# visual of my sim data
-ggplot(coef) +
-  geom_vline(xintercept = 0, linetype = "dashed",
-             color = "black", alpha = 1, linewidth = 1) +
-  geom_vline(aes(xintercept = a), 
-             color = "black", alpha = 1, linewidth =5) +
-  geom_vline(aes(xintercept = a_full), 
-             color = "red", alpha = 0.3) +
-  geom_vline(aes(xintercept = a_spring),
-             color = "green", alpha = 0.8) +
-  geom_vline(aes(xintercept = a_fall),
-             color = "orange", alpha = 0.8) +
-  facet_wrap(~treat, nrow =1, ncol =4) +
-  theme_minimal()
 
 # run model
 fitbiomass <- stan_lmer(
