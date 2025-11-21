@@ -145,7 +145,10 @@ ggsave("figures/Chl_a_spp_recovery.jpeg", plot_a_spp_fit_sim, width = 8, height 
 # === === === === === === === === === === === === === === === === === === === 
 
 }
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Fit to empirical data ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 plot(log10(chl$ccm200plus) ~ chl$minolta)
 
 fitempir <- stan_lmer(
@@ -203,20 +206,30 @@ ggplot(mergedempirfit) +
   theme_minimal()
 ggsave("figures/chlObsFit.jpeg", width = 8, height = 6)
 
-ggplot(a_sppwithranef) +
-  geom_abline(aes(intercept = total_a, slope = b, colour = species), linewidth = 1) +
-  labs(title = "", x = "minolta", y = "log(ccm200plus)") +
-  theme_minimal()
 
 # transform chl2024 measurements of ccm200plus to the scale of minolta
+
+# pull back the parameter values
+a <- aspp_df2$a
+b <- aspp_df2$b
+
+a_aspp_acne <- aspp_df2$total_a[which(aspp_df2$species == "acer_negundo")]
+a_aspp_bepa <- aspp_df2$total_a[which(aspp_df2$species == "betula_papyrifera")]
+a_aspp_poba <- aspp_df2$total_a[which(aspp_df2$species == "populus_balsamifera")]
+a_aspp_prvi <- aspp_df2$total_a[which(aspp_df2$species == "prunus_virginiana")]
+a_aspp_quma <- aspp_df2$total_a[which(aspp_df2$species == "quercus_macrocarpa")]
+
 # minolta = (ccm - a - asp)/b
 chl24 <- read.csv("output/chl24.csv")
-
-# let's start with one species
+chl24
+# subset for ccm200plus values
 ccm <- subset(chl24, meter == "ccm200plus")
 ccm$chlValuecorrected <- ccm$chlValue
-ccm$chlValuecorrected[which(ccm$meter == "ccm200plus")] <- 
-  log(ccm$chlValue)*0.0282 + 0.137
+
+ccm$chlValuecorrected[which(ccm$meter == "ccm200plus")] 
+
+ccm_acne <- subset(ccm, genus == "acer")
+ccm_acne$chlValuecorrected <- (log10(ccm_acne$chlValue) - a_aspp_acne)/b
 
 # slope = 0.0282
 # a_spp = 0.019
