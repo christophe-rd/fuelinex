@@ -13,6 +13,7 @@ library(ggplot2)
 library(rstanarm)
 library(rethinking)
 library(ggplot2)
+library(wesanderson)
 # --- --# --- --# --- --# --- --# --- --- --- --- --- --- --- --- --- --- --- --
 
 # Set the path to your directory folder 
@@ -224,12 +225,19 @@ chl24 <- read.csv("output/chl24.csv")
 chl24
 # subset for ccm200plus values
 ccm <- subset(chl24, meter == "ccm200plus")
+minolta <- subset(chl24, meter == "minolta")
 ccm$chlValuecorrected <- ccm$chlValue
 
 ccm$chlValuecorrected[which(ccm$meter == "ccm200plus")] 
 
-ccm_acne <- subset(ccm, genus == "acer")
-ccm_acne$chlValuecorrected <- (log10(ccm_acne$chlValue) - a_aspp_acne)/b
+ccm_acer <- subset(ccm, genus == "acer")
+ccm_acer$chlValuecorrected <- (log10(ccm_acer$chlValue) - a_aspp_acne)/b
+
+ccm_bepa <- subset(ccm, genus == "betula")
+ccm_bepa$chlValuecorrected <- (log10(ccm_bepa$chlValue) - a_aspp_bepa)/b
+
+hist(ccm_acer$chlValuecorrected)
+hist(ccm_acne$chlValue)
 
 # slope = 0.0282
 # a_spp = 0.019
