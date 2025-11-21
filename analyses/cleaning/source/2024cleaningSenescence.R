@@ -217,4 +217,4 @@ chl24 <- chlorolongwnotes[,c("tree_ID","bloc", "treatment", "genus", "species", 
 # add which meter it was used on each day
 chl24$meter <- ifelse(chl24$DOY <= 269, "ccm200plus", "minolta")
 
-write.csv2(chl24, "output/chl23.csv")
+write.csv(chl24, "output/chl24.csv")

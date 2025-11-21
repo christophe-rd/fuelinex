@@ -58,6 +58,13 @@ test <- aggregate(
   na.action = na.pass
 )
 test
+test2 <- aggregate(
+  heightFall25 ~ species,
+  f2025,
+  FUN = function(x) sum(is.na(x)),
+  na.action = na.pass
+)
+test2
 
 # quick checks for measured species 
 pist <- subset(f2025, species == "pinus_strobus")
