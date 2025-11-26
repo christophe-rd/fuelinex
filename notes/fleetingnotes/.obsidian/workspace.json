@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1c8fd20a58f3082e",
+        "id": "18dee391d9abc255",
         "type": "tabs",
         "children": [
           {
-            "id": "6ffafabc3d350357",
+            "id": "e07b7680816c7e2c",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -165,12 +165,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "6ffafabc3d350357",
+  "active": "e07b7680816c7e2c",
   "lastOpenFiles": [
+    "2024_fleetingnotes.md",
     "2025_fleetingNotes.md",
     "Screenshot 2025-11-19 at 11.20.47 AM.png",
     "Screenshot 2025-11-19 at 10.41.36 AM.png",
-    "2024_fleetingnotes.md",
     "Welcome.md",
     "outline_ideas.md",
     "dothis.md"
