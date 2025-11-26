@@ -151,9 +151,12 @@ ggsave("figures/Chl_a_spp_recovery.jpeg", plot_a_spp_fit_sim, width = 8, height 
 # Fit to empirical data ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 plot(log10(chl$ccm200plus) ~ chl$minolta)
+chl$ccm200plus2 <- chl$ccm200plus+5
+chl$minolta2 <- chl$minolta+5
+plot((log10(chl$ccm200plus2) ~ chl$minolta2))
 
 fitempir <- stan_lmer(
-  log10(chl$ccm200plus) ~ minolta + (1|species),
+  log10(chl$ccm200plus2) ~ minolta2 + (1|species),
   data = chl,
   chains = 4,
   iter = 4000,
@@ -198,7 +201,7 @@ mergedempirfit <- merge(chl, aspp_df2[, c("species",
                                 "total_a")], by = "species")
 
 ggplot(mergedempirfit) +
-  geom_point(aes(x = minolta, y = log10(ccm200plus), colour = species)) +
+  geom_point(aes(x = minolta2, y = log10(ccm200plus2), colour = species)) +
   geom_abline(aes(intercept = total_a, slope = b, colour = species), 
               linewidth = 0.5) +
   labs(title = "", x = "minolta", y = "log(ccm200plus)") +
@@ -223,6 +226,9 @@ a_aspp_quma <- aspp_df2$total_a[which(aspp_df2$species == "quercus_macrocarpa")]
 # minolta = (ccm - a - asp)/b
 chl24 <- read.csv("output/chl24.csv")
 chl24
+
+chl24$chlValue <- chl24$chlValue+5
+
 # subset for ccm200plus values
 ccm <- subset(chl24, meter == "ccm200plus")
 minolta <- subset(chl24, meter == "minolta")
@@ -237,7 +243,7 @@ ccm_bepa <- subset(ccm, genus == "betula")
 ccm_bepa$chlValuecorrected <- (log10(ccm_bepa$chlValue) - a_aspp_bepa)/b
 
 hist(ccm_acer$chlValuecorrected)
-hist(ccm_acne$chlValue)
+hist(ccm_bepa$chlValuecorrected)
 
 # slope = 0.0282
 # a_spp = 0.019
