@@ -75,9 +75,6 @@ coef$afall = ifelse(coef$fall == "c", # divergence from the overall intercept fo
                      rnorm(length(coef$fall == "c"), -5, sigma_fall),
                      rnorm(length(coef$fall == "w"), 5, sigma_fall))
 
-
-
-
 # add effect of species on intercept
 asp <- rnorm(n_sp, mean = 0, sigma_sp)
 coef$asp <- asp[coef$sp]
@@ -90,6 +87,8 @@ coef$a_full <-
   coef$asp +
   coef$error
 coef
+
+
 hist(coef$error)
 hist(coef$aspring)
 unique(coef$aspring)
@@ -253,3 +252,7 @@ a_spp_simXfit_plot <- ggplot(t2, aes(x = biomass, y = fit_biomass)) +
 a_spp_simXfit_plot
 # ggsave!
 ggsave("figures/a_spp_simXfit_plot.jpeg", a_spp_simXfit_plot, width = 6, height = 6, units = "in", dpi = 300)
+
+
+# Fit sim data to model ####
+coef$treatnum <- match(coef$treat, unique(coef$treat))
