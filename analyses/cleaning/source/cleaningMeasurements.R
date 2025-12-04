@@ -50,7 +50,7 @@ f2025 <- d[, c(1:5, 12:16, 19, 19:ncol(d))]
 f2025$year <- 2025
 f2025$month <- ifelse(f2025$doy > 31 & f2025$doy < 60, "february", "march")
 
-# 
+
 test <- aggregate(
   diameterFall25 ~ species,
   f2025,
