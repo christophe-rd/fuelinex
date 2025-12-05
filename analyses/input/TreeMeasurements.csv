@@ -274,8 +274,8 @@ Poba_CoolS/CoolF_B1_R2,1,CoolS/CoolF,populus,populus_balsamifera,3.60,,24.1,,38,
 Poba_CoolS/CoolF_B1_R3,1,CoolS/CoolF,populus,populus_balsamifera,2.80,,19.2,,38,,4.50,,39.9,,37,,,,6.64,,70.2,,,,,
 Poba_CoolS/CoolF_B1_R4,1,CoolS/CoolF,populus,populus_balsamifera,3.84,,19.8,,38,,4.91,,33.0,,37,,,"measured shoot is dead, another shoot is measured",7.39,,82.9,,,,,
 Poba_CoolS/CoolF_B1_R5,1,CoolS/CoolF,populus,populus_balsamifera,3.21,,20.0,,38,,4.98,,39.0,,37,,,"measured shoot is dead, another shoot is measured",7.27,,71.7,,,,,
-Poba_CoolS/CoolF_B2_R6,2,CoolS/CoolF,populus,populus_balsamifera,2.62,,19.6,,38,,3.89,,45.20,,37,,,,5.62,,NA,,,,,
-Poba_CoolS/CoolF_B2_R7,2,CoolS/CoolF,populus,populus_balsamifera,3.38,,21.2,,38,,4.62,,41.00,,37,,,,7.04,,NA,,,,,
+Poba_CoolS/CoolF_B2_R6,2,CoolS/CoolF,populus,populus_balsamifera,2.62,,19.6,,38,,3.89,,45.20,,37,,,,5.62,,NA,,,,,check shoot elongation if stopped at some point and add the max elongation value to the height of last year
+Poba_CoolS/CoolF_B2_R7,2,CoolS/CoolF,populus,populus_balsamifera,3.38,,21.2,,38,,4.62,,41.00,,37,,,,7.04,,NA,,,,,check shoot elongation if stopped at some point and add the max elongation value to the height of last year
 Poba_CoolS/CoolF_B2_R8,2,CoolS/CoolF,populus,populus_balsamifera,3.74,,25.8,,38,,5.04,,59.60,,37,no,yes,"measured shoot from 2024 is dead, second shoot is measured and newly marked. newly measured shoot was also measured for shoot elongation in 2024",8.25,,94.2,,,,,
 Poba_CoolS/CoolF_B2_R9,2,CoolS/CoolF,populus,populus_balsamifera,4.02,,23.4,,38,,5.08,,32.10,,37,,,,6.67,,80.4,,,,,
 Poba_CoolS/CoolF_B2_R10,2,CoolS/CoolF,populus,populus_balsamifera,4.89,,26.0,,38,,5.92,,62.10,,37,,,,7.85,,97.9,,,,,
