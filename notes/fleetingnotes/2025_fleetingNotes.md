@@ -1111,3 +1111,21 @@ In a mixed-effects model, there are both fixed and random effects (e.g. varying 
 Fixed effects can be viewed as special cases of random effects, in which the higer level variance is set to 0 or infinity
 - Therefore, in this framework, all regression parameters are "random" and the term "multilevel" is all-encomposasing
 Fixed and random and mixed effects are confusing and often misleading, so we avoid them
+
+## 4 December 2025
+Beyond source and sink  control – toward an integrated  approach to understand the  carbon balance in plants
+
+Arthur Gessler 
+
+The production of growth i.e. production of new structural biomass and the accumulation of carbon reserves is depicted as the remaining of photosynthetic assimilates not used for autotrophic respiration (=NPP).
+- However, the directionality suggests that just the leftovers from photosynthesis and respiration determine growth
+- This view assumes that the plant carbon sink (e.g. growth) are directly and mainly controlled by the c source through photosynthetic activity which does not capture the cause-effect relationship.
+
+The counter view of photosynthesis (C source driven growth), there's been evidence that growth is directly controlled by external factors such as:
+- temperature
+- Soil drought
+- Atmospheric drought
+rather than by C availability and that the overall metabolic activity of sink tissues may even determine photosynthesis and thus source activity
+
+If we assume that source control is a dominant factor, increasing CO2 concentrations should clearly stimulate photosynthesis in C3 and increase growth. 
+If by contrast sink control is dominating, it will be the change in environmental factors such as the water vapor pressure deficit that strongly influence sink activity and ultimately determine the C sequestration potential of vegetation
