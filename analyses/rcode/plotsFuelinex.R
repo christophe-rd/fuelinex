@@ -389,49 +389,76 @@ ggplot(chl24sub, aes(x = DOY, y = chlValue, color = treatment)) +
 ### === === === === === === === === ### ###
 mea <- read.csv2("output/cleanedMeasurements.csv")
 
-meawide <- reshape(mea,
-                   timevar = "year",
-                   idvar = "tree_ID",
-                   direction = "wide")
-# reorganize columns
-meawide <- meawide[, c("tree_ID",
-                       "bloc.2024",
-                       "treatment.2024",
-                       "genus.2024",
-                       "species.2024",
-                       "Height.2024",
-                       "Diameter.2024",
-                       "Height.2025",
-                       "Diameter.2025",
-                       "notes.2024")]
-# clean colnames
-colnames(meawide) <- c("tree_ID",
-                        "bloc",
-                        "treatment",
-                        "genus",
-                        "species",
-                        "Height2024",
-                        "Diameter2024",
-                        "Height2025",
-                        "Diameter2025",
-                        "notes")
+# reassess how 
+meawide <- reshape(
+  mea,
+  timevar = "year",
+  idvar = "tree_ID",
+  direction = "wide"
+)
+
+meawide <- meawide[, c(
+  "tree_ID",
+  "bloc.2023",
+  "treatment.2023",
+  "genus.2023",
+  "species.2023",
+  "height.2023",
+  "diameter.2023",
+  "height.2024",
+  "diameter.2024",
+  "height.2025",
+  "diameter.2025"
+)]
+meawide
+colnames(meawide) <- c(
+  "tree_ID",
+  "bloc",
+  "treatment",
+  "genus",
+  "species",
+  "height2023",
+  "diameter2023",
+  "height2024",
+  "diameter2024",
+  "height2025",
+  "diameter2025"
+)
 
 # height and diameter increment
-meawide$heighincrement <- meawide$Height2025-meawide$Height2024
-meawide$diameterincrement <- meawide$Diameter2025-meawide$Diameter2024
+meawide$heighincrement2024 <- meawide$height2024 - meawide$height2023
+meawide$diameterincrement2024 <- meawide$diameter2024 - meawide$diameter2023
 
-# remove tree_ID that are -
-meawide2 <- subset(meawide, heighincrement >= 0 & diameterincrement >= 0)
+meawide$heighincrement2025 <- meawide$height2025 - meawide$height2024
+meawide$diameterincrement2025 <- meawide$diameter2025 - meawide$diameter2024
+
+# remove tree_ID that are 
+meawide2 <- subset(meawide, heighincrement2024 <= 0 & diameterincrement2024 <= 0)
+meawide2 <- subset(meawide, heighincrement2025 <= 0 & diameterincrement2025 <= 0)
 
 # remove segi for now
-meawide3 <- subset(meawide2, genus != "sequoiadendron")
-
-# HEIGHT
-variouspallet6 <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
+meawide3 <- subset(meawide, genus != "sequoiadendron")
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
-# mean with line range sd
-heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
+# mean with line range sd 2024
+heightplot <- ggplot(meawide3, 
+                     aes(x = treatment, y = heighincrement2024, color = treatment)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
+  scale_color_manual(values = variouspallet6) +  
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "Height increment X treatment X species",
+       y = "Height Increment (cm)",
+       x = "Treatment") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+heightplot
+ggsave("figures/heightIncrement.jpg", heightplot, width = 10, height = 6, units = "in", dpi = 300)
+
+# 2025
+heightplot <- ggplot(meawide3, 
+                     aes(x = treatment, y = heighincrement2025, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
   stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
@@ -444,10 +471,8 @@ heightplot <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = tr
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 heightplot
 
-ggsave("figures/heightIncrement.jpg", heightplot, width = 10, height = 6, units = "in", dpi = 300)
-
 # violin
-heightviolin <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment)) +
+heightviolin <- ggplot(meawide3, aes(x = treatment, y = heighincrement2024, color = treatment)) +
   geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
@@ -463,7 +488,7 @@ heightviolin
 ggsave("figures/heightviolin.jpeg", heightviolin, width = 10, height = 6, units = "in", dpi = 300)
 
 # halfeye plot
-heighthalfeye <- ggplot(meawide3, aes(x = treatment, y = heighincrement, color = treatment, fill = treatment)) +
+heighthalfeye <- ggplot(meawide3, aes(x = treatment, y = heighincrement2024, color = treatment, fill = treatment)) +
   geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 0.6) +
   ggdist::stat_halfeye(
     justification = -0.1, 
@@ -480,7 +505,22 @@ heighthalfeye
 ggsave("figures/heighthalfeye.jpg", heighthalfeye, width = 10, height = 6, units = "in", dpi = 300)
 
 # DIAMETER
-diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement, color = treatment)) +
+# 2024
+diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement2024, color = treatment)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "diameter increment X treament X species",
+       y = "diameter Increment (cm)",
+       x = "Treatment") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+diameterplot
+ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+
+# 2025
+ggplot(meawide3, aes(x = treatment, y = diameterincrement2025, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black", position = position_dodge(width = 0.5)) +
   stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.2, color = "black", position = position_dodge(width = 0.5)) +
