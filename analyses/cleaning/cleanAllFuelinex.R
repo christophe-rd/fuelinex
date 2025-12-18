@@ -26,10 +26,10 @@ source <- FALSE
 # 1. Get phenostages: named phenostage24
 source("cleaning/source/2024cleaningPhenostages.R") 
 
-# 2. Get senesence: named leafdrop24, greenleafcover24 and chl24
+# 2. Get senescence: named leafdrop24, greenleafcover24 and chl24
 source("cleaning/source/2024cleaningSenescence.R") 
 
-# 3. Get shoot elongation: named shootelongation24
+# 3. Get shoot elongation: named shoot2024
 source("cleaning/source/2024cleaningShootElongation.R") 
 
 ### === === ###
@@ -38,7 +38,8 @@ source("cleaning/source/2024cleaningShootElongation.R")
 # 1. Get phenostages: named phenostage25
 source("cleaning/source/2024cleaningPhenostages.R") 
 
-# 2. 
+# 2. Get senescence 
+# NOT CLEANED
 
 # 3. Get shoot elongation: named shoot25
 source("cleaning/source/2025cleaningShootElongation.R") 
@@ -46,5 +47,13 @@ source("cleaning/source/2025cleaningShootElongation.R")
 ### === === === === === === === === === ###
 ##### Diameter and height measurements #####
 ### === === === === === === === === === ###
+
+
+# count n rows of data
+nrow(phenostage24) + nrow(leafdrop24) + nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) + 
+  nrow(phenostage25) + nrow(shoot25) + 
+  610*2*3 + # cleaning measurements
+  610* 2 +
+  nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) # biomass
 
 

@@ -744,7 +744,7 @@ They suggest that experiment designs should include values of cues within the cu
 
 ## 18 June
 ### Influence of temperate forest autumn leaf phenology on segmentation of tree species from UAV imagery using deep learning
-**Permanent notes:**
+**Permanent notes:** YES
 Myriam Cloutier, Mickael Germain, Etienne Laliberte
 
 We need to to monitor vegetation and detect changes in biodiversity in the context of climate change. However, traditonal field surveys methods are labor intensive and time consuming which makes challenging to conduct repeated forest surveys
@@ -755,12 +755,12 @@ When acquired repeatedly across a growing season, UAV imagery data combined with
 ### Triggers of tree mortality under drought
 **Permanent notes:**
 Brendan Choat Belinda Medlyn, 2018
-Forests accoutn for 45% of globalterrestrial carbon stocks and have key roles in hydrological and nutrient cycles,
+Forests account for 45% of global terrestrial carbon stocks and have key roles in hydrological and nutrient cycles,
 
 There is a lot of evidence that rising CO2 benefits forests, with CO2 fertilization enabling an increaseed leaf area index, enhanced water-use efficiency and greater uptake of carbon gloabally. 
 
-Already in slipbox:
-*However, extreme-climate eventsw such as heat waves, droughts, fires and storms may offst these benefits and increase mortality and a net loss of CO2 in the atm. Drought and associated disturbances have the greatest effect globally. 
+##### Already in slipbox:
+*However, extreme-climate events such as heat waves, droughts, fires and storms may offst these benefits and increase mortality and a net loss of CO2 in the atm. Drought and associated disturbances have the greatest effect globally. 
 *
 Recent projections indicate that land surface warming may lead to longer and more intense droughts, which highlights the importance for accuratee projections of the effect of drought on forest ecosytems. 
 
@@ -775,6 +775,8 @@ Already in slipbox:
 *
 In tropical forests, young trees are mostly impacted by droughts, but large, old trees are also vulnerable 
 
+
+# HERE
 Trees prevent dessication injury by using a plumbing system of hollow dead cells (vessels or tracheids) to tranport water from the soil to the leaves. Xylem transport relies on a mechanism in which liquid water is held under tension, enabling trees to lift water to the canopy at little energy costs. However, liquid water under tension exists in a metastable state, similar to that of a superheated liquid. In this state, water is prone to cavitation, a sudden phase change from liquid water to gas that creates a bubble (embolism)
 
 During drought, reduced transpiration lafs to declines in soil moisture, often accompanied by higher tempeeratures and increased evaporative demand from the ATM. Combined, these factors induce water stress in plants, mnanifested as increased tension in the xylem sap. It's measurable by the water potential, measured in the xylem, which is increasingly negative during droughts.
