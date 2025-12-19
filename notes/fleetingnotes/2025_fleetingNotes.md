@@ -753,7 +753,7 @@ When acquired repeatedly across a growing season, UAV imagery data combined with
 
 ## 20 June
 ### Triggers of tree mortality under drought
-**Permanent notes:**
+**Permanent notes: YES**
 Brendan Choat Belinda Medlyn, 2018
 Forests account for 45% of global terrestrial carbon stocks and have key roles in hydrological and nutrient cycles,
 
@@ -775,11 +775,9 @@ Already in slipbox:
 *
 In tropical forests, young trees are mostly impacted by droughts, but large, old trees are also vulnerable 
 
-
-# HERE
 Trees prevent dessication injury by using a plumbing system of hollow dead cells (vessels or tracheids) to tranport water from the soil to the leaves. Xylem transport relies on a mechanism in which liquid water is held under tension, enabling trees to lift water to the canopy at little energy costs. However, liquid water under tension exists in a metastable state, similar to that of a superheated liquid. In this state, water is prone to cavitation, a sudden phase change from liquid water to gas that creates a bubble (embolism)
 
-During drought, reduced transpiration lafs to declines in soil moisture, often accompanied by higher tempeeratures and increased evaporative demand from the ATM. Combined, these factors induce water stress in plants, mnanifested as increased tension in the xylem sap. It's measurable by the water potential, measured in the xylem, which is increasingly negative during droughts.
+During drought, reduced transpiration leads to declines in soil moisture, often accompanied by higher temperatures and increased evaporative demand from the ATM. Combined, these factors induce water stress in plants, mnanifested as increased tension in the xylem sap. It's measurable by the water potential, measured in the xylem, which is increasingly negative during droughts.
 
 Stomata close before reaching the threshold at which cavitation is initiated, despite the negative consequence of stomatal closure. 
 Consequences on short time scale: rapid cessation of photosynthetic CO2 assimilation, loss of canopy evaporatie coolin through transpiration and greater probability of photodamage.
@@ -791,7 +789,7 @@ After stomatal closure continues to decrease, becoming more negative as water is
 
 To predict mortality from hydraulic thresholds, hydraulic failure is the most fully elaborated mechanism and currently holds the most promise for predictive models. It's a well-understood biophysical process that is amenable to modelling with failure thresholds that can be readily established for a given species or population.
 
-They highlight critical gaps in our ability to describe the hydraulic patway and its eventual failure. The following gaps that hinder model development and parameterization and have received little attention:
+They highlight critical gaps in our ability to describe the hydraulic pathway and its eventual failure. The following gaps that hinder model development and parameterization and have received little attention:
 1. Dynamics of canopy leaf area during drought
 	Leaf shedding occurs during drought adn can mitigate water stress to the remaininng foliage, slowing down thee rate of dessication (hydraulic fuse hypothesis), but is poorly captureed in models
 2. Dependance of plant water status on soil water potential
@@ -805,13 +803,13 @@ Recovery of trees after drought is complex, dynamic and determined by at least:
 
 Regrowth of xylem is a the primary means by which trees recover hydraulic capacity aftger drought.
 
-When drought has caused considerable deaeth of above ground biomass, recovery may be facilitated by resprouting of stems from epicormic buds or lignotubers.
+When drought has caused considerable death of above ground biomass, recovery may be facilitated by resprouting of stems from epicormic buds or lignotubers.
 
 ## 21 June
 ### Widespread spring phenology effects on drought recovery of Northern Hemisphere ecosystems
-**Permanent notes:**
+**Permanent notes: YES**
 Yang Li, Xiuchen Wu, 2022
-Drought recovery from a single extreme drought event within the growing season has beeen widely studied, but the interactions between vegetation phenoly (SOS and EOS) and drought timing are unknown.
+Drought recovery from a single extreme drought event within the growing season has beeen widely studied, but the interactions between vegetation phenology (SOS and EOS) and drought timing are unknown.
 
 Phenology has huge impacts on drought recovery through biophysical mechanisms. E.g. changs in spring phenology drive evapotranspiration and thus alter thee amount of water available to support vegetation growth in subsequent seasons. Spring phenology can directly influence the health and physiology of vegetation, which medates the ability of vegetation to recover from drought. 
 
@@ -824,7 +822,7 @@ Vegetation phenology interacts with drought timing and thus determines subsequen
 Phenolog is impacted by CC and factors such as shifting drought seasonality are already reshaping the vulnerability of ecosystems to intensified extreme drought events to a currently unknown degree. Quantifying these feedbacks require a deep understand of the interactions betweeen phenology, drought timing, biocliming factors and drought recovery.
 
 
-They showed that spring phenology during the drought year postopned drought recovery when extreme drought events occurent in mid-GS. Earliere spring phenology probably led to a longerGS and increased vegetative growth, increasing evapotranspiration and thus increased thee drawdown of soil moisture, resulting in progressive water stress. Thus, it caused more negative effects on water supply during summer and autumn, periods most senstitive to water availability and thus postponed vegeattion recovery from mid- and late-GS drought. A mechanism supported by their findings that:
+They showed that spring phenology during the drought year postopned drought recovery when extreme drought events occured in mid-GS. Earlier spring phenology probably led to a longerGS and increased vegetative growth, increasing evapotranspiration and thus increased thee drawdown of soil moisture, resulting in progressive water stress. Thus, it caused more negative effects on water supply during summer and autumn, periods most sensititive to water availability and thus postponed vegeation recovery from mid- and late-GS drought. A mechanism supported by their findings that:
 1. Growth can't fully recover from an extreme drought within a single GS for a majority of events when they occur in the mid-GS.
 2. Spring phenology and drought recovery show a negative relationship when extreme droughts occured in mid-GS 
 Early phenolog = +spring frost = less NSC = negative imbalance in carbon supply for sustaining drought recovery. 
