@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "18dee391d9abc255",
+        "id": "2375f9b1f4b5217e",
         "type": "tabs",
         "children": [
           {
-            "id": "e07b7680816c7e2c",
+            "id": "c82e11a6256bbaca",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2025_fleetingNotes.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2025_fleetingNotes"
+              "title": "New tab"
             }
           }
         ]
@@ -169,10 +165,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "e07b7680816c7e2c",
+  "active": "c82e11a6256bbaca",
   "lastOpenFiles": [
-    "2024_fleetingnotes.md",
     "2025_fleetingNotes.md",
+    "2024_fleetingnotes.md",
     "Screenshot 2025-11-19 at 11.20.47 AM.png",
     "Screenshot 2025-11-19 at 10.41.36 AM.png",
     "Welcome.md",

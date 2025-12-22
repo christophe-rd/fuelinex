@@ -832,13 +832,13 @@ In contrast, they also showed that earlier spring phenology during the drought y
 For drought recovery in the subsequent GS, delayed phenology in the subsequent year slowed down growth and led to longe drought recovery. 
 
 ### Leaf-out phenology of temperate woody plants: from trees to ecosystems
-**Permanent notes:**
+**Permanent notes:** YES
 Polgar, Caroline, 2011
 *already read this article but found something interesiting that i didn't note previously*
 Ring porous species, such as oaks, ashes (Fraxinus spp.), and hickories (Carya spp.), have less uniform vessel elements, producing larger vessels in the spring and smaller ones later in the growing season. Their large vessels suffer more damage from winter freezing, requiring them to produce new vessels in the spring to transport water and often leading them to leaf-out later than coexisting diffuse porous species
 
 ### Evidence of anthropogenic impacts on global drought frequency, duration, and intensity
-**Permanent notes:**
+**Permanent notes: YES**
 Felicia Chiang, 2021
 Using a spatial, model-based meteorological perspective to assess drought attribution to anthropogenic forcing across space. They shoiw taht the presence of anthropogenic forcing has increased the frequency, duration and intensity of SPI-based droughts, specifically in Americas, Mediterranean and western/south Africa and estearn Asia. 
 
@@ -849,44 +849,32 @@ They also examined temporal shifts between large time periods, minimizing the in
 Other types of drought e.g. hydrological, agricultural and meteorological (the one investigated in their study)
 
 ### Chapter 8: Droughts, Floods, and Wildfire
-**Permanent notes:**
+**Permanent notes:** YES
 https://science2017.globalchange.gov/chapter/8/
 The Intergovernmental Panel on Climate Change Fifth Assessment Report (IPCC AR5) concluded “there is low confidence in detection and attribution of changes in (meteorological) drought over global land areas since the mid-20th century, owing to observational uncertainties and difficulties in distinguishing decadal-scale variability in drought from long-term trends.” As they noted, this was a weaker attribution statement than in the Fourth Assessment Report, which had concluded “that an increased risk of drought was more likely than not due to anthropogenic forcing during the second half of the 20th century.” 
 
 ## 21 July 2025
 ### Phenology is a major determinant of tree species range
-**Permanent notes:**
+**Permanent notes:** YES
 Isabelle Chuine and Elisabeth G. Beaubien
 
 In phenofit, the model doesn't focus on productivity and competition as in other models, but on survival and reproductive success as a function of the match between a plant's life cycle and local seasonal fluctuations in climate. However, the seasonal coordination of phenology to climate does impact on competitive relationships via its influence on vegetative and reproductive performance. This mismatch may result in 1. frost injuries, 2. drought injuries and 3. failure to produce mature fruits and seeds if autumnal frosts occur before maturation or if summers are too cool or too short.
 
-Phenofit estimates the fundamental niche i.e. the hyper volume defined by the environmental dimension within which that species can survivre and reproduce, whereas realiuzed niche (considered by the present distributions) i.e. fundamental niche reduced by competition, distubance regime and other biotic interaction.
+Phenofit estimates the fundamental niche i.e. the hyper volume defined by the environmental dimension within which that species can survivre and reproduce, whereas realized niche (considered by the present distributions) i.e. fundamental niche reduced by competition, disturbance regime and other biotic interaction.
 
 The model presents a close fit between realized and fundamental niche which suggests taht there are no dispersal limits for sugar maple and quaking aspens and that their distributions must be  currently at equilibrium  with climate. 
 
 ## 7 August 2025
 ### Monitoring Individual Tree Phenology in a Multi-Species Forest Using High Resolution UAV Images
-**Permanent notes:**
+**Permanent notes:** YES
 Jasper Kleinsmann, Jan Verbesselt, and Lammert Kooistra
 Sattelite data are subject to inherent limitations from weather conditions and coarse spatial and temporal resolutions. In mixed-speciues environements, sattelite derived phenology tracking isn't good because the sattelite pixel exceeds the size of individual tree crowns, often.
 
 Unmanned aerial vehicles (UAVs) equipped with RGB or multi-spectral sensors can provide reliable data at the centimeter scale. They can monitor forests using their fundamental biological units: individual trees. They promise significant time, labor and cost benefits.
 
 Fawcett (2020) manually delineated tree crowns and successfully estimated SOS.  Berra 2019 automatically delinated thousands of tree crowns based on NDVI and green chromatic coordinate GCC. SOS and EOS ina. mixed-species forest in Japan successfully estimated SOS and EOS.  
-
-### Influence of temperate forest autumn leaf phenology on segmentation of tree species from UAV imagery using deep learning
-**Permanent notes:**
-Myriam Cloutier, Mickael Germain, Etienne Laliberte
-To ensure the imagery was well geore ferenced, we positioned 25 ground control points (GCPs) throughout the area. The coordinates of the ground control points were then measured using two Emlid Reach RS2 RTK GNSS receivers, one as a base on a geodetic marker and one as a rover.
-
-The protocol used to generate the orthomosaics was adapted from Over et al. (2021) .
-
-The type of model used for training is a CNN, specifically a U-Net (Ronneberger et al., 2015), which is a semanticsegmentation algorithm.
-
-We chose U-Net as our architecture because of its success in other individual tree classification problems (James and Bradshaw, 2020; Korznikov et al., 2021; Schiefer et al., 2020; Wagner et al., 2019).
-
-##18 September 2025
-###Title: Cross-biome synthesis of source versus sink limits to tree growth
+## 18 September 2025
+### Title: Cross-biome synthesis of source versus sink limits to tree growth
 **Permanent notes:**
 Antoine Cabon, Nicolas Delpierre
 Forest ecosystems constitute a net carbon (C) sink that offsets around 25% of yearly anthropogenic C emissions --- mitigating CC. 

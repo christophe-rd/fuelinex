@@ -27,9 +27,8 @@ $Royal2
 $Zissou1
 [1] "#3B9AB2" "#78B7C5" "#EBCC2A" "#E1AF00" "#F21A00"
 
-$Zissou1Continuous
-[1] "#3A9AB2" "#6FB2C1" "#91BAB6" "#A5C2A3" "#BDC881" "#DCCB4E" "#E3B710" "#E79805"
-[9] "#EC7A05" "#EF5703" "#F11B00"
+$git
+[1] "#3A9AB2" "#6FB2C1" "#91BAB6" "#A5C2A3" "#BDC881" "#DCCB4E" "#E3B710" "#E79805" "#EC7A05" "#EF5703" "#F11B00"
 
 $Darjeeling1
 [1] "#FF0000" "#00A08A" "#F2AD00" "#F98400" "#5BBCD6"
