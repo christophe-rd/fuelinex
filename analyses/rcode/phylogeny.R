@@ -30,9 +30,9 @@ fu_smallTree$root.edge <- 0
 is.rooted(fu_smallTree)
 fu_smallTree$node.label<-NULL
 
-pdf("figures/phylogenies/phyloFuelinex.pdf", width = 6, height = 9)
-mycol <- c("black", "red")
-plot(fu_smallTree, cex = 1.5, tip.color = mycol, direction = "downwards")
+pdf("figures/phylogenies/phyloFuelinex.pdf", width = 11, height = 11)
+mycol <- c("black")
+plot(fu_smallTree, cex = 1.5, tip.color = mycol, direction = "downwards",  type = "fan")
 dev.off()
 
 # Treespotters
@@ -42,9 +42,9 @@ ts_smallTree$root.edge <- 0
 is.rooted(ts_smallTree)
 ts_smallTree$node.label<-NULL
 
-pdf("figures/phylogenies/phyloTS.pdf", width = 7, height = 7)
-mycol <- c("black", "red")
-plot(ts_smallTree, cex = 1.5, tip.color = mycol, direction = "downwards")
+pdf("figures/phylogenies/phyloTS.pdf", width = 11, height = 11)
+mycol <- c("black")
+plot(ts_smallTree, cex = 1.4, tip.color = mycol,  type = "fan")
 dev.off()
 
 # Wildchrokie
