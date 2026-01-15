@@ -11,10 +11,14 @@
             "id": "c82e11a6256bbaca",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "2026_fleetingNotes.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026_fleetingNotes"
             }
           }
         ]
