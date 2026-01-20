@@ -7,14 +7,13 @@
 
 data{
 int<lower=0> N; 	// number of total observations
-int<lower=0> Nspp; 	// number of species (grouping factor)
-array[N] int species; 	// species identity, coded as int
-int<lower=0> Nsite;  // number of sites (grouping factor)
-array[N] int site;   // site identity, coded as int
-int<lower=0> Ntreeid;  // number of tree ids (grouping factor)
-array[N] int treeid;   // tree id identity, coded as int
-vector[N] gdd; 	// gdd (predictor for slope)
-array[N] real y; 		// day of year of phenological event (response)
+// int<lower=0> Nspp; 	// number of species (grouping factor)
+// array[N] int species; 	// species identity, coded as int
+int<lower=0> Nid;  // number of tree ids (grouping factor)
+array[N] int id;   // tree id identity, coded as int
+vector[N] tspring; 	// predictor for spring temperature
+vector[N] tfall; 	// predictor for spring temperature
+array[N] real y; 		// biomass (response)
 }
 
 parameters{
