@@ -16,3 +16,23 @@ Warmer spring temperatures trigger the onset of cell production, but it doesn't 
 In their dry sites, the number of enlargement cells show a bimodal pattern across the GS, except for the wettest sites which illustrates the plasticity of cell production rate in response to fluctuations in water availability in the arid and semiarid region.
 
 They conclude that long GS may even decrease xylem growth under water-constrainted environments.
+
+
+## 20 January 2026
+Trees near elevation or altitude tree line are often used for reconstructing climate because of their close relationship with temperature.
+
+They used 2 models driven by simulated temperature variations to demonstrate that the discrepency between expected and reconstructed temperatures is an artefact cause by a reduced sensitivity of cooling of trees near treeline:
+1. GCM: forced simulation of the US National Center for Atm Reseach (NCAR) CSM1.4 coupled ocean-general circulation model (GCM)
+2. EBM: simulations of a simpler energy-balance climate model
+
+Both models are driven by estimated radiative forcings, they both capture historical temperature
+records, including cooling from volcanos.
+
+Both models predict a drop of 2C following the 1258/1259 eruption whereas the reconstruction shows a decrease of +- 0.6c
+
+They checked if the tree ring reconstruction proxy could have caused the discrepency. But it doesn't seem to be the case.
+
+*diffuse light associated with volcanic eruptions), it is not negligible.*??
+
+**Climate sensitivity**: how much warming we get as a result of radiative forcing.
+
