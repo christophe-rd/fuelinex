@@ -32,7 +32,7 @@ fu_smallTree$node.label<-NULL
 
 pdf("figures/phylogenies/phyloFuelinex.pdf", width = 11, height = 11)
 mycol <- c("black")
-plot(fu_smallTree, cex = 1.5, tip.color = mycol, direction = "downwards",  type = "fan")
+plot(fu_smallTree, cex = 1.5, tip.color = mycol, direction = "downwards")
 dev.off()
 
 # Treespotters
@@ -44,7 +44,7 @@ ts_smallTree$node.label<-NULL
 
 pdf("figures/phylogenies/phyloTS.pdf", width = 11, height = 11)
 mycol <- c("black")
-plot(ts_smallTree, cex = 1.4, tip.color = mycol,  type = "fan")
+plot(ts_smallTree, cex = 1.4, tip.color = mycol, direction = "downwards")
 dev.off()
 
 # Wildchrokie
@@ -58,3 +58,4 @@ pdf("figures/phylogenies/phyloWC.pdf", width = 7, height = 7)
 mycol <- c("black", "red")
 plot(wc_smallTree, cex = 1.5, tip.color = mycol, direction = "downwards")
 dev.off()
+
