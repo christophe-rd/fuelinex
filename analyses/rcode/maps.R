@@ -7,7 +7,8 @@ library(ggplot2)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
-
+library(wesanderson)
+library(svglite) 
 # --- Get the map data ---
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
@@ -65,7 +66,7 @@ ggplot(data = world) +
     panel.background = element_rect(fill = "aliceblue"),
     panel.grid.major = element_line(color = "gray80", linetype = "dotted")
   )
-ggsave("figures/maps/mapSourcePop.jpeg", width = 9, height = 6, units = "in", dpi = 300)
+ggsave("figures/maps/mapSourcePop.svg", width = 9, height = 6)
 
 
 
