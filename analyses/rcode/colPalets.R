@@ -282,7 +282,7 @@ $Renoir$colorblind
 [1] FALSE
 
 $Signac
-[1] "#fbe183" "#f4c40f" "#fe9b00" "#d8443c" "#9b3441" "#de597c" "#e87b89" "#e6a2a6" "#aa7aa1" "#9f5691" "#633372" "#1f6e9c" "#2b9b81" "#92c051"
+[1] "#fbe183", "#f4c40f", "#fe9b00", "#d8443c", "#9b3441", "#de597c", "#e87b89", "#e6a2a6", "#aa7aa1", "#9f5691", "#633372", "#1f6e9c", "#2b9b81", "#92c051"
 $Signac$colorblind
 [1] FALSE
 
