@@ -66,11 +66,13 @@ ggplot(data = world) +
     panel.background = element_rect(fill = "aliceblue"),
     panel.grid.major = element_line(color = "gray80", linetype = "dotted")
   )
-ggsave("figures/maps/mapSourcePop.svg", width = 9, height = 6)
+ggsave("figures/maps/mapSourcePop.svg", width = 9, height = 6, 
+       device = svglite::svglite,
+       dpi = 10)
 
 
 
-# Whole North America
+ # Whole North America
 # --- Define bounding box for northeastern North America ---
 # Adjust these coordinates as needed
 lat_min <- 30
