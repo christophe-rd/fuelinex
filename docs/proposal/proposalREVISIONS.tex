@@ -1,7 +1,7 @@
 
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL proposalOLD.tex   Thu Jan 22 15:14:35 2026
-%DIF ADD proposal.tex      Fri Jan 23 17:30:41 2026
+%DIF ADD proposal.tex      Mon Jan 26 11:00:02 2026
 
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -236,8 +236,10 @@ The objectives for my experiment (Fuelinex) are to assess tree species’ potent
 % Thesis overview figure %
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 \begin{figure}[h!]
-\includegraphics[width=0.4\textwidth]{chaptersDesign.pdf}
-\caption{Overview of the age class, species, provenance of the trees used in each study along with the type of study each project consist of.}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.4\textwidth]{chaptersDesign.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.7\textwidth]{chaptersDesign.pdf}
+\DIFaddendFL \caption{Overview of the age class, species, provenance of the trees used in each study along with the type of study each project consist of. \DIFaddbeginFL \DIFaddFL{The colored lines represent the period of the growth data and the shaded ared, the phenological data. Each phylograms illustrate the species used in each project. The map illustrate the four different provenances used in Wildchrokie and the start represents the location of Wildchrokie and coringTreespotters.}\DIFaddendFL }
 \label{fig:chaptersDesign}
 \end{figure}
 
@@ -272,7 +274,7 @@ We used seven species of tree saplings for our experiment (Fuelinex). We purchas
 \textbf{Phenology and shoot elongation monitoring}: \\
 \textit{Leaf phenology}: We started monitoring phenology of all the trees on 11 April 2024, missing the initial leaf phenology for most individuals, but we monitored subsequent phenophases twice a week until the leaves had fully elongated. In the late summer and fall, we monitored budset every week until full bud dormancy. Phenophases are described in Table \ref{tab:phenostages}. Phenophases of \DIFdelbegin \DIFdel{S. giganteum }\DIFdelend \DIFaddbegin \textit{\DIFadd{S. giganteum}} \DIFaddend were not recorded. \\
 
-\textit{Shoot elongation}: Before shoot elongation onset, we marked a reference point with red paint at the base of either the new-year apical or the highest lateral shoot. To facilitate and improve the quality of the shoot elongation measurements, we attached paper rulers (accuracy $\pm$ 0.1cm) on \DIFdelbegin \DIFdel{A. negundo, B. papyfera, P. balsamifera and Q. macrocarpa. }\DIFdelend \DIFaddbegin \DIFadd{\text{A. negundo, B. papyfera, P. balsamifera} and }\textit{\DIFadd{Q. macrocarpa}}\DIFadd{. }\DIFaddend For species not suitable for those paper rulers, we took those same measurements, but with a metal ruler (accuracy $\pm$ 0.1cm). We measured shoot elongation weekly from the red mark to the base of the bud for angiosperms, and at the top of the apical meristem for gymnosperms. For determinate growth species ( \DIFdelbegin \DIFdel{(A. negundo, P. virgiana and Q. macrocarpa}\DIFdelend \DIFaddbegin \textit{\DIFadd{A. negundo, P. virgiana and Q. macrocarpa}}\DIFaddend ), when the trees did not elongate for two weeks, we started monitoring them every other week until September 1st for both growing seasons. \\
+\textit{Shoot elongation}: Before shoot elongation onset, we marked a reference point with red paint at the base of either the new-year apical or the highest lateral shoot. To facilitate and improve the quality of the shoot elongation measurements, we attached paper rulers (accuracy $\pm$ 0.1cm) on \DIFdelbegin \DIFdel{A. negundo, B. papyfera, P. balsamifera and Q. macrocarpa. }\DIFdelend \DIFaddbegin \DIFadd{\text{A. negundo, B. papyfera, P. balsamifera} and }\textit{\DIFadd{Q. macrocarpa}}\DIFadd{. }\DIFaddend For species not suitable for those paper rulers, we took those same measurements, but with a metal ruler (accuracy $\pm$ 0.1cm). We measured shoot elongation weekly from the red mark to the base of the bud for angiosperms, and at the top of the apical meristem for gymnosperms. For determinate growth species ( \DIFdelbegin \DIFdel{(A. negundo, P. virgiana and Q. macrocarpa}\DIFdelend \DIFaddbegin \textit{\DIFadd{A. negundo, P. virgiana}} \DIFadd{and }\textit{\DIFadd{Q. macrocarpa}}\DIFaddend ), when the trees did not elongate for two weeks, we started monitoring them every other week until September 1st for both growing seasons. \\
 
 \textit{Senescence}: Every week, starting on 4 September 2024, we monitored senescence by a visual assessment of the remaining green leaf cover in percentage and by measuring the chlorophyll content meter with a \DIFdelbegin \DIFdel{chlorophyll content meter . }\DIFdelend \DIFaddbegin \DIFadd{SPAD-502 chlorophyll meter (Minolta Camera Co. Japan). }\DIFaddend We also recorded the date of loss of green leaf cover and leaf drop. \\
 
