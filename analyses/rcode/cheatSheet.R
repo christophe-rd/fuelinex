@@ -34,3 +34,6 @@ precis(d)
 
 # aggregate by multiple cols
 agg2 <- aggregate(d$lengthCM, by = list(d$name, d$Yearcor, d$sourceFolder), FUN = mean)
+
+# subset columns
+subset(df, select = c("col1", "col2"))
