@@ -37,3 +37,11 @@ agg2 <- aggregate(d$lengthCM, by = list(d$name, d$Yearcor, d$sourceFolder), FUN 
 
 # subset columns
 subset(df, select = c("col1", "col2"))
+
+# calculate the mean of each row from one df indexed by a vector:
+spp_means <- data.frame(
+  "1" = rowMeans(fullintercept[, spp1vec]),
+  "2" = rowMeans(fullintercept[, spp2vec]),
+  "3" = rowMeans(fullintercept[, spp3vec]),
+  "4" = rowMeans(fullintercept[, spp4vec])
+)
