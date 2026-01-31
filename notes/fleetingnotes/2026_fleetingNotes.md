@@ -36,3 +36,25 @@ They checked if the tree ring reconstruction proxy could have caused the discrep
 
 **Climate sensitivity**: how much warming we get as a result of radiative forcing.
 
+## 30 January 2026
+Carbon uptake, storage, and allocation patterns  contribute to blurring of annual 14C signals in  tree rings
+Amy E. Hessl , Andrew D. Richardson, Mariah S. Carbone
+
+Until the last few decades, most measurements of C14 in tree rings were collected for calibrating the radiocarbon scale OR dating wood material and were sampled over multiple rings to reflect C14 over several years to decade. This is because all photosynthetic organisms record tropospheric C14 aproximately equally.
+
+Differences in phenological timing may be related to wood anatomy where large-diameter vessels of ring porous species are prone to cavitation during winter freeze-thaw cycles and hence leaf out must occur after the onset of wood growth.
+
+Because of the difference in phenology across ecosystems, there is great variation as to when and to what degree forests at different locations on the Earth's surface are sampling C14 signature of the troposphere. This variation is essential to understanding how C14 associated with Miyake events is incorportared into tree rings.  
+
+The timing and duration of xylogenesis is driven by endogenous and exogenous factors. Exogenous include environemntal conditions sucha s water availabiltiy and photoperiod while endogenous factors include tree age, tree size and canopy position.
+
+NSCs serve other essential roles in trees such as osmoregulation, defense, heartwood formation, transport and export to symbiotic relationships. NSCs are stored in tissues in the form of sugar and starch. Sugards are mobiles, starch aren't. Starch must first be hydrolyzed to soluble sugar before being transported and used by the tree. NSC is an energy source when the demand for photosynthesis exceeds supply such as night, dormant season, in response to stress or distrubtance or across different organs (leaves vs roots.
+
+
+NSC are stored in two types of wood parenchyma cells: radial and axial. The amoutna and size of these cells vary greatly with wood anatomy and determines the capacity of trees to store NSCs.
+
+Usually decidous trees have more NSC storage becasue of differing leaf growth needs in spring.
+
+Mature trees store NSCs that can be hours to years to decade old!
+
+There is direct and indirect evidence of NSC from previous years to be carried over from one year and allocated to wood growth in subsequent years. 
