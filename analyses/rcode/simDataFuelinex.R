@@ -17,6 +17,10 @@ library(wesanderson)
 set.seed(123)
 setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
+util <- new.env()
+source('mcmc_analysis_tools_rstan.R', local=util)
+source('mcmc_visualization_tools.R', local=util)
+
 # === === === === === === === === === === === === === === === === 
 #### Step 1. Come up with a model ####
 # === === === === === === === === === === === === === === === === 
@@ -31,8 +35,8 @@ setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 # === === === === === === === #
 ##### Biomass as intercept only #####
 # === === === === === === === #
-a <- 30
-sigma_y <- 5
+b <- 30 # baseline biomass
+sigma_y <- 4
 sigma_treat <- 1
 # sigma_sp <- 10
 sigma_spring <- 0.4
@@ -45,7 +49,7 @@ treat_norep <- c("cc", "cw", "wc", "ww")
 # n of treat and sp and number of replicates per species, per treatment
 n_treat <- length(treat_norep)
 # n_sp <- length(sp_norep)
-n_per_treat <- 15
+n_per_treat <- 50
 # n_per_sp_per_treat <- 100
 
 # sp <- rep(rep(sp_norep, each = n_per_sp_per_treat), times = n_treat)
@@ -59,59 +63,67 @@ N <- length(ids)
 
 error <- rnorm(N, 0, sigma_y)
 
-coef <- data.frame(
+simdf <- data.frame(
   ids = ids,
   treat = treat,
   # sp = sp,
-  a = a,
+  b = b,
   error = error
 )
-coef
+simdf
 
 # add effect of treatments on intercept
-coef$spring <- substr(coef$treat, 1, 1)  # spring condition either warm or cool 
-coef$fall = substr(coef$treat, 2, 2) # fall condition either warm or cool
+simdf$spring <- substr(simdf$treat, 1, 1)  # spring condition either warm or cool 
+simdf$fall = substr(simdf$treat, 2, 2) # fall condition either warm or cool
 
 # divergence from the overall intercept for spring condition
-coef$aspring = ifelse(coef$spring == "c", 
-                       rnorm(length(coef$spring == "c"), -10, sigma_spring),
-                       rnorm(length(coef$spring == "w"), 10, sigma_spring))
+ws <- 10
+simdf$bspring = ifelse(simdf$spring == "c", 0, ws)
 # divergence from the overall intercept for fall condition
-coef$afall = ifelse(coef$fall == "c", 
-                     rnorm(length(coef$fall == "c"), -5, sigma_fall),
-                     rnorm(length(coef$fall == "w"), 5, sigma_fall))
+wf <- 5
+simdf$bfall = ifelse(simdf$fall == "c", 0, wf)
 
+# add dummy variable 
+simdf$s <- ifelse(simdf$spring == "w", 1, 0)
+simdf$f <- ifelse(simdf$fall == "w", 1, 0)
+simdf$sf <- simdf$s * simdf$f
+
+# interaction when its warm spring and warm fall
+wswf <- -2
+simdf$bsf <- ifelse(simdf$sf == 1, wswf, 0)
 # add effect of species on intercept
 # asp <- rnorm(n_sp, mean = 0, sigma_sp)
-# coef$asp <- asp[coef$sp]
+# simdf$asp <- asp[simdf$sp]
 
 # joing everything together
-coef$a_full <-  
-  coef$a + 
-  coef$aspring + 
-  coef$afall + 
-  # coef$asp +
-  coef$error
-coef
+simdf$b_full <-  
+  simdf$b + 
+  simdf$bspring + 
+  simdf$bfall +
+  simdf$bsf + 
+  # simdf$asp +
+  simdf$error
+simdf
 
+if(FALSE){
 
-hist(coef$error)
-hist(coef$aspring)
-unique(coef$aspring)
-ggplot(coef, aes(x = aspring, color = treat, fill = treat)) +
+hist(simdf$error)
+hist(simdf$bspring)
+unique(simdf$bspring)
+ggplot(simdf, aes(x = bspring, color = treat, fill = treat)) +
   geom_density(alpha = 0.3)
 
-v <- c(unique(coef$a - 10 - 5), # cc
-       unique(coef$a + 10 + 5), # ww
-       unique(coef$a + 10 - 5), # wc
-       unique(coef$a - 10 + 5)  # cw
+v <- c(unique(simdf$b - 10 - 5), # cc
+       unique(simdf$b + 10 + 5), # ww
+       unique(simdf$b + 10 - 5), # wc
+       unique(simdf$b - 10 + 5)  # cw
        )
 
-ggplot(coef, aes(x = a_full, color = treat, fill = treat)) +
-  geom_density(alpha = 0.3) +
+ggplot(simdf, aes(x = b_full, color = treat)) +
+  geom_density(alpha = 0.3, linewidth = 1) +
   labs(
     title = "densities of full intercepts per treatment",
-    x = "a_full",
+    x = "b_full",
     y = "density"
   ) +
   # geom_vline(aes(xintercept = a+asp)) +
@@ -121,56 +133,80 @@ ggplot(coef, aes(x = a_full, color = treat, fill = treat)) +
   scale_fill_manual(values = wes_palette("Darjeeling1")) +
   theme_minimal()
 ggsave("figures/densityintercept_with_asp.jpeg", width = 8, height = 6, units = "in", dpi = 300)
-  
+}
 
-# run model
-# add 0 and 1 to turn on spring and fall warm treatments
-coef$sdum <- ifelse(coef$spring == "c", 0, 1)
-coef$fdum <- ifelse(coef$fall == "c", 0, 1)
+y <- simdf$b_full
+N <- nrow(simdf)
+s <- simdf$s
+f <- simdf$f
+sf <- simdf$sf
+# Nspp <- length(unique(emp$spp_num))
+# species <- as.numeric(as.character(emp$spp_num))
 
-fitbiomass <- stan_glm(
-  a_full ~ sdum * fdum + sdum:fdum,
-  data = coef,
-  chains = 4,
-  iter = 4000,
-  core=4
-) 
-fitbiomass
+fit <- stan("stan/factorialHierModel.stan", 
+            data=c("N","y",
+                   "s","f",
+                   "sf"),
+            iter = 2000, chains=4, cores=4,
+            warmup = 1000)
 
-coef
+summary(fit)
+
 # === === === === === === #
 # PARAMETER RECOVERY ####
 # === === === === === === #
-df_fit <- as.data.frame(fitbiomass)
+df_fit <- as.data.frame(fit)
 
 # recover slope
 colnames(df_fit)
 
-# grab treat nested in spp
-treat_cols <- colnames(df_fit)[grepl("dum", colnames(df_fit))]
+# grab parameter estimates
+treat_cols <- colnames(df_fit)[!grepl("ypred", colnames(df_fit))]
+treat_cols <- treat_cols[!grepl("lp__", treat_cols)]
 # treat_cols <- treat_cols[1:length(treat_cols)]
 treat_df <- df_fit[, colnames(df_fit) %in% treat_cols]
 # change their names
-colnames(treat_df) <- sub(".*treat:([^]]+)\\]$", "\\1", colnames(treat_df))
+# colnames(treat_df) <- sub(".*treat:([^]]+)\\]$", "\\1", colnames(treat_df))
 # empty treat dataframe
 treat_df2 <- data.frame(
-  treat = character(ncol(treat_df)),
-  fit_a_treat = numeric(ncol(treat_df)),  
-  fit_a_treat_per5 = NA, 
-  fit_a_treat_per95 = NA
+  parameter = character(ncol(treat_df)),
+  mean = NA,  
+  per5  = NA, 
+  per25 = NA,
+  per75 = NA,
+  per95 = NA
 )
 treat_df2
 
 for (i in 1:ncol(treat_df)) { # i = 1
-  treat_df2$treat[i] <- colnames(treat_df)[i]         
-  treat_df2$fit_a_treat[i] <- round(mean(treat_df[[i]]),3)  
-  treat_df2$fit_a_treat_per5[i] <- round(quantile(treat_df[[i]], probs = 0.055), 3)
-  treat_df2$fit_a_treat_per95[i] <- round(quantile(treat_df[[i]], probs = 0.945), 3)
-}
+  treat_df2$parameter[i] <- colnames(treat_df)[i]         
+  treat_df2$mean[i] <- round(mean(treat_df[[i]]),3)  
+  treat_df2$per5[i] <- round(quantile(treat_df[[i]], probs = 0.05), 3)
+  treat_df2$per25[i] <- round(quantile(treat_df[[i]], probs = 0.25), 3)
+  treat_df2$per75[i] <- round(quantile(treat_df[[i]], probs = 0.75), 3)
+  treat_df2$per95[i] <- round(quantile(treat_df[[i]], probs = 0.95), 3)
+  }
 treat_df2
 
-df_fit <- as.data.frame(fitbiomass)
+# Plot parameter recovery
+treat_df2$sim <- NA 
+treat_df2$sim[which(treat_df2$parameter == "b")] <- b
+treat_df2$sim[which(treat_df2$parameter == "bs")] <- ws
+treat_df2$sim[which(treat_df2$parameter == "bf")] <- wf
+treat_df2$sim[which(treat_df2$parameter == "bsf")] <- wswf
+treat_df2$sim[which(treat_df2$parameter == "sigma_y")] <- sigma_y
 
+ggplot(treat_df2, aes(x = sim, y = mean)) +
+  geom_errorbar(aes(ymin = per5, ymax = per95), 
+                width = 0, linewidth = 0.5, color = "darkgray", alpha=0.7) +
+  geom_errorbar(aes(ymin = per25, ymax = per75), 
+                width = 0, linewidth = 1.5, color = "darkgray", alpha = 0.7) +
+  geom_point(color = "#046C9A", size = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
+  labs(x = "sim parameter", y = "fit parameter", title = "") +
+  ggrepel::geom_text_repel(aes(label = parameter), size = 5) +
+  theme_minimal()
+ggsave("figures/simData/parameters_simXfit_plot.jpeg", width = 6, height = 6, units = "in", dpi = 300)
 
 # recover spp
 # grab treat nested in spp
@@ -265,4 +301,4 @@ ggsave("figures/a_spp_simXfit_plot.jpeg", a_spp_simXfit_plot, width = 6, height 
 
 
 # Fit sim data to model ####
-coef$treatnum <- match(coef$treat, unique(coef$treat))
+simdf$treatnum <- match(simdf$treat, unique(simdf$treat))
