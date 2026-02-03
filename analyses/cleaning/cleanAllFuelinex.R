@@ -47,7 +47,7 @@ source("cleaning/source/2025cleaningShootElongation.R")
 ### === === === === === === === === === ###
 ##### Diameter and height measurements #####
 ### === === === === === === === === === ###
-
+source("cleaning/source/cleaningMeasurements.R")
 
 # count n rows of data
 nrow(phenostage24) + nrow(leafdrop24) + nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) + 

@@ -196,5 +196,6 @@ bindedtowrite <- binded[, c("tree_ID", "bloc", "treatment", "genus", "species", 
 
 # rename for consistency
 colnames(bindedtowrite) <- c("tree_ID", "bloc", "treatment", "genus", "species", "year", "height", "diameter", "notes")
-write.csv2(bindedtowrite, "output/cleanedMeasurements.csv", row.names = FALSE)
+
+write.csv(bindedtowrite, "output/cleanedMeasurements.csv")
 
