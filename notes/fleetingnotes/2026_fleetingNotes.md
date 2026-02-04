@@ -58,3 +58,5 @@ Usually decidous trees have more NSC storage becasue of differing leaf growth ne
 Mature trees store NSCs that can be hours to years to decade old!
 
 There is direct and indirect evidence of NSC from previous years to be carried over from one year and allocated to wood growth in subsequent years. 
+
+The studies metnionned support the idea that some mixing of new assimilates into a pool of somewhat older and mobile NSC ocurs before allocation to new growth, leading to carryover effects which may blur isotopic signals from varying climatic conditions across multiple years. 
