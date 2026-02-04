@@ -12,7 +12,7 @@ array[N] real y; 		// biomass (response)
 }
 
 parameters{
-vector[Nspp] b1;        
+vector<lower=0>[Nspp] b1;        
 vector[Nspp] b2; // temperature spring
 real<lower=0> sigma_y;
 }
@@ -21,12 +21,13 @@ transformed parameters{
 array[N] real ypred;
 for (i in 1:N){ 
     ypred[i]=
-        b1[spp[i]]*(dia[i]^2*height[i])^b2[spp[i]];
+        b1[spp[i]]*(dia[i]^2 * height[i]) ^ b2[spp[i]];
     }
 }
 
 model{	
-  // b1 ~ normal(30, 5);
+  b1 ~ lognormal(0.1, 0.3);
+  b2 ~ normal(0.05, 0.3);
   sigma_y ~ normal(0, 1);
   y ~ normal(ypred, sigma_y);
 }	
