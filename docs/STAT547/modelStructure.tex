@@ -1,0 +1,56 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Model structure Fuelinex}
+\author{Christophe and Ken}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\[
+\Delta \beta_1
+= N \left(
+\beta_1
++ \beta_{S1} S_1
++ \beta_{F1} F_1
++ \beta_{SF1} SF_1, \sigma_{y1}
+\right)
+\]
+
+\[
+\Delta \beta_2
+= N \left(
+\beta_2
++ \beta_{S2} S_1
++ \beta_{F2} F_1
++ \beta_{SF2} SF_1, \sigma_{y2}
+\right)
+\]
+
+
+\textbf{Where:}
+\begin{itemize} 
+	\item $\beta_1$ = Year 1, treatment Cool Spring, Cool Fall (reference value)
+	\item $\beta_1 + \beta_{S1} = $ Year 1, treatment Warm Spring, Cool Fall
+	\item $\beta_1 + \beta_{F1} = $ Year 1, treatment Cool Spring, Warm Fall
+	\item $\beta_1 + \beta_{S1} + \beta_{F1} + \beta_{SF1} = $ Year 1, treatment Warm Spring, Warm Fall
+	\item $ S1 = $ dummy variable, if it's 1, then Warm spring, else Cool Spring
+	\item $ F1 = $ dummy variable, if it's 1, then Warm fall, else Cool fall
+	\item $ SF1 = $ dummy variable, for a subadditive effect of a Warm Spring and a Warm Fall treatment.
+\end{itemize} 
+
+
+\end{document}  
