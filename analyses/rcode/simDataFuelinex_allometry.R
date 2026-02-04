@@ -307,7 +307,7 @@ b2
 
 combined <- (sigma + b1 + b2)
 combined
-ggsave("figures/simData/paramRecovery.jpeg", combined, width = 6, height = 6, units = "in", dpi = 300)
+ggsave("figures/simData/paramRecovery.jpeg", combined, width = 8, height = 6, units = "in", dpi = 300)
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Plot Prior vs posterior ####
