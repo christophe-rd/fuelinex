@@ -26,8 +26,15 @@ for (i in 1:N){
 }
 
 model{	
-  b1 ~ lognormal(0.1, 0.3);
-  b2 ~ normal(0.05, 0.3);
+  b1 ~ lognormal(log(0.1), 1);
+  b2 ~ normal(0.05, 1);
   sigma_y ~ normal(0, 1);
   y ~ normal(ypred, sigma_y);
 }	
+
+generated quantities {
+  array[N] real y_rep;
+  for (i in 1:N) {
+    y_rep[i] = normal_rng(b1[spp[i]]*(dia[i]^2 * height[i]) ^ b2[spp[i]], sigma_y);
+  }
+}
