@@ -270,7 +270,7 @@ sigma <- ggplot(sigma_df, aes(x = sim, y = mean)) +
   geom_point(color = "#046C9A", size = 2) +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", 
               linewidth = 1) +
-  labs(x = "sim parameter", y = "fit parameter", title = "") +
+  labs(x = "sim parameter", y = "fit parameter", title = "sigma_y") +
   # ggrepel::geom_text_repel(aes(label = spp), size = 5) +
   theme_minimal()
 sigma
@@ -285,7 +285,7 @@ b1 <- ggplot(b1_df2, aes(x = sim, y = mean)) +
   geom_point(color = "#046C9A", size = 2) +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", 
               linewidth = 1) +
-  labs(x = "sim parameter", y = "fit parameter", title = "") +
+  labs(x = "sim parameter", y = "fit parameter", title = "b1") +
   # ggrepel::geom_text_repel(aes(label = spp), size = 5) +
   theme_minimal()
 b1
@@ -300,7 +300,7 @@ b2 <- ggplot(b2_df2, aes(x = sim, y = mean)) +
   geom_point(color = "#046C9A", size = 2) +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", 
               linewidth = 1) +
-  labs(x = "sim parameter", y = "fit parameter", title = "") +
+  labs(x = "sim parameter", y = "fit parameter", title = "b2") +
   # ggrepel::geom_text_repel(aes(label = spp), size = 5) +
   theme_minimal()
 b2
