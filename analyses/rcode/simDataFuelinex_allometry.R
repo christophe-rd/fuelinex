@@ -94,9 +94,6 @@ N <- length(ids)
 
 error <- rnorm(N, 0, sigma_y)
 
-# set coefficients per spp
-b1 <- rlnorm(n_sp, log(0.1), 0.1)
-b2 <- rnorm(n_sp, 0.4, 0.2)
 
 simdf <- data.frame(
   ids = ids,
@@ -104,22 +101,30 @@ simdf <- data.frame(
   error = error
 )
 
+# set coefficients per spp
+b1 <- rlnorm(n_sp, log(0.4), 0.5)
+b1
+b2 <- rnorm(n_sp, 0.5, 0.2)
+
 simdf$b1 <- b1[simdf$spp]
 simdf$b2 <- b2[simdf$spp]
 
 # add height and diameter mean increment for each species
-hmean <- abs(rnorm(n_sp, 0.03, 0.01)) # in meters
-dmean <- abs(rnorm(n_sp, 0.2, 0.1)) # in cm
+hmean <- abs(rnorm(n_sp, 50, 3)) # in cm
+dmean <- abs(rnorm(n_sp, 5, 1)) # in mm
 
 # individual level variations
-simdf$height <- abs(rnorm(N, hmean[simdf$spp], 0.1))
-simdf$dia <- abs(rnorm(N, dmean[simdf$spp], 0.1))
+simdf$height <- abs(rnorm(N, hmean[simdf$spp], 1))
+simdf$dia <- abs(rnorm(N, dmean[simdf$spp], 1))
 
 # join everything together
-simdf$biom <- simdf$b1*(simdf$dia^2*simdf$height)^b2
+simdf$biom <- simdf$b1*(simdf$dia^2*simdf$height)^b2 + simdf$error
 simdf
 
-ggplot(simdf, aes(x = (dia*10)*(dia*10)*(height*1000), y = biom, color = spp, fill = spp)) +
+# look up height in cm
+hist(simdf$height)
+
+ggplot(simdf, aes(x = (dia)*(dia)*(height), y = biom, color = spp, fill = spp)) +
   geom_point(alpha = 0.3) +
   facet_wrap(~spp) +
   theme_minimal()
@@ -128,7 +133,7 @@ ggplot(simdf, aes(x = biom, color = spp, fill = spp)) +
   geom_density(alpha = 0.3) +
   facet_wrap(~spp) +
   theme_minimal() + 
-  xlim(0, 1)
+  xlim(0, 200)
 
 
 
@@ -162,7 +167,7 @@ fit <- stan("stan/allometryModel.stan",
                    "spp","Nspp",
                    "height", "dia"),
             init = inits,
-            iter = 8000, chains=4, cores=4,
+            iter = 4000, chains=4, cores=4,
             warmup = 4000)
 
 saveRDS(fit, "output/stanOutput/allometryModel")
