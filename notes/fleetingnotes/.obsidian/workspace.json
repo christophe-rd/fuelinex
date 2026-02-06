@@ -25,12 +25,14 @@
             "id": "a88659cab7690a5f",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.11.5"
+                "file": "2025_fleetingNotes.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.11.5"
+              "icon": "lucide-file",
+              "title": "2025_fleetingNotes"
             }
           }
         ],

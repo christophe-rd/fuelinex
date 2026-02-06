@@ -875,7 +875,7 @@ Unmanned aerial vehicles (UAVs) equipped with RGB or multi-spectral sensors can 
 Fawcett (2020) manually delineated tree crowns and successfully estimated SOS.  Berra 2019 automatically delinated thousands of tree crowns based on NDVI and green chromatic coordinate GCC. SOS and EOS ina. mixed-species forest in Japan successfully estimated SOS and EOS.  
 ## 18 September 2025
 ### Title: Cross-biome synthesis of source versus sink limits to tree growth
-**Permanent notes:**
+**Permanent notes:** YES
 Antoine Cabon, Nicolas Delpierre
 Forest ecosystems constitute a net carbon (C) sink that offsets around 25% of yearly anthropogenic C emissions --- mitigating CC. 
 C allocation to aboveground wood biomass is the largest contributor to vegetation C storage, but C allocation is poorly understood and is a major uncertainty for projections of future forests' C storage potential. 
@@ -886,7 +886,7 @@ A fundamental debate revolves around the degree to which C assimilitation (sourc
 
 Yet, growing evidence suggest that cambial activity is typically more sensitive than photosynthesis to a range of environmental conditions including water, temperature and nutrients. 
 
-They show a widespread temporal decoupling between carbon assimilation and tree growth, underpinning the different climatic sensitivies of these 2 processes.
+They show a widespread temporal decoupling between carbon assimilation and tree growth, underpinning the different climatic sensitivities of these 2 processes.
 
 ### Divergent contributions of spring and autumn photosynthetic phenology to seasonal carbon uptake of subtropical vegetation in China
 **Permanent notes:**
@@ -1101,6 +1101,8 @@ Fixed effects can be viewed as special cases of random effects, in which the hig
 Fixed and random and mixed effects are confusing and often misleading, so we avoid them
 
 ## 4 December 2025
+**Permanent notes**
+*I already added the definitions of source and sink control in the slipbox*
 Beyond source and sink  control – toward an integrated  approach to understand the  carbon balance in plants
 
 Arthur Gessler 
