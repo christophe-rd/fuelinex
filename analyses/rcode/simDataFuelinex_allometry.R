@@ -22,6 +22,10 @@ util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
 
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Loop up empirical data ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+if (FALSE) {
 mea <- read.csv2("output/cleanedMeasurements.csv", sep = ",", header = TRUE)
 biom <- read.csv("input/biomass.csv")
 
@@ -66,13 +70,11 @@ ggplot(df25) +
 aggregate(height_inc ~ species, data = mea, FUN = mean)
 aggregate(dia_inc ~ species, data = mea, FUN = mean)
 
-# === === === === === === === === === === === === === === === === 
-#### Simulate data ####
-# === === === === === === === === === === === === === === === === 
+}
 
-# === === === === === === === #
-##### Biomass as intercept only #####
-# === === === === === === === #
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Simulate data ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # above ground biomass (agb) = b1(diameter2*height)^b2
 # agb is in meters kg, so *1000 for grams
 # diameter is in cm. keep it
@@ -93,8 +95,8 @@ N <- length(ids)
 error <- rnorm(N, 0, sigma_y)
 
 # set coefficients per spp
-b1 <- rlnorm(n_sp, log(0.1), 0.2)
-b2 <- rnorm(n_sp, 0.05, 0.2)
+b1 <- rlnorm(n_sp, log(0.1), 0.1)
+b2 <- rnorm(n_sp, 0.4, 0.2)
 
 simdf <- data.frame(
   ids = ids,
@@ -106,7 +108,7 @@ simdf$b1 <- b1[simdf$spp]
 simdf$b2 <- b2[simdf$spp]
 
 # add height and diameter mean increment for each species
-hmean <- abs(rnorm(n_sp, 0.3, 0.1)) # in meters
+hmean <- abs(rnorm(n_sp, 0.03, 0.01)) # in meters
 dmean <- abs(rnorm(n_sp, 0.2, 0.1)) # in cm
 
 # individual level variations
@@ -117,10 +119,18 @@ simdf$dia <- abs(rnorm(N, dmean[simdf$spp], 0.1))
 simdf$biom <- simdf$b1*(simdf$dia^2*simdf$height)^b2
 simdf
 
+ggplot(simdf, aes(x = (dia*10)*(dia*10)*(height*1000), y = biom, color = spp, fill = spp)) +
+  geom_point(alpha = 0.3) +
+  facet_wrap(~spp) +
+  theme_minimal()
+
 ggplot(simdf, aes(x = biom, color = spp, fill = spp)) +
   geom_density(alpha = 0.3) +
   facet_wrap(~spp) +
-  theme_minimal()
+  theme_minimal() + 
+  xlim(0, 1)
+
+
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Fit Sim Data ####
@@ -156,7 +166,6 @@ fit <- stan("stan/allometryModel.stan",
             warmup = 4000)
 
 saveRDS(fit, "output/stanOutput/allometryModel")
-summary(fit)
 
 diagnostics <- util$extract_hmc_diagnostics(fit) 
 util$check_all_hmc_diagnostics(diagnostics)

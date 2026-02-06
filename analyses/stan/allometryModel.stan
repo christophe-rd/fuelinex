@@ -26,8 +26,8 @@ for (i in 1:N){
 }
 
 model{	
-  b1 ~ lognormal(log(0.1), 1);
-  b2 ~ normal(0.05, 1);
+  b1 ~ lognormal(log(0.1), 0.5);
+  b2 ~ normal(0.7, 0.2);
   sigma_y ~ normal(0, 1);
   y ~ normal(ypred, sigma_y);
 }	
