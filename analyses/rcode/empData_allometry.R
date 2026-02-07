@@ -437,3 +437,5 @@ hist(df25$increment24)
 hist(df25$increment25)
 
 biomincrement <- df25
+
+write.csv(biomincrement, "output/allometryModelEstimates.csv")
