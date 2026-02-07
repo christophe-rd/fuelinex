@@ -38,27 +38,28 @@ source('mcmc_visualization_tools.R', local=util)
 b <- 30 # baseline biomass
 sigma_y <- 4
 sigma_treat <- 1
-# sigma_sp <- 10
+sigma_sp <- 3
 sigma_spring <- 0.4
 sigma_fall <- 0.8
 
+
+
 # treat and sp group ids
 treat_norep <- c("cc", "cw", "wc", "ww")
-# sp_norep <- 1:4
+ntreat <- length(treat_norep)
+nsp <- 5
+sp_norep <- 1:nsp
 
 # n of treat and sp and number of replicates per species, per treatment
-n_treat <- length(treat_norep)
-# n_sp <- length(sp_norep)
-n_per_treat <- 50
-# n_per_sp_per_treat <- 100
+n_per_sp_per_treat <- 15
 
-# sp <- rep(rep(sp_norep, each = n_per_sp_per_treat), times = n_treat)
-# sp
-treat <- rep(rep(treat_norep, each = n_per_treat))
-             # , each = n_sp)
+sp <- rep(rep(sp_norep, each = n_per_sp_per_treat), times = ntreat)
+length(sp)
+treat <- rep(rep(treat_norep, each = n_per_sp_per_treat), each = nsp)
+length(treat)
+
 # treat
 ids <- 1: length(treat)
-# N <- length(sp)
 N <- length(ids)
 
 error <- rnorm(N, 0, sigma_y)
@@ -66,7 +67,7 @@ error <- rnorm(N, 0, sigma_y)
 simdf <- data.frame(
   ids = ids,
   treat = treat,
-  # sp = sp,
+  sp = sp,
   b = b,
   error = error
 )
@@ -91,9 +92,10 @@ simdf$sf <- simdf$s * simdf$f
 # interaction when its warm spring and warm fall
 wswf <- -2
 simdf$bsf <- ifelse(simdf$sf == 1, wswf, 0)
-# add effect of species on intercept
-# asp <- rnorm(n_sp, mean = 0, sigma_sp)
-# simdf$asp <- asp[simdf$sp]
+
+# add species effect
+asp <- rnorm(nsp, mean = 0, sigma_sp)
+simdf$asp <- asp[simdf$sp]
 
 # joing everything together
 simdf$b_full <-  
@@ -101,7 +103,7 @@ simdf$b_full <-
   simdf$bspring + 
   simdf$bfall +
   simdf$bsf + 
-  # simdf$asp +
+  simdf$asp +
   simdf$error
 simdf
 
@@ -140,165 +142,200 @@ N <- nrow(simdf)
 s <- simdf$s
 f <- simdf$f
 sf <- simdf$sf
-# Nspp <- length(unique(emp$spp_num))
-# species <- as.numeric(as.character(emp$spp_num))
+Nspp <- length(unique(simdf$sp))
+species <- as.numeric(as.character(simdf$sp))
+data=c("N","y","s","f","Nspp","species","sf")
 
 fit <- stan("stan/factorialHierModel.stan", 
             data=c("N","y",
                    "s","f",
+                   "Nspp", "species",
                    "sf"),
             iter = 2000, chains=4, cores=4,
             warmup = 1000)
 
 summary(fit)
 
-# === === === === === === #
-# PARAMETER RECOVERY ####
-# === === === === === === #
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Recover parameters ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 df_fit <- as.data.frame(fit)
-
-# recover slope
-colnames(df_fit)
-
 # grab parameter estimates
-treat_cols <- colnames(df_fit)[!grepl("ypred", colnames(df_fit))]
-treat_cols <- treat_cols[!grepl("lp__", treat_cols)]
-# treat_cols <- treat_cols[1:length(treat_cols)]
-treat_df <- df_fit[, colnames(df_fit) %in% treat_cols]
+cols <- colnames(df_fit)[!grepl("ypred", colnames(df_fit))]
+cols <- cols[!grepl("lp__", cols)]
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# For sigma_y
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# grab parameter estimates
+sigma_cols <- cols[grepl("sigma", cols)]
+
+sigmavec <- as.vector(df_fit[, colnames(df_fit) %in% sigma_cols])
+class(sigma_df)
+
+sigma_df <- data.frame(
+  mean = mean(sigmavec), 
+  per5 = quantile(sigmavec, probs = 0.05),
+  per25 = quantile(sigmavec, probs = 0.25),
+  per75 = quantile(sigmavec, probs = 0.75),
+  per95 = quantile(sigmavec, probs = 0.95)
+)
+sigma_df
+
+sigma_df$sim <- sigma_y
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# For coefficient B1 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+bs_cols <- cols[grepl("bs", cols)]
+bs_cols <- bs_cols[!grepl("bsf", bs_cols)]
+
+bs_df <- df_fit[, colnames(df_fit) %in% bs_cols]
+
 # change their names
-# colnames(treat_df) <- sub(".*treat:([^]]+)\\]$", "\\1", colnames(treat_df))
+colnames(bs_df) <- as.numeric(sub("bs\\[|\\]", "", sub("\\]", "", colnames(bs_df))))
+
 # empty treat dataframe
-treat_df2 <- data.frame(
-  parameter = character(ncol(treat_df)),
+bs_df2 <- data.frame(
+  spp = character(ncol(bs_df)),
   mean = NA,  
   per5  = NA, 
   per25 = NA,
   per75 = NA,
   per95 = NA
 )
-treat_df2
+bs_df2
 
-for (i in 1:ncol(treat_df)) { # i = 1
-  treat_df2$parameter[i] <- colnames(treat_df)[i]         
-  treat_df2$mean[i] <- round(mean(treat_df[[i]]),3)  
-  treat_df2$per5[i] <- round(quantile(treat_df[[i]], probs = 0.05), 3)
-  treat_df2$per25[i] <- round(quantile(treat_df[[i]], probs = 0.25), 3)
-  treat_df2$per75[i] <- round(quantile(treat_df[[i]], probs = 0.75), 3)
-  treat_df2$per95[i] <- round(quantile(treat_df[[i]], probs = 0.95), 3)
-  }
-treat_df2
+for (i in 1:ncol(bs_df)) { # i = 1
+  bs_df2$spp[i] <- colnames(bs_df)[i]         
+  bs_df2$mean[i] <- round(mean(bs_df[[i]]),3)  
+  bs_df2$per5[i] <- round(quantile(bs_df[[i]], probs = 0.05), 3)
+  bs_df2$per25[i] <- round(quantile(bs_df[[i]], probs = 0.25), 3)
+  bs_df2$per75[i] <- round(quantile(bs_df[[i]], probs = 0.75), 3)
+  bs_df2$per95[i] <- round(quantile(bs_df[[i]], probs = 0.95), 3)
+}
+bs_df2
 
-# Plot parameter recovery
-treat_df2$sim <- NA 
-treat_df2$sim[which(treat_df2$parameter == "b")] <- b
-treat_df2$sim[which(treat_df2$parameter == "bs")] <- ws
-treat_df2$sim[which(treat_df2$parameter == "bf")] <- wf
-treat_df2$sim[which(treat_df2$parameter == "bsf")] <- wswf
-treat_df2$sim[which(treat_df2$parameter == "sigma_y")] <- sigma_y
+# add sim data into it
+bs_df2$sim <- simdf$bspring[match(bs_df2$spp, simdf$sp)]
 
-ggplot(treat_df2, aes(x = sim, y = mean)) +
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# For coefficient BF
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+bf_cols <- cols[grepl("bf", cols)]
+bf_cols <- bf_cols[!grepl("bsf", bf_cols)]
+
+bf_df <- df_fit[, colnames(df_fit) %in% bs_cols]
+
+# change their names
+colnames(bf_df) <- as.numeric(gsub(".*\\[(\\d+)\\]", "\\1", colnames(bf_df)))
+
+# empty treat dataframe
+bf_df2 <- data.frame(
+  spp = character(ncol(bf_df)),
+  mean = NA,  
+  per5  = NA, 
+  per25 = NA,
+  per75 = NA,
+  per95 = NA
+)
+bf_df2
+
+for (i in 1:ncol(bf_df)) { # i = 1
+  bf_df2$spp[i] <- colnames(bf_df)[i]         
+  bf_df2$mean[i] <- round(mean(bf_df[[i]]),3)  
+  bf_df2$per5[i] <- round(quantile(bf_df[[i]], probs = 0.05), 3)
+  bf_df2$per25[i] <- round(quantile(bf_df[[i]], probs = 0.25), 3)
+  bf_df2$per75[i] <- round(quantile(bf_df[[i]], probs = 0.75), 3)
+  bf_df2$per95[i] <- round(quantile(bf_df[[i]], probs = 0.95), 3)
+}
+bf_df2
+
+# add sim data into it
+bf_df2$sim <- simdf$bs[match(bf_df2$spp, simdf$spp)]
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# For coefficient BSF
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+bsf_cols <- cols[grepl("bsf", cols)]
+
+bsf_df <- df_fit[, colnames(df_fit) %in% bs_cols]
+
+# change their names
+colnames(bsf_df) <- as.numeric(gsub(".*\\[(\\d+)\\]", "\\1", colnames(bsf_df)))
+
+# empty treat dataframe
+bsf_df2 <- data.frame(
+  spp = character(ncol(bsf_df)),
+  mean = NA,  
+  per5  = NA, 
+  per25 = NA,
+  per75 = NA,
+  per95 = NA
+)
+bsf_df2
+
+for (i in 1:ncol(bsf_df)) { # i = 1
+  bsf_df2$spp[i] <- colnames(bsf_df)[i]         
+  bsf_df2$mean[i] <- round(mean(bsf_df[[i]]),3)  
+  bsf_df2$per5[i] <- round(quantile(bsf_df[[i]], probs = 0.05), 3)
+  bsf_df2$per25[i] <- round(quantile(bsf_df[[i]], probs = 0.25), 3)
+  bsf_df2$per75[i] <- round(quantile(bsf_df[[i]], probs = 0.75), 3)
+  bsf_df2$per95[i] <- round(quantile(bsf_df[[i]], probs = 0.95), 3)
+}
+bsf_df2
+
+# add sim data into it
+bsf_df2$sim <- simdf$bs[match(bsf_df2$spp, simdf$spp)]
+
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Plot parameter recovery ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+sigma <- ggplot(sigma_df, aes(x = sim, y = mean)) +
   geom_errorbar(aes(ymin = per5, ymax = per95), 
                 width = 0, linewidth = 0.5, color = "darkgray", alpha=0.7) +
   geom_errorbar(aes(ymin = per25, ymax = per75), 
                 width = 0, linewidth = 1.5, color = "darkgray", alpha = 0.7) +
   geom_point(color = "#046C9A", size = 2) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
-  labs(x = "sim parameter", y = "fit parameter", title = "") +
-  ggrepel::geom_text_repel(aes(label = parameter), size = 5) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", 
+              linewidth = 1) +
+  labs(x = "sim parameter", y = "fit parameter", title = "sigma_y") +
+  # ggrepel::geom_text_repel(aes(label = spp), size = 5) +
   theme_minimal()
-ggsave("figures/simData/parameters_simXfit_plot.jpeg", width = 6, height = 6, units = "in", dpi = 300)
-
-# recover spp
-# grab treat nested in spp
-spp_cols <- colnames(df_fit)[grepl(" spp:", colnames(df_fit))]
-spp_cols <- spp_cols[1:length(spp_cols)]
-spp_df <- df_fit[, colnames(df_fit) %in% spp_cols]
-# change their names
-colnames(spp_df) <- sub(".*spp:([^]]+)\\]$", "\\1", colnames(spp_df))
-# empty spp dataframe
-spp_df2 <- data.frame(
-  spp = character(ncol(spp_df)),
-  fit_a_spp = numeric(ncol(spp_df)),  
-  fit_a_spp_per5 = NA, 
-  fit_a_spp_per95 = NA
-)
-spp_df2
-
-for (i in 1:ncol(spp_df)) { # i = 1
-  spp_df2$spp[i] <- colnames(spp_df)[i]         
-  spp_df2$fit_a_spp[i] <- round(mean(spp_df[[i]]),3)  
-  spp_df2$fit_a_spp_per5[i] <- round(quantile(spp_df[[i]], probs = 0.055), 3)
-  spp_df2$fit_a_spp_per95[i] <- round(quantile(spp_df[[i]], probs = 0.945), 3)
-}
-spp_df2
-
-
-# PLOT PARAMETER RECOVERY #####
-# merge sim and fit
-treattoplot <- merge(
-  sim_biomass[!duplicated(sim_biomass$treat), 
-              c("treat", "a_treat")], 
-  treat_df2[, 
-          c("treat", "fit_a_treat", "fit_a_treat_per5", "fit_a_treat_per95")], 
-  by = "treat"
-)
-treattoplot
-
-a_treat_simXfit_plot <- ggplot(treattoplot, aes(x = a_treat, y = fit_a_treat)) +
+sigma
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+##### B1 #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+bs <- ggplot(bs_df2, aes(x = sim, y = mean)) +
+  geom_errorbar(aes(ymin = per5, ymax = per95), 
+                width = 0, linewidth = 0.5, color = "darkgray", alpha=0.7) +
+  geom_errorbar(aes(ymin = per25, ymax = per75), 
+                width = 0, linewidth = 1.5, color = "darkgray", alpha = 0.7) +
   geom_point(color = "#046C9A", size = 2) +
-  geom_errorbar(aes(ymin = fit_a_treat_per5, ymax = fit_a_treat_per95), width = 0, color = "darkgray", alpha=0.3) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
-  labs(x = "sim a_treat", y = "fit a_treat", title = "") +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", 
+              linewidth = 1) +
+  labs(x = "sim parameter", y = "fit parameter", title = "bs") +
+  # ggrepel::geom_text_repel(aes(label = spp), size = 5) +
   theme_minimal()
-a_treat_simXfit_plot
-# ggsave!
-ggsave("figures/a_treat_simXfit_plot.jpeg", a_treat_simXfit_plot, width = 6, height = 6, units = "in", dpi = 300)
-
-
-# merge sim and fit
-spptoplot <- merge(
-  sim_biomass[!duplicated(sim_biomass$spp), 
-          c("spp", "a_spp")], 
-  spp_df2[, 
-         c("spp", "fit_a_spp", "fit_a_spp_per5", "fit_a_spp_per95")], 
-  by = "spp"
-)
-spptoplot
-
-a_spp_simXfit_plot <- ggplot(spptoplot, aes(x = a_spp, y = fit_a_spp)) +
+bs
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+##### B2 #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+bf <- ggplot(bf_df2, aes(x = sim, y = mean)) +
+  geom_errorbar(aes(ymin = per5, ymax = per95), 
+                width = 0, linewidth = 0.5, color = "darkgray", alpha=0.7) +
+  geom_errorbar(aes(ymin = per25, ymax = per75), 
+                width = 0, linewidth = 1.5, color = "darkgray", alpha = 0.7) +
   geom_point(color = "#046C9A", size = 2) +
-  geom_errorbar(aes(ymin = fit_a_spp_per5, ymax = fit_a_spp_per95), width = 0, color = "darkgray", alpha=0.3) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
-  labs(x = "sim a_spp", y = "fit a_spp", title = "") +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", 
+              linewidth = 1) +
+  labs(x = "sim parameter", y = "fit parameter", title = "bf") +
+  # ggrepel::geom_text_repel(aes(label = spp), size = 5) +
   theme_minimal()
-a_spp_simXfit_plot
-# ggsave!
-ggsave("figures/a_spp_simXfit_plot.jpeg", a_spp_simXfit_plot, width = 6, height = 6, units = "in", dpi = 300)
+bf
 
-# merge everything together to look at biomass
-t <- merge(sim_biomass, treat_df2, by = "treat")
-t2 <- merge(t, spp_df2, by = "spp")
+combined <- (sigma + bs + bf)
+combined
+ggsave("figures/simData/paramRecovery.jpeg", combined, width = 8, height = 6, units = "in", dpi = 300)
 
-t2$fit_a <- mean(df_fit$`(Intercept)`)
-t2$fit_b <- mean(df_fit$gdd)
-
-t2$fit_biomass <- c(
-  t2$fit_a + 
-    t2$fit_a_treat + 
-    t2$fit_a_spp +
-    t2$fit_b * t2$gdd
-)
-
-a_spp_simXfit_plot <- ggplot(t2, aes(x = biomass, y = fit_biomass)) +
-  geom_point(color = "#046C9A", size = 2, alpha =0.2) +
-  # geom_errorbar(aes(ymin = fit_a_spp_per5, ymax = fit_a_spp_per95), width = 0, color = "darkgray", alpha=0.3) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
-  labs(x = "sim a_spp", y = "fit a_spp", title = "") +
-  theme_minimal()
-a_spp_simXfit_plot
-# ggsave!
-ggsave("figures/a_spp_simXfit_plot.jpeg", a_spp_simXfit_plot, width = 6, height = 6, units = "in", dpi = 300)
-
-
-# Fit sim data to model ####
-simdf$treatnum <- match(simdf$treat, unique(simdf$treat))
