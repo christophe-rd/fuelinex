@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{Sweave}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\input{projectFinal-concordance}
+
+\title{Carry-over effect of a longer season on the following year's tree growth}
+\author{Christophe Rouleau-Desrochers and Ken}
+\date{\today}
+\maketitle
+
+%<<>>=
+%source("../../analyses/rcode/modelGrowthGDD_plots.R")
+%@
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+% Introduction
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+\section*{Introduction}
+
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+% Methods
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+\section*{Methods}
+
+%===============================================================================
+\subsection*{Allometry}
+%-------------------------------------------------------------------------------
+% Model structure
+$$
+\
+AGB = \beta_{1} \times \left( RCD^{2} \times H \right)^{\beta_{2}}
+\
+$$
+%-------------------------------------------------------------------------------
+
+
+%===============================================================================
+
+%===============================================================================
+\subsection*{Main model}
+
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+% Model structure
+\[
+\Delta \beta_1
+= N \left(
+\beta_1
++ \beta_{S1} S_1
++ \beta_{F1} F_1
++ \beta_{SF1} SF_1, \sigma_{y1}
+\right)
+\]
+
+\[
+\Delta \beta_2
+= N \left(
+\beta_2
++ \beta_{S2} S_1
++ \beta_{F2} F_1
++ \beta_{SF2} SF_1, \sigma_{y2}
+\right)
+\]
+
+\textbf{Where:}
+\begin{itemize} 
+	\item $\beta_1$ = Year 1, treatment Cool Spring, Cool Fall (reference value)
+	\item $\beta_1 + \beta_{S1} = $ Year 1, treatment Warm Spring, Cool Fall
+	\item $\beta_1 + \beta_{F1} = $ Year 1, treatment Cool Spring, Warm Fall
+	\item $\beta_1 + \beta_{S1} + \beta_{F1} + \beta_{SF1} = $ Year 1, treatment Warm Spring, Warm Fall
+	\item $ S1 = $ dummy variable, if it's 1, then Warm spring, else Cool Spring
+	\item $ F1 = $ dummy variable, if it's 1, then Warm fall, else Cool fall
+	\item $ SF1 = $ dummy variable, for a subadditive effect of a Warm Spring and a Warm Fall treatment.
+\end{itemize} 
+%-------------------------------------------------------------------------------
+
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+% Results
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+\section*{Results}
+
+%===============================================================================
+\subsection*{Allometry}
+
+%-------------------------------------------------------------------------------
+\begin{figure}[h!]
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.jpeg}
+\caption{}
+\label{fig:effects}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/retrodictiveCheckHist.jpeg}
+\caption{}
+\label{fig:effects}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+%===============================================================================
+
+%===============================================================================
+\subsection*{Main model}
+
+%===============================================================================
+
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+% Discussion
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+\section*{Discussion}
+
+
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+% Supplemental results
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+\section*{Supplemental results}
+
+\end{document}
