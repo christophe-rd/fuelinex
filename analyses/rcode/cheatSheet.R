@@ -45,3 +45,6 @@ spp_means <- data.frame(
   "3" = rowMeans(fullintercept[, spp3vec]),
   "4" = rowMeans(fullintercept[, spp4vec])
 )
+
+# get a message 
+message(paste0("Removing ", nrow(modeld)-nrow(modeld_wodup), ' potential duplicates!'))

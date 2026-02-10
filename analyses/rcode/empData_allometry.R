@@ -408,6 +408,7 @@ f25merge <- merge(df25, d25, by = "treeid_num")
 f25merge$mul <- f25merge$diameter * f25merge$diameter * f25merge$height
 
 cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
+
 ggplot(f25merge, aes(x = mul, y = aboveGroundWeight, color = genus, fill = genus)) +
   geom_point(aes(y = aboveGroundWeight), alpha = 0.7) +
   geom_ribbon(aes(ymin = per25, ymax = per75), alpha = 0.3, colour = NA) +
@@ -423,6 +424,7 @@ ggplot(f25merge, aes(x = mul, y = aboveGroundWeight, color = genus, fill = genus
   theme_minimal()
 ggsave("figures/empiricalData_allometry/slopesRetrodictiveCheck.jpeg", width = 12, height = 8, units = "in", dpi = 300)
 
+write.csv(f25merge, "output/allometry2025fit.csv")
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Calculate biomass increment per year ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>

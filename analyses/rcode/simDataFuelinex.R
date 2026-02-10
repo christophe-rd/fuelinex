@@ -149,15 +149,71 @@ data=c("N","y","s","f","Nspp","species","sf")
 fit <- stan("stan/factorialHierModel.stan", 
             data=c("N","y",
                    "s","f",
-                   "Nspp", "species",
+                   # "Nspp", "species",
                    "sf"),
             iter = 2000, chains=4, cores=4,
             warmup = 1000)
 
 summary(fit)
 
+# Recover parameters without spp ####
+df_fit <- as.data.frame(fit)
+
+# recover slope
+colnames(df_fit)
+
+# grab parameter estimates
+treat_cols <- colnames(df_fit)[!grepl("ypred", colnames(df_fit))]
+treat_cols <- treat_cols[!grepl("lp__", treat_cols)]
+# treat_cols <- treat_cols[1:length(treat_cols)]
+treat_df <- df_fit[, colnames(df_fit) %in% treat_cols]
+# change their names
+# colnames(treat_df) <- sub(".*treat:([^]]+)\\]$", "\\1", colnames(treat_df))
+# empty treat dataframe
+treat_df2 <- data.frame(
+  parameter = character(ncol(treat_df)),
+  mean = NA,  
+  per5  = NA, 
+  per25 = NA,
+  per75 = NA,
+  per95 = NA
+)
+treat_df2
+
+for (i in 1:ncol(treat_df)) { # i = 1
+  treat_df2$parameter[i] <- colnames(treat_df)[i]         
+  treat_df2$mean[i] <- round(mean(treat_df[[i]]),3)  
+  treat_df2$per5[i] <- round(quantile(treat_df[[i]], probs = 0.05), 3)
+  treat_df2$per25[i] <- round(quantile(treat_df[[i]], probs = 0.25), 3)
+  treat_df2$per75[i] <- round(quantile(treat_df[[i]], probs = 0.75), 3)
+  treat_df2$per95[i] <- round(quantile(treat_df[[i]], probs = 0.95), 3)
+}
+treat_df2
+
+# Plot parameter recovery
+treat_df2$sim <- NA 
+treat_df2$sim[which(treat_df2$parameter == "b")] <- b
+treat_df2$sim[which(treat_df2$parameter == "bs")] <- ws
+treat_df2$sim[which(treat_df2$parameter == "bf")] <- wf
+treat_df2$sim[which(treat_df2$parameter == "bsf")] <- wswf
+treat_df2$sim[which(treat_df2$parameter == "sigma_y")] <- sigma_y
+
+ggplot(treat_df2, aes(x = sim, y = mean)) +
+  geom_errorbar(aes(ymin = per5, ymax = per95), 
+                width = 0, linewidth = 0.5, color = "darkgray", alpha=0.7) +
+  geom_errorbar(aes(ymin = per25, ymax = per75), 
+                width = 0, linewidth = 1.5, color = "darkgray", alpha = 0.7) +
+  geom_point(color = "#046C9A", size = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "#B40F20", linewidth = 1) +
+  labs(x = "sim parameter", y = "fit parameter", title = "") +
+  ggrepel::geom_text_repel(aes(label = parameter), size = 5) +
+  theme_minimal()
+ggsave("figures/simData/parameters_simXfit_plot.jpeg", width = 6, height = 6, units = "in", dpi = 300)
+
+speciesinmodel <- FALSE
+if (speciesinmodel){
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# Recover parameters ####
+# Recover parameters with species ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 df_fit <- as.data.frame(fit)
 # grab parameter estimates
@@ -339,3 +395,4 @@ combined <- (sigma + bs + bf)
 combined
 ggsave("figures/simData/paramRecovery.jpeg", combined, width = 8, height = 6, units = "in", dpi = 300)
 
+}
