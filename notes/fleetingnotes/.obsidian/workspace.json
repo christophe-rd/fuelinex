@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "2025_fleetingNotes"
             }
+          },
+          {
+            "id": "2c6ef4db761e031b",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.7"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -184,7 +196,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "a88659cab7690a5f",
+  "active": "2c6ef4db761e031b",
   "lastOpenFiles": [
     "2025_fleetingNotes.md",
     "2024_fleetingnotes.md",
