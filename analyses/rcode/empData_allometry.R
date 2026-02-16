@@ -438,6 +438,20 @@ df25$increment24 <- df25$agb24 - df25$agb23
 hist(df25$increment24)
 hist(df25$increment25)
 
-biomincrement <- df25
+biomincrement <- df25[, c(
+  "tree_ID",
+  "bloc", 
+  "treatment",
+  "genus",
+  "species",
+  "spp_num",
+  "treeid_num",
+  "aboveGroundWeight",
+  "agb23",
+  "agb24",
+  "agb25",
+  "increment25",
+  "increment24"
+)]
 
 write.csv(biomincrement, "output/allometryModelEstimates.csv")
