@@ -11,7 +11,7 @@ options(digits = 3)
 # Load librairies
 library(dplyr)
 library(ggplot2)
-library(rstanarm)
+library(rstan)
 library(wesanderson)
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 set.seed(123)
@@ -35,14 +35,9 @@ source('mcmc_visualization_tools.R', local=util)
 # === === === === === === === #
 ##### Biomass as intercept only #####
 # === === === === === === === #
-b <- 30 # baseline biomass
-sigma_y <- 4
-sigma_treat <- 1
-sigma_sp <- 3
-sigma_spring <- 0.4
-sigma_fall <- 0.8
-
-
+b <- 3 # baseline biomass
+sigma_y <- 0.4 # common across the 2 years
+sigma_sp <- 0.3
 
 # treat and sp group ids
 treat_norep <- c("cc", "cw", "wc", "ww")
@@ -52,13 +47,8 @@ sp_norep <- 1:nsp
 
 # n of treat and sp and number of replicates per species, per treatment
 n_per_sp_per_treat <- 15
-
 sp <- rep(rep(sp_norep, each = n_per_sp_per_treat), times = ntreat)
-length(sp)
 treat <- rep(rep(treat_norep, each = n_per_sp_per_treat), each = nsp)
-length(treat)
-
-# treat
 ids <- 1: length(treat)
 N <- length(ids)
 
@@ -69,63 +59,71 @@ simdf <- data.frame(
   treat = treat,
   sp = sp,
   b = b,
-  error = error
-)
-simdf
+  error = error)
 
 # add effect of treatments on intercept
 simdf$spring <- substr(simdf$treat, 1, 1)  # spring condition either warm or cool 
 simdf$fall = substr(simdf$treat, 2, 2) # fall condition either warm or cool
-
-# divergence from the overall intercept for spring condition
-ws <- 10
-simdf$bspring = ifelse(simdf$spring == "c", 0, ws)
-# divergence from the overall intercept for fall condition
-wf <- 5
-simdf$bfall = ifelse(simdf$fall == "c", 0, wf)
 
 # add dummy variable 
 simdf$s <- ifelse(simdf$spring == "w", 1, 0)
 simdf$f <- ifelse(simdf$fall == "w", 1, 0)
 simdf$sf <- simdf$s * simdf$f
 
-# interaction when its warm spring and warm fall
-wswf <- -2
-simdf$bsf <- ifelse(simdf$sf == 1, wswf, 0)
-
 # add species effect
 asp <- rnorm(nsp, mean = 0, sigma_sp)
 simdf$asp <- asp[simdf$sp]
 
+# Year 1 --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+# divergence from the overall intercept for spring condition
+ws1 <- 1.1
+simdf$bspring1 = ifelse(simdf$spring == "c", 0, ws1)
+# divergence from the overall intercept for fall condition
+wf1 <- 0.5
+simdf$bfall1 = ifelse(simdf$fall == "c", 0, wf1)
+# interaction when its warm spring and warm fall
+wswf1 <- -0.2
+simdf$bsf1 <- ifelse(simdf$sf == 1, wswf1, 0)
+
 # joing everything together
-simdf$b_full <-  
+simdf$Delta1 <-  
   simdf$b + 
-  simdf$bspring + 
-  simdf$bfall +
-  simdf$bsf + 
-  simdf$asp +
-  simdf$error
+  simdf$bspring1 + 
+  simdf$bfall1 +
+  simdf$bsf1 + 
+  # simdf$asp + # constant throughout
+  simdf$error # constant throughout
 simdf
 
-if(FALSE){
+# Year 1 --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+# divergence from the overall intercept for spring condition
+ws2 <- 0.6
+simdf$bspring2 = ifelse(simdf$spring == "c", 0, ws2)
+# divergence from the overall intercept for fall condition
+wf2 <- 0.3
+simdf$bfall2 = ifelse(simdf$fall == "c", 0, wf2)
+# interaction when its warm spring and warm fall
+wswf2 <- -0.2
+simdf$bsf2 <- ifelse(simdf$sf == 1, wswf2, 0)
 
-hist(simdf$error)
-hist(simdf$bspring)
-unique(simdf$bspring)
-ggplot(simdf, aes(x = bspring, color = treat, fill = treat)) +
-  geom_density(alpha = 0.3)
-
-v <- c(unique(simdf$b - 10 - 5), # cc
-       unique(simdf$b + 10 + 5), # ww
-       unique(simdf$b + 10 - 5), # wc
-       unique(simdf$b - 10 + 5)  # cw
-       )
-
-ggplot(simdf, aes(x = b_full, color = treat)) +
-  geom_density(alpha = 0.3, linewidth = 1) +
+# joing everything together
+simdf$Delta2 <-  
+  simdf$b + 
+  simdf$bspring2 + 
+  simdf$bfall2 +
+  simdf$bsf2 + 
+  # simdf$asp + # constant throughout
+  simdf$error # constant throughout
+simdf
+# Plot sim data
+ggplot(simdf) +
+  geom_density(aes(x = Delta1, color = treat), 
+               alpha = 0.3, linewidth = 1) +
+  geom_density(aes(x = Delta2, color = treat), 
+               alpha = 0.3, linewidth = 1, linetype = "dashed") +
   labs(
     title = "densities of full intercepts per treatment",
-    x = "b_full",
+    x = "delta",
     y = "density"
   ) +
   # geom_vline(aes(xintercept = a+asp)) +
@@ -134,10 +132,9 @@ ggplot(simdf, aes(x = b_full, color = treat)) +
   scale_color_manual(values = wes_palette("Darjeeling1")) +
   scale_fill_manual(values = wes_palette("Darjeeling1")) +
   theme_minimal()
-ggsave("figures/densityintercept_with_asp.jpeg", width = 8, height = 6, units = "in", dpi = 300)
-}
+# ggsave("figures/densityintercept_with_asp.jpeg", width = 8, height = 6, units = "in", dpi = 300)
 
-y <- simdf$b_full
+y <- simdf$D2
 N <- nrow(simdf)
 s <- simdf$s
 f <- simdf$f
@@ -146,7 +143,7 @@ Nspp <- length(unique(simdf$sp))
 species <- as.numeric(as.character(simdf$sp))
 data=c("N","y","s","f","Nspp","species","sf")
 
-fit <- stan("stan/factorialHierModel.stan", 
+ fit <- stan("stan/factorialHierModel.stan", 
             data=c("N","y",
                    "s","f",
                    # "Nspp", "species",
@@ -249,7 +246,8 @@ bs_cols <- bs_cols[!grepl("bsf", bs_cols)]
 bs_df <- df_fit[, colnames(df_fit) %in% bs_cols]
 
 # change their names
-colnames(bs_df) <- as.numeric(sub("bs\\[|\\]", "", sub("\\]", "", colnames(bs_df))))
+colnames(bs_df) <- as.numeric(sub("bs\\[|\\]", "", 
+                                  sub("\\]", "", colnames(bs_df))))
 
 # empty treat dataframe
 bs_df2 <- data.frame(
