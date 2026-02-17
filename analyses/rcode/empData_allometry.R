@@ -22,6 +22,7 @@ util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
 
+fitmodel <- FALSE
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Loop up empirical data ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -60,6 +61,8 @@ dia <- df25$dia
 table(spp)
 
 # assign bounds to tell the initial values to the sampler
+if (fitmodel) {
+ 
 inits <- function(chain_id){
   params <- list("b1" = as.array(rlnorm(Nspp, log(0.5), 1)),
                  "b2" = as.array(rnorm(Nspp, 0.5, 1)),
@@ -77,7 +80,8 @@ fit <- stan("stan/allometryModel.stan",
             warmup = 2000)
 
 saveRDS(fit, "output/stanOutput/allometryModel")
-
+}
+fit <- readRDS(fit, "output/stanOutput/allometryModel")
 diagnostics <- util$extract_hmc_diagnostics(fit) 
 util$check_all_hmc_diagnostics(diagnostics)
 
@@ -377,19 +381,41 @@ ggplot(df24, aes(x = mul, y = agb, color = genus, fill = genus)) +
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 X <- df25$diameter^2 * df25$height
 
+df25$vol <- df25$diameter^2 * df25$height
+seq
+dmax  <- aggregate(vol ~ spp_num, df25, FUN = max)
+dmax$vol <- dmax$vol/1000
+dmax$vol <- ceiling(dmax$vol)
+dmax$vol <- dmax$vol*1000
+dmax$spp_num <- as.character(dmax$spp_num)
+
+Xsim <- df25
+
 n_draws <- nrow(b1_df)
 n_trees <- nrow(df25)
+nsp <- nrow(dmax)
 
 biomass_mat <- matrix(NA_real_, nrow = n_draws, ncol = n_trees)
 
-for(i in seq_len(n_trees)) {
-  spp <- as.character(df25$spp_num[i])
-  Xi  <- X[i]
-  
-  mu <- b1_df[[spp]] * (Xi ^ b2_df[[spp]])
-  
-  biomass_mat[, i] <- rnorm(n_draws, mu, sigma_df[,1])
+str(df25)
+str(dmax)
+class(dmax$vol)
+
+biomass_simu <- list()
+for(i in seq_len(nsp)) {
+  Xi  <- seq(from = 0, to = dmax$vol[i], by = 100)
+  biomass_simu[[i]] <- data.frame(spp = rep(i, length(Xi)), vol = Xi)
 }
+biomass_simu <- do.call(rbind, biomass_simu)
+calc <- matrix(NA_real_, nrow = nrow(biomass_simu), ncol = n_draws)
+
+for(i in seq_len(nrow(biomass_simu))) { # i = 1 
+  spp <- as.character(biomass_simu$spp[i])
+  
+  mu <- b1_df[[spp]] * (biomass_simu$vol[i] ^ b2_df[[spp]])
+  calc[i, ] <- rnorm(n_draws, mu, sigma_df[,1])
+}
+biomass_simu <- cbind(biomass_simu, calc)
 
 # reintegrate in mesurement d25
 # empty treat dataframe
@@ -432,6 +458,32 @@ df25$agb23 <- df23$agb[match(df25$tree_ID, df23$tree_ID)]
 df25$agb24 <- df24$agb[match(df25$tree_ID, df24$tree_ID)]
 df25$agb25 <- f25merge$mean[match(df25$tree_ID, f25merge$tree_ID)]
 
+# delta x and x2
+df23$vol <- df23$diameter * df23$diameter * df23$height
+df24$vol <- df24$diameter * df24$diameter * df24$height
+df25$vol23 <- df23$vol[match(df25$tree_ID, df23$tree_ID)]
+df25$vol24 <- df24$vol[match(df25$tree_ID, df24$tree_ID)]
+
+df25$diameter23 <- df23$diameter[match(df25$tree_ID, df23$tree_ID)]
+df25$height23 <- df23$height[match(df25$tree_ID, df24$tree_ID)]
+
+df25$diameter24 <- df24$diameter[match(df25$tree_ID, df23$tree_ID)]
+df25$height24 <- df24$height[match(df25$tree_ID, df24$tree_ID)]
+
+df25$vol25 <- f25merge$mul[match(df25$tree_ID, f25merge$tree_ID)]
+
+df25$diaincrement25 <- df25$diameter - df25$diameter24 
+df25$diaincrement24 <- df25$diameter24 - df25$diameter23
+
+df25$heightincrement25 <- df25$height - df25$height24 
+df25$heightincrement24 <- df25$height24 - df25$height23
+
+df25$volincrement25 <- df25$vol25 - df25$vol24 
+df25$volincrement24 <- df25$vol24 - df25$vol23
+
+View(subset(df25, volincrement25 <0))
+nrow(subset(df25, volincrement24 <0))
+View(subset(df25, volincrement24 <0))
 df25$increment25 <- df25$agb25 - df25$agb24 
 df25$increment24 <- df25$agb24 - df25$agb23
 

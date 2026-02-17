@@ -65,7 +65,7 @@ d$sf <- d$s * d$f
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 d_allo <- subset(mea, year == "2025")
 d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
-d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0)
+d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0 & treatment %in% trt[1:4])
 
 # Fit model
 
@@ -102,7 +102,7 @@ inits <- function(chain_id){
                  "af2" = as.array(rnorm(7, 0, 1)),
                  "asf2" = as.array(rnorm(7, 0, 1)),
                  "s_y" = as.array(abs(rnorm(7, 0, 1)))
-                 )
+  )
   return(params)
 }
 
@@ -110,6 +110,7 @@ fit <- stan("stan/fullModel.stan",
             data = data, init = inits, seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
 
+fit <- readRDS("output/stanOutput/full_fit.rds")
 diagnostics <- util$extract_hmc_diagnostics(fit)
 print(util$check_all_hmc_diagnostics(diagnostics))
 
@@ -126,14 +127,21 @@ names <- c(grep('b1', names(samples), value = TRUE),
            grep('af2', names(samples), value = TRUE),
            grep('asf2', names(samples), value = TRUE),
            grep('s_y', names(samples), value = TRUE))
+
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
 
-util$plot_expectand_pushforward(expectand_vals = samples[["b1[1]"]],
-                                B = 100,
-                                display_name = "B1",
-                                flim = c(-1, 1))
-
+pdf("figures/empiricalData_carryOverModel/marginalPost.pdf", height = 9, width = 9)
+par(mfrow = c(3, 3))
+for(i in 1:length(names)){
+  a <- min(samples[[names[i]]])
+  b <- max(samples[[names[i]]])
+  util$plot_expectand_pushforward(expectand_vals = samples[[names[i]]],
+                                  B = 100,
+                                  display_name = names[i],
+                                  flim = c(a, b))
+}
+dev.off()
 names <- c("b1[1]",
            "b2[1]",
            "s_allo[1]",
@@ -150,3 +158,13 @@ names <- c("b1[1]",
 pdf('scratch_pairs.pdf', height = 9, width = 9)
 util$plot_div_pairs(names, names, samples, diagnostics)
 dev.off()
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Retrodictive checks ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+for (i in seq_len(unique(d$species)){
+  for(j in seq_len(unique(d$treatment)))
+}
+idx <- which(d$s == 0 & d$f == 1 & d$spp_num = 1)
+param_names <- paste0("y_pred[", idx, "]")
+trt_data <- df_fit[[param_names]]
