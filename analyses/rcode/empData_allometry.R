@@ -415,6 +415,7 @@ for(i in seq_len(nrow(biomass_simu))) { # i = 1
   mu <- b1_df[[spp]] * (biomass_simu$vol[i] ^ b2_df[[spp]])
   calc[i, ] <- rnorm(n_draws, mu, sigma_df[,1])
 }
+
 biomass_simu <- cbind(biomass_simu, calc)
 
 # reintegrate in mesurement d25
@@ -427,7 +428,14 @@ d25 <- data.frame(
   per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
   per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
 )
-d25
+apply(biomass_simu, 1, quantile, probs = 0.05)
+biomass_simu2 <- biomass_simu[, 1:2]
+
+biomass_simu2$mean <- rowMeans(biomass_simu[3:ncol(biomass_simu)])
+biomass_simu2$per5  = apply(biomass_simu, 1, quantile, probs = 0.05)
+biomass_simu2$per25  = apply(biomass_simu, 1, quantile, probs = 0.25)
+biomass_simu2$per75  = apply(biomass_simu, 1, quantile, probs = 0.75)
+biomass_simu2$per95  = apply(biomass_simu, 1, quantile, probs = 0.95)
 
 f25merge <- merge(df25, d25, by = "treeid_num")
 
@@ -435,20 +443,57 @@ f25merge$mul <- f25merge$diameter * f25merge$diameter * f25merge$height
 
 cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
 
-ggplot(f25merge, aes(x = mul, y = aboveGroundWeight, color = genus, fill = genus)) +
-  geom_point(aes(y = aboveGroundWeight), alpha = 0.7) +
-  geom_ribbon(aes(ymin = per25, ymax = per75), alpha = 0.3, colour = NA) +
-  geom_line(aes(y = mean), linewidth = 1) +
-  facet_wrap(~ genus, scales = "free") +
-  scale_color_manual(values = cols) + 
-  scale_fill_manual(values = cols) + 
-  labs(
-    x = "Diameter(mm)^2*Height(cm3)",
-    y = "Above Ground Biomass (gr)",
-    title = "Empirical AGB and posterior fit with 50% confidence intervals"
-  ) +
-  theme_minimal()
-ggsave("figures/empiricalData_allometry/slopesRetrodictiveCheck.jpeg", width = 12, height = 8, units = "in", dpi = 300)
+# === === === === === === === === === === === === === === === === === === === 
+# Plotting Posterior Predictive Checks ####
+# === === === === === === === === === === === === === === === === === === === 
+pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf", 
+    width = 10, height = 8)
+
+biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
+spp_levels <- unique(biomass_simu2$spp)
+
+# Panel layout similar to facet_wrap
+n <- length(spp_levels)
+ncol <- 3
+nrow <- 3
+
+par(mfrow = c(nrow, ncol), mar = c(4,4,3,1))
+
+for(sp in spp_levels){
+  
+  df <- biomass_simu2[biomass_simu2$spp == sp, ]
+  df <- df[order(df$vol), ]   
+  
+  plot(df$vol, df$mean, type = "n",
+       ylim = range(c(df$per25, df$per75), na.rm = TRUE),     
+       xlab = "Diameter(mm)^2*Height(cm3)",
+       ylab = "Above Ground Biomass (gr)",
+       main = df$sppname[sp])
+  
+  # ribbons
+  polygon(
+    c(df$vol, rev(df$vol)),
+    c(df$per25, rev(df$per75)),
+    col = adjustcolor(cols[sp], alpha.f = 0.3),
+    border = NA
+  )
+  
+  # lines
+  lines(df$vol, df$mean,
+        col = cols[sp],
+        lwd = 2)
+  
+  # points for empirical data
+  pts <- df25[df25$spp_num == sp, ]
+  
+  points(
+    pts$vol,
+    pts$aboveGroundWeight,
+    col = adjustcolor(cols[sp], alpha.f = 0.7),
+    pch = 16
+  )
+}
+dev.off()
 
 write.csv(f25merge, "output/allometry2025fit.csv")
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
