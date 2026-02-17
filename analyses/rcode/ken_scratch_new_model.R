@@ -71,7 +71,6 @@ d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID"
 d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0 & spp_num == 1)
 
 # Fit model
-
 data <- list("N_allo" = nrow(d_allo),
              "d_allo" = d_allo$diameter,
              "h_allo" = d_allo$height,
@@ -106,12 +105,21 @@ inits <- function(chain_id){
                  )
   return(params)
 }
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Fit Model ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 if (runmodel) {
 fit <- stan("stan/fullModelpos.stan",
-            data = data, init = inits, seed = 1,
+            data = data, 
+            init = inits, 
+            seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
 }
 fit <- readRDS("output/stanOutput/full_fit.rds")
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Diagnostics ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 diagnostics <- util$extract_hmc_diagnostics(fit)
 print(util$check_all_hmc_diagnostics(diagnostics))
 
@@ -132,7 +140,8 @@ names <- c(grep('^b1', names(samples), value = TRUE),
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
 
-pdf("figures/empiricalData_carryOverModel/marginalPost.pdf", height = 9, width = 9)
+
+pdf("figures/modelDiagnostics/marginalPost.pdf", height = 9, width = 9)
 par(mfrow = c(3, 3))
 for(i in 1:length(names)){
   a <- min(samples[[names[i]]])
@@ -144,13 +153,15 @@ for(i in 1:length(names)){
 }
 dev.off()
 
-pdf('scratch_pairs.pdf', height = 9, width = 9)
+pdf('figures/modelDiagnostics/scratch_pairs.pdf', height = 9, width = 9)
 util$plot_div_pairs(names, names, samples, diagnostics)
 dev.off()
 
-#### Retrodictive checks
-
-pdf('yr1.pdf', height = 8, width = 8)
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Retrodictive checks ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+##### Marginal posterior #####
+pdf('figures/modelDiagnostics/yr1.pdf', height = 8, width = 8)
 par(mfrow = c(2, 2))
 for(i in 1:length(unique(d$species))){
   for(j in 1:length(unique(d$treatment))){
@@ -204,7 +215,69 @@ for(i in 1:length(unique(d$species))){
 }
 dev.off()
 
-pdf('yr2.pdf', height = 8, width = 8)
+pdf('figures/modelDiagnostics/yr2.pdf', height = 8, width = 8)
+par(mfrow = c(2, 2))
+for(i in 1:length(unique(d$species))){
+  for(j in 1:length(unique(d$treatment))){
+    idx <- which(d$treatment == unique(d$treatment)[j] & d$spp_num == i)
+    
+    allo_names <- paste0('delta2[', idx, ']')
+    allo_data <- sapply(allo_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+    
+    trt_names <- paste0('delta2_trt[', idx, ']')
+    trt_data <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+    
+    min_num <- floor(min(allo_data, trt_data))
+    max_num <- ceiling(max(allo_data, trt_data))
+    max_num <- 100
+    # create 50 bins between min and max
+    allo_hist <- hist(allo_data, breaks = 
+                        seq(min_num, max_num, (max_num - min_num) / 50), 
+                      plot = FALSE)
+    trt_hist <- hist(trt_data, breaks = 
+                       seq(min_num, max_num, (max_num - min_num) / 50), 
+                     plot = FALSE)
+    
+    max_den <- max(allo_hist$density, trt_hist$density)
+    
+    plot(x = NULL,
+         y = NULL,
+         yaxt = 'n',
+         xlim = c(min_num, max_num),
+         ylim = c(0, max_den),
+         xlab = 'Change in Biomass (g)',
+         ylab = '',
+         main = paste0(unique(d$species)[i], ' (', unique(d$treatment)[j], ')'))
+    
+    # rect(xleft = allo_hist$breaks[1:(length(allo_hist$breaks)-1)],
+    #      ybottom = rep(0, length(allo_hist$counts)),
+    #      xright = allo_hist$breaks[2:length(allo_hist$breaks)],
+    #      ytop = allo_hist$density,
+    #      col = util$c_dark,
+    #      border = NA)
+    # 
+    # rect(xleft = trt_hist$breaks[1:(length(trt_hist$breaks)-1)],
+    #      ybottom = rep(0, length(trt_hist$counts)),
+    #      xright = trt_hist$breaks[2:length(trt_hist$breaks)],
+    #      ytop = trt_hist$density,
+    #      col = util$c_light,
+    #      border = NA)
+    
+    lines(x = rep(allo_hist$breaks, each = 2),
+          y = c(0, rep(allo_hist$density, each = 2), 0),
+          col = util$c_dark)
+    
+    lines(x = rep(trt_hist$breaks, each = 2),
+          y = c(0, rep(trt_hist$density, each = 2), 0),
+          col = util$c_light)
+  }
+}
+dev.off()
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Double histogram figure ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# pdf('yr2.pdf', height = 8, width = 8)
 par(mfrow = c(2, 2))
 for(i in 1:length(unique(d$species))){
   for(j in 1:length(unique(d$treatment))){
