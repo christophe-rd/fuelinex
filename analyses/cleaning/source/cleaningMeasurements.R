@@ -18,9 +18,13 @@ library(ggplot2)
 # Set Working Directory
 setwd("/Users/christophe_rouleau-desrochers/github/fuelinex/analyses")
 
-# read it
+# read diameter and height measurements
 meas <- read.csv("input/TreeMeasurements.csv", header=TRUE)
 meas[meas == ""] <- NA
+# clean the weird rows that have nothing in them
+meas <- subset(meas, !is.na(bloc))
+
+# read biomass measurements
 biom <- read.csv("input/biomass.csv", header=TRUE)
 biom[biom == ""] <- NA
 biom$aboveGroundWeight[biom$aboveGroundWeight == "na"] <- NA
@@ -28,10 +32,9 @@ biom$belowGroundWeight[biom$belowGroundWeight == "na"] <- NA
 
 biom <- biom[, 1:ncol(biom)-1]
 
-# clean the weird rows that have nothing in them
-meas <- subset(meas, !is.na(bloc))
-
-# start small with 24 only
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Clean 2024 diameter and height measurements ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 w2024 <- meas[, c(1:11, 17:18)]
 
 # add year column
@@ -40,10 +43,17 @@ w2024$year <- 2024
 w2024$month <- "february"
 w2024$season <- "winter"
 
-# standardize colnames
-colnames(w2024) <- c("tree_ID", "bloc", "treatment", "genus", "species", "diameter", "diameterTrunk2", "height", "heightTrunk2", "doy", "notes", "valid_height", "valid_diameter", "year", "month", "season")
+# remove 
 
-# Winter 2025
+# standardize colnames
+colnames(w2024) <- c("tree_ID", "bloc", "treatment", "genus", "species", 
+                     "diameter", "diameterTrunk2", "height", "heightTrunk2", 
+                     "doy", "notes", "valid_height", "valid_diameter", "year", 
+                     "month", "season")
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Clean winterall 2025 diameter and height measurements ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 w2025 <- meas[, c(1:5, 12:16, 19, 17:18)]
 
 # add year column
@@ -53,7 +63,9 @@ w2025$season <- "winter"
 # standardize colnames
 colnames(w2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", "diameter", "diameterTrunk2", "height", "heightTrunk2", "doy", "notes", "valid_height", "valid_diameter", "year", "month", "season")
 
-# Fall of 2025 
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Clean fall 2025 diameter and height measurements ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 f2025 <- meas[, c(1:5, 20:ncol(meas))]
 
 # add year column
@@ -83,6 +95,10 @@ test2 <- aggregate(
 )
 test2
 
+# check the pobas that have NAs for height in 2025
+f2025poba <- f2025[which(is.na(f2025$height) & f2025$genus == "populus" & !is.na(f2025$notes)),] 
+# cannot add shoot elongation to the previous height measurement because it broke before it stopped elongating.
+
 heightna <- f2025$tree_ID[which(is.na(f2025$height) & 
                       f2025$genus != "betula" & 
                       f2025$genus != "populus" & 
@@ -92,16 +108,17 @@ diameterna <- f2025$tree_ID[which(is.na(f2025$diameter) &
                                   f2025$genus != "populus" &
                                   f2025$genus != "pinus")]
 setdiff(heightna, diameterna)
-
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Clean biomass ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+for (i in 7:ncol(biom)) {
+  as.numeric(biom[[i]])
+}
 vec_chr <- biom$tree_ID[which(is.na(biom$aboveGroundWeight) & 
                                 biom$genus != "betula" &
                                 biom$genus != "populus" &
                                 biom$genus != "pinus")]
-vec_chr
-for (i in 7:ncol(biom)) {
-  as.numeric(biom[[i]])
-}
+
 vec_numabov <- biom$tree_ID[which(is.na(biom$aboveGroundWeight) & 
                                 biom$genus != "betula" &
                                 biom$genus != "populus" &
@@ -117,8 +134,8 @@ setdiff(diameterna, vec_numbelow)
 tsub <- subset(biom, tree_ID %in% t)
 
 biomna_above <- biom$tree_ID[which(is.na(biom$aboveGroundWeight) & 
-                                  biom$genus != "betula" & 
-                                  biom$genus != "populus")]
+                                  biom$genus == "betula" & 
+                                  biom$genus == "populus")]
 biomna_below <- biom$tree_ID[which(is.na(biom$belowGroundWeight) & 
                                biom$genus != "betula" & 
                                biom$genus != "populus")]
@@ -136,7 +153,22 @@ prvi$tree_ID[which(is.na(prvi$diameterFall25))]
 quma <- subset(f2025, species == "quercus_macrocarpa")
 quma$noteWinter25[which(is.na(quma$diameterFall25))]
 
+# check for negative increments
+w2024$diameterW25 <- w2025$diameter[match(w2024$tree_ID, w2025$tree_ID)]
+w2024$heightW25 <- w2025$height[match(w2024$tree_ID, w2025$tree_ID)]
 
+w2024$diameterF25 <- f2025$diameter[match(w2024$tree_ID, f2025$tree_ID)]
+w2024$heightF25 <- f2025$height[match(w2024$tree_ID, f2025$tree_ID)]
+
+w2024$diaincrement25 <- w2024$diameterF25 - w2024$diameterW25 
+w2024$diaincrement24 <- w2024$diameterW25 - w2024$diameter
+
+w2024$heightincrement25 <- w2024$heightF25 - w2024$heightW25 
+w2024$heightincrement24 <- w2024$heightW25 - w2024$height
+
+# susbset for negative increments
+w2024diamneg <- w2024[which(w2024$diaincrement24 <0),]
+w2024heightneg <- w2024[which(w2024$heightincrement24 <0),]
 # bind both dfs 
 binded <- rbind(w2024, w2025, f2025)
 
@@ -189,6 +221,14 @@ binded$Year[which(binded$year == "2025" &
                     binded$season == "winter")] <- 2024
 binded$Year[which(binded$year == "2025" & 
                     binded$season == "fall")] <- 2025
+
+
+# last checks to see if there is negative increments
+reshape(mea, timevar = 'year',
+        idvar = c('tree_ID', 'bloc', 'treatment', 'genus', 'species',
+                  'spp_num', 'treeid_num'),
+        direction = 'wide')
+
 
 # write up csv
 ### reorganize to its nicer to play with
