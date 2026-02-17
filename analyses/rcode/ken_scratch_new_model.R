@@ -20,6 +20,8 @@ rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 parallel:::setDefaultClusterOptions(setup_strategy = "sequential")
 
+runmodel <- FALSE
+
 util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
@@ -66,7 +68,7 @@ d$trt_num <- match(d$treatment, unique(d$treatment))
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 d_allo <- subset(mea, year == "2025")
 d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
-d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0 & treatment %in% trt[1:4] & spp_num == 1)
+d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0 & spp_num == 1)
 
 # Fit model
 
@@ -104,11 +106,11 @@ inits <- function(chain_id){
                  )
   return(params)
 }
-
+if (runmodel) {
 fit <- stan("stan/fullModelpos.stan",
             data = data, init = inits, seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-
+}
 fit <- readRDS("output/stanOutput/full_fit.rds")
 diagnostics <- util$extract_hmc_diagnostics(fit)
 print(util$check_all_hmc_diagnostics(diagnostics))
