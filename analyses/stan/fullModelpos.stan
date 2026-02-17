@@ -126,28 +126,17 @@ model{
   
   s_y ~ lognormal(0, 0.5);
   
-  for(i in 1:N){
-    if(delta1[i] > 0){
-      target += lognormal_lpdf(delta1[i] | log(delta1_pred[i]), s_y[spp[i]]);
-    } else {
-      target += 0.001;
-    }
-    
-    if(delta2[i] > 0){
-      target += lognormal_lpdf(delta2[i] | log(delta2_pred[i]), s_y[spp[i]]);
-    } else {
-      target += 0.001;
-    }
-    
-  }
-}	
-
-generated quantities{
-  array[N] real delta1_trt;
-  array[N] real delta2_trt;
-  
-  for(i in 1:N){
-    delta1_trt[i] = lognormal_rng(log(delta1_pred[i]), s_y[spp[i]]);
-    delta2_trt[i] = lognormal_rng(log(delta2_pred[i]), s_y[spp[i]]);
+for(i in 1:N){
+  target += normal_lpdf(delta1[i] | delta1_pred[i], s_y[spp[i]]);
+  target += normal_lpdf(delta2[i] | delta2_pred[i], s_y[spp[i]]);
   }
 }
+// generated quantities{
+//   array[N] real delta1_trt;
+//   array[N] real delta2_trt;
+//   
+//   for(i in 1:N){
+//     delta1_trt[i] = lognormal_rng(log(delta1_pred[i]), s_y[spp[i]]);
+//     delta2_trt[i] = lognormal_rng(log(delta2_pred[i]), s_y[spp[i]]);
+//   }
+// }
