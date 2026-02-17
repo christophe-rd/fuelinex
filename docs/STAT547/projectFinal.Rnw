@@ -1,10 +1,30 @@
 \documentclass{article}
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{natbib}
+\usepackage{hyperref}
+%\usepackage{cite}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{ {./figures/} }
+\usepackage{subcaption}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{lineno}
+\usepackage{soul}
+\usepackage{xcolor}
+\sethlcolor{yellow}
+
 
 \usepackage{Sweave}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
+\input{projectFinal-concordance}
 \input{projectFinal-concordance}
 
 \title{Carry-over effect of a longer season on the following year's tree growth}
@@ -25,13 +45,23 @@
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Methods}
 
+\subsection{Species selection and growing conditions}
+We used seven species of tree saplings for our experiment (Fuelinex). We purchased Paper birch (\textit{Betula papyfera}), Choke Cherry (\textit{Prunus virgiana}), Bur oak (\textit{Quercus macrocarpa}) from Peel's nursery in November 2023 and the trees arrived at Totem Field studios (49.26 \degree N, -123.25 \degree W), where the other four species were stored until the spring of 2023. Manitoba maple (\textit{Acer negundo}), Eastern white pine (\textit{Pinus strobus}), Balsam poplar (\textit{Populus balsamifera}) and Giant sequoia (\textit{Sequoiadendron giganteum}) were leftover trees that we purchased in 2022 for 2023 for a previous experiment. We watered them weekly, and they remained at ambient conditions for the 2023 growing season. We randomly selected 90 individuals of each species among them. We propagated \textit{P. balsamifera} from 30 cm whips while the trees were still dormant \citep{mc_carthy_early_2018}. In May 2024, we repotted all the trees in 2-gallon plastic pots with a medium for perennials consisting of 50 \% peat, 25\% crushed pumice and 25\% crushed bark (purchased from www.westcreekfarm.com). In February 2025, we repotted the trees with the same medium in 3-gallon pots. We arranged the trees in three blocks, each containing all 6 treatments and 7 species, with two of these blocks placed under an open-walled and well-ventilated polytunnel greenhouse. All saplings were connected to a drip irrigation system (40 PVC frame from Netafilm 54 with a Toro controller) to maintain constant irrigation across the season. Using fertilizer premix, we fertilized the trees twice during the growing season of 2024 (except for the nutrient-boosted trees) and three times during 2025, just enough to keep the trees alive. 
+
+\subsection{Tree measurements and biomass}: 
+Using red paint, we marked the trees on their trunk at ~3 cm from the soil in February 2024. Then we measured the diameter at the top of that mark using a digital calliper (accuracy $\pm$ 0.01cm). From that mark to the bottom of the highest apical bud, for angiosperms, and the top of the apical meristem for gymnosperms, we measured height with a metal ruler (accuracy $\pm$ 0.1cm). We measured those two same points in the winter (2024 growing season) and in the fall (2025 growing season) of 2025. For those two subsequent measurements, if the measured shoot died (because of insects, accidentally snapped off, etc.), we noted the previous measurement as invalid and measured the highest lateral shoot. In the fall of 2025, when all the individuals from a species had lost all their leaves, we removed the trees from their pots and gently washed the soil off the roots with a water hose. We dried the trees by placing them in drying ovens at 70\degree C for 72 hours and weighed the roots and stem separately (accuracy $\pm$ 0.01 gram). \\
+
+\textbf{Experimental design} 
+Individuals from each species were randomly selected for a full factorial design of Warm/Cool, Spring/Fall treatments with two additional treatments to test nutrient effects in the fall (Figure \ref{fig:Fuelinex_Design2024.pdf}), for a total of 15 replicates/treatment/species. On 6 March 2024, we placed the Cool Spring individuals in climate chambers to delay the start of their growing season, while the Warm Spring replicates remained at ambient conditions. Once all Warm Spring individuals had fully leafed out, we removed the Cool Spring replicates from the chambers and placed them back at ambient conditions for the whole summer. On 4 September 2024, we placed the trees for the Warm Fall treatments in the climate chambers. The temperature was set to fit the mean 30-year weekly maximum temperature of the previous month (e.g. 1st week of September set to the average of the 1st week of August). The Cool Fall treatment trees remained at ambient conditions. For both climate chamber treatments, we rotated and watered the trees weekly to minimize the climate chamber's effect. We also set the photoperiod regime to the corresponding sunrise and sunset of the ongoing week and ramped it until it reached full light. To test for nutrient limitation at the end of the season, we added a supplemental dose of nutrients to two treatments (Figure \ref{fig:fuelinexDesign}). In 2025, all the trees were kept at ambient conditions together at Totem field during which we recorded the same phenophases.\\
 %===============================================================================
 \subsection*{Allometry}
 %-------------------------------------------------------------------------------
+We destructively collected above ground biomass B in the fall of 2025, after measuring root colar diameter(RCD) and height. We fitted two allometric coefficients using the following equation from [?]. With these two coefficients, we simulated AGB for the initial measurements (2023), the subsequent (2024) and the final ABG measurements, 2025. 
+
 % Model structure
 $$
 \
-AGB = \beta_{1} \times \left( RCD^{2} \times H \right)^{\beta_{2}}
+B = \beta_{1} \times \left( RCD^{2} \times H \right)^{\beta_{2}} + \sigma_{allo}
 \
 $$
 %-------------------------------------------------------------------------------
@@ -47,31 +77,31 @@ $$
 %-------------------------------------------------------------------------------
 % Model structure
 \[
-\Delta \beta_1
+\Delta B_1
 = N \left(
-\beta_1
-+ \beta_{S1} S_1
-+ \beta_{F1} F_1
-+ \beta_{SF1} SF_1, \sigma_{y1}
+\alpha_1
++ \alpha_{S1} S_1
++ \alpha_{F1} F_1
++ \alpha_{SF1} SF_1, \sigma_{y1}
 \right)
 \]
 
 \[
-\Delta \beta_2
+\Delta B_2
 = N \left(
-\beta_2
-+ \beta_{S2} S_1
-+ \beta_{F2} F_1
-+ \beta_{SF2} SF_1, \sigma_{y2}
+\alpha_2
++ \alpha_{S2} S_1
++ \alpha_{F2} F_1
++ \alpha_{SF2} SF_1, \sigma_{y2}
 \right)
 \]
 
 \textbf{Where:}
 \begin{itemize} 
-	\item $\beta_1$ = Year 1, treatment Cool Spring, Cool Fall (reference value)
-	\item $\beta_1 + \beta_{S1} = $ Year 1, treatment Warm Spring, Cool Fall
-	\item $\beta_1 + \beta_{F1} = $ Year 1, treatment Cool Spring, Warm Fall
-	\item $\beta_1 + \beta_{S1} + \beta_{F1} + \beta_{SF1} = $ Year 1, treatment Warm Spring, Warm Fall
+	\item $\alpha_1$ = Year 1, treatment Cool Spring, Cool Fall (reference value)
+	\item $\alpha_1 + \alpha_{S1} = $ Year 1, treatment Warm Spring, Cool Fall
+	\item $\alpha_1 + \alpha_{F1} = $ Year 1, treatment Cool Spring, Warm Fall
+	\item $\alpha_1 + \alpha_{S1} + \alpha_{F1} + \alpha_{SF1} = $ Year 1, treatment Warm Spring, Warm Fall
 	\item $ S1 = $ dummy variable, if it's 1, then Warm spring, else Cool Spring
 	\item $ F1 = $ dummy variable, if it's 1, then Warm fall, else Cool fall
 	\item $ SF1 = $ dummy variable, for a subadditive effect of a Warm Spring and a Warm Fall treatment.
@@ -87,16 +117,16 @@ $$
 \subsection*{Allometry}
 
 %-------------------------------------------------------------------------------
-\begin{figure}[h!]
-\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.jpeg}
+\begin{figure}[!ht]
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf}
 \caption{}
-\label{fig:effects}
+\label{fig:allom}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/retrodictiveCheckHist.jpeg}
 \caption{}
-\label{fig:effects}
+\label{fig:allomretro}
 \end{figure}
 %-------------------------------------------------------------------------------
 
@@ -112,10 +142,23 @@ $$
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Discussion}
 
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+% References
+% <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+\section*{References}
+\bibliography{ExportedItems}
+\bibliographystyle{ecolett} 
+
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Supplemental results
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Supplemental results}
+
+\begin{figure}[!ht]
+\includegraphics[width=0.8\textwidth]{Fuelinex_Design2024}
+\caption{}
+\label{fig:Fuelinex_Design2024.pdf}
+\end{figure}
 
 \end{document}
