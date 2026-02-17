@@ -61,7 +61,10 @@ w2025$year <- 2025
 w2025$month <- ifelse(w2025$doy > 31 & w2025$doy < 60, "february", "march")
 w2025$season <- "winter"
 # standardize colnames
-colnames(w2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", "diameter", "diameterTrunk2", "height", "heightTrunk2", "doy", "notes", "valid_height", "valid_diameter", "year", "month", "season")
+colnames(w2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", 
+                     "diameter", "diameterTrunk2", "height", "heightTrunk2", 
+                     "doy", "notes", "valid_height", "valid_diameter", "year", 
+                     "month", "season")
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Clean fall 2025 diameter and height measurements ####
@@ -70,8 +73,12 @@ f2025 <- meas[, c(1:5, 20:ncol(meas))]
 
 # add year column
 f2025$year <- 2025
+f2025$month <- "november"
 f2025$season <- "fall"
-colnames(f2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", "diameter", "diameterTrunk2", "height", "heightTrunk2", "doy", "valid_height", "valid_diameter", "notes", "year", "season")
+colnames(f2025) <- c("tree_ID", "bloc", "treatment", "genus", "species", 
+                     "diameter", "diameterTrunk2", "height", "heightTrunk2", 
+                     "doy", "valid_height", "valid_diameter", "notes", "year", 
+                     "month", "season")
 
 # add missing doy for measurements
 f2025$doy[which(is.na(f2025$doy) & f2025$genus == "betula")] <- 317
@@ -169,8 +176,7 @@ w2024$heightincrement24 <- w2024$heightW25 - w2024$height
 # susbset for negative increments
 w2024diamneg <- w2024[which(w2024$diaincrement24 <0),]
 w2024heightneg <- w2024[which(w2024$heightincrement24 <0),]
-# bind both dfs 
-binded <- rbind(w2024, w2025, f2025)
+
 
 # remove all the dead trees
 # binded <- subset(binded2, notes != "dead")
@@ -221,14 +227,6 @@ binded$Year[which(binded$year == "2025" &
                     binded$season == "winter")] <- 2024
 binded$Year[which(binded$year == "2025" & 
                     binded$season == "fall")] <- 2025
-
-
-# last checks to see if there is negative increments
-reshape(mea, timevar = 'year',
-        idvar = c('tree_ID', 'bloc', 'treatment', 'genus', 'species',
-                  'spp_num', 'treeid_num'),
-        direction = 'wide')
-
 
 # write up csv
 ### reorganize to its nicer to play with

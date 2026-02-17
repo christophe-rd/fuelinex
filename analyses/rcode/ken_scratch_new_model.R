@@ -140,7 +140,9 @@ names <- c(grep('^b1', names(samples), value = TRUE),
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
 
-
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Marginal posterior #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 pdf("figures/modelDiagnostics/marginalPost.pdf", height = 9, width = 9)
 par(mfrow = c(3, 3))
 for(i in 1:length(names)){
@@ -153,6 +155,9 @@ for(i in 1:length(names)){
 }
 dev.off()
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Marginal posterior #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 pdf('figures/modelDiagnostics/scratch_pairs.pdf', height = 9, width = 9)
 util$plot_div_pairs(names, names, samples, diagnostics)
 dev.off()
@@ -160,7 +165,6 @@ dev.off()
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Retrodictive checks ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-##### Marginal posterior #####
 pdf('figures/modelDiagnostics/yr1.pdf', height = 8, width = 8)
 par(mfrow = c(2, 2))
 for(i in 1:length(unique(d$species))){
