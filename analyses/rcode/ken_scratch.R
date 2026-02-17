@@ -48,8 +48,6 @@ d$vol.2025 <- d$diameter.2025^2 * d$height.2025
 d$volinc1 <- d$vol.2024 - d$vol.2023
 d$volinc2 <- d$vol.2025 - d$vol.2024
 
-d <- subset(d, volinc1 > 0 & volinc2 > 0)
-
 d$s <- NA
 d$f <- NA
 trt <- unique(d$treatment)
@@ -62,10 +60,12 @@ for(i in 1:length(trt)){
 }
 d$sf <- d$s * d$f
 
+d <- subset(d, volinc1 > 0 & volinc2 > 0 & treatment %in% trt[1:4] & spp_num == 1)
+
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 d_allo <- subset(mea, year == "2025")
 d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
-d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0)
+d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0 & spp_num == 1)
 
 # Fit model
 
@@ -90,18 +90,18 @@ data <- list("N_allo" = nrow(d_allo),
 set.seed(1)
 
 inits <- function(chain_id){
-  params <- list("b1" = as.array(rlnorm(7, log(0.5), 0.3)),
-                 "b2" = as.array(rnorm(7, 0, 1)),
-                 "s_allo" = as.array(abs(rnorm(7, 0, 1))),
-                 "a1" = as.array(rnorm(7, 0, 1)),
-                 "as1" = as.array(rnorm(7, 0, 1)),
-                 "af1" = as.array(rnorm(7, 0, 1)),
-                 "asf1" = as.array(rnorm(7, 0, 1)),
-                 "a2" = as.array(rnorm(7, 0, 1)),
-                 "as2" = as.array(rnorm(7, 0, 1)),
-                 "af2" = as.array(rnorm(7, 0, 1)),
-                 "asf2" = as.array(rnorm(7, 0, 1)),
-                 "s_y" = as.array(abs(rnorm(7, 0, 1)))
+  params <- list("b1" = as.array(rlnorm(unique(d$spp_num), log(0.5), 0.3)),
+                 "b2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "s_allo" = as.array(abs(rnorm(unique(d$spp_num), 0, 1))),
+                 "a1" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "as1" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "af1" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "asf1" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "a2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "as2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "af2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "asf2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "s_y" = as.array(abs(rnorm(unique(d$spp_num), 0, 1)))
                  )
   return(params)
 }
@@ -149,4 +149,114 @@ names <- c("b1[1]",
 
 pdf('scratch_pairs.pdf', height = 9, width = 9)
 util$plot_div_pairs(names, names, samples, diagnostics)
+dev.off()
+
+#### Retrodictive checks
+
+pdf('yr1.pdf', height = 8, width = 8)
+par(mfrow = c(2, 2))
+for(i in 1:length(unique(d$species))){
+  for(j in 1:length(unique(d$treatment))){
+    idx <- which(d$treatment == unique(d$treatment)[j] & d$spp_num == i)
+    
+    allo_names <- paste0('delta1[', idx, ']')
+    allo_data <- sapply(allo_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+    
+    trt_names <- paste0('delta1_trt[', idx, ']')
+    trt_data <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+    
+    min_num <- floor(min(allo_data, trt_data))
+    max_num <- ceiling(max(allo_data, trt_data))
+    
+    allo_hist <- hist(allo_data, breaks = seq(min_num, max_num, (max_num - min_num) / 50), plot = FALSE)
+    trt_hist <- hist(trt_data, breaks = seq(min_num, max_num, (max_num - min_num) / 50), plot = FALSE)
+    
+    max_den <- max(allo_hist$density, trt_hist$density)
+    
+    plot(x = NULL,
+         y = NULL,
+         yaxt = 'n',
+         xlim = c(min_num, max_num),
+         ylim = c(0, max_den),
+         xlab = 'Change in Biomass (g)',
+         ylab = '',
+         main = paste0(unique(d$species)[i], ' (', unique(d$treatment)[j], ')'))
+    
+    # rect(xleft = allo_hist$breaks[1:(length(allo_hist$breaks)-1)],
+    #      ybottom = rep(0, length(allo_hist$counts)),
+    #      xright = allo_hist$breaks[2:length(allo_hist$breaks)],
+    #      ytop = allo_hist$density,
+    #      col = util$c_dark,
+    #      border = NA)
+    # 
+    # rect(xleft = trt_hist$breaks[1:(length(trt_hist$breaks)-1)],
+    #      ybottom = rep(0, length(trt_hist$counts)),
+    #      xright = trt_hist$breaks[2:length(trt_hist$breaks)],
+    #      ytop = trt_hist$density,
+    #      col = util$c_light,
+    #      border = NA)
+    
+    lines(x = rep(allo_hist$breaks, each = 2),
+          y = c(0, rep(allo_hist$density, each = 2), 0),
+          col = util$c_dark)
+    
+    lines(x = rep(trt_hist$breaks, each = 2),
+          y = c(0, rep(trt_hist$density, each = 2), 0),
+          col = util$c_light)
+  }
+}
+dev.off()
+
+pdf('yr2.pdf', height = 8, width = 8)
+par(mfrow = c(2, 2))
+for(i in 1:length(unique(d$species))){
+  for(j in 1:length(unique(d$treatment))){
+    idx <- which(d$treatment == unique(d$treatment)[j] & d$spp_num == i)
+    
+    allo_names <- paste0('delta2[', idx, ']')
+    allo_data <- sapply(allo_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+    
+    trt_names <- paste0('delta2_trt[', idx, ']')
+    trt_data <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+    
+    min_num <- floor(min(allo_data, trt_data))
+    max_num <- ceiling(max(allo_data, trt_data))
+    
+    allo_hist <- hist(allo_data, breaks = seq(min_num, max_num, (max_num - min_num) / 50), plot = FALSE)
+    trt_hist <- hist(trt_data, breaks = seq(min_num, max_num, (max_num - min_num) / 50), plot = FALSE)
+    
+    max_den <- max(allo_hist$density, trt_hist$density)
+    
+    plot(x = NULL,
+         y = NULL,
+         yaxt = 'n',
+         xlim = c(min_num, max_num),
+         ylim = c(0, max_den),
+         xlab = 'Change in Biomass (g)',
+         ylab = '',
+         main = paste0(unique(d$species)[i], ' (', unique(d$treatment)[j], ')'))
+    
+    # rect(xleft = allo_hist$breaks[1:(length(allo_hist$breaks)-1)],
+    #      ybottom = rep(0, length(allo_hist$counts)),
+    #      xright = allo_hist$breaks[2:length(allo_hist$breaks)],
+    #      ytop = allo_hist$density,
+    #      col = util$c_dark,
+    #      border = NA)
+    # 
+    # rect(xleft = trt_hist$breaks[1:(length(trt_hist$breaks)-1)],
+    #      ybottom = rep(0, length(trt_hist$counts)),
+    #      xright = trt_hist$breaks[2:length(trt_hist$breaks)],
+    #      ytop = trt_hist$density,
+    #      col = util$c_light,
+    #      border = NA)
+    
+    lines(x = rep(allo_hist$breaks, each = 2),
+          y = c(0, rep(allo_hist$density, each = 2), 0),
+          col = util$c_dark)
+    
+    lines(x = rep(trt_hist$breaks, each = 2),
+          y = c(0, rep(trt_hist$density, each = 2), 0),
+          col = util$c_light)
+  }
+}
 dev.off()

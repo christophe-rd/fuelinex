@@ -100,3 +100,13 @@ model{
     target += normal_lpdf(delta2[i] | delta2_pred[i], s_y[spp[i]]);
   }
 }	
+
+generated quantities{
+  array[N] real delta1_trt;
+  array[N] real delta2_trt;
+  
+  for(i in 1:N){
+    delta1_trt[i] = normal_rng(a1[spp[i]] + as1[spp[i]]*s[i] + af1[spp[i]]*f[i] + asf1[spp[i]]*sf[i], s_y[spp[i]]);
+    delta2_trt[i] = normal_rng(a2[spp[i]] + as2[spp[i]]*s[i] + af2[spp[i]]*f[i] + asf2[spp[i]]*sf[i], s_y[spp[i]]);
+  }
+}
