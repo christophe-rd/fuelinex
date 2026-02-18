@@ -81,7 +81,7 @@ fit <- stan("stan/allometryModel.stan",
 
 saveRDS(fit, "output/stanOutput/allometryModel")
 }
-fit <- readRDS(fit, "output/stanOutput/allometryModel")
+fit <- readRDS("output/stanOutput/allometryModel")
 diagnostics <- util$extract_hmc_diagnostics(fit) 
 util$check_all_hmc_diagnostics(diagnostics)
 
@@ -382,7 +382,7 @@ ggplot(df24, aes(x = mul, y = agb, color = genus, fill = genus)) +
 X <- df25$diameter^2 * df25$height
 
 df25$vol <- df25$diameter^2 * df25$height
-seq
+
 dmax  <- aggregate(vol ~ spp_num, df25, FUN = max)
 dmax$vol <- dmax$vol/1000
 dmax$vol <- ceiling(dmax$vol)
@@ -420,14 +420,15 @@ biomass_simu <- cbind(biomass_simu, calc)
 
 # reintegrate in mesurement d25
 # empty treat dataframe
-d25 <- data.frame(
-  treeid_num = df25$treeid_num,
-  mean =  colMeans(biomass_mat),  
-  per5  = apply(biomass_mat, 2, quantile, probs = 0.05), 
-  per25 = apply(biomass_mat, 2, quantile, probs = 0.25),
-  per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
-  per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
-)
+# d25 <- data.frame(
+#   treeid_num = df25$treeid_num,
+#   mean =  colMeans(biomass_mat),  
+#   per5  = apply(biomass_mat, 2, quantile, probs = 0.05), 
+#   per25 = apply(biomass_mat, 2, quantile, probs = 0.25),
+#   per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
+#   per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
+# )
+# df25
 apply(biomass_simu, 1, quantile, probs = 0.05)
 biomass_simu2 <- biomass_simu[, 1:2]
 
@@ -437,15 +438,105 @@ biomass_simu2$per25  = apply(biomass_simu, 1, quantile, probs = 0.25)
 biomass_simu2$per75  = apply(biomass_simu, 1, quantile, probs = 0.75)
 biomass_simu2$per95  = apply(biomass_simu, 1, quantile, probs = 0.95)
 
-f25merge <- merge(df25, d25, by = "treeid_num")
-
-f25merge$mul <- f25merge$diameter * f25merge$diameter * f25merge$height
+# f25merge <- merge(df25, d25, by = "treeid_num")
+# 
+# f25merge$mul <- f25merge$diameter * f25merge$diameter * f25merge$height
 
 cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
 
 # === === === === === === === === === === === === === === === === === === === 
 # Plotting Posterior Predictive Checks ####
 # === === === === === === === === === === === === === === === === === === === 
+pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck_hist.pdf", 
+    width = 10, height = 8)
+
+biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
+spp_levels <- unique(biomass_simu2$spp)
+
+# Panel layout similar to facet_wrap
+n <- length(spp_levels)
+ncol <- 3
+nrow <- 3
+
+par(mfrow = c(nrow, ncol), mar = c(4,4,3,1))
+
+for(sp in spp_levels){
+  
+  df <- biomass_simu2[biomass_simu2$spp == sp, ]
+  df <- df[order(df$vol), ]   
+  
+  plot(df$vol, df$mean, type = "n",
+       ylim = range(c(df$per25, df$per75), na.rm = TRUE),     
+       xlab = "Diameter(mm)^2*Height(cm3)",
+       ylab = "Above Ground Biomass (gr)",
+       main = df$sppname[sp])
+
+  vol <- hist(d$vol.2023[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
+  vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
+
+  rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
+       ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
+       xright = vol$breaks[2:length(vol$breaks)],
+       ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+       col = 'green')
+
+  v23 <- vol_counts
+
+  vol <- hist(d$vol.2024[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
+  vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
+
+  rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
+       ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
+       xright = vol$breaks[2:length(vol$breaks)],
+       ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+       col = 'red')
+
+  v24 <- vol_counts
+
+  vol <- hist(d$vol.2025[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
+  vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
+
+  rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
+       ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
+       xright = vol$breaks[2:length(vol$breaks)],
+       ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+       col = 'grey')
+
+  lines(rep(vol$breaks, each = 2),
+        c(0, rep(v23, each = 2), 0) + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+        col = 'green')
+
+  lines(rep(vol$breaks, each = 2),
+        c(0, rep(v24, each = 2), 0) + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+        col = 'red')
+
+#   ribbons
+  polygon(
+    c(df$vol, rev(df$vol)),
+    c(df$per25, rev(df$per75)),
+    col = adjustcolor(cols[sp], alpha.f = 0.3),
+    border = NA
+  )
+  
+
+  # lines
+  lines(df$vol, df$mean,
+        col = cols[sp],
+        lwd = 2)
+  
+  # points for empirical data
+  pts <- df25[df25$spp_num == sp, ]
+  
+  points(
+    pts$vol,
+    pts$aboveGroundWeight,
+    col = adjustcolor(cols[sp], alpha.f = 0.7),
+    pch = 16
+  )
+}
+dev.off()
+
+
 pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf", 
     width = 10, height = 8)
 
@@ -469,15 +560,14 @@ for(sp in spp_levels){
        xlab = "Diameter(mm)^2*Height(cm3)",
        ylab = "Above Ground Biomass (gr)",
        main = df$sppname[sp])
-  
-  # ribbons
+
+  #   ribbons
   polygon(
     c(df$vol, rev(df$vol)),
     c(df$per25, rev(df$per75)),
     col = adjustcolor(cols[sp], alpha.f = 0.3),
     border = NA
   )
-  
   # lines
   lines(df$vol, df$mean,
         col = cols[sp],
