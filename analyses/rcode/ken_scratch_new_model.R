@@ -119,7 +119,7 @@ fit <- stan("stan/fullModelpos.stan",
             # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
             seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-# saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_boundB2.rds")
+# saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
 }
 # fit <- readRDS("output/stanOutput/full_fit.rds")
 
@@ -127,7 +127,7 @@ fit <- stan("stan/fullModelpos.stan",
 # Diagnostics ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 diagnostics <- util$extract_hmc_diagnostics(fit)
-print(util$check_all_hmc_diagnostics(diagnostics))
+util$check_all_hmc_diagnostics(diagnostics)
 
 samples <- util$extract_expectand_vals(fit)
 names <- c(grep('^b1', names(samples), value = TRUE),

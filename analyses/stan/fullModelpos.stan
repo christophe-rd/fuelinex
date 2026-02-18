@@ -25,7 +25,7 @@ data{
 parameters{
   // allometry model
   vector<lower = 0>[N_spp] b1;
-  vector<lower=0.3>[N_spp] b2;
+  vector<lower = 0>[N_spp] b2;
   vector<lower = 0>[N_spp] s_allo;
   
   // treatment effects on year 1 growth
@@ -136,7 +136,7 @@ generated quantities{
   array[N] real delta2_trt;
 
   for(i in 1:N){
-  delta1_trt[i] = lognormal_rng(log(delta1_pred[i]), s_y[spp[i]]);
-  delta2_trt[i] = lognormal_rng(log(delta2_pred[i]), s_y[spp[i]]);
+  delta1_trt[i] = normal_rng(log(delta1_pred[i]), s_y[spp[i]]);
+  delta2_trt[i] = normal_rng(log(delta2_pred[i]), s_y[spp[i]]);
   }
 }
