@@ -62,13 +62,18 @@ for(i in 1:length(trt)){
 }
 d$sf <- d$s * d$f
 
-d <- subset(d, volinc1 > 0 & volinc2 > 0 & treatment %in% trt[1:4] & spp_num == 1)
+d <- subset(d, volinc1 > 0 & volinc2 > 0 & 
+              treatment %in% trt[1:4] & 
+              spp_num %in% 1:7)
+
 d$trt_num <- match(d$treatment, unique(d$treatment))
 
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 d_allo <- subset(mea, year == "2025")
 d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
-d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & aboveGroundWeight > 0 & spp_num == 1)
+d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & 
+                   treatment %in% trt[1:4] & 
+                   aboveGroundWeight > 0 & spp_num %in% 1:7)
 
 # Fit model
 data <- list("N_allo" = nrow(d_allo),
@@ -111,11 +116,12 @@ inits <- function(chain_id){
 if (runmodel) {
 fit <- stan("stan/fullModelpos.stan",
             data = data, 
-            init = inits, 
+            # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
             seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
+# saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_boundB2.rds")
 }
-fit <- readRDS("output/stanOutput/full_fit.rds")
+# fit <- readRDS("output/stanOutput/full_fit.rds")
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Diagnostics ####
@@ -137,6 +143,11 @@ names <- c(grep('^b1', names(samples), value = TRUE),
            grep('aww2', names(samples), value = TRUE),
            grep('s_y', names(samples), value = TRUE))
 
+# just delta 1s
+idtocheck <- which(d$spp_num == 1)
+deltanames <- paste0('delta1[', idtocheck, ']')
+deltadata <- sapply(deltanames, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
 
@@ -156,10 +167,29 @@ for(i in 1:length(names)){
 dev.off()
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Marginal posterior #####
+##### Pairs plot #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-pdf('figures/modelDiagnostics/scratch_pairs.pdf', height = 9, width = 9)
+pdf('figures/modelDiagnostics/pairs.pdf', height = 9, width = 9)
 util$plot_div_pairs(names, names, samples, diagnostics)
+dev.off()
+
+# with bound on b1
+namesallo <- c(grep('b1', names(samples), value = TRUE),
+           grep('b2', names(samples), value = TRUE),
+           grep('s_allo', names(samples), value = TRUE),
+           grep('s_y', names(samples), value = TRUE))
+namesallo <- namesallo[!grepl("agb", namesallo)]
+
+pdf('figures/modelDiagnostics/pairs_normLikelihood_bound.pdf', height = 9, width = 9)
+util$plot_div_pairs(namesallo, namesallo, samples, diagnostics)
+dev.off()
+
+# no bound on b2
+fitnobound <- readRDS("output/stanOutput/full_fit_normalLikelihood.rds")
+samplesnobound <- util$extract_expectand_vals(fitnobound)
+
+pdf('figures/modelDiagnostics/pairs_normLikelihood_NoBound.pdf', height = 9, width = 9)
+util$plot_div_pairs(namesallo, namesallo, samplesnobound, diagnostics)
 dev.off()
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -281,11 +311,15 @@ dev.off()
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Double histogram figure ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# pdf('yr2.pdf', height = 8, width = 8)
-par(mfrow = c(2, 2))
-for(i in 1:length(unique(d$species))){
-  for(j in 1:length(unique(d$treatment))){
-    idx <- which(d$treatment == unique(d$treatment)[j] & d$spp_num == i)
+pdf('figures/modelDiagnostics/yr2_doubleHist.pdf', height = 8, width = 10)
+d2 <- subset(d, spp_num %in% 1:7)
+par(mfrow = c(length(unique(d2$treatment)), length(unique(d2$species))),
+    oma = c(2, 4, 4, 2),
+    mar = c(1, 1, 1, 1))  
+
+for(i in 1:length(unique(d2$species))){
+  for(j in 1:length(unique(d2$treatment))){
+    idx <- which(d2$treatment == unique(d2$treatment)[j] & d2$spp_num == i)
     
     allo_names <- paste0('delta2[', idx, ']')
     allo_data <- sapply(allo_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
@@ -296,41 +330,57 @@ for(i in 1:length(unique(d$species))){
     min_num <- floor(min(allo_data, trt_data))
     max_num <- ceiling(max(allo_data, trt_data))
     
-    allo_hist <- hist(allo_data, breaks = seq(min_num, max_num, (max_num - min_num) / 50), plot = FALSE)
-    trt_hist <- hist(trt_data, breaks = seq(min_num, max_num, (max_num - min_num) / 50), plot = FALSE)
+    allo_hist <- hist(allo_data, breaks = 
+                        seq(min_num, max_num, (max_num - min_num) / 50), 
+                      plot = FALSE)
+    trt_hist <- hist(trt_data, breaks = 
+                       seq(min_num, max_num, (max_num - min_num) / 50), 
+                     plot = FALSE)
     
     max_den <- max(allo_hist$density, trt_hist$density)
     
     plot(x = NULL,
          y = NULL,
-         yaxt = 'n',
+         yaxt = 'n',     # removes the y axis
+         bty  = 'n',
          xlim = c(min_num, max_num),
-         ylim = c(0, max_den),
-         xlab = 'Change in Biomass (g)',
+         ylim = c(-max_den, max_den),
+         xlab = '',
          ylab = '',
-         main = paste0(unique(d$species)[i], ' (', unique(d$treatment)[j], ')'))
+         main = '')
     
-    # rect(xleft = allo_hist$breaks[1:(length(allo_hist$breaks)-1)],
-    #      ybottom = rep(0, length(allo_hist$counts)),
-    #      xright = allo_hist$breaks[2:length(allo_hist$breaks)],
-    #      ytop = allo_hist$density,
-    #      col = util$c_dark,
-    #      border = NA)
-    # 
-    # rect(xleft = trt_hist$breaks[1:(length(trt_hist$breaks)-1)],
-    #      ybottom = rep(0, length(trt_hist$counts)),
-    #      xright = trt_hist$breaks[2:length(trt_hist$breaks)],
-    #      ytop = trt_hist$density,
-    #      col = util$c_light,
-    #      border = NA)
+    abline(h = 0, col = 'black', lwd = 1)
     
-    lines(x = rep(allo_hist$breaks, each = 2),
-          y = c(0, rep(allo_hist$density, each = 2), 0),
-          col = util$c_dark)
+    # allo_hist: upward
+    rect(xleft   = allo_hist$breaks[1:(length(allo_hist$breaks) - 1)],
+         ybottom = rep(0, length(allo_hist$counts)),
+         xright  = allo_hist$breaks[2:length(allo_hist$breaks)],
+         ytop    = allo_hist$density,
+         col     = "#BD3027",
+         border  = NA)
     
-    lines(x = rep(trt_hist$breaks, each = 2),
-          y = c(0, rep(trt_hist$density, each = 2), 0),
-          col = util$c_light)
+    # trt_hist: downward
+    rect(xleft   = trt_hist$breaks[1:(length(trt_hist$breaks) - 1)],
+         ybottom = -trt_hist$density,
+         xright  = trt_hist$breaks[2:length(trt_hist$breaks)],
+         ytop    = rep(0, length(trt_hist$counts)),
+         col     = "#7FC0C6",
+         border  = NA)
   }
 }
+
+# Species labels across the top (outside the loop)
+mtext(unique(d2$genus), side = 3, outer = TRUE,
+      at  = seq(0.5 / length(unique(d2$species)),
+                1 - 0.5 / length(unique(d2$species)),
+                1 / length(unique(d2$species))),
+      cex = 1, font = 3, line = 1)
+
+# Treatment labels on the left (outside the loop)
+mtext(unique(d2$treatment), side = 2, outer = TRUE,
+      at  = seq(1 - 0.5 / length(unique(d2$treatment)),
+                0.5 / length(unique(d2$treatment)),
+                -1 / length(unique(d2$treatment))),
+      cex = 0.9, font = 2, line = 2)
+
 dev.off()
