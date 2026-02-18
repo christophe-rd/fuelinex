@@ -69,7 +69,7 @@ Using red paint, we marked the trees on their trunk at ~3 cm from the soil in Fe
 Individuals from each species were randomly selected for a full factorial design of Warm/Cool, Spring/Fall treatments with two additional treatments to test nutrient effects in the fall (Figure \ref{fig:Fuelinex_Design2024.pdf}), for a total of 15 replicates/treatment/species. On 6 March 2024, we placed the Cool Spring individuals in climate chambers to delay the start of their growing season, while the Warm Spring replicates remained at ambient conditions. Once all Warm Spring individuals had fully leafed out, we removed the Cool Spring replicates from the chambers and placed them back at ambient conditions for the whole summer. On 4 September 2024, we placed the trees for the Warm Fall treatments in the climate chambers. The temperature was set to fit the mean 30-year weekly maximum temperature of the previous month (e.g. 1st week of September set to the average of the 1st week of August). The Cool Fall treatment trees remained at ambient conditions. We also set the photoperiod regime to the corresponding sunrise and sunset of the ongoing week and ramped it until it reached full light. In 2025, all the trees were kept at ambient conditions together at Totem field during which we recorded the same phenophases.
 
 \subsection*{Statistical analyses}
-Using diameter ($RCD$), height ($H$) and above-ground biomass ($B$). We fitted two allometric coefficients ($\beta_1$) and($\beta_2$) using the following equation from [Annighöfer*].
+Using diameter ($RCD$), height ($H$) and above-ground biomass ($B$) for 2025, we fitted two allometric coefficients ($\beta_1$) and($\beta_2$) using the following equation from [Annighöfer*].
 
 \[
 \begin{aligned}
@@ -81,9 +81,10 @@ B &\sim \text{logNormal}(\mu, \sigma_{allo}) \\
 \end{aligned}
 \]
 
-With these two coefficients, we simulated AGB corresponding to the initial (2023), second (2024) and the third (2025) diameter and height measurements. We used the marginal [?] posterior distribution of each of these biomass estimates to get the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$) % [?Should add a hat or something since it's the ypred were using]. 
+We used the marginal posterior distribution with the error for the two allometric coefficients to estimate the corresponding biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using]. 
 
 \subsection*{Carry-over effect model}
+Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta B_1$ and $\Delta B_2$ using Stan with the rstan package version 2.32.7 \citep{carpenter_stan_2017} to run the Stan code in R. [add priors, chains, rhat, etc.]
 
 % Model structure
 \[
@@ -114,42 +115,37 @@ With these two coefficients, we simulated AGB corresponding to the initial (2023
 	\item $ F1 = $ dummy variable, if it's 1, then Warm fall, else Cool fall
 	\item $ SF1 = $ dummy variable, for a subadditive effect of a Warm Spring and a Warm Fall treatment.
 \end{itemize} 
-%-------------------------------------------------------------------------------
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Results
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Results}
-We show contrasting responses to the treatment across species. 
-%===============================================================================
+
 \subsection*{Allometry}
+Biomass increased with volume accross all species and while our model appears to generally fit the data well, it might be underfit for \textit{P. virgiana} (Figure \ref{fig:allom}). Retrodictive check histogram across the whole data is presented in (Figure \ref{fig:allomretrohist}).
 
-%-------------------------------------------------------------------------------
-% \begin{figure}[!ht]
-% \includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf}
-% \caption{}
-% \label{fig:allom}
-% \end{figure}
-% 
-% \begin{figure}[!ht]
-% \includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/retrodictiveCheckHist.jpeg}
-% \caption{}
-% \label{fig:allomretro}
-% \end{figure}
-%-------------------------------------------------------------------------------
+\begin{figure}[ht!]
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf}
+\caption{Posterior predictive check for the allometry model across the seven species for the final biomass measurements. The y-axis represents the above-ground biomass estimated for the simulated volume values, on the x-axis. The line represents the mean, and the shadded area, the 50\% confidence intervals. The dots represent the empirical data used to fit the model.}
+\label{fig:allom}
+\end{figure}
 
-%===============================================================================
-
-%===============================================================================
 \subsection*{Main model}
+For the growing season during which the treatments occurred (2024), the treatment effect on each species is different. Indeed, for Acer and Prunus, biomass was constant across treatments, except for a slight positive effect for Prunus with WW. As for Betula, the differences were not high, but the warm spring treatments seem to slightly increase growth, with little effect of the autumn treatment. Quercus shows a contasting trend where the cool spring treatments had the largest biomass. For Pinus it seems that the fall treatments had the largest effect dragging, both warm fall treatments to lower biomass values and to higher values for the cool fall treatments. Any warming treatment for Populus increased biomass, with cool spring and cool fall having the lowest value and warm spring, cool fall at the highest. Finally, the cool spring, cool fall treatment was much lower than the other treatments for Sequoiadendron, with warm spring, cool fall and cool spring, warm fall being equally higher than the other two treatments.
 
-%===============================================================================
+As for the carry-over effect of the treatments on the second growing season (2025), some species shifted their trends in reponse to the treatments, while others mutted the treatment effects. Acer remained stable across all four treatments. The direction of the treatment effect for Betula stayed constant, but its magnitude actually increased. For Pinus, the effect of each treatment shifted direction, though in very small magnitude. We observed a similar response for Populus, but only for the warm spring, cool fall treatment where it went from the highest biomass to the lowest. Prunus shifted slightly where the warm spring and cool spring, warm fall had the highest biomass. For quercus, cool spring, cool fall remained withj the highest biomass, but, with little difference across all treatments. Finally, the cool spring, cool fall treatment for Sequoiadendron shifted from the lowest biomass, to a similar response across all treatments.
+
+\begin{figure}[!ht]
+\includegraphics[width=1\textwidth]{../../analyses/figures/empiricalData_carryOverModel/both_yr_muPlots.pdf}
+\caption{}
+\label{fig:COmuPlot}
+\end{figure}
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Discussion
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Discussion}
-
+Our results show how the growth response to different season length changed across different species. With Acer showing the same growth response to all treatments indicates that this species may be little flexible, both in the short and long-term response to growing season length. With the treatment effects actually increasing for Betula, indicates that this species may utilize the earlier season (Warm spring) to increase its overall photosynthesis, store its byproducts as non-structural carbohydrate [-->introduce growth allocations through NSC in intro], but store them as reserve during year 1, to reinvest them in growht, only during the following year. 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % References
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -163,10 +159,15 @@ We show contrasting responses to the treatment across species.
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Supplemental results}
 
-% \begin{figure}[!ht]
-% \includegraphics[width=0.8\textwidth]{Fuelinex_Design2024}
-% \caption{}
-% \label{fig:Fuelinex_Design2024.pdf}
-% \end{figure}
+\begin{figure}[!ht]
+\includegraphics[width=0.8\textwidth]{Fuelinex_Design2024}
+\caption{}
+\label{fig:Fuelinex_Design2024.pdf}
+\end{figure}
 
+\begin{figure}[!ht]
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/retrodictiveCheckHist.jpeg}
+\caption{}
+\label{fig:allomretrohist}
+\end{figure}
 \end{document}
