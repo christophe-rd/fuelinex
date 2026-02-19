@@ -81,41 +81,52 @@ B &\sim \text{logNormal}(\mu, \sigma_{allo}) \\
 \end{aligned}
 \]
 
-We used 2000 warmup and 1000 sampling iterations, 4 chains using initial conditions for [?$\beta_1, \beta_2$ and $\sigma_y$]We used the marginal posterior distribution with the error for the two allometric coefficients to estimate the corresponding biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using].
+We used 2000 warmup and 1000 sampling iterations, 4 chains using initial conditions for [?$\beta_1, \beta_2$ and $\sigma_y$]. We used 4000 random draws from the marginal posterior distribution with the error for the two allometric coefficients to estimate the corresponding biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using].
 
 \subsection*{Carry-over effect model}
 Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta B_1$ and $\Delta B_2$ using Stan with the rstan package version 2.32.7 \citep{carpenter_stan_2017} to run the Stan code in R. [add priors, chains, rhat, etc.]
 
 % Model structure
-\[
-\begin{aligned}
-\Delta B_1 &\sim logNormal(\mu, \sigma_y) \\
-\mu &= N (\alpha_{cc1}+ \alpha_{wc1}S_1 + \alpha_{cw1} F_1 + \alpha_{ww1} SF_1) \\
-\alpha_{cc1} &\sim logNormal(1,1)\\
-\alpha_{wc1} &\sim logNormal(1,1)\\
-\alpha_{cw1} &\sim logNormal(1,1)\\
-\alpha_{ww1} &\sim logNormal(1,1)\\
-\\
-\Delta B_2 &\sim logNormal(\mu, \sigma_y) \\
-\mu &= N (\alpha_{cc2}+ \alpha_{wc2}S_2 + \alpha_{cw2} F_2 + \alpha_{ww2} SF_2) \\
-\alpha_{cc2} &\sim logNormal(1,1)\\
-\alpha_{wc2} &\sim logNormal(1,1)\\
-\alpha_{cw2} &\sim logNormal(1,1)\\
-\alpha_{ww2} &\sim logNormal(1,1)\\
-\end{aligned}
-\]
+\begin{align}
+\Delta B_1 &\sim \mathcal{N}(\mu_1, \sigma_y) \\
+\mu_1 &= \begin{cases} 
+    \alpha_{cc1} & \text{if trt = CC} \\ 
+    \alpha_{wc1} & \text{if trt = WC} \\ 
+    \alpha_{cw1} & \text{if trt = CW} \\ 
+    \alpha_{ww1} & \text{if trt = WW} 
+\end{cases} \\
+\Delta B_2 &\sim \mathcal{N}(\mu_2, \sigma_y) \\
+\mu_2 &= \begin{cases} 
+    \alpha_{cc2} & \text{if trt = CC} \\ 
+    \alpha_{wc2} & \text{if trt = WC} \\ 
+    \alpha_{cw2} & \text{if trt = CW} \\ 
+    \alpha_{ww2} & \text{if trt = WW} 
+\end{cases} \\
+\sigma_y &\sim \text{logNormal}(0, 0.5)
+\end{align}
 
-\textbf{Where:}
-\begin{itemize}
-	\item $\alpha_1$ = Year 1, treatment Cool Spring, Cool Fall (reference value)
-	\item $\alpha_1 + \alpha_{S1} = $ Year 1, treatment Warm Spring, Cool Fall
-	\item $\alpha_1 + \alpha_{F1} = $ Year 1, treatment Cool Spring, Warm Fall
-	\item $\alpha_1 + \alpha_{S1} + \alpha_{F1} + \alpha_{SF1} = $ Year 1, treatment Warm Spring, Warm Fall
-	\item $ S1 = $ dummy variable, if it's 1, then Warm spring, else Cool Spring
-	\item $ F1 = $ dummy variable, if it's 1, then Warm fall, else Cool fall
-	\item $ SF1 = $ dummy variable, for a subadditive effect of a Warm Spring and a Warm Fall treatment.
-\end{itemize}
+Because we have little information as the relative response to each species to the different treatments, we used weakly logNormal priors for each treatment parameter: 
+\begin{align}
+\alpha_{cc, wc, cw, ww} &\sim \text{logNormal}(1, 1)
+\end{align}
 
+
+
+\noindent\textbf{Derived treatment contrasts (Year 1):}
+\begin{align}
+\alpha_1 &= \alpha_{cc1} \\
+\alpha_{S1} &= \alpha_{wc1} - \alpha_{cc1} \\
+\alpha_{F1} &= \alpha_{cw1} - \alpha_{cc1} \\
+\alpha_{SF1} &= \alpha_{ww1} - \alpha_{cc1} - \alpha_{S1} - \alpha_{F1}
+\end{align}
+
+\noindent\textbf{Derived treatment contrasts (Year 2):}
+\begin{align}
+\alpha_2 &= \alpha_{cc2} \\
+\alpha_{S2} &= \alpha_{wc2} - \alpha_{cc2} \\
+\alpha_{F2} &= \alpha_{cw2} - \alpha_{cc2} \\
+\alpha_{SF2} &= \alpha_{ww2} - \alpha_{cc2} - \alpha_{S2} - \alpha_{F2}
+\end{align}
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Results
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
