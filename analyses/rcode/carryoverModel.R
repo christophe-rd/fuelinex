@@ -25,6 +25,7 @@ parallel:::setDefaultClusterOptions(setup_strategy = "sequential")
 
 runmodel <- TRUE
 diagnos <- FALSE
+
 # load mike's diagnostic tools
 util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
