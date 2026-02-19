@@ -1,5 +1,5 @@
 ## Started 16 February 2026
-## By Ken
+## By Ken and CRD
 
 ## STAT 547 model
 
@@ -14,20 +14,30 @@ if(length(grep("christophe", getwd()) > 0)) {
   setwd("/Users/Ken Michiko Samson/Documents/Temporal Ecology Lab/fuelinex/analyses")
 }
 
+# load packages
 library(ggplot2)
 library(rstan)
+
+# stan options
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 parallel:::setDefaultClusterOptions(setup_strategy = "sequential")
 
-runmodel <- FALSE
-
+runmodel <- TRUE
+diagnos <- FALSE
+# load mike's diagnostic tools
 util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
 
+# read diameter and height data
 mea <- read.csv2("output/cleanedMeasurements.csv", sep = ",", header = TRUE)
+# read biomass data
+biom <- read.csv("input/biomass.csv")
 
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Prep data ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 mea$spp_num <- match(mea$genus, unique(mea$genus))
 mea$treeid_num <- match(mea$tree_ID, unique(mea$tree_ID))
 mea <- mea[which(!is.na(mea$height) & !is.na(mea$diameter)),]
@@ -35,165 +45,32 @@ mea$height   <- as.numeric(mea$height)
 mea$diameter <- as.numeric(mea$diameter)
 mea <- mea[, -1]
 
-biom <- read.csv("input/biomass.csv")
-# biomass now
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 
+# reshape to long format
 d <- reshape(mea, timevar = 'year',
              idvar = c('tree_ID', 'bloc', 'treatment', 'genus', 'species',
                        'spp_num', 'treeid_num'),
              direction = 'wide')
 
+# calculate volumes and their increments
 d$vol.2023 <- d$diameter.2023^2 * d$height.2023
 d$vol.2024 <- d$diameter.2024^2 * d$height.2024
 d$vol.2025 <- d$diameter.2025^2 * d$height.2025
 d$volinc1 <- d$vol.2024 - d$vol.2023
 d$volinc2 <- d$vol.2025 - d$vol.2024
 
-d$s <- NA
-d$f <- NA
 trt <- unique(d$treatment)
-s <- c(0, 1, 0, 1, 0, 1)
-f <- c(0, 0, 1, 1, 0, 1)
-for(i in 1:length(trt)){
-  idx <- which(d$treatment == trt[i])
-  d$s[idx] <- s[i]
-  d$f[idx] <- f[i]
-}
-d$sf <- d$s * d$f
 
-d <- subset(d, volinc1 > 0 & volinc2 > 0 & 
-              treatment %in% trt[1:4] & 
+d <- subset(d, volinc1 > 0 & volinc2 > 0 &
+              treatment %in% trt[1:4] &
               spp_num %in% 1:7)
 
 d$trt_num <- match(d$treatment, unique(d$treatment))
 
-biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
-d_allo <- subset(mea, year == "2025")
-d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
-d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & 
-                   treatment %in% trt[1:4] & 
-                   aboveGroundWeight > 0 & spp_num %in% 1:7)
-
-# Fit model
-data <- list("N_allo" = nrow(d_allo),
-             "d_allo" = d_allo$diameter,
-             "h_allo" = d_allo$height,
-             "N_spp" = length(unique(d$species)),
-             "spp_allo" = d_allo$spp_num,
-             "agb_allo" = d_allo$aboveGroundWeight,
-             "N" = nrow(d),
-             "d0" = d$diameter.2023,
-             "h0" = d$height.2023,
-             "d1" = d$diameter.2024,
-             "h1" = d$height.2024,
-             "d2" = d$diameter.2025,
-             "h2" = d$height.2025,
-             "trt" = d$trt_num,
-             "spp" = d$spp_num)
-
-set.seed(1)
-
-inits <- function(chain_id){
-  params <- list("b1" = as.array(rlnorm(unique(d$spp_num), log(0.5), 0.3)),
-                 "b2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
-                 "s_allo" = as.array(abs(rnorm(unique(d$spp_num), 0, 1))),
-                 "acc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "awc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "acw1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "aww1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "acc2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "awc2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "acw2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "aww2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "s_y" = as.array(abs(rnorm(unique(d$spp_num), 0, 1)))
-                 )
-  return(params)
-}
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# Fit Model ####
+# Add allometry model output to d #### 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-if (runmodel) {
-fit <- stan("stan/fullModelpos.stan",
-            data = data, 
-            # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
-            seed = 1,
-            warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-# saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
-}
-fit <- readRDS("output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
-
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# Diagnostics ####
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-diagnostics <- util$extract_hmc_diagnostics(fit)
-util$check_all_hmc_diagnostics(diagnostics)
-
-samples <- util$extract_expectand_vals(fit)
-names <- c(grep('^b1', names(samples), value = TRUE),
-           grep('^b2', names(samples), value = TRUE),
-           grep('s_allo', names(samples), value = TRUE),
-           grep('acc1', names(samples), value = TRUE),
-           grep('awc1', names(samples), value = TRUE),
-           grep('acw1', names(samples), value = TRUE),
-           grep('aww1', names(samples), value = TRUE),
-           grep('acc2', names(samples), value = TRUE),
-           grep('awc2', names(samples), value = TRUE),
-           grep('acw2', names(samples), value = TRUE),
-           grep('aww2', names(samples), value = TRUE),
-           grep('s_y', names(samples), value = TRUE))
-
-# just delta 1s
-idtocheck <- which(d$spp_num == 1)
-deltanames <- paste0('delta1[', idtocheck, ']')
-deltadata <- sapply(deltanames, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-
-base_samples <- util$filter_expectands(samples, names)
-print(util$check_all_expectand_diagnostics(base_samples))
-
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Marginal posterior #####
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-# 
-# pdf("figures/modelDiagnostics/marginalPost.pdf", height = 9, width = 9)
-# par(mfrow = c(3, 3))
-# for(i in 1:length(names)){
-#   a <- min(samples[[names[i]]])
-#   b <- max(samples[[names[i]]])
-#   util$plot_expectand_pushforward(expectand_vals = samples[[names[i]]],
-#                                   B = 100,
-#                                   display_name = names[i],
-#                                   flim = c(a, b))
-# }
-# dev.off()
-
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Pairs plot #####
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-# pdf('figures/modelDiagnostics/pairs.pdf', height = 9, width = 9)
-# util$plot_div_pairs(names, names, samples, diagnostics)
-# dev.off()
-# 
-# # with bound on b1
-# namesallo <- c(grep('b1', names(samples), value = TRUE),
-#            grep('b2', names(samples), value = TRUE),
-#            grep('s_allo', names(samples), value = TRUE),
-#            grep('s_y', names(samples), value = TRUE))
-# namesallo <- namesallo[!grepl("agb", namesallo)]
-# 
-# pdf('figures/modelDiagnostics/pairs_normLikelihood_bound.pdf', height = 9, width = 9)
-# util$plot_div_pairs(namesallo, namesallo, samples, diagnostics)
-# dev.off()
-# 
-# # no bound on b2
-# fitnobound <- readRDS("output/stanOutput/full_fit_normalLikelihood.rds")
-# samplesnobound <- util$extract_expectand_vals(fitnobound)
-# 
-# pdf('figures/modelDiagnostics/pairs_normLikelihood_NoBound.pdf', height = 9, width = 9)
-# util$plot_div_pairs(namesallo, namesallo, samplesnobound, diagnostics)
-# dev.off()
-
-# Add allometry to d #### 
 fitallom <- readRDS("output/stanOutput/allometryModel")
 
 df_fit <- as.data.frame(fitallom)
@@ -239,7 +116,6 @@ b1_df2 <- data.frame(
   per75 = NA,
   per95 = NA
 )
-b1_df2
 
 for (i in 1:ncol(b1_df)) { # i = 1
   b1_df2$spp[i] <- colnames(b1_df)[i]         
@@ -249,7 +125,6 @@ for (i in 1:ncol(b1_df)) { # i = 1
   b1_df2$per75[i] <- round(quantile(b1_df[[i]], probs = 0.75), 3)
   b1_df2$per95[i] <- round(quantile(b1_df[[i]], probs = 0.95), 3)
 }
-b1_df2
 
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
@@ -271,7 +146,6 @@ b2_df2 <- data.frame(
   per75 = NA,
   per95 = NA
 )
-b2_df2
 
 for (i in 1:ncol(b2_df)) { # i = 1
   b2_df2$spp[i] <- colnames(b2_df)[i]         
@@ -281,14 +155,11 @@ for (i in 1:ncol(b2_df)) { # i = 1
   b2_df2$per75[i] <- round(quantile(b2_df[[i]], probs = 0.75), 3)
   b2_df2$per95[i] <- round(quantile(b2_df[[i]], probs = 0.95), 3)
 }
-b2_df2
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 ##### 2023 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 df23 <- subset(mea, year == "2023")
-
-sub <- df23[, c("treeid_num", "spp_num", "height", "diameter")]
 
 X <- df23$diameter^2 * df23$height
 
@@ -306,8 +177,6 @@ for(i in seq_len(n_trees)) {
   biomass_mat[, i] <- rnorm(n_draws, mu, sigma_df[,1])
 }
 
-# reintegrate in mesurement df23
-# empty treat dataframe
 b23 <- data.frame(
   treeid_num = df23$treeid_num,
   mean =  colMeans(biomass_mat),  
@@ -316,17 +185,11 @@ b23 <- data.frame(
   per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
   per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
 )
-b23
-
-# df23$agb <- b23$mean[match(df23$treeid_num, b23$treeid_num)]
-
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 ##### 2024 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 df24 <- subset(mea, year == "2024")
-
-sub24 <- df24[, c("treeid_num", "spp_num", "height", "diameter")]
 
 X <- df24$diameter^2 * df24$height
 
@@ -344,8 +207,6 @@ for(i in seq_len(n_trees)) {
   biomass_mat[, i] <- rnorm(n_draws, mu, sigma_df[,1])
 }
 
-# reintegrate in mesurement df24
-# empty treat dataframe
 b24 <- data.frame(
   treeid_num = df24$treeid_num,
   mean =  colMeans(biomass_mat),  
@@ -354,16 +215,11 @@ b24 <- data.frame(
   per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
   per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
 )
-b24
-
-
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 ##### 2025 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 df25 <- subset(mea, year == "2025")
-
-sub25 <- df25[, c("treeid_num", "spp_num", "height", "diameter")]
 
 X <- df25$diameter^2 * df25$height
 
@@ -381,8 +237,6 @@ for(i in seq_len(n_trees)) {
   biomass_mat[, i] <- rnorm(n_draws, mu, sigma_df[,1])
 }
 
-# reintegrate in mesurement df25
-# empty treat dataframe
 b25 <- data.frame(
   treeid_num = df25$treeid_num,
   mean =  colMeans(biomass_mat),  
@@ -391,8 +245,9 @@ b25 <- data.frame(
   per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
   per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
 )
-b25
-
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
+# Add the three years to d
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 d$agb23 <- b23$mean[match(d$treeid_num, b23$treeid_num)]
 d$agb24 <- b24$mean[match(d$treeid_num, b24$treeid_num)]
 d$agb25 <- b25$mean[match(d$treeid_num, b25$treeid_num)]
@@ -419,22 +274,24 @@ inits <- function(chain_id){
   )
   return(params)
 }
+
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Fit Model ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 if (runmodel) {
   fit <- stan("stan/carryoverModel.stan",
               data = data, 
-              # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
+              init = inits, # fill readd later when I figure out why the bound on b2 messes it up
               seed = 1,
               warmup = 1000, iter = 2000, refresh = 500, chains = 4)
   # saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
+  diagnostics <- util$extract_hmc_diagnostics(fit)
+  util$check_all_hmc_diagnostics(diagnostics)
 }
 
-diagnostics <- util$extract_hmc_diagnostics(fit)
-util$check_all_hmc_diagnostics(diagnostics)
-
+# extract fit generated quantities
 samples <- util$extract_expectand_vals(fit)
+
 names <- c(grep('acc1', names(samples), value = TRUE),
            grep('awc1', names(samples), value = TRUE),
            grep('acw1', names(samples), value = TRUE),
@@ -447,10 +304,59 @@ names <- c(grep('acc1', names(samples), value = TRUE),
 
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
-
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Plot diagnostics ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+if (diagnos) {
+  
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  #### Pairs plot #####
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  pdf('figures/modelDiagnostics/pairs.pdf', height = 9, width = 9)
+  util$plot_div_pairs(names, names, samples, diagnostics)
+  dev.off()
+  
+  # with bound on b1
+  namesallo <- c(grep('b1', names(samples), value = TRUE),
+                 grep('b2', names(samples), value = TRUE),
+                 grep('s_allo', names(samples), value = TRUE),
+                 grep('s_y', names(samples), value = TRUE))
+  namesallo <- namesallo[!grepl("agb", namesallo)]
+  
+  pdf('figures/modelDiagnostics/pairs_normLikelihood_bound.pdf', height = 9, width = 9)
+  util$plot_div_pairs(namesallo, namesallo, samples, diagnostics)
+  dev.off()
+  
+  # no bound on b2
+  fitnobound <- readRDS("output/stanOutput/full_fit_normalLikelihood.rds")
+  samplesnobound <- util$extract_expectand_vals(fitnobound)
+  
+  pdf('figures/modelDiagnostics/pairs_normLikelihood_NoBound.pdf', height = 9, width = 9)
+  util$plot_div_pairs(namesallo, namesallo, samplesnobound, diagnostics)
+  dev.off()
+  
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  ##### Marginal posterior #####
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  pdf("figures/modelDiagnostics/marginalPost.pdf", height = 9, width = 9)
+  par(mfrow = c(3, 3))
+  for(i in 1:length(names)){
+    a <- min(samples[[names[i]]])
+    b <- max(samples[[names[i]]])
+    util$plot_expectand_pushforward(expectand_vals = samples[[names[i]]],
+                                    B = 100,
+                                    display_name = names[i],
+                                    flim = c(a, b))
+  }
+  dev.off()
+  
+}
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Retrodictive checks ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+##### Marginal posterior vs empirical data YR1 #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 pdf('figures/modelDiagnostics/yr1.pdf', height = 8, width = 8)
 par(mfrow = c(2, 2))
 for(i in 1:length(unique(d$species))){
@@ -479,20 +385,6 @@ for(i in 1:length(unique(d$species))){
          ylab = '',
          main = paste0(unique(d$species)[i], ' (', unique(d$treatment)[j], ')'))
     
-    # rect(xleft = allo_hist$breaks[1:(length(allo_hist$breaks)-1)],
-    #      ybottom = rep(0, length(allo_hist$counts)),
-    #      xright = allo_hist$breaks[2:length(allo_hist$breaks)],
-    #      ytop = allo_hist$density,
-    #      col = util$c_dark,
-    #      border = NA)
-    # 
-    # rect(xleft = trt_hist$breaks[1:(length(trt_hist$breaks)-1)],
-    #      ybottom = rep(0, length(trt_hist$counts)),
-    #      xright = trt_hist$breaks[2:length(trt_hist$breaks)],
-    #      ytop = trt_hist$density,
-    #      col = util$c_light,
-    #      border = NA)
-    
     lines(x = rep(allo_hist$breaks, each = 2),
           y = c(0, rep(allo_hist$density, each = 2), 0),
           col = util$c_dark)
@@ -504,6 +396,9 @@ for(i in 1:length(unique(d$species))){
 }
 dev.off()
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+##### Marginal posterior vs empirical data YR2 #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 pdf('figures/modelDiagnostics/yr2.pdf', height = 8, width = 8)
 par(mfrow = c(2, 2))
 for(i in 1:length(unique(d$species))){
@@ -536,20 +431,6 @@ for(i in 1:length(unique(d$species))){
          xlab = 'Change in Biomass (g)',
          ylab = '',
          main = paste0(unique(d$species)[i], ' (', unique(d$treatment)[j], ')'))
-    
-    # rect(xleft = allo_hist$breaks[1:(length(allo_hist$breaks)-1)],
-    #      ybottom = rep(0, length(allo_hist$counts)),
-    #      xright = allo_hist$breaks[2:length(allo_hist$breaks)],
-    #      ytop = allo_hist$density,
-    #      col = util$c_dark,
-    #      border = NA)
-    # 
-    # rect(xleft = trt_hist$breaks[1:(length(trt_hist$breaks)-1)],
-    #      ybottom = rep(0, length(trt_hist$counts)),
-    #      xright = trt_hist$breaks[2:length(trt_hist$breaks)],
-    #      ytop = trt_hist$density,
-    #      col = util$c_light,
-    #      border = NA)
     
     lines(x = rep(allo_hist$breaks, each = 2),
           y = c(0, rep(allo_hist$density, each = 2), 0),
@@ -725,6 +606,7 @@ treatments <- unique(d2$treatment)
 n_spp <- length(species)
 n_trt <- length(treatments)
 trt_cols <- c("#41afaa", "#466eb4", "#af4b91", "#e6a532")
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 ##### Year 1 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
@@ -912,3 +794,4 @@ mtext("2025 (No treatment)", side = 3, outer = TRUE, line = 1,
 
 mtext("Change in above-ground biomass (gr)", side = 1, outer = TRUE, line = 2)
 dev.off()
+
