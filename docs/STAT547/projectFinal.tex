@@ -40,7 +40,7 @@
 \section*{Introduction}
 
 % Climate change impact on tree phenology
-Human-induced greenhouse gas emissions have affected Earth's climate and are projected to keep changing it for many centuries \citep{intergovernmental_panel_on_climate_change_climate_2023}. The most frequently observed biological impact of climate change over the past decades is major changes in phenology---the timing of recurring life history events \citep{parmesan_globally_2003,cleland_shifting_2007,lieth_phenology_1974,woolway_phenological_2021,menzel_european_2006}.  Shifts in spring and autumn phenology modify when the growing season starts and when it ends. These shifts in growing season length could have impacts on ecosystems, but anticipating these consequences requires understanding how much, and why it has changed \citep{duputie_phenological_2015}. \\ 
+Human-induced greenhouse gas emissions have affected Earth's climate and are projected to keep changing it for many centuries \citep{intergovernmental_panel_on_climate_change_climate_2023}. The most frequently observed biological impact of climate change over the past decades is major changes in phenology---the timing of recurring life history events \citep{parmesan_globally_2003,cleland_shifting_2007,lieth_phenology_1974,woolway_phenological_2021,menzel_european_2006}. Shifts in spring and autumn phenology modify when the growing season starts and when it ends. These shifts in growing season length could have impacts on ecosystems, but anticipating these consequences requires understanding how much, and why it has changed \citep{duputie_phenological_2015}. 
 
 % Trends and drivers of spring and autumn phenology
 Spring phenological events (e.g. budburst and leafout) have been advancing from 0.5 \citep{wolfe_climate_2005} to 4.2 days/decade \citep{chmielewski_response_2001,fu_recent_2014} and are mainly driven by temperature \citep{chuine_why_2010,cleland_shifting_2007,penuelas_responses_2001}, especially for trees. In contrast, autumn phenology (e.g. budset and leaf senescence) has delayed with climate change---though shifts in the autumn have been much smaller than those in the spring \citep{gallinat_autumn_2015,jeong_macroscale_2014}---and its drivers are also far less understood \citep{piao_plant_2019}.
@@ -62,14 +62,14 @@ We aim to understand how different tree species, vary in their growth responses 
 \subsection*{Species selection and growing conditions}
 We used seven species of tree saplings for our experiment (Fuelinex). We arranged the trees in three blocks, each containing all 6 treatments and 7 species, with two of these blocks placed under an open-walled and well-ventilated polytunnel greenhouse. All saplings were connected to a drip irrigation system (40 PVC frame from Netafilm 54 with a Toro controller) to maintain constant irrigation across the season.
 
-\subsection*{Tree measurements and biomass}: 
-Using red paint, we marked the trees on their trunk at ~3 cm from the soil in February 2024. Then we measured the diameter at the top of that mark using a digital calliper (accuracy $\pm$ 0.01cm) and height from that mark to the bottom of the highest apical bud with a metal ruler (accuracy $\pm$ 0.1cm). We measured those two same points in the winter (2024 growing season) and in the fall (2025 growing season) of 2025. In the fall of 2025, we destructively collected above ground biomass after measuring diameter and height.
+\subsection*{Tree measurements and biomass}:
+Using red paint, we marked the trees on their trunk at ~3 cm from the soil in February 2024 (2023 growin season). Then we measured the diameter at the top of that mark using a digital calliper (accuracy $\pm$ 0.01cm) and height from that mark to the bottom of the highest apical bud with a metal ruler (accuracy $\pm$ 0.1cm). We measured those two same points in the winter (2024 growing season) and in the fall (2025 growing season) of 2025. In the fall of 2025, we destructively collected above ground biomass after measuring diameter and height.
 
-\subsection*{Experimental design} 
-Individuals from each species were randomly selected for a full factorial design of Warm/Cool, Spring/Fall treatments with two additional treatments to test nutrient effects in the fall (Figure \ref{fig:Fuelinex_Design2024.pdf}), for a total of 15 replicates/treatment/species. On 6 March 2024, we placed the Cool Spring individuals in climate chambers to delay the start of their growing season, while the Warm Spring replicates remained at ambient conditions. Once all Warm Spring individuals had fully leafed out, we removed the Cool Spring replicates from the chambers and placed them back at ambient conditions for the whole summer. On 4 September 2024, we placed the trees for the Warm Fall treatments in the climate chambers. The temperature was set to fit the mean 30-year weekly maximum temperature of the previous month (e.g. 1st week of September set to the average of the 1st week of August). The Cool Fall treatment trees remained at ambient conditions. We also set the photoperiod regime to the corresponding sunrise and sunset of the ongoing week and ramped it until it reached full light. In 2025, all the trees were kept at ambient conditions together at Totem field during which we recorded the same phenophases.
+\subsection*{Experimental design}
+Individuals from each species were randomly selected for a full factorial design of Warm/Cool, Spring/Fall treatments with two additional treatments to test nutrient effects in the fall (Figure \ref{fig:Fuelinex_Design2024.pdf}), for a total of 15 replicates/treatment/species. On 6 March 2024, we placed the Cool Spring individuals in climate chambers to delay the start of their growing season, while the Warm Spring replicates remained at ambient conditions. Once all Warm Spring individuals had fully leafed out, we removed the Cool Spring replicates from the chambers and placed them back at ambient conditions for the whole summer. On 4 September 2024, we placed the trees for the Warm Fall treatments in the climate chambers. The temperature was set to fit the mean 30-year weekly maximum temperature of the previous month (e.g. 1st week of September set to the average of the 1st week of August). The Cool Fall treatment trees remained at ambient conditions. In 2025, all the trees were kept at ambient conditions together at Totem field during which we recorded the same phenophases.
 
 \subsection*{Statistical analyses}
-Using diameter ($RCD$), height ($H$) and above-ground biomass ($B$) for 2025, we fitted two allometric coefficients ($\beta_1$) and($\beta_2$) using the following equation from [Annighöfer*].
+Using diameter ($RCD$), height ($H$) and above-ground biomass ($B$) for 2025, we fitted two allometric coefficients ($\beta_1$) and($\beta_2$) for each species, using the following equation for tree saplings from [Annighöfer*].
 
 \[
 \begin{aligned}
@@ -81,7 +81,7 @@ B &\sim \text{logNormal}(\mu, \sigma_{allo}) \\
 \end{aligned}
 \]
 
-We used the marginal posterior distribution with the error for the two allometric coefficients to estimate the corresponding biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using]. 
+We used 2000 warmup and 1000 sampling iterations, 4 chains using initial conditions for [?$\beta_1, \beta_2$ and $\sigma_y$]We used the marginal posterior distribution with the error for the two allometric coefficients to estimate the corresponding biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using].
 
 \subsection*{Carry-over effect model}
 Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta B_1$ and $\Delta B_2$ using Stan with the rstan package version 2.32.7 \citep{carpenter_stan_2017} to run the Stan code in R. [add priors, chains, rhat, etc.]
@@ -106,7 +106,7 @@ Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta 
 \]
 
 \textbf{Where:}
-\begin{itemize} 
+\begin{itemize}
 	\item $\alpha_1$ = Year 1, treatment Cool Spring, Cool Fall (reference value)
 	\item $\alpha_1 + \alpha_{S1} = $ Year 1, treatment Warm Spring, Cool Fall
 	\item $\alpha_1 + \alpha_{F1} = $ Year 1, treatment Cool Spring, Warm Fall
@@ -114,7 +114,7 @@ Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta 
 	\item $ S1 = $ dummy variable, if it's 1, then Warm spring, else Cool Spring
 	\item $ F1 = $ dummy variable, if it's 1, then Warm fall, else Cool fall
 	\item $ SF1 = $ dummy variable, for a subadditive effect of a Warm Spring and a Warm Fall treatment.
-\end{itemize} 
+\end{itemize}
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Results
@@ -125,7 +125,7 @@ Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta 
 Biomass increased with volume accross all species and while our model appears to generally fit the data well, it might be underfit for \textit{P. virgiana} (Figure \ref{fig:allom}). Retrodictive check histogram across the whole data is presented in (Figure \ref{fig:allomretrohist}).
 
 \begin{figure}[ht!]
-\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf}
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheckcopy.pdf}
 \caption{Posterior predictive check for the allometry model across the seven species for the final biomass measurements. The y-axis represents the above-ground biomass estimated for the simulated volume values, on the x-axis. The line represents the mean, and the shadded area, the 50\% confidence intervals. The dots represent the empirical data used to fit the model.}
 \label{fig:allom}
 \end{figure}
@@ -145,13 +145,21 @@ As for the carry-over effect of the treatments on the second growing season (202
 % Discussion
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Discussion}
-Our results show how the growth response to different season length changed across different species. With Acer showing the same growth response to all treatments indicates that this species may be little flexible, both in the short and long-term response to growing season length. With the treatment effects actually increasing for Betula, indicates that this species may utilize the earlier season (Warm spring) to increase its overall photosynthesis, store its byproducts as non-structural carbohydrate [-->introduce growth allocations through NSC in intro], but store them as reserve during year 1, to reinvest them in growht, only during the following year. 
+\subsection*{Species responses to treatments}
+Our results show how the growth response to different season length changed across different species. With Acer showing the same growth response across treatments indicates that this species may be little flexible, both in the short and long-term response to growing season length. Photosynthates (products of photosynthesis) can be alocated to growth (biomass production), defense or storage. If the supply exceeds demand in an given season, trees store these compounds as non-structural carbohydrate, which they can use in a subsequent season. The treatment effects that increased for Betula in 2025 indicates that this species may utilize the earlier season (Warm spring) to increase its overall photosynthesis. In appears that Betula allocates some of this excess of carbon supply to increase its growth during the current year, but moreover, store some of these NSC to allocate an even greater growth portion in 2025. In addition, Betula is a non-determinate growth species (i.e. number of leaves is non pre-determined during the previous season). This strategy usually allows these species to be more flexible than their counterpart [Baumgarten unpublished]. This may explain the short-term growth response (2024), but this flexibility may also have led this species to opportunistically increase its photosynthetic rate---leading to increase NSC storage.
+
+Evergreen trees usually store less NSC because unlike decidous trees---which require to grow a new leaf cohort every spring---they keep most of their leaves and need fewer leaf growth investment [Hessl2026Carbon;Richardson2013Sesonal]. Therefore, we explain the muted treatment effects of 2025 vs 2024 for Sequoiadendron and Pinus by their strategy of seasonally allocating their photosynthates directly to growth and defense and little for long-term storage.
+
+\subsection*{Model}
+Our study has limitations. First, negative growth increments ($\delta_B$), should be rere, but our normal likelihood allows for more of these than realistically possible. Future modelling of this dataset should account for this. We did not succeed in fiting a log-normal likelihood, that would have accounted for this because our model with this likelihood led to poor posterior geometry with hundreds of divergent transitions per chain, with Neff going to zero and with very high rhat values. %we didn't test the model with a log-normal when we don't fit the two models separately]
+In addition, future modelling approach should fit both models jointly instead of using a point estimate from the allometry model to fit the carry-over model. This would allow for [?]. When fitting both models jointly, the treatment effects always went to zero, with the only shared parameter, $\sigma_y$ also being very close to zero.
+
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % References
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{References}
 \bibliography{ExportedItems.bib}
-\bibliographystyle{ecolett} 
+\bibliographystyle{ecolett.bst} 
 
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
