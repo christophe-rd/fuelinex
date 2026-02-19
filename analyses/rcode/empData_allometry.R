@@ -1,5 +1,5 @@
 # 6 February 2026
-# CRD
+# CRD and Ken
 # Goal is to estimate allometric coefficients for fuelinex trees
 
 # housekeeping
@@ -22,7 +22,11 @@ util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
 
+# flags
 fitmodel <- FALSE
+plotpriors <- FALSE
+retro <- FALSE
+
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Loop up empirical data ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -48,8 +52,6 @@ df25 <- merge(f25, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
 # Fit Empirical Data ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 df25 <- df25[which(!is.na(df25$aboveGroundWeight)),]
-str(df25)
-
 y <- df25$aboveGroundWeight
 N <- nrow(df25)
 Nids <- length(unique(df25$tree_ID))
@@ -58,11 +60,8 @@ spp <- df25$spp_num
 height <- df25$height
 dia <- df25$dia
 
-table(spp)
-
 # assign bounds to tell the initial values to the sampler
 if (fitmodel) {
- 
 inits <- function(chain_id){
   params <- list("b1" = as.array(rlnorm(Nspp, log(0.5), 1)),
                  "b2" = as.array(rnorm(Nspp, 0.5, 1)),
@@ -85,12 +84,12 @@ fit <- readRDS("output/stanOutput/allometryModel")
 diagnostics <- util$extract_hmc_diagnostics(fit) 
 util$check_all_hmc_diagnostics(diagnostics)
 
-util$plot_inv_metric(fit, 75)
-
-
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Retrodictive checks ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+if (retro){
+  
+# util$plot_inv_metric(fit, 75)
 samples <- util$extract_expectand_vals(fit)
 jpeg(
   filename = "figures/empiricalData_allometry/retrodictiveCheckHist.jpeg",
@@ -105,7 +104,7 @@ util$plot_hist_quantiles(samples, "y_rep",
                          baseline_values = y,
                          xlab = "Biomass")
 dev.off()
-
+}
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Recover parameters ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -123,7 +122,6 @@ cols <- cols[!grepl("lp__", cols)]
 sigma_cols <- cols[grepl("sigma", cols)]
 
 sigmavec <- as.vector(df_fit[, colnames(df_fit) %in% sigma_cols])
-class(sigma_df)
 
 sigma_df <- data.frame(
   mean = mean(sigmavec), 
@@ -223,6 +221,8 @@ sigmapriorvspostplot
 ###### Plot b1 prior vs posterior ######
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # convert posterior distribution to long format
+if (plotpriors) {
+
 b1_long <- reshape(
   b1_df,
   direction = "long",
@@ -291,6 +291,7 @@ b2priorvspostplot
 combined <- (sigmapriorvspostplot + b1priorvspostplot + b2priorvspostplot)
 combined
 ggsave("figures/empiricalData_allometry/priorVSposteriorCombined.jpeg", combined, width = 12, height = 8, units = "in", dpi = 300)
+}
 #  --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -371,16 +372,14 @@ b24
 
 df24$agb <- b24$mean[match(df24$treeid_num, b24$treeid_num)]
 df24$mul <- df24$diameter * df24$diameter * df24$height
-ggplot(df24, aes(x = mul, y = agb, color = genus, fill = genus)) +
-  geom_point(aes(y = agb), alpha = 0.7) +
-  facet_wrap(~ genus, scales = "free") +
-  theme_minimal()
+# ggplot(df24, aes(x = mul, y = agb, color = genus, fill = genus)) +
+#   geom_point(aes(y = agb), alpha = 0.7) +
+#   facet_wrap(~ genus, scales = "free") +
+#   theme_minimal()
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
-# ##### 2025 CHECKS #####
+# ##### 2025 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
-X <- df25$diameter^2 * df25$height
-
 df25$vol <- df25$diameter^2 * df25$height
 
 dmax  <- aggregate(vol ~ spp_num, df25, FUN = max)
@@ -389,17 +388,9 @@ dmax$vol <- ceiling(dmax$vol)
 dmax$vol <- dmax$vol*1000
 dmax$spp_num <- as.character(dmax$spp_num)
 
-Xsim <- df25
-
 n_draws <- nrow(b1_df)
 n_trees <- nrow(df25)
 nsp <- nrow(dmax)
-
-biomass_mat <- matrix(NA_real_, nrow = n_draws, ncol = n_trees)
-
-str(df25)
-str(dmax)
-class(dmax$vol)
 
 biomass_simu <- list()
 for(i in seq_len(nsp)) {
@@ -418,18 +409,6 @@ for(i in seq_len(nrow(biomass_simu))) { # i = 1
 
 biomass_simu <- cbind(biomass_simu, calc)
 
-# reintegrate in mesurement d25
-# empty treat dataframe
-# d25 <- data.frame(
-#   treeid_num = df25$treeid_num,
-#   mean =  colMeans(biomass_mat),  
-#   per5  = apply(biomass_mat, 2, quantile, probs = 0.05), 
-#   per25 = apply(biomass_mat, 2, quantile, probs = 0.25),
-#   per75 = apply(biomass_mat, 2, quantile, probs = 0.75),
-#   per95 = apply(biomass_mat, 2, quantile, probs = 0.95)
-# )
-# df25
-apply(biomass_simu, 1, quantile, probs = 0.05)
 biomass_simu2 <- biomass_simu[, 1:2]
 
 biomass_simu2$mean <- rowMeans(biomass_simu[3:ncol(biomass_simu)])
@@ -438,105 +417,14 @@ biomass_simu2$per25  = apply(biomass_simu, 1, quantile, probs = 0.25)
 biomass_simu2$per75  = apply(biomass_simu, 1, quantile, probs = 0.75)
 biomass_simu2$per95  = apply(biomass_simu, 1, quantile, probs = 0.95)
 
-# f25merge <- merge(df25, d25, by = "treeid_num")
-# 
-# f25merge$mul <- f25merge$diameter * f25merge$diameter * f25merge$height
-
-cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
-
 # === === === === === === === === === === === === === === === === === === === 
 # Plotting Posterior Predictive Checks ####
 # === === === === === === === === === === === === === === === === === === === 
-pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck_hist.pdf", 
-    width = 10, height = 8)
+cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
 
-biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
-spp_levels <- unique(biomass_simu2$spp)
-
-# Panel layout similar to facet_wrap
-n <- length(spp_levels)
-ncol <- 3
-nrow <- 3
-
-par(mfrow = c(nrow, ncol), mar = c(4,4,3,1))
-
-for(sp in spp_levels){
-  
-  df <- biomass_simu2[biomass_simu2$spp == sp, ]
-  df <- df[order(df$vol), ]   
-  
-  plot(df$vol, df$mean, type = "n",
-       ylim = range(c(df$per25, df$per75), na.rm = TRUE),     
-       xlab = "Diameter(mm)^2*Height(cm3)",
-       ylab = "Above Ground Biomass (gr)",
-       main = df$sppname[sp])
-
-  vol <- hist(d$vol.2023[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
-  vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
-
-  rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
-       ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
-       xright = vol$breaks[2:length(vol$breaks)],
-       ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
-       col = 'green')
-
-  v23 <- vol_counts
-
-  vol <- hist(d$vol.2024[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
-  vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
-
-  rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
-       ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
-       xright = vol$breaks[2:length(vol$breaks)],
-       ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
-       col = 'red')
-
-  v24 <- vol_counts
-
-  vol <- hist(d$vol.2025[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
-  vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
-
-  rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
-       ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
-       xright = vol$breaks[2:length(vol$breaks)],
-       ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
-       col = 'grey')
-
-  lines(rep(vol$breaks, each = 2),
-        c(0, rep(v23, each = 2), 0) + range(c(df$per25, df$per75), na.rm = TRUE)[1],
-        col = 'green')
-
-  lines(rep(vol$breaks, each = 2),
-        c(0, rep(v24, each = 2), 0) + range(c(df$per25, df$per75), na.rm = TRUE)[1],
-        col = 'red')
-
-#   ribbons
-  polygon(
-    c(df$vol, rev(df$vol)),
-    c(df$per25, rev(df$per75)),
-    col = adjustcolor(cols[sp], alpha.f = 0.3),
-    border = NA
-  )
-  
-
-  # lines
-  lines(df$vol, df$mean,
-        col = cols[sp],
-        lwd = 2)
-  
-  # points for empirical data
-  pts <- df25[df25$spp_num == sp, ]
-  
-  points(
-    pts$vol,
-    pts$aboveGroundWeight,
-    col = adjustcolor(cols[sp], alpha.f = 0.7),
-    pch = 16
-  )
-}
-dev.off()
-
-
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Retrodictive no histogram #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf", 
     width = 10, height = 8)
 
@@ -585,60 +473,98 @@ for(sp in spp_levels){
 }
 dev.off()
 
-write.csv(f25merge, "output/allometry2025fit.csv")
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# Calculate biomass increment per year ####
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-df25$agb23 <- df23$agb[match(df25$tree_ID, df23$tree_ID)]
-df25$agb24 <- df24$agb[match(df25$tree_ID, df24$tree_ID)]
-df25$agb25 <- f25merge$mean[match(df25$tree_ID, f25merge$tree_ID)]
 
-# delta x and x2
-df23$vol <- df23$diameter * df23$diameter * df23$height
-df24$vol <- df24$diameter * df24$diameter * df24$height
-df25$vol23 <- df23$vol[match(df25$tree_ID, df23$tree_ID)]
-df25$vol24 <- df24$vol[match(df25$tree_ID, df24$tree_ID)]
-
-df25$diameter23 <- df23$diameter[match(df25$tree_ID, df23$tree_ID)]
-df25$height23 <- df23$height[match(df25$tree_ID, df24$tree_ID)]
-
-df25$diameter24 <- df24$diameter[match(df25$tree_ID, df23$tree_ID)]
-df25$height24 <- df24$height[match(df25$tree_ID, df24$tree_ID)]
-
-df25$vol25 <- f25merge$mul[match(df25$tree_ID, f25merge$tree_ID)]
-
-df25$diaincrement25 <- df25$diameter - df25$diameter24 
-df25$diaincrement24 <- df25$diameter24 - df25$diameter23
-
-df25$heightincrement25 <- df25$height - df25$height24 
-df25$heightincrement24 <- df25$height24 - df25$height23
-
-df25$volincrement25 <- df25$vol25 - df25$vol24 
-df25$volincrement24 <- df25$vol24 - df25$vol23
-
-View(subset(df25, volincrement25 <0))
-nrow(subset(df25, volincrement24 <0))
-View(subset(df25, volincrement24 <0))
-df25$increment25 <- df25$agb25 - df25$agb24 
-df25$increment24 <- df25$agb24 - df25$agb23
-
-hist(df25$increment24)
-hist(df25$increment25)
-
-biomincrement <- df25[, c(
-  "tree_ID",
-  "bloc", 
-  "treatment",
-  "genus",
-  "species",
-  "spp_num",
-  "treeid_num",
-  "aboveGroundWeight",
-  "agb23",
-  "agb24",
-  "agb25",
-  "increment25",
-  "increment24"
-)]
-
-write.csv(biomincrement, "output/allometryModelEstimates.csv")
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Retrodictive with histogram #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+if (retro) {
+  pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck_hist.pdf", 
+      width = 10, height = 8)
+  
+  biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
+  spp_levels <- unique(biomass_simu2$spp)
+  
+  # Panel layout similar to facet_wrap
+  n <- length(spp_levels)
+  ncol <- 3
+  nrow <- 3
+  
+  par(mfrow = c(nrow, ncol), mar = c(4,4,3,1))
+  
+  for(sp in spp_levels){
+    
+    df <- biomass_simu2[biomass_simu2$spp == sp, ]
+    df <- df[order(df$vol), ]   
+    
+    plot(df$vol, df$mean, type = "n",
+         ylim = range(c(df$per25, df$per75), na.rm = TRUE),     
+         xlab = "Diameter(mm)^2*Height(cm3)",
+         ylab = "Above Ground Biomass (gr)",
+         main = df$sppname[sp])
+    
+    vol <- hist(d$vol.2023[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
+    vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
+    
+    rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
+         ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
+         xright = vol$breaks[2:length(vol$breaks)],
+         ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+         col = 'green')
+    
+    v23 <- vol_counts
+    
+    vol <- hist(d$vol.2024[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
+    vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
+    
+    rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
+         ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
+         xright = vol$breaks[2:length(vol$breaks)],
+         ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+         col = 'red')
+    
+    v24 <- vol_counts
+    
+    vol <- hist(d$vol.2025[which(d$spp_num == sp)], breaks = seq(0, dmax$vol[sp], by = 100), plot = FALSE)
+    vol_counts <- vol$counts / max(vol$counts) * (range(c(df$per25, df$per75), na.rm = TRUE)[2] - range(c(df$per25, df$per75), na.rm = TRUE)[1]) / 4
+    
+    rect(xleft = vol$breaks[1:(length(vol$breaks) - 1)],
+         ybottom = rep(range(c(df$per25, df$per75), na.rm = TRUE)[1], length(vol_counts)),
+         xright = vol$breaks[2:length(vol$breaks)],
+         ytop = vol_counts + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+         col = 'grey')
+    
+    lines(rep(vol$breaks, each = 2),
+          c(0, rep(v23, each = 2), 0) + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+          col = 'green')
+    
+    lines(rep(vol$breaks, each = 2),
+          c(0, rep(v24, each = 2), 0) + range(c(df$per25, df$per75), na.rm = TRUE)[1],
+          col = 'red')
+    
+    #   ribbons
+    polygon(
+      c(df$vol, rev(df$vol)),
+      c(df$per25, rev(df$per75)),
+      col = adjustcolor(cols[sp], alpha.f = 0.3),
+      border = NA
+    )
+    
+    
+    # lines
+    lines(df$vol, df$mean,
+          col = cols[sp],
+          lwd = 2)
+    
+    # points for empirical data
+    pts <- df25[df25$spp_num == sp, ]
+    
+    points(
+      pts$vol,
+      pts$aboveGroundWeight,
+      col = adjustcolor(cols[sp], alpha.f = 0.7),
+      pch = 16
+    )
+  }
+  dev.off()
+  
+}
