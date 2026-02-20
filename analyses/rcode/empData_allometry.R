@@ -429,6 +429,7 @@ pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf",
     width = 10, height = 8)
 
 biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
+biomass_simu2$genus <- df25$genus[match(biomass_simu2$spp, df25$spp_num)]
 spp_levels <- unique(biomass_simu2$spp)
 
 # Panel layout similar to facet_wrap
@@ -438,7 +439,7 @@ nrow <- 3
 
 par(mfrow = c(nrow, ncol), mar = c(4,4,3,1))
 
-for(sp in spp_levels){
+for(sp in spp_levels){ # i = 1
   
   df <- biomass_simu2[biomass_simu2$spp == sp, ]
   df <- df[order(df$vol), ]   
@@ -447,7 +448,7 @@ for(sp in spp_levels){
        ylim = range(c(df$per25, df$per75), na.rm = TRUE),     
        xlab = "Diameter(mm)^2*Height(cm3)",
        ylab = "Above Ground Biomass (gr)",
-       main = df$sppname[sp])
+       main = df$genus[sp])
 
   #   ribbons
   polygon(
