@@ -54,6 +54,9 @@ Experiments are extremely useful in teasing apart co-occurring realities in natu
 % Objectives
 We aim to understand how different tree species, vary in their growth responses to different season lengths. To achieve this, we deployed a large-scale experiment, during which we artificially controlled the growing season length for seven species of tree saplings (2-3 years old). With this experiment our objectives are to assess tree species’ potential to prolong or stretch their activity schedule and analyze how this translates (or not) into growth, during the current year (2024) and in the following year (2025).
 
+% Hypothesis 
+We propose the following conceptual framework to pose our hypothesis. During a growing season, trees accumulate non-structural carbohydrate (NSC) to support growth and metabolism [*Chapin1990;Richardson2013]. Given that a large portion of the tree's annual photosynthesis products are allocated to the NSC pool, understanding the relationship between the supply and demand for NSC is important. This pool is depleted when demand exceeds supply (e.g. in the spring when trees produce a new leaf cohort) and is refiled when supply exceeds demand (e.g. when leaves are at their full photosynthesis capacity) [Richardson2013]. Thus we hypothesize that trees that can take advantage of extra days to photosynthesize will refill more their NSC pool and will reinvest it during the following season into structural growth.
+
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Methods
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -139,7 +142,7 @@ Because we have little information as the relative response to each species to t
 \section*{Results}
 
 \subsection*{Allometry model}
-Biomass increased with volume accross all species and while our model appears to generally fit the data well, it might be underfit for Prunus (Figure \ref{fig:allom}).
+Our allometry model which we used to fit height, diameter and biomass data shows, as expected that biomass increases with volume accross all species. While our model appears to generally fit the data well (\pm 50\% of the data within the 50\% quantiles), it might underfit for Prunus (Figure \ref{fig:allom}).
 
 \begin{figure}[ht!]
 \includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf}

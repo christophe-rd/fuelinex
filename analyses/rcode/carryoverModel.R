@@ -285,10 +285,11 @@ if (runmodel) {
               init = inits, # fill readd later when I figure out why the bound on b2 messes it up
               seed = 1,
               warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-  # saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
+  # saveRDS(fit, "output/stanOutput/carryOverNoallom.rds")
   diagnostics <- util$extract_hmc_diagnostics(fit)
   util$check_all_hmc_diagnostics(diagnostics)
 }
+fit <- readRDS("output/stanOutput/carryOverNoallom.rds")
 
 # extract fit generated quantities
 samples <- util$extract_expectand_vals(fit)
@@ -612,19 +613,33 @@ trt_cols <- c("#41afaa", "#466eb4", "#af4b91", "#e6a532")
 ##### Year 1 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 pdf('figures/empiricalData_carryOverModel/yr1_muPlots.pdf', height = 8, width = 5)
+
 par(mfrow = c(n_spp, 1),
     oma  = c(4, 10, 2, 12),
     mar  = c(2, 0, 0.5, 0))
+
 for(i in 1:n_spp){
   
+  # get treatment 1 (coolcool) for a species, which will become the baseline
+  idx_trt1   <- which(d2$spp_num == species[i] & d2$treatment == treatments[1])
+  names_trt1 <- paste0('delta1_trt[', idx_trt1, ']')
+  data_trt1  <- as.vector(sapply(names_trt1, 
+                                 function(f_name) c(t(samples[[f_name]]), 
+                                                    recursive = TRUE)))
+  mean_trt1  <- mean(data_trt1)
   
   all_vals <- c()
   for(j in 1:n_trt){
     idx <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
     trt_names <- paste0('delta1_trt[', idx, ']')
-    trt_data  <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-    all_vals  <- c(all_vals, trt_data)
+    trt_data  <- as.vector(sapply(trt_names, 
+                                  function(f_name) c(t(samples[[f_name]]), 
+                                                     recursive = TRUE)))
+    # subtract baseline
+    trt_diff <- trt_data - mean_trt1
+    all_vals  <- c(all_vals, trt_diff)
   }
+  
   min_x <- floor(min(all_vals))
   max_x <- ceiling(max(all_vals))
   
@@ -637,6 +652,9 @@ for(i in 1:n_spp){
        xaxt = "s",
        bty  = "l")
   
+  # dashed reference line at 0
+  abline(v = 0, lty = 2, col = "grey60")
+  
   # Species label on left
   spp_label <- unique(d2$genus[d2$spp_num == species[i]])
   mtext(spp_label, side = 2, las = 1, font = 3, line = 1, cex = 0.85)
@@ -644,10 +662,12 @@ for(i in 1:n_spp){
   for(j in 1:n_trt){
     idx <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
     trt_names <- paste0('delta1_trt[', idx, ']')
-    trt_data  <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-    trt_mean  <- mean(trt_data)
-    trt_q50   <- quantile(trt_data, c(0.25, 0.75))
-    trt_q90   <- quantile(trt_data, c(0.05, 0.95))
+    trt_data  <- as.vector(sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE)))
+    trt_diff <- trt_data - mean_trt1
+    
+    trt_mean  <- mean(trt_diff)
+    trt_q50   <- quantile(trt_diff, c(0.25, 0.75))
+    trt_q90   <- quantile(trt_diff, c(0.05, 0.95))
     y_pos <- n_trt + 1 - j
     
     points(x = trt_mean, y = y_pos, pch = 19, col = trt_cols[j], cex = 1.2)
@@ -663,25 +683,40 @@ for(i in 1:n_spp){
            xpd = NA)
   }
 }
-mtext("Change in above-ground biomass (gr)", side = 1, outer = TRUE, line = 2)
+mtext("Change in above-ground biomass relative to treatment in year 1 (gr)", side = 1, outer = TRUE, line = 2)
 dev.off()
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 ##### Year 2 #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 pdf('figures/empiricalData_carryOverModel/yr2_muPlots.pdf', height = 8, width = 5)
+
 par(mfrow = c(n_spp, 1),
     oma  = c(4, 10, 2, 12),
     mar  = c(2, 0, 0.5, 0))
+
 for(i in 1:n_spp){
+  
+  # get treatment 1 (coolcool) for a species, which will become the baseline
+  idx_trt1   <- which(d2$spp_num == species[i] & d2$treatment == treatments[1])
+  names_trt1 <- paste0('delta2_trt[', idx_trt1, ']')
+  data_trt1  <- as.vector(sapply(names_trt1, 
+                                 function(f_name) c(t(samples[[f_name]]), 
+                                                    recursive = TRUE)))
+  mean_trt1  <- mean(data_trt1)
   
   all_vals <- c()
   for(j in 1:n_trt){
     idx <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
     trt_names <- paste0('delta2_trt[', idx, ']')
-    trt_data  <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-    all_vals  <- c(all_vals, trt_data)
+    trt_data  <- as.vector(sapply(trt_names, 
+                                  function(f_name) c(t(samples[[f_name]]), 
+                                                     recursive = TRUE)))
+    # subtract baseline
+    trt_diff <- trt_data - mean_trt1
+    all_vals  <- c(all_vals, trt_diff)
   }
+  
   min_x <- floor(min(all_vals))
   max_x <- ceiling(max(all_vals))
   
@@ -694,6 +729,9 @@ for(i in 1:n_spp){
        xaxt = "s",
        bty  = "l")
   
+  # dashed reference line at 0
+  abline(v = 0, lty = 2, col = "grey60")
+  
   # Species label on left
   spp_label <- unique(d2$genus[d2$spp_num == species[i]])
   mtext(spp_label, side = 2, las = 1, font = 3, line = 1, cex = 0.85)
@@ -701,10 +739,12 @@ for(i in 1:n_spp){
   for(j in 1:n_trt){
     idx <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
     trt_names <- paste0('delta2_trt[', idx, ']')
-    trt_data  <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-    trt_mean  <- mean(trt_data)
-    trt_q50   <- quantile(trt_data, c(0.25, 0.75))
-    trt_q90   <- quantile(trt_data, c(0.05, 0.95))
+    trt_data  <- as.vector(sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE)))
+    trt_diff <- trt_data - mean_trt1
+    
+    trt_mean  <- mean(trt_diff)
+    trt_q50   <- quantile(trt_diff, c(0.25, 0.75))
+    trt_q90   <- quantile(trt_diff, c(0.05, 0.95))
     y_pos <- n_trt + 1 - j
     
     points(x = trt_mean, y = y_pos, pch = 19, col = trt_cols[j], cex = 1.2)
@@ -720,13 +760,13 @@ for(i in 1:n_spp){
            xpd = NA)
   }
 }
-mtext("Change in above-ground biomass (gr)", side = 1, outer = TRUE, line = 2)
+mtext("Change in above-ground biomass relative to treatment 1 (gr)", side = 1, outer = TRUE, line = 2)
 dev.off()
  
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 ##### Both years together #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-pdf('figures/empiricalData_carryOverModel/both_yr_muPlots.pdf', height = 8, width = 10)
+pdf('figures/empiricalData_carryOverModel/both_yr_muPlots.pdf', height = 6, width = 7)
 par(mfrow = c(n_spp, 2),
     oma  = c(4, 10, 4, 12),
     mar  = c(2, 0, 0.5, 0))
@@ -735,13 +775,18 @@ for(i in 1:n_spp){
   for(yr in 1:2){
     delta <- if(yr == 1) 'delta1_trt' else 'delta2_trt'
     
+    # get baseline (treatment 1) mean for this species/year
+    idx_trt1   <- which(d2$spp_num == species[i] & d2$treatment == treatments[1])
+    names_trt1 <- paste0(delta, '[', idx_trt1, ']')
+    data_trt1  <- as.vector(sapply(names_trt1, function(f) c(t(samples[[f]]), recursive = TRUE)))
+    mean_trt1  <- mean(data_trt1)
     
     all_vals <- c()
     for(j in 1:n_trt){
-      idx <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
+      idx       <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
       trt_names <- paste0(delta, '[', idx, ']')
-      trt_data  <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-      all_vals  <- c(all_vals, trt_data)
+      trt_data  <- as.vector(sapply(trt_names, function(f) c(t(samples[[f]]), recursive = TRUE)))
+      all_vals  <- c(all_vals, trt_data - mean_trt1)
     }
     min_x <- floor(min(all_vals))
     max_x <- ceiling(max(all_vals))
@@ -756,6 +801,8 @@ for(i in 1:n_spp){
          bty  = "n",
          tcl  = -0.1)
     
+    abline(v = 0, lty = 2, col = "grey60")
+    
     # Species label on left of yr1 only
     if(yr == 1){
       spp_label <- unique(d2$genus[d2$spp_num == species[i]])
@@ -763,20 +810,21 @@ for(i in 1:n_spp){
     }
     
     for(j in 1:n_trt){
-      idx <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
+      idx       <- which(d2$spp_num == species[i] & d2$treatment == treatments[j])
       trt_names <- paste0(delta, '[', idx, ']')
-      trt_data  <- sapply(trt_names, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
-      trt_mean  <- mean(trt_data)
-      trt_q50   <- quantile(trt_data, c(0.25, 0.75))
-      trt_q90   <- quantile(trt_data, c(0.05, 0.95))
-      y_pos <- n_trt + 1 - j
+      trt_data  <- as.vector(sapply(trt_names, function(f) c(t(samples[[f]]), recursive = TRUE)))
+      trt_diff  <- trt_data - mean_trt1
+      
+      trt_mean <- mean(trt_diff)
+      trt_q50  <- quantile(trt_diff, c(0.25, 0.75))
+      trt_q90  <- quantile(trt_diff, c(0.05, 0.95))
+      y_pos    <- n_trt + 1 - j
       
       points(x = trt_mean, y = y_pos, pch = 19, col = trt_cols[j], cex = 1.2)
-      lines(x = trt_q50, y = rep(y_pos, 2), col = trt_cols[j], lwd = 2)
-      lines(x = trt_q90, y = rep(y_pos, 2), col = trt_cols[j], lwd = 1)
+      lines(x = trt_q50,   y = rep(y_pos, 2), col = trt_cols[j], lwd = 2)
+      lines(x = trt_q90,   y = rep(y_pos, 2), col = trt_cols[j], lwd = 1)
     }
     
-    # Legend on right of yr2 first panel only
     if(i == 1 & yr == 2){
       usr <- par("usr")
       legend(x = usr[2], y = usr[4],
@@ -787,12 +835,12 @@ for(i in 1:n_spp){
   }
 }
 
-# Column titles
-mtext("2024 (Treatment year)", side = 3, outer = TRUE, line = 1,
+mtext("2024 (Treatment year)", 
+      side = 3, outer = TRUE, line = 1,
       at = 0.25, cex = 1, font = 2)
-mtext("2025 (No treatment)", side = 3, outer = TRUE, line = 1,
+mtext("2025 (No treatment)", 
+      side = 3, outer = TRUE, line = 1,
       at = 0.75, cex = 1, font = 2)
-
-mtext("Change in above-ground biomass (gr)", side = 1, outer = TRUE, line = 2)
+mtext("Change in above-ground biomass relative to treatment 1 (gr)", 
+      side = 1, outer = TRUE, line = 2)
 dev.off()
-
