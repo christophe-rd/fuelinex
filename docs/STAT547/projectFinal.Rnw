@@ -68,6 +68,12 @@ Using red paint, we marked the trees on their trunk at ~3 cm from the soil in Fe
 \subsection*{Experimental design}
 Individuals from each species were randomly selected for a full factorial design of Warm/Cool, Spring/Fall treatments with two additional treatments to test nutrient effects in the fall (Figure \ref{fig:Fuelinex_Design2024.pdf}), for a total of 15 replicates/treatment/species. On 6 March 2024, we placed the Cool Spring individuals in climate chambers to delay the start of their growing season, while the Warm Spring replicates remained at ambient conditions. Once all Warm Spring individuals had fully leafed out, we removed the Cool Spring replicates from the chambers and placed them back at ambient conditions for the whole summer. On 4 September 2024, we placed the trees for the Warm Fall treatments in the climate chambers. The temperature was set to fit the mean 30-year weekly maximum temperature of the previous month (e.g. 1st week of September set to the average of the 1st week of August). The Cool Fall treatment trees remained at ambient conditions. In 2025, all the trees were kept at ambient conditions together at Totem field during which we recorded the same phenophases.
 
+\begin{figure}[!ht]
+\includegraphics[width=0.8\textwidth]{Fuelinex_Design2024}
+\caption{Experimental design during the 2024 growing season. Cooling treatments are represented in blue, and warming treatments are in orange. The grey zone in the middle represents an approximate period during the growing season where all treatments were together at ambient conditions. The colored arrows represent the approximated periods during which we recorded the phenostages.}
+\label{fig:Fuelinex_Design2024.pdf}
+\end{figure}
+
 \subsection*{Statistical analyses}
 Using diameter ($RCD$), height ($H$) and above-ground biomass ($B$) for 2025, we fitted two allometric coefficients ($\beta_1$) and($\beta_2$) for each species, using the following equation for tree saplings from [Annighöfer*].
 
@@ -81,30 +87,31 @@ B &\sim \text{logNormal}(\mu, \sigma_{allo}) \\
 \end{aligned}
 \]
 
-We used 2000 warmup and 1000 sampling iterations, 4 chains using initial conditions for [?$\beta_1, \beta_2$ and $\sigma_y$]. We used 4000 random draws from the marginal posterior distribution with the error for the two allometric coefficients to estimate the corresponding biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using].
+Posterior predictive behavior of the model shows that our model recovered the data well (Figure \ref{fig:allomretrohist}). We ran the model with a warm-up of 1000 iterations and a sampling phase of 1000 sampling iterations, for a total of 4000 sampling iterations across the 4 chains. We used initial conditions for [?$\beta_1, \beta_2$ and $\sigma_y$]. We extracted 4000 random draws from the posterior distribution for each allometric coefficients to estimate the biomass of the first (2023), second (2024) and the third (2025) diameter and height measurements. Then using a mean biomass point estimate for each tree at each year, we calculated the growing season increment of 2024 ($\Delta B_1$) and 2025 ($\Delta B_2$). Where ($\Delta B_1 = AGB2024 - AGB2023$) and ($\Delta B_2 = AGB2025 - AGB2024$).% [?Should add a hat or something since it's the ypred were using].
 
 \subsection*{Carry-over effect model}
 Using the estimated biomass increment for 2024 and 2025, we jointly fit $\Delta B_1$ and $\Delta B_2$ using Stan with the rstan package version 2.32.7 \citep{carpenter_stan_2017} to run the Stan code in R. [add priors, chains, rhat, etc.]
 
 % Model structure
 \begin{align}
-\Delta B_1 &\sim \mathcal{N}(\mu_1, \sigma_y) \\
+\Delta B_1 &\sim \text{N}(\mu_1, \sigma_y) \\
 \mu_1 &= \begin{cases} 
-    \alpha_{cc1} & \text{if trt = CC} \\ 
-    \alpha_{wc1} & \text{if trt = WC} \\ 
-    \alpha_{cw1} & \text{if trt = CW} \\ 
-    \alpha_{ww1} & \text{if trt = WW} 
+    \alpha_{cc1} & \text{if trt = CoolSpring and CoolFall} \\ 
+    \alpha_{wc1} & \text{if trt = WarmSpring and CoolFall} \\ 
+    \alpha_{cw1} & \text{if trt = CoolSpring and WarmFall} \\ 
+    \alpha_{ww1} & \text{if trt = WarmSpring and WarmFall} 
 \end{cases} \\
-\Delta B_2 &\sim \mathcal{N}(\mu_2, \sigma_y) \\
+\Delta B_2 &\sim \text{N}(\mu_2, \sigma_y) \\
 \mu_2 &= \begin{cases} 
-    \alpha_{cc2} & \text{if trt = CC} \\ 
-    \alpha_{wc2} & \text{if trt = WC} \\ 
-    \alpha_{cw2} & \text{if trt = CW} \\ 
-    \alpha_{ww2} & \text{if trt = WW} 
+    \alpha_{cc2} & \text{if trt = CoolSpring and CoolFall} \\ 
+    \alpha_{wc2} & \text{if trt = WarmSpring and CoolFall} \\ 
+    \alpha_{cw2} & \text{if trt = CoolSpring and WarmFall} \\ 
+    \alpha_{ww2} & \text{if trt = WarmSpring and WarmFall} 
 \end{cases} \\
 \sigma_y &\sim \text{logNormal}(0, 0.5)
 \end{align}
 
+We used a common $\sigma_y$ across the two years because we measure biomass increments on the same individuals, thus capturing residual error not captured by the parameters.
 Because we have little information as the relative response to each species to the different treatments, we used weakly informative priors for each treatment parameter: 
 \begin{align}
 \alpha_{cc, wc, cw, ww} &\sim \text{logNormal}(1, 1)
@@ -125,28 +132,29 @@ Because we have little information as the relative response to each species to t
 \alpha_{F2} &= \alpha_{cw2} - \alpha_{cc2} \\
 \alpha_{SF2} &= \alpha_{ww2} - \alpha_{cc2} - \alpha_{S2} - \alpha_{F2}
 \end{align}
+
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Results
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Results}
 
-\subsection*{Allometry}
-Biomass increased with volume accross all species and while our model appears to generally fit the data well, it might be underfit for \textit{P. virgiana} (Figure \ref{fig:allom}). Retrodictive check histogram across the whole data is presented in (Figure \ref{fig:allomretrohist}).
+\subsection*{Allometry model}
+Biomass increased with volume accross all species and while our model appears to generally fit the data well, it might be underfit for Prunus (Figure \ref{fig:allom}).
 
 \begin{figure}[ht!]
-\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheckcopy.pdf}
+\includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf}
 \caption{Posterior predictive check for the allometry model across the seven species for the final biomass measurements. The y-axis represents the above-ground biomass estimated for the simulated volume values, on the x-axis. The line represents the mean, and the shadded area, the 50\% confidence intervals. The dots represent the empirical data used to fit the model.}
 \label{fig:allom}
 \end{figure}
 
-\subsection*{Main model}
-For the growing season during which the treatments occurred (2024), the treatment effect on each species is different. Indeed, for Acer and Prunus, biomass was constant across treatments, except for a slight positive effect for Prunus with WW. As for Betula, the differences were not high, but the warm spring treatments seem to slightly increase growth, with little effect of the autumn treatment. Quercus shows a contasting trend where the cool spring treatments had the largest biomass. For Pinus it seems that the fall treatments had the largest effect dragging, both warm fall treatments to lower biomass values and to higher values for the cool fall treatments. Any warming treatment for Populus increased biomass, with cool spring and cool fall having the lowest value and warm spring, cool fall at the highest. Finally, the cool spring, cool fall treatment was much lower than the other treatments for Sequoiadendron, with warm spring, cool fall and cool spring, warm fall being equally higher than the other two treatments.
+\subsection*{Carryover model and treatment effects}
+For the growing season during which the treatments occurred (2024), the treatment effect of each species differed considerably (Figure \ref{fig:COmuPlot}). The biomass of Acer and Prunus remained relatively constant across treatments, except for a slight positive effect in Prunus with Warm spring/Warm fall (WW). As for Betula, the warm spring treatments seem to slightly increase growth, with little effect of the autumn treatments. In contrast, Quercus shows the opposite trend where the cool spring treatments had the largest biomass, but again with little effect of the autumn treatments. For Pinus the cool fall treatments (CC, WC) had the largest effect dragging, both warm fall treatments (CW, WW) to lower biomass values and to higher values for the cool fall treatments. For populus, a warm spring and a cool fall (WC) had the largest positive effect, with little difference across the other treatments. Finally, the cool spring, cool fall (CC) treatment was much lower than the other treatments for Sequoiadendron.
 
-As for the carry-over effect of the treatments on the second growing season (2025), some species shifted their trends in reponse to the treatments, while others mutted the treatment effects. Acer remained stable across all four treatments. The direction of the treatment effect for Betula stayed constant, but its magnitude actually increased. For Pinus, the effect of each treatment shifted direction, though in very small magnitude. We observed a similar response for Populus, but only for the warm spring, cool fall treatment where it went from the highest biomass to the lowest. Prunus shifted slightly where the warm spring and cool spring, warm fall had the highest biomass. For quercus, cool spring, cool fall remained withj the highest biomass, but, with little difference across all treatments. Finally, the cool spring, cool fall treatment for Sequoiadendron shifted from the lowest biomass, to a similar response across all treatments.
+As for the carry-over effect of the treatments on the second growing season (2025), some species shifted their trends in response to the treatments, while others mutted the treatment effects (Figure \ref{fig:COmuPlot}). Similarly to 2024, Acer remained stable across all four treatments. However, the direction of the treatment effects for Betula persisted, but its magnitude increased. For Pinus, the effect of each treatment shifted direction, though in small magnitude. We observed a similar response for Populus, but only for the warm spring, cool fall (WC) treatment where it went from the highest biomass to the lowest. Prunus shifted slightly where the cool and warm spring, cool fall (CC, WC) had the largest biomass. For Quercus, cool spring, cool fall (CC) remained with the highest biomass, but, with little difference across all treatments. Finally, the cool spring, cool fall (CC) treatment for Sequoiadendron shifted from the lowest biomass, to a similar response across all treatments.
 
 \begin{figure}[!ht]
 \includegraphics[width=1\textwidth]{../../analyses/figures/empiricalData_carryOverModel/both_yr_muPlots.pdf}
-\caption{}
+\caption{Estimated treatment effects across species for the treatment year (2024) and the following year (2025). The dots represent the posterior mean, and the lines represent the 50\% and 90\% quantiles of the posterior predictive distribution for each treatment.}
 \label{fig:COmuPlot}
 \end{figure}
 
@@ -155,45 +163,61 @@ As for the carry-over effect of the treatments on the second growing season (202
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Discussion}
 \subsection*{Species responses to treatments}
-Our results show how the growth response to different season length changed across different species. With Acer showing the same growth response across treatments indicates that this species may be little flexible, both in the short and long-term response to growing season length. Photosynthates (products of photosynthesis) can be alocated to growth (biomass production), defense or storage. If the supply exceeds demand in an given season, trees store these compounds as non-structural carbohydrate, which they can use in a subsequent season. The treatment effects that increased for Betula in 2025 indicates that this species may utilize the earlier season (Warm spring) to increase its overall photosynthesis. In appears that Betula allocates some of this excess of carbon supply to increase its growth during the current year, but moreover, store some of these NSC to allocate an even greater growth portion in 2025. In addition, Betula is a non-determinate growth species (i.e. number of leaves is non pre-determined during the previous season). This strategy usually allows these species to be more flexible than their counterpart [Baumgarten unpublished]. This may explain the short-term growth response (2024), but this flexibility may also have led this species to opportunistically increase its photosynthetic rate---leading to increase NSC storage.
+Our results show how the growth response to different season length changed across different species. With Acer showing the same growth response across treatments indicates that this species may be little flexible, both in the short and long-term responses to growing season length. Photosynthates (products of photosynthesis) can be alocated to growth (biomass production), defense or storage. If the supply exceeds demand in an given season, trees store these compounds as non-structural carbohydrate (NSC), which they can use in a subsequent season [*Hessl2026Carbon, Chapin1990]. Thus, the positive effect in 2025 of the warm spring treatments indicates that this species may utilize the earlier start of season to increase its overall photosynthesis. In appears that Betula allocates some of this excess of carbon supply to increase its growth during the current year, but moreover, store some of these NSC to allocate an even greater growth portion in 2025. In addition, Betula is a non-determinate growth species (i.e. number of leaves is non pre-determined during the previous season). This strategy usually allows these species to be more flexible than their determinate counterpart [Baumgarten unpublished]. This may explain the short-term growth response (2024), but this flexibility may have led this species to opportunistically increase its photosynthetic rate.
 
-Evergreen trees usually store less NSC because unlike decidous trees---which require to grow a new leaf cohort every spring---they keep most of their leaves and need fewer leaf growth investment [Hessl2026Carbon;Richardson2013Sesonal]. Therefore, we explain the muted treatment effects of 2025 vs 2024 for Sequoiadendron and Pinus by their strategy of seasonally allocating their photosynthates directly to growth and defense and little for long-term storage.
+Evergreen trees usually store less NSC because unlike deciduous trees---which require growing a new leaf cohort every spring---they keep most of their leaves and need fewer leaf growth investment [Hessl2026Carbon;Richardson2013Sesonal]. Therefore, we explain the muted treatment effects of 2025 vs 2024 for Sequoiadendron and Pinus by their strategy of seasonally primarily allocating their photosynthates directly to growth and defense and to a lesser extent, for long-term storage.
 
 \subsection*{Model}
-Our study has limitations. First, negative growth increments ($\delta_B$), should be rere, but our normal likelihood allows for more of these than realistically possible. Future modelling of this dataset should account for this. We did not succeed in fiting a log-normal likelihood, that would have accounted for this because our model with this likelihood led to poor posterior geometry with hundreds of divergent transitions per chain, with Neff going to zero and with very high rhat values. %we didn't test the model with a log-normal when we don't fit the two models separately]
-In addition, future modelling approach should fit both models jointly instead of using a point estimate from the allometry model to fit the carry-over model. This would allow for [?]. When fitting both models jointly, the treatment effects always went to zero, with the only shared parameter, $\sigma_y$ also being very close to zero.
+Our study has limitations. First, negative growth increments ($\delta_B$) in tree should be rare, but our normal likelihood allows for more of these values than it is realistically possible. We intended to address this by fiting a log-normal likelihood, that would have made negative increments very unlikely, but it always result in poor posterior geometry with hundreds of divergent transitions per chain, Neff going to zero and with very high $\hat{R}$ values. %we didn't test the model with a log-normal when we don't fit the two models separately]
+Second, using a point estimate from the allometry model to fit the carry-over model, we used a "short-cut" that lacks statistical rigor. When fitting both models jointly, the treatment effects always went to zero, with the only shared parameter, $\sigma_y$ also being very close to zero.
+
+Future modelling of this dataset should account for rare negative growth increments, fit a joint allometry and carryover model.
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % References
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-\section*{References}
 \bibliography{ExportedItems.bib}
 \bibliographystyle{ecolett.bst} 
-
 
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Data availability
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Data availability}
-Allometry model Stan code:
-Carry-over model Stan code:
-Allometry model R code:
-Carry-over model R code:
-Data
+\begin{itemize}
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/stan/allometryModel.stan}{Allometry model Stan code}
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/stan/carryoverModel.stan}{Carry-over model Stan code:}
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/rcode/empData_allometry.R}{Allometry model R code}
+  \item \href{https://github.com/christophe-rd/fuelinex/blob  /70593e8e08d72d78305519156ffda515a5909e35/analyses/rcode/carryoverModel.R}{Carry  -over model R code}.
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/output/cleanedMeasurements.csv}{Data diameter and height measurements}
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/input/biomass.csv}{Biomass measurements}
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/figures/modelDiagnostics/yr1.pdf}{Posterior predictive check marginal posterior histogram, year 1}
+  \item \href {https://github.com/christophe-rd/fuelinex/blob/70593e8e08d72d78305519156ffda515a5909e35/analyses/figures/modelDiagnostics/yr2.pdf}{Posterior predictive check marginal posterior histogram, year 2}
+  \item 
+  \item 
+  \item 
+\end {itemize}
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 % Supplemental results
 % <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 \section*{Supplemental results}
 
 \begin{figure}[!ht]
-\includegraphics[width=0.8\textwidth]{Fuelinex_Design2024}
-\caption{}
-\label{fig:Fuelinex_Design2024.pdf}
-\end{figure}
-
-\begin{figure}[!ht]
 \includegraphics[width=0.8\textwidth]{../../analyses/figures/empiricalData_allometry/retrodictiveCheckHist.jpeg}
-\caption{}
+\caption{Posterior predictive behavior of the allometry model. The black solid line represents the data used to fit the model. The red solid line represents the average quantiles across each markov chain [?]}
 \label{fig:allomretrohist}
 \end{figure}
+
+\begin{figure}[]
+\includegraphics[width=1\textwidth]{../../analyses/figures/modelDiagnostics/yr2_doubleHist.pdf}
+\caption{Histograms representing the estimated biomass increments and the effect for each treatment for 2024. The red histograms represent the fitted biomass increment, from the allometry model for each 15 replicates per species/treatment. The histogram in blue represent the model posterior distribution for each treatment parameter.}
+\label{fig:doubleHistYr1}
+\end{figure}
+
+\begin{figure}[]
+\includegraphics[width=1\textwidth]{../../analyses/figures/modelDiagnostics/yr2_doubleHist.pdf}
+\caption{Histograms representing the estimated biomass increments and the effect for each treatment for 2025 The red histograms represent the fitted biomass increment, from the allometry model for each 15 replicates per species/treatment. The histogram in blue represent the model posterior distribution for each treatment parameter.}
+\label{fig:doubleHistYr2}
+\end{figure}
+
+
 \end{document}
