@@ -38,7 +38,8 @@ They checked if the tree ring reconstruction proxy could have caused the discrep
 
 ## 30 January 2026
 Carbon uptake, storage, and allocation patterns  contribute to blurring of annual 14C signals in  tree rings
-Amy E. Hessl , Andrew D. Richardson, Mariah S. Carbone
+2026
+Amy E. C , Andrew D. Richardson, Mariah S. Carbone
 
 Until the last few decades, most measurements of C14 in tree rings were collected for calibrating the radiocarbon scale OR dating wood material and were sampled over multiple rings to reflect C14 over several years to decade. This is because all photosynthetic organisms record tropospheric C14 aproximately equally.
 
@@ -60,3 +61,37 @@ Mature trees store NSCs that can be hours to years to decade old!
 There is direct and indirect evidence of NSC from previous years to be carried over from one year and allocated to wood growth in subsequent years. 
 
 The studies metnionned support the idea that some mixing of new assimilates into a pool of somewhat older and mobile NSC ocurs before allocation to new growth, leading to carryover effects which may blur isotopic signals from varying climatic conditions across multiple years. 
+
+
+## 19 February 2026
+### The ecology and economics of storage in plants
+F. Stuart Chapin
+Harold Mooney
+Ernst-Detlef Schulze
+1990
+They define storage as resources that build up in the plant and can be mobilized in the future to support biosynthesis for growth or other functions. They suggest 3 classes of storage:
+1. Accumulation which is the increase of compounds that do no directly promote growth. Occurs when supply exceeds demands for growth and maintenace
+2. Reserve formation involves the metabolically regulated compartmentation or synthesis of storage compounds from resources that might directly promote growth. Reserve formation competes with growth and defense
+3. Recycling: reutilization fo compounds whose immediate physiological function contributes to growth or defense but which subsequently be broken down to support future growth. Absence of recycling = litter.
+*did not read the whole thing*
+
+## 20 February 2026
+Seasonal dynamics and age of stemwood nonstructural  carbohydrates in temperate forest trees
+Andrew D. Richardson, Mariah S. Carbone, Trevor F. Keenan, Claudia I. Czimczik, David Y. Hollinger, Paula Murakami, Paul G. Schaberg and Xiaomei Xu
+2013
+
+Trees accumulate and store NSC as resources to be used to support future growth and metabolism. This NSC pool is essentially:
+1. Sugars (mostly surcrose)
+2. Starch
+It's thought that a large fraction of a tree's annual C budget is allocated to the NSC pool
+
+The standard conceptual model for NSCs is the pool is:
+1. Depleted when demand exceeds supply, e.g. when metabolism and growth requirements are high or when production of photoassimilates (the carbon fixed and incorporated into plant tissues wheras photosynthate is the product of photosynthesis) is limited by the environment
+2. Recharged when the supply exceeds demand, e.g. when environmental conditions permit high rates of photosynthesis, or when growth and metabolism are low. 
+Korner 2003 framework argues that the size of the NSC pool is mostly driven by demand-side fractors. In this framework, storing NSCs for future use is viewed as bet-heding strategy, providing reserves that the tree can use when stressed. Moreover, carbon isotope labeling studies showed that NSC are usd to fuel growth and respiration when the supply of photoassimilates is inadequate. There is even evidence that stored NSCs, especially bellow-ground can remain a decade after assimilation. 
+
+They mention an hypothesis drawn by 6 articles, where time lags between C uptake and biomass growth could be explained by NSC pool that functions as temporary storage with accumulated NSC not being drawn upon for allocation to growth until the following year.
+
+Starch is the long-term storage form of NSC and is immobile
+
+They report an hypothesis of "last in, first out" where the most recently added starch molecules are the first to be converted back to sugars to support metabolic demands. They interpret their results as stressed trees (because of climate, age, disease, damage) have higher demande for stored NSC because they do not have new photosynthates.
