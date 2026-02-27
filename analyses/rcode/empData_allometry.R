@@ -34,7 +34,18 @@ mea <- read.csv2("output/cleanedMeasurements.csv", sep = ",", header = TRUE)
 
 mea$spp_num <- match(mea$genus, unique(mea$genus))
 mea$treeid_num <- match(mea$tree_ID, unique(mea$tree_ID))
+commonNames <- c(
+  "acer_negundo"              = "Manitoba maple",
+  "betula_papyrifera"         = "Paper birch",
+  "pinus_strobus"             = "Eastern white pine",
+  "populus_balsamifera"       = "Balsam poplar",
+  "prunus_virginiana"         = "Chokecherry",
+  "quercus_macrocarpa"        = "Bur oak",
+  "sequoiadendron_giganteum"  = "Giant sequoia"
+)
 
+mea$commonName <- commonNames[mea$species]
+unique(mea$commonName)
 # remove nas
 mea <- mea[which(!is.na(mea$height) & !is.na(mea$diameter)),]
 mea$height   <- as.numeric(mea$height)
@@ -420,7 +431,8 @@ biomass_simu2$per95  = apply(biomass_simu, 1, quantile, probs = 0.95)
 # === === === === === === === === === === === === === === === === === === === 
 # Plotting Posterior Predictive Checks ####
 # === === === === === === === === === === === === === === === === === === === 
-cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
+# cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d14a")
+cols <- c("#a40000", "#16317d", "#007e2f", "#ffcd12", "#b86092", "#721b3e","#00b7a7") 
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 ##### Retrodictive no histogram #####
@@ -428,8 +440,8 @@ cols <- c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329","#e78429", "#f9d
 pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck.pdf", 
     width = 10, height = 8)
 
-biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
-biomass_simu2$genus <- df25$genus[match(biomass_simu2$spp, df25$spp_num)]
+biomass_simu2$sppname <- df25$commonName[match(biomass_simu2$spp, df25$spp_num)]
+biomass_simu2$commonName <- df25$commonName[match(biomass_simu2$spp, df25$spp_num)]
 spp_levels <- unique(biomass_simu2$spp)
 
 # Panel layout similar to facet_wrap
@@ -448,7 +460,7 @@ for(sp in spp_levels){ # i = 1
        ylim = range(c(df$per25, df$per75), na.rm = TRUE),     
        xlab = "Diameter(mm)^2*Height(cm3)",
        ylab = "Above Ground Biomass (gr)",
-       main = df$genus[sp])
+       main = df$commonName[sp])
 
   #   ribbons
   polygon(
@@ -482,7 +494,7 @@ if (retro) {
   pdf(file = "figures/empiricalData_allometry/slopesRetrodictiveCheck_hist.pdf", 
       width = 10, height = 8)
   
-  biomass_simu2$sppname <- df25$species[match(biomass_simu2$spp, df25$spp_num)]
+  biomass_simu2$sppname <- df25$commonName[match(biomass_simu2$spp, df25$spp_num)]
   spp_levels <- unique(biomass_simu2$spp)
   
   # Panel layout similar to facet_wrap
