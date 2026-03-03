@@ -243,11 +243,13 @@ For both projects, we used Bayesian hierarchical models coded in Stan with the r
 \begin{aligned}
 ringwidth_i &\sim \text{Normal}(\mu, \sigma_y) \\
 \mu &= \alpha + \alpha_{\text{species}} + \alpha_{\text{site}} + \alpha_{\text{treeid}} + \beta_{species}* gdd \\
-\alpha_{\text{species}} &\sim \text{Normal}(0, 0.5) \\
-\alpha_{\text{site}} &\sim \text{Normal}(0, 0.5) \\
+\alpha &\sim \text{Normal}(5, 3) \\
+\alpha_{\text{species}} &\sim \text{Normal}(0, 6) \\
+\alpha_{\text{site}} &\sim \text{Normal}(0, 2) \\
 \alpha_{\text{treeid}} &\sim \text{Normal}(0, \sigma_{\alpha \, \text{treeid}}) \\
 \beta_{\text{species}} &\sim \text{Normal}(0, 0.5) \\
-\sigma_{\alpha \, \text{treeid}} & \sim \text{Normal}(0, 0.2)
+\sigma_{\alpha \, \text{treeid}} & \sim \text{Normal}(0, 0.5) \\
+\sigma_y & \sim \text{Normal}(0, 3)
 \end{aligned}
 \]
 
@@ -255,11 +257,13 @@ ringwidth_i &\sim \text{Normal}(\mu, \sigma_y) \\
 \[
 \begin{aligned}
 ringwidth_i &\sim \text{Normal}(\mu, \sigma_y) \\
-\mu &= \alpha + \alpha_{\text{species}} + \alpha_{\text{site}} + \alpha_{\text{treeid}} + \beta_{species}* gdd \\
-\alpha_{\text{species}} &\sim \text{Normal}(0, 0.5) \\
+\mu &= \alpha + \alpha_{\text{species}} + \alpha_{\text{treeid}} + \beta_{species}* gdd \\
+\alpha &\sim \text{Normal}(2, 3) \\
+\alpha_{\text{species}} &\sim \text{Normal}(0, 6) \\
 \alpha_{\text{treeid}} &\sim \text{Normal}(0, \sigma_{\alpha \, \text{treeid}}) \\
-\beta_{\text{species}} &\sim \text{Normal}(0, 0.5) \\
-\sigma_{\alpha \, \text{treeid}} & \sim \text{Normal}(0, 0.2
+\beta_{\text{species}} &\sim \text{Normal}(0, 1) \\
+\sigma_{\alpha \, \text{treeid}} & \sim \text{Normal}(0, 2) \\
+\sigma_y & \sim \text{Normal}(0, 1)
 \end{aligned}
 \]
 
