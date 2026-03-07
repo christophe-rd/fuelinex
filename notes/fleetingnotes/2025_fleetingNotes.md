@@ -889,23 +889,22 @@ Yet, growing evidence suggest that cambial activity is typically more sensitive 
 They show a widespread temporal decoupling between carbon assimilation and tree growth, underpinning the different climatic sensitivities of these 2 processes.
 
 ### Divergent contributions of spring and autumn photosynthetic phenology to seasonal carbon uptake of subtropical vegetation in China
-**Permanent notes:**
-Changhui Peng 
-Early spring and delayed autumns increased GPP and NPP during these 2 phases.
+**Permanent notes: YES**
+Changhui Peng  
 
-Divergent rates of vegetation metabolic activity (photosynthesis and respiration) diversify the links between phenology and vegetation productivity. E.g. later fall compensates for decreased productivity during summer dur to a larger increase in photosynthesis compared to respiration in temperate forests.
+We still don't know the impact of phenological variation on carbon uptake. . They site Dow to demonstrate that longer vegetation growing seasons do not alter spring pheno carbon uptake. Divergent rates of vegetation metabolic activity (photosynthesis and respiration) diversify the links between phenology and vegetation productivity. E.g. later fall compensates for decreased productivity during summer drought due to a larger increase in photosynthesis compared to respiration in temperate forests.
 
 ## 5 October 2025
 ### Number of growth days and not length of the growth period  determines radial stem growth of temperate trees
 **Permanent notes:**
-The curve model of annual radial growth is fast at the beginning and slow at the end of the growing growth perio
+The curve model of annual radial growth is fast at the beginning and slow at the end of the growing growth period
 
 On shorter time scales, cambial activity is non-linear. This intermittent growth activity can be caused by varying environmmental conditions driven by water deficits and droughts, internal tree process related to phenology or resource allocation or involve reponses to competition or pathogens. Not well-understood however because of absence of fine resolution data
 
 They found that annual day length patterns, particularly around the summer soltice set a window of opportunity for radial growth. Within that window, the water in air and soil is decisive for the probability of growth ad the temporal fluctualions cause highly intermittent growth patterns. The resulting number of days with growth are more important for total growth than stem phenology. They suggest for accounting intra-annual and species-specific responses to climate in tree and forest models to reduce the uncertainty of forest productivity predictions under ongoing global warming.
 
 ### Limited physiological acclimation to recurrent heatwaves in two boreal tree species
-**Permanent notes:**
+**Permanent notes: YES**
 Increased CO2 in the atmosphere increase temperature which increase heat waves. Extreme heat can impact growth either directly through cell processes disruption or indirectly through effects of rising leaf-to-air vaport deficit (VPD)
 
 Increased temperature leads to reduced photosynthesis which can be attributed to: 

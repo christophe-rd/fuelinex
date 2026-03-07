@@ -95,3 +95,11 @@ They mention an hypothesis drawn by 6 articles, where time lags between C uptake
 Starch is the long-term storage form of NSC and is immobile
 
 They report an hypothesis of "last in, first out" where the most recently added starch molecules are the first to be converted back to sugars to support metabolic demands. They interpret their results as stressed trees (because of climate, age, disease, damage) have higher demande for stored NSC because they do not have new photosynthates.
+
+### Longer growing seasons will not offset growth loss in drought-prone temperate forests of Central-Southeast Europe
+Jan Tumajer, Václav Treml 
+2025
+**Permanent notes:**
+While in boreal and mountain forests, the prolongation of the GS and higher growth rates are responses to climate change, these responses might be more complex in seasonally dry environements with long GS, short winter dormancy and facultative summer quiescence due to drought stress.
+
+All forecasts agree that cold limitation on growth will be alleviated as climate change progresses, though with divergent growth trasjectores based on rates of GS extension and summer drought streess.
