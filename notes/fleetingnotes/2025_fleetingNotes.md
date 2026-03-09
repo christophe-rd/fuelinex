@@ -922,7 +922,7 @@ Some species have thermal photosynthetic/respiratory acclimatation while others 
 - This is explained by growth strategies of gymnosperms vs angiosperms (which are usually better)
 
 ### Responses of tree species to heat waves and extreme  heat events
-**Permanent notes:**
+**Permanent notes: YES **
 Robert Teskey1, Timothy Wertin2, Ingvar Bauweraerts3, Maarten Ameye4, Mary Anne McGuire1 & Kathy Steppe
 
 Summertime extreme temperatures associated with prolonged heat waves, lasting for several weeks, now impact approximately 10% of land surfaces, up from only 1% in the 1960s. 
@@ -930,21 +930,21 @@ Summertime extreme temperatures associated with prolonged heat waves, lasting fo
 An increase in the frequency and intensity of heat waves is expected to continue through the 21st century (Yao et al. 2013).
 
 ### Heat waves: a hot topic in climate change research
-**Permanent notes:**
+**Permanent notes: ** YES 
 Heat wave is a period of excessively hot weather (5 or more consecutive days of prolonged heat in which the daily maximum temperature is higher than the average maximum temperature by 5 °C ), which may be accompanied by high humidity
 
 The more intense and more frequently occurring heat waves cannot be explained solely by natural climate variations and without human-made climate change
 
-A mechanism for the increase occurence of heat waves is a weakeking of the polar jet stream (important weather factor for middle latitude regions of North America, Europe and Asia) caused by global warming which increases the occurence of stationnary weather, resulting in heavy rain falls or heat waves. 
+A mechanism for the increase occurence of heat waves is a weakeking of the polar jet stream (important weather factor for middle latitude regions of North America, Europe and Asia) caused by global warming which increases the occurence of stationary weather, resulting in heavy rain falls or heat waves. 
 
 ## 16 October 2025
 ### Impacts of rising atmospheric dryness on terrestrial ecosystem carbon cycle
 Wenping Yuan 2025
-**Permanent notes:**
+**Permanent notes:** YES
 
 Vapor pressure deficit is a critical driver of terrrestrial GPP (i.e. rates of photosynthesis in terrestrial ecosystems). GPP has a fundamental role in determining the cabon budget of terrestrial ecosystems. The trend indicates that GPP decreases as VPD increases.
 
-Increasing VPD can influence both spring and fall phenology, which regulat the length of the growing season, ultimtately affecting vegetation productivity and terrestrial cabon sink.
+Increasing VPD can influence both spring and fall phenology, which regulates the length of the growing season, ultimtately affecting vegetation productivity and terrestrial cabon sink.
 
 Prolonged exposure to high VPD can trigger absisic acid, which advance leaf senescence, but that's mostly relevant in tropical regions.
 
@@ -958,8 +958,9 @@ Prolonged exposure to high VPD can trigger absisic acid, which advance leaf sene
 ## 17 October 2025
 ### New frontiers in tree-ring research
 Jessie K Pearl 2020
+**Permanent notes:** YES
 
-Tree-ring samples with low ring counts can contain multiple sprurious andstochastic growth patterns. Thus shorter ring series limit the confidence in cross-dating, the foundational process of visaully and statistically assigning years to tree-ring measurements. In addition, chronologies developed from short-ring series would only preserve high-frequency  variability, limiting the range of applications. A minimum of 50 rings is required to cross-date individuals. Samples with less than 50 rings are often disregarded because they are unsuable for conventional approcahes. *this applies mostly for archeology* **Good list of studies that use short-lived materials but for archeological**
+Tree-ring samples with low ring counts can contain multiple sprurious and stochastic growth patterns. Thus shorter ring series limit the confidence in cross-dating, the foundational process of visually and statistically assigning years to tree-ring measurements. In addition, chronologies developed from short-ring series would only preserve high-frequency  variability, limiting the range of applications. A minimum of 50 rings is required to cross-date individuals. Samples with less than 50 rings are often disregarded because they are unsuable for conventional approcahes. *this applies mostly for archeology* **Good list of studies that use short-lived materials but for archeological**
 
 Two papers using bayes for tree-rings
 
@@ -972,6 +973,8 @@ Micro-wood anatomy research has expanded tree-ring studies into new geographical
 ## 20 October 2025
 ### Invest now, get paid later? Limits and opportunities of woody  plants to time growth in a future climate
 Frederik Baumgarten,  Sally Aitken, Yann Vitasse, Robert D Guy, EM Wolkovich NOT PUBLISHED
+
+**Permanent notes:**
 
 The role of primary growth has been neglected, but it drives crown expansion and consequently, leaf area and its corresponding photosynthetic capactity which will determine biomass production (Girard2011Polycyclism*; Soolanayakanahally2015Comparative)
 
