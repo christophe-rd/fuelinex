@@ -974,7 +974,7 @@ Micro-wood anatomy research has expanded tree-ring studies into new geographical
 ### Invest now, get paid later? Limits and opportunities of woody  plants to time growth in a future climate
 Frederik Baumgarten,  Sally Aitken, Yann Vitasse, Robert D Guy, EM Wolkovich NOT PUBLISHED
 
-**Permanent notes:**
+**Permanent notes:** YES
 
 The role of primary growth has been neglected, but it drives crown expansion and consequently, leaf area and its corresponding photosynthetic capactity which will determine biomass production (Girard2011Polycyclism*; Soolanayakanahally2015Comparative)
 
@@ -997,6 +997,7 @@ In contrast, determinate species preform tissues in advance and are thus more co
 ### Four ways to define the growing season
 *already notes on this but following up*
 Korner 2023
+**Permanent notes:** YES
 Phenological season is employed when referring to a timeframe based on phenological observations rather than growth. The contrast between invisible developmental states and processes (hormones and metabolism) on one side and visible changes in appearance (phenology) on the other side, complicate definitions of the onset and end of a phenological season.
 
 ### Wood formation in trees
@@ -1016,15 +1017,16 @@ The allometric relationship between tree diameter and tree height is widely used
 ## 19 November 2025
 ### In dendroecology: Low hanging DendroDynamic Fruits regarding Disturbances
 Neil Pederson
+**Permanent notes: YES**
 Across eatern North America, drought killed trees in the first part of the 20th century, however, drought induced mortality has not been recorded over the last 30-50 years. Which is consistent with increased moisture availability in recent decades.
 
-Crossdating is not always conducted in all tree-ring studies because of difficulty of dating sopme species and particularly understory trees. Notably, some understory diffuse porous trees have week chronology interseries correlations and many locally absent rings.
+Crossdating is not always conducted in all tree-ring studies because of difficulty of dating some species and particularly understory trees. Notably, some understory diffuse porous trees have week chronology interseries correlations and many locally absent rings.
 
 Locally absent rings:![[Screenshot 2025-11-19 at 10.41.36 AM.png]]
 
 ### Regional growth decline of sugar maple (Acer saccharum) and its potential causes
 Neil Pederson 
-
+**Permanent**
 Future of sugar maple is uncertain because of :
 - Suite of decline symptoms: 
 	- Branch dieback and foliar discoloration
