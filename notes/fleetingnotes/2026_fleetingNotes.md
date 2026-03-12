@@ -103,3 +103,23 @@ Jan Tumajer, Václav Treml
 While in boreal and mountain forests, the prolongation of the GS and higher growth rates are responses to climate change, these responses might be more complex in seasonally dry environements with long GS, short winter dormancy and facultative summer quiescence due to drought stress.
 
 All forecasts agree that cold limitation on growth will be alleviated as climate change progresses, though with divergent growth trasjectores based on rates of GS extension and summer drought streess.
+
+## 11 March 2026
+### A florigen prepares for spring
+Raphael Trösch
+2026
+The florigen Flowering Locus T1 (FT1) in hybrid aspen accumulates in dormant buds during cold temperatures and is required to break dormancy and budbreak. Fluctuating winter temperatures contribute to increased variability in the timing of bud break--> allowing bet hedging strategy.
+
+In fall, abscisic acid and plasmodesmata with callose causes bud dormancy in the fall. In the spring plasmodesmata needs to be unblocked through reduction of callose levels: stricktly dependant on prolonged cold temperatures.
+
+Their experimental results suggest that short streches of warm temperatures prevent dormancy release by inhibiting FTI expression and callose reduction. This shows that with variable temperatures may enforce bet-hedging strategies that could increase apical meristem survival under fluctuating and less predictable conditions.
+
+## 11 March 2026
+### How phenological tracking shapes species  and communities in non-stationary  environments
+E. M. Wolkovich, and Megan J. Donahue
+2021
+
+Stabilizing mechanisms: processes that cause species in a community to limit their own fitness more strongly than other species's fitness (e.g. common requirement for coexistence that intraspecific competition must be stronger than interspecifc) includes niche differences.
+
+Environmental tracking often relates to the timing of a resource pulse, thus traits related to resource acquisition are likely contenders for a trade-off. Traits that make them poor resource competitors may track the environement closely to take advantage of transient periods of available resources, but will risk tissue loss (frost or snow) and may require to be stress resistant. 
+In contrast, species with traits that make them superior resource competitors may perform well even if they track the environments less closely, because their resource is less constrained by competitors. E.g. under canopy species that leaf out before upper canopy to gain access to light

@@ -1026,7 +1026,7 @@ Locally absent rings:![[Screenshot 2025-11-19 at 10.41.36 AM.png]]
 
 ### Regional growth decline of sugar maple (Acer saccharum) and its potential causes
 Neil Pederson 
-**Permanent**
+**Permanent notes: YES**
 Future of sugar maple is uncertain because of :
 - Suite of decline symptoms: 
 	- Branch dieback and foliar discoloration
@@ -1035,7 +1035,7 @@ Future of sugar maple is uncertain because of :
 	- Elevated mortality
 
 Some have proposed to define a "decline disease" etiology for S. saccharum. Proximate causes :
-- Soil acidification and nutrietn depletion due toa cid rain
+- Soil acidification and nutrient depletion due to acid rain
 - Insect outbreaks (e.g. forest tent caterpillar)
 - Armillaria pathogens
 - Density dependant competition
@@ -1051,6 +1051,7 @@ They show negative growth rates despite relatively young age of these long-lived
 Growing season precipitation increased during the period of growth decline in their region with synchronous increases in minimum temperatures and lengthening of GS, which should have increased growth, but only a small portion of trees increased growth rates during this time. This suggests that sugar maple growth decline is unrelated to moisture limitation.
 
 ### Peak radial growth of diffuse-porous species occurs during  periods of lower water availability than for ring-porous and  coniferous trees
+**Permanent notes: YES**
 Loïc D’Orangeville, Malcolm Itter, Dan Kneeshaw, J. William Munger, Andrew D. Richardson, James M. Dyer, David A. Orwig, Yude Pan and Neil Pederson
 
 Many tree-level traits also affect individual vulnerability under changing environmental conditions such as:
@@ -1061,11 +1062,11 @@ Many tree-level traits also affect individual vulnerability under changing envir
 - Wood structure
 Studies also suggest that larger trees may be more vulnerable to drought with serious implications for carbon sequestration.
 
-The timing of drought may also strongly influence drought vulnerability due to the highly seasonal nature of cambial activity nad its acute sensitivity to water availability.
+The timing of drought may also strongly influence drought vulnerability due to the highly seasonal nature of cambial activity and its acute sensitivity to water availability.
 
 ![[Screenshot 2025-11-19 at 11.20.47 AM.png]]
 
-Diffuse porous species display large, positive correaltions between leaf and diameter growth phenology across years. For ring-porous species, they found a weaker relationship between leaf and diameter growth phenology,.
+Diffuse porous species display large, positive correaltions between leaf and diameter growth phenology across years. For ring-porous species, they found a weaker relationship between leaf and diameter growth phenology.
 
 The later window of peak growth in diffuse-porous speceis derives from physiological differences in reactivation in teh region of the cambium. The first vessels are formed when leaves are developing or mature while the first vessels of ring-porous species are formed several weeks before budbreak, although ring-porous vessels become functional after bud break. While the mechanisms are not well understood, Auxin (indole-3-acetic acid) is an important promoter of cambium reactivation and has long been thought to originate from developing leaves
 

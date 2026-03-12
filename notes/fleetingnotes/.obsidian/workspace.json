@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2375f9b1f4b5217e",
+        "id": "2fc25c751ded6b80",
         "type": "tabs",
         "children": [
           {
-            "id": "c82e11a6256bbaca",
+            "id": "4bc37820895a1ddc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -169,7 +169,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "c82e11a6256bbaca",
+  "active": "4bc37820895a1ddc",
   "lastOpenFiles": [
     "2026_fleetingNotes.md",
     "2025_fleetingNotes.md",
