@@ -44,6 +44,15 @@ commonNames <- c(
   "sequoiadendron_giganteum"  = "Giant sequoia"
 )
 
+commonNames <- c(
+  "acer_negundo"              = "Acer negundo",
+  "betula_papyrifera"         = "Betula papyrifera",
+  "pinus_strobus"             = "Pinus strobus",
+  "populus_balsamifera"       = "Populus balsamifera",
+  "prunus_virginiana"         = "Prunus virginiana",
+  "quercus_macrocarpa"        = "Quercus macrocarpa",
+  "sequoiadendron_giganteum"  = "Sequoiadendron giganteum"
+)
 mea$commonName <- commonNames[mea$species]
 unique(mea$commonName)
 # remove nas
