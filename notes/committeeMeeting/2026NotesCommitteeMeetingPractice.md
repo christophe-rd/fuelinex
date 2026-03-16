@@ -31,16 +31,15 @@
 - Whatever isn't massive and if something is hapening, it might be more for juveniles. 
 - Look at the Dow paper at the Harvard Forest, how much data did they have, how many species and trees OK
 - Tweak title to remove age OK
-- Add a slide figure for age of trees for TS, in a back up slide at the end
-- Remove PhD from the timeline. 
+- Add a slide figure for age of trees for TS, in a back up slide at the end OK
+- Remove PhD from the timeline. OK
 - Feel m
 - Try to separate year, what year had the longest season, the ealiest 
 - Do a model with a year effect only and explain the model with that in perspective. 
 
 - New phenology slide: phenology i use for vegetative phenology. Check Dow
-- Slide headers: put questions
-- Don't say PRC
-- Take s
+- Slide headers: put questions OK
+- Don't say PRC OK
 
 **Deirdre:**
 - Got through my figures more slowly, more figures to describe spring and autumn
