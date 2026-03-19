@@ -40,7 +40,7 @@
 - New phenology slide: phenology i use for vegetative phenology. Check Dow
 - Slide headers: put questions OK
 - Don't say PRC OK
-
+ 
 **Deirdre:**
 - Got through my figures more slowly, more figures to describe spring and autumn
 - Back pocket explanation for my models, e.g. sites.

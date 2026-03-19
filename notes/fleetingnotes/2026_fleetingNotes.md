@@ -123,3 +123,15 @@ Stabilizing mechanisms: processes that cause species in a community to limit the
 
 Environmental tracking often relates to the timing of a resource pulse, thus traits related to resource acquisition are likely contenders for a trade-off. Traits that make them poor resource competitors may track the environement closely to take advantage of transient periods of available resources, but will risk tissue loss (frost or snow) and may require to be stress resistant. 
 In contrast, species with traits that make them superior resource competitors may perform well even if they track the environments less closely, because their resource is less constrained by competitors. E.g. under canopy species that leaf out before upper canopy to gain access to light
+
+## 17 March 2026
+### Early leafout extends calendar but not thermal growing seasons 
+D.M. Buonaiuto,C.J. Chamberlain, Deirdre Loughnan, E.M. Wolkovich
+**Permanent notes:**
+Adressing the gaps in understanding the mechanisms that plant use to shift their phenophase and may not increase productivity with longer seasons requires working across plant strategies (e.g. ruderal vs competitive species) and varying definitions of a GS. 
+
+Evidence shows that local climat may define narrow periods of growth for many species, with most of the growth early in the GS. This suggests that the calendar GS, i.e. number of days  between start and end of GS may be less informative to predictivng growth than estimates that directly incorporate environmental conditions.
+
+Longer calendar growing season lead to cooler thermal growing seasons.
+
+Differences between thermal and calednar GS are species dependant. Therefore, previous findings may depend on the species studied and this cross-species variation likely scales up to affect ecosystem-level estimates which generally have one measure of the start of season--the earliest leafout species and one for the end of season, likely capturing the later-leafout species.
