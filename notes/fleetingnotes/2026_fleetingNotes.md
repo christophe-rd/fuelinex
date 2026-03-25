@@ -135,3 +135,28 @@ Evidence shows that local climat may define narrow periods of growth for many sp
 Longer calendar growing season lead to cooler thermal growing seasons.
 
 Differences between thermal and calednar GS are species dependant. Therefore, previous findings may depend on the species studied and this cross-species variation likely scales up to affect ecosystem-level estimates which generally have one measure of the start of season--the earliest leafout species and one for the end of season, likely capturing the later-leafout species.
+
+## 25 March 2026
+### Carry-over effects between spring and autumn phenology differ among the world's biomes
+Zhaofei Wu, Yongshuo H. Fum, Thomas W. Crowther, Susanne S. Renner, Yann Vitasse, Constantin M. Zohner
+2026
+**Permanent notes:**
+While SOS and EOS are driven by environenmental factors, they are also influenced by plant-internal mechanisms with potential carry-over effects between the two phenophases. Experiments show the interconnection with effect of SOS on EOS and EOS on following year's SOS.
+
+In temperate regions, an earlier SOS often leads to an earlier EOS, explained by:
+- developmental and nutrient constraints
+- Limited leaf lifespan
+- Pathogen load increase
+- Oxidative stress 
+- Increased drought conditions
+
+In enviroments where chilling requirements are high (as expected in high latitude), a delayed EOS could delay the onser/completion of endodormancy--> postponing the transition to ecodormancy = later SOS.
+However, warmer autumns may also delay EOS and advance SOS by reducing bud dormancy depth and/or enhancing nutrient resorption
+
+Their results show that an earlier SOS adavanced onset of photosynthesis, potentially accelarating development and growth in the early season, which is expected to advance EOS. Their results show that preseason temperatures advanced EOS, with warmer conditions tend to enhance vegetation activity, provided that water is not limiting
+
+Another hypothesis they propose for the SOS and EOS coupling is through leaf lifespan. Leaf aging is partly driven by the accumulation of ROS and earlier leafout may accelarate ROS aging due to increased exposure to solar radiation. However, theirs results show that radiation in temperate and boreal systems had a minor effect on EOS. They observed that SOS had a stronger influence on the onset of senescence, while EOS50 (half of the season amplitude) was more responsive to late-season temperature
+
+The effect of EOS on SOS was the strongest in boreal regions where plants have the longest dormancy periods, but their effects were in different directons.
+
+Their results highlight the importance of internal physiological regulation in shaping ecosystem functioning. Warming should keep advance spring and delay autumn phenophase, however their results show that the carry-over effects may dampen the net phenological response.

@@ -1002,7 +1002,7 @@ Phenological season is employed when referring to a timeframe based on phenologi
 
 ### Wood formation in trees
 Christophe Plomion 2001
-
+**Permanent notes:**
 The vascular cambium is derived from protocambium which in turns develops from the apical meristem. It develops diametral growth in shoots and roots and is of great significance for wood production. Cambial activity continuously renews the functional xylem and phloem. 
 
 Cambial zone includes the cambium, made up of juvenile cells, called initials and the phloem and xylem mother cells, which are both produced by the dividing cambial initials.
@@ -1011,7 +1011,7 @@ Xylem cells always divide more compared with phloem mother cells, which explains
 ## 22 October 2025
 ### Height-Diameter Models with Random Coefficients and Site Variables for Tree Species of Central Maine
 Mike R. Saunders1, Robert G. Wagner
-
+**Permanent notes: YES**
 The allometric relationship between tree diameter and tree height is widely used to estimate tree volume. This is therefore a fundamental commonent of many growth and yield process, forest planning and forest harvesting models.  However, it's highly site dependant and not constant over time. 
 
 ## 19 November 2025
@@ -1076,6 +1076,7 @@ They also found red maples that didn't grow.
 
 ### Leaf out time correlates with wood anatomy across large  geographic scales and within local communities
 Jessica A. Savage, Thomas Kiecker, Natalie McMann , Daniel Park , Matthew Rothendler and Kennedy Mosher
+**Permanent notes:** YES
 Recent meta-analysis suggest that wood anatomy may explain differences in leaf phenology among species, but there is conflicting evidence from this.
 
 If a relationship between wood anatomy and leaf phenology proves robust across taxa, we could use wood anatomy as a proxy for leaf phenology in larger studies. However, from a hydraulic perspective, this relationship is weak because:
@@ -1086,7 +1087,7 @@ Their results suggest that leaf out time was positively correlated witha verage 
 
 ### Data analysis using regression and multilevel/hierarchical modelling
 Gelman and Hill
-
+**Permanent notes:** YES
 **What is a hierarchical model?**:
 - AKA multilevel model and they are called hierarchical for 2 reasons:
 	1. From the structure of the data (e.g. students clustered within schools)
