@@ -4,6 +4,10 @@ MetBrewer::colorblind.friendly("Archambault")
 MetBrewer::display_all()
 MetBrewer::met.brewer()
 MetBrewer::MetPalettes
+
+# zelda tears of the kingdom
+"#0a6a3c","#d39822"
+
 # wes palettes ####
 
 $BottleRocket1

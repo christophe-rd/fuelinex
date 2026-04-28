@@ -160,3 +160,21 @@ Another hypothesis they propose for the SOS and EOS coupling is through leaf lif
 The effect of EOS on SOS was the strongest in boreal regions where plants have the longest dormancy periods, but their effects were in different directons.
 
 Their results highlight the importance of internal physiological regulation in shaping ecosystem functioning. Warming should keep advance spring and delay autumn phenophase, however their results show that the carry-over effects may dampen the net phenological response.
+
+## 22 April 2026
+##### Global Patterns and Drivers of Recent Decoupling Between Extratropical Spring Phenology and Temperature
+Ziyu Lu, Ming Shao, Jiayan Li, Jingyuan Lin, Peiyuan Tao, Mengyu Li, Siqi Zhang, Peng Yao, Yang Fu
+2026
+**Permanent notes:**
+Tree-ring data shoes that thermal cues can enhance growth in cold and moist climates, plant development is still reduced by water deficiency in dry environements *I already have a note in the slip box that is kind of recent on this* 
+With these spatial constraints, increasing spring drought and its legacy effect (e.g. delayed soil moisture recovery), can further suppress growth and delay phenology in the following year. These combined endogenous and exogenous constraints can attenuate phenological responses, thereby amplifying the mismatch between warming-driven cues and vegetationactivity
+
+They investigated ecosystems north of the 30 degree paralell to understand the decoupling between the thermal conditions and vegetation green-up. They found contrasting evidence across biomes, with the thermal season advancing at a slower pace than the green-up SOS, in forest ecosystems.
+
+High chillin requirements usually require less forcing to trigger budburst
+
+There would be a non-linear trend between GSOS and thermal signals. Recent evidence (Meng 2024) shows that biological regualtion plays an important role in shaping pheno responses, with the time of vegetation green-up and senescence being remarkably stable despite CC.
+
+Their results in cold and humid forests showing stronger phenology sensitivity to spring temperature than the thermal start of season and they propose following the work from Gao 2022 (*should be in splipbox*) that advances in the thermal season increases tree growth and carbon uptake, and that enhanced C assimilation from the previous season can advance spring phenology in the following year. 
+
+The decoupling they observed highlight the increasing influence of non-thermal constraints, such as water availability, light intensityt and other biophysical signls regulating vegetation green-up. This challenges the adequacy of traditional temperature-based phenological models which may underestimate the magnitude and spatial extent of future phenological delays
