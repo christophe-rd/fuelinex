@@ -178,3 +178,31 @@ There would be a non-linear trend between GSOS and thermal signals. Recent evide
 Their results in cold and humid forests showing stronger phenology sensitivity to spring temperature than the thermal start of season and they propose following the work from Gao 2022 (*should be in splipbox*) that advances in the thermal season increases tree growth and carbon uptake, and that enhanced C assimilation from the previous season can advance spring phenology in the following year. 
 
 The decoupling they observed highlight the increasing influence of non-thermal constraints, such as water availability, light intensityt and other biophysical signls regulating vegetation green-up. This challenges the adequacy of traditional temperature-based phenological models which may underestimate the magnitude and spatial extent of future phenological delays
+
+## 7 May 2026
+### No winter halt in below-ground wood growth of four angiosperm deciduous tree species
+Lorène J. Marchand, Jožica Gričar, Paolo Zuccarini, Inge Dox, Bertold Mariën, Melanie Verlinden, Thilo Heinecke, Peter Prislan, Guillaume Marie, Holger Lange, Jan Van den Bulcke, Josep Penuelas, Patrick Fonti & Matteo Campioli 
+2025
+Paper
+**Permanent notes:**
+The annual wood biomass production in angiosperms (expecting similar values from angiosperms) is 10% from cell enlargment and 90% to secondary wall thickening. The substantial carbon accumulation is from the deposition of cellulose, hemicellulose and ligning onto the secondary wall of xylem cells during the thickening stage, primarily in the 2nd part of the GS, when there is comparable partitioning of available carbon between above-ground and below-ground woody organs. However, most of the carbon in autumn flows towards the rots
+They argue that undestanding roots is essential in defining tree functioining, such as the halt of structural biomass prod and tree management of carbon reserves as well as the difiintion of the GS. 
+
+The show very novel results that continuous ring enlargment and thickening in autumn and winter for coarse roots goses against the assumption that below-ground wood growth mirrors the above-ground wood growth dynamics and that above-ground and below-ground wood growth in halt in autumn.
+
+This decoupling was observed across species and lcoations
+In quebec, the assumed minimum threshold of 5C for wood growth of temperate species doesn't seem valid, even for above-ground growth as no stem growth was observed below 12C
+
+They suggest that temperature may not be the main driver for wood cessation, with more likely drivers being light conditions or legacy effects due to spring and summer condiitons. 
+
+Their results show that leaf senescence in autumn is decoupled to the growth dynamics of below-ground wood, indirectly stressing the key role of NSC in below-ground wood growth
+Shows that coarse-root reserves are not only essential for storage, but also for coarse-root wood growth during the leafless period
+
+## 8 May 2026
+### Wood structure explained by complex spatial source-sink interactions
+Andrew D. Friend, Annemarie H. Eckes-Shephard & Quinten Tupker 
+**Permanent notes:**
+Paper
+There is a key question of why cellular mass is relatively unresponsive to temperature, except in the final part of a developping ring. A potential answer is the lack of temp sensitivity in earlywood is due to compensation mechasnisms between rates and durations, which breaks down in latewood = max latewood density being an important proxy for past climate.
+
+Their work provides a mechanistic basis for the explicit treatment of tree growth in global vegetation models, facilitating a balanced source/sink approach.
