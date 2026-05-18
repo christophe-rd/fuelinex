@@ -3,10 +3,10 @@
 # Goal Cleaning tree measurements and assessing the comments and irregularies
 
 # house keeping
-rm(list=ls()) 
-options(stringsAsFactors=FALSE)
-options(max.print = 150) 
-options(digits = 5)
+# rm(list=ls()) 
+# options(stringsAsFactors=FALSE)
+# options(max.print = 150) 
+# options(digits = 5)
 
 ### ####
 # do this: need to add validity somehow into the script
@@ -50,7 +50,7 @@ colnames(w2024) <- c("tree_ID", "bloc", "treatment", "genus", "species",
                      "diameter", "diameterTrunk2", "height", "heightTrunk2", 
                      "doy", "notes", "valid_height", "valid_diameter", "year", 
                      "month", "season")
-
+str(w2024)
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Clean winterall 2025 diameter and height measurements ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -161,22 +161,27 @@ quma <- subset(f2025, species == "quercus_macrocarpa")
 quma$noteWinter25[which(is.na(quma$diameterFall25))]
 
 # check for negative increments
-w2024$diameterW25 <- w2025$diameter[match(w2024$tree_ID, w2025$tree_ID)]
-w2024$heightW25 <- w2025$height[match(w2024$tree_ID, w2025$tree_ID)]
+w2024_2 <- w2024
+w2024_2$diameterW25 <- w2025$diameter[match(w2024_2$tree_ID, w2025$tree_ID)]
+w2024_2$heightW25 <- w2025$height[match(w2024_2$tree_ID, w2025$tree_ID)]
 
-w2024$diameterF25 <- f2025$diameter[match(w2024$tree_ID, f2025$tree_ID)]
-w2024$heightF25 <- f2025$height[match(w2024$tree_ID, f2025$tree_ID)]
+w2024_2$diameterF25 <- f2025$diameter[match(w2024_2$tree_ID, f2025$tree_ID)]
+w2024_2$heightF25 <- f2025$height[match(w2024_2$tree_ID, f2025$tree_ID)]
 
-w2024$diaincrement25 <- w2024$diameterF25 - w2024$diameterW25 
-w2024$diaincrement24 <- w2024$diameterW25 - w2024$diameter
+w2024_2$diaincrement25 <- w2024_2$diameterF25 - w2024_2$diameterW25 
+w2024_2$diaincrement24 <- w2024_2$diameterW25 - w2024_2$diameter
 
-w2024$heightincrement25 <- w2024$heightF25 - w2024$heightW25 
-w2024$heightincrement24 <- w2024$heightW25 - w2024$height
+w2024_2$heightincrement25 <- w2024_2$heightF25 - w2024_2$heightW25 
+w2024_2$heightincrement24 <- w2024_2$heightW25 - w2024_2$height
 
 # susbset for negative increments
-w2024diamneg <- w2024[which(w2024$diaincrement24 <0),]
-w2024heightneg <- w2024[which(w2024$heightincrement24 <0),]
+w2024diamneg <- w2024_2[which(w2024_2$diaincrement24 <0),]
+w2024heightneg <- w2024_2[which(w2024_2$heightincrement24 <0),]
 
+str(w2024)
+str(w2025)
+str(f2025)
+binded <- rbind(w2024, w2025, f2025)
 
 # remove all the dead trees
 # binded <- subset(binded2, notes != "dead")
@@ -195,7 +200,6 @@ idheighttochange <- binded$tree_ID[which(binded$year == "2025" &
                                            binded$month != "november" &
                                            binded$valid_height == "no")]
 
-idheighttochange
 binded$Height[which(binded$tree_ID %in% idheighttochange & 
                       binded$year == "2024")] <- NA
 
@@ -223,10 +227,8 @@ binded$Height[which(binded$tree_ID %in% idheighttochange &
 # Decision: the year of the measurements will be corresponding to their previous GS.e.g. winter2024 will be 2023
 binded$Year <- binded$year
 binded$Year[which(binded$year == "2024")] <- 2023
-binded$Year[which(binded$year == "2025" & 
-                    binded$season == "winter")] <- 2024
-binded$Year[which(binded$year == "2025" & 
-                    binded$season == "fall")] <- 2025
+binded$Year[which(binded$year == "2025" & binded$season == "winter")] <- 2024
+binded$Year[which(binded$year == "2025" & binded$season == "fall")] <- 2025
 
 # write up csv
 ### reorganize to its nicer to play with

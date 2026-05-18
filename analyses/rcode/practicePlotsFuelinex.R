@@ -4,8 +4,8 @@
 
 
 # housekeeping
-# rm(list=ls())  
-# options(stringsAsFactors=FALSE)
+rm(list=ls())
+options(stringsAsFactors=FALSE)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # Load librairies
