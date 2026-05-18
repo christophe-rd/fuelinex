@@ -50,10 +50,10 @@ source("cleaning/source/2025cleaningShootElongation.R")
 source("cleaning/source/cleaningMeasurements.R")
 
 # count n rows of data
-nrow(phenostage24) + nrow(leafdrop24) + nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) + 
-  nrow(phenostage25) + nrow(shoot25) + 
-  610*2*3 + # cleaning measurements
-  610* 2 +
-  nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) # biomass
-
-
+# nrow(phenostage24) + nrow(leafdrop24) + nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) + 
+#   nrow(phenostage25) + nrow(shoot25) + 
+#   610*2*3 + # cleaning measurements
+#   610* 2 +
+#   nrow(greenleafcover24) + nrow(chl24) + nrow(shoot2024) # biomass
+# 
+# 

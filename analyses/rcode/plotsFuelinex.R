@@ -93,44 +93,58 @@ budburstToSet_stats <- aggregate(
   FUN = function(x) c(mean = mean(x, na.rm = TRUE), sd = sd(x, na.rm = TRUE))
 )
 
-budburstToSet_stats$mean_DOY <- budburstToSet_stats$DOY[, "mean"]
-budburstToSet_stats$sd_DOY <- budburstToSet_stats$DOY[, "sd"]
+pheno24 <- aggregate(DOY ~ 
+                       phenophaseText + phenostageNum + tree_ID + treatment + species, 
+                     phenostage24, FUN = min)
 
-# for now, just take dormant and unroled
-vec <- c("Leaf fully unfolded", "Bud is fully set")
-suby <- subset(budburstToSet_stats, phenophaseText %in% vec)
+lo24 <- subset(pheno24, species != "sequoiadendron_giganteum")
 
-# and select only for growing season extension treatments
-vectreat <- c("CoolS/CoolF", "WarmS/CoolF", "CoolS/WarmF", "WarmS/WarmF")
-suby <- subset(suby, treatment %in% vectreat)
 
-# Create the plot
-# Sample data for shoot elongation periods
-# Plot
-ggplot(suby, aes(x = mean_DOY, y = treatment, color = phenophaseText)) +
-  geom_point(size = 3, alpha = 0.7) + 
-  geom_errorbarh(aes(xmin = mean_DOY - sd_DOY, xmax = mean_DOY + sd_DOY), 
-                 height = 0.2, alpha = 0.5, linewidth = 0.6) + 
 
-  # Add text annotation for shoot elongation (aligned with species)
-  # geom_text(data = shootperiods, aes(x = (start + end) / 2, y = 4.7, label = "Shoot Elongation"), 
-  #           vjust = 2, hjust = 0.5, color = "black", size = 4) +
-  facet_wrap(~species, scales  = "free_y") +  # Adjust y-axis scales if needed
-  theme_minimal() +
-  labs(
-    x = "Day of Year",
-    y = "Treatment",
-    title = "Phenophase 2024",
-    color = "Phenophase"
-  ) +
-  theme(
-    axis.text.y = element_text(size = 10, face = "italic"),
-    axis.text.x = element_text(size = 10),
-    strip.text = element_text(size = 12, face = "bold"),
-    legend.position = "right"
-  )
+pdf("figures/phenophases.pdf", width = 14, height = 6)
 
-### === === === === === ###
+treatlevels <- unique(pheno24$treatment)
+
+for(ph in  unique(pheno24$phenophaseText[order(pheno24$phenostageNum)])) {
+  sub <- pheno24[pheno24$phenophaseText == ph, ]
+  
+  par(mfrow = c(1, 7), mar = c(8, 4, 3, 1), oma = c(0, 0, 2, 0))
+  
+  for(sp in unique(sub$species)) {
+    subspp <- sub[sub$species == sp, ]
+    subspp$treat_num <- as.integer(factor(subspp$treatment, levels = treatlevels))
+    
+    stats <- lapply(1:length(treatlevels), function(i) {
+      x <- subspp$DOY[subspp$treat_num == i]
+      q <- quantile(x, c(0.05, 0.25, 0.75, 0.95))
+      c(mean = mean(x), p5 = q[1], p25 = q[2], p75 = q[3], p95 = q[4])
+    })
+    stats <- do.call(rbind, stats)
+    colnames(stats) <- c("mean", "p5", "p25", "p75", "p95")
+    
+    plot(NULL,
+         xlim = c(0.5, length(treatlevels) + 0.5),
+         ylim = c(min(subspp$DOY, na.rm =TRUE) - 2, 
+                  max(subspp$DOY, na.rm = TRUE) + 2),
+         xaxt = "n", xlab = "", ylab = "DOY", main = sp)
+    # segments(1:nrow(stats), stats[, "p5"],
+    #          1:nrow(stats), stats[, "p95"],
+    #          col = variouspallet6, lwd = 0.5)
+    segments(1:nrow(stats), stats[, "p25"],
+             1:nrow(stats), stats[, "p75"],
+             col = variouspallet6, lwd = 1)
+    points(1:nrow(stats), stats[, "mean"],
+           pch = 16, cex = 1.5, col = variouspallet6)
+    points(subspp$treat_num + runif(nrow(subspp), -0.15, 0.15), subspp$DOY,
+           pch = 16, cex = 1,
+           col = adjustcolor(variouspallet6[subspp$treat_num], alpha.f = 0.4))
+    axis(1, at = 1:length(treatlevels), labels = treatlevels, las = 2)
+  }
+  mtext(ph, outer = TRUE, line = 0.5, cex = 1.2)
+}
+
+dev.off()
+ ### === === === === === ###
 #### Shoot elongation ####
 ### === === === === === ###
 # get mean measurement per doy, species and treatement i.e. mean per replicate
@@ -375,7 +389,7 @@ ggplot(subby, aes(x = DOY, y = chlValue,  color = tree_ID)) +
                fun = mean, geom = "line", size = 1.2) +
   facet_wrap(~ species)
   # scale_color_manual(values = variouspallet6) 
-dens(chl24sub$chlValue)
+# dens(chl24sub$chlValue)
 
 ggplot(chl24sub, aes(x = DOY, y = chlValue, color = treatment)) +
   stat_summary(fun = mean, geom = "line", size = 1.2) +
@@ -387,7 +401,7 @@ ggplot(chl24sub, aes(x = DOY, y = chlValue, color = treatment)) +
 ### === === === === === === === === ### ###
 #### Height and diameter measurements ####
 ### === === === === === === === === ### ###
-mea <- read.csv2("output/cleanedMeasurements.csv")
+mea <- read.csv("output/cleanedMeasurements.csv")
 
 # reassess how 
 meawide <- reshape(
