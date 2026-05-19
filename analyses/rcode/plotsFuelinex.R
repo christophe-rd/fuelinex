@@ -80,8 +80,7 @@ heatmap <- ggplot(df_long, aes(x = Stage, y = Treatment, fill = Pct)) +
     panel.grid = element_blank()
   )
 heatmap
-ggsave("figures/heatmap.pdf", plot = heatmap, width = 8, height = 6)
-ggsave("figures/heatmap.jpeg", plot = heatmap)
+ggsave("figures/empiricalData_plotsheatmap.pdf", plot = heatmap, width = 8, height = 6)
 
 ### === === === === === === === === === === === === ###
 #### Budburst and budset ####
@@ -101,7 +100,7 @@ lo24 <- subset(pheno24, species != "sequoiadendron_giganteum")
 
 
 
-pdf("figures/phenophases.pdf", width = 14, height = 6)
+pdf("figures/empiricalData_plots/phenophases.pdf", width = 14, height = 6)
 
 treatlevels <- unique(pheno24$treatment)
 
@@ -190,7 +189,7 @@ shootelongation <- ggplot(mean_stats) +
     legend.position = "right" 
   )
 shootelongation
-ggsave("figures/shootElongationbySpp.pdf", shootelongation)
+ggsave("figures/empiricalData_plots/shootElongationbySpp.pdf", shootelongation)
 
 # let's try something else
 test <- subset(shoot2025, genus != "sequoiadendron")
@@ -209,7 +208,7 @@ shootelong2025XSppXTreat <- ggplot(test) +
   theme_classic()
 shootelong2025XSppXTreat
 # save!
-ggsave("figures/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
+ggsave("figures/empiricalData_plots/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
 
 ##### Plots when they stopped elongating #####
 # 2024
@@ -282,7 +281,7 @@ shootelongstop <- ggplot(subforplot) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 shootelongstop
 # ggsave
-ggsave("figures/shootelongstop.pdf", shootelongstop, width = 12, height = 8)
+ggsave("figures/empiricalData_plots/shootelongstop.pdf", shootelongstop, width = 12, height = 8)
 
 ### === === === ###
 #### Senescence ####
@@ -305,7 +304,7 @@ greenessloss24_plot <- ggplot(greenesslossnona24, aes(x = treatment, y = greenes
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 greenessloss24_plot
-ggsave("figures/greenessloss24.jpg", greenessloss24_plot, width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/greenessloss24.jpg", greenessloss24_plot, width = 10, height = 6, units = "in", dpi = 300)
 
 
 # --- --- --- --- --- #
@@ -327,7 +326,7 @@ leafdrop24_plot <- ggplot(leafdrop24nona, aes(x = treatment, y = leafDrop, color
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 leafdrop24_plot
-ggsave("figures/leafdrop24.jpg", leafdrop24_plot, width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/leafdrop24.jpg", leafdrop24_plot, width = 10, height = 6, units = "in", dpi = 300)
 
 # --- --- --- --- --- --- --- ---  #
 ##### Visual green leaf cover #####
@@ -347,7 +346,7 @@ greenleafcover24_plot <- ggplot(greenleafcover24) +
   scale_color_manual(values=greenpallet)+
   theme_classic()
 greenleafcover24_plot
-ggsave("figures/greenleafcover24.jpg", greenleafcover24_plot, width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/greenleafcover24.jpg", greenleafcover24_plot, width = 10, height = 6, units = "in", dpi = 300)
 # --- --- --- --- --- --- --- --- --- #
 ##### Chlorophyll measurements #####
 # --- --- --- --- --- --- --- --- --- #
@@ -447,76 +446,117 @@ meawide$heighincrement2025 <- meawide$height2025 - meawide$height2024
 meawide$diameterincrement2025 <- meawide$diameter2025 - meawide$diameter2024
 
 # remove tree_ID that are 
-meawide2 <- subset(meawide, heighincrement2024 <= 0 & diameterincrement2024 <= 0)
-meawide2 <- subset(meawide, heighincrement2025 <= 0 & diameterincrement2025 <= 0)
+meawide2 <- subset(meawide, heighincrement2024 <= 0 & 
+                     diameterincrement2024 <= 0)
+meawide2 <- subset(meawide, heighincrement2025 <= 0 & 
+                     diameterincrement2025 <= 0)
 
 # remove segi for now
 meawide3 <- subset(meawide, genus != "sequoiadendron")
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # mean with line range sd 2024
-heightplot <- ggplot(meawide3, 
-                     aes(x = treatment, y = heighincrement2024, color = treatment)) +
+ggplot(meawide3, aes(x = treatment, y = heighincrement2024, 
+                                   color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
-  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
-  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, 
+               color = "black") +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), 
+               geom = "linerange", color = "black") +
   scale_color_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
-  labs(title = "Height increment X treatment X species",
+  labs(title = "Height increment 2025 X treatment X species",
        y = "Height Increment (cm)",
        x = "Treatment") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-heightplot
-ggsave("figures/heightIncrement.jpg", heightplot, width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/2024heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
 
 # 2025
-heightplot <- ggplot(meawide3, 
+ggplot(meawide3, 
                      aes(x = treatment, y = heighincrement2025, color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
   stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
   scale_color_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
-  labs(title = "Height increment X treatment X species",
+  labs(title = "Height increment 2025 X treatment X species",
        y = "Height Increment (cm)",
        x = "Treatment") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-heightplot
+ggsave("figures/empiricalData_plots/2025heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
 
-# violin
-heightviolin <- ggplot(meawide3, aes(x = treatment, y = heighincrement2024, color = treatment)) +
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Height 2024 Violin #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+ggplot(meawide3, aes(x = treatment, y = heighincrement2024, color = treatment)) +
   geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
   stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
   scale_color_manual(values = variouspallet6) +  
   scale_fill_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
-  labs(title = "Height increment X treatment X species",
+  labs(title = "Height increment 2024 X treatment X species",
        y = "Height Increment (cm)",
        x = "Treatment") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-heightviolin
-ggsave("figures/heightviolin.jpeg", heightviolin, width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/2024heightviolin.jpeg", width = 10, height = 6, units = "in", dpi = 300)
 
-# halfeye plot
-heighthalfeye <- ggplot(meawide3, aes(x = treatment, y = heighincrement2024, color = treatment, fill = treatment)) +
-  geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 0.6) +
-  ggdist::stat_halfeye(
-    justification = -0.1, 
-    .width = 0, 
-    point_interval = ggdist::mean_qi
-  ) +
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Height 2025 Violin #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+ggplot(meawide3, aes(x = treatment, y = heighincrement2025, color = treatment)) +
+  geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
   scale_color_manual(values = variouspallet6) +  
   scale_fill_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "Height increment 2025 X treatment X species",
+       y = "Height Increment (cm)",
+       x = "Treatment") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-heighthalfeye
+ggsave("figures/empiricalData_plots/2025heightviolin.jpeg", width = 10, height = 6, units = "in", dpi = 300)
 
-ggsave("figures/heighthalfeye.jpg", heighthalfeye, width = 10, height = 6, units = "in", dpi = 300)
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Diameter 2024 Violin #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+ggplot(meawide3, aes(x = treatment, y = diameterincrement2024,
+                     color = treatment)) +
+  geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
+  scale_color_manual(values = variouspallet6) +  
+  scale_fill_manual(values = variouspallet6) +  
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "Diameter increment 2024 X treatment X species",
+       y = "Diameter Increment (mm)",
+       x = "Treatment") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("figures/empiricalData_plots/2024diameterviolin.jpeg", width = 10, height = 6, units = "in", dpi = 300)
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Diameter 2025 Violin #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+ggplot(meawide3, aes(x = treatment, y = diameterincrement2025, color = treatment)) +
+  geom_violin(aes(fill = treatment), trim = FALSE, width = 0.8, alpha = 0.3) +
+  geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
+  stat_summary(fun = mean, geom = "crossbar", shape = 18, size = 0.3, color = "black", position = position_dodge(width = 0.5)) +
+  scale_color_manual(values = variouspallet6) +  
+  scale_fill_manual(values = variouspallet6) +  
+  facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
+  labs(title = "Diameter increment 2025 X treatment X species",
+       y = "Diameter Increment (cm)",
+       x = "Treatment") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("figures/empiricalData_plots/2025diameterviolin.jpeg", width = 10, height = 6, units = "in", dpi = 300)
+
 
 # DIAMETER
 # 2024
@@ -531,7 +571,7 @@ diameterplot <- ggplot(meawide3, aes(x = treatment, y = diameterincrement2024, c
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 diameterplot
-ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
 
 # 2025
 ggplot(meawide3, aes(x = treatment, y = diameterincrement2025, color = treatment)) +
@@ -544,7 +584,7 @@ ggplot(meawide3, aes(x = treatment, y = diameterincrement2025, color = treatment
        x = "Treatment") +
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("figures/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/diameterplotIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
 
 # Conceptual figure of phenophases #####
 ### Start with shoot2024. Didn't have time to finish but goal is to mimic fig 1 of korner2023
