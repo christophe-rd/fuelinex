@@ -189,28 +189,81 @@ shootelongation <- ggplot(mean_stats) +
     legend.position = "right" 
   )
 shootelongation
-ggsave("figures/empiricalData_plots/shootElongationbySpp.pdf", shootelongation)
+ggsave("figures/empiricalData_plots/2024shootElongationbySpp.pdf", shootelongation)
 
-# let's try something else
-test <- subset(shoot2025, genus != "sequoiadendron")
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+##### All individuals shoot elongation adjusted #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+cols <- c("#a40000", "#16317d", "#007e2f", "#ffcd12", "#b86092", "#721b3e","#00b7a7") 
 
-shootelong2025XSppXTreat <- ggplot(test) +
-  geom_line(aes(x = DOY, y = shootElongation, group = tree_ID, color = species)) + 
-  facet_wrap(species~treatment, scales = "free_y") +  
-  theme_minimal() +
-  labs(
-    x = "Day of Year",
-    y = "Adjusted Shoot Elongation", 
-    title = "Shoot elongation 2025",
-    color = ""  # Updated legend title
-  ) +
-  scale_color_manual(values=greenpallet)+
-  theme_classic()
-shootelong2025XSppXTreat
-# save!
-ggsave("figures/empiricalData_plots/shootelong2025XSppXTreat.pdf", shootelong2025XSppXTreat, width = 16, height = 12)
+# 2024
+pdf("figures/empiricalData_plots/shootelong2024XSppXTreat.pdf", 
+    width = 12, height = 8)
 
+spplevels <- unique(shoot2024$species)
+treatlevels <- unique(shoot2024$treatment)
+
+shoot2024$DOY <- as.numeric(shoot2024$DOY)
+shoot2024$adjustedShootElong <- as.numeric(shoot2024$adjustedShootElong)
+
+for(sp in spplevels) { # sp = "acer_negundo"
+  subspp <- shoot2024[shoot2024$species == sp, ]
+  
+  par(mfrow = c(2, 3), mar = c(4, 4, 3, 1), oma = c(0, 0, 2, 0))
+  
+  for(tr in treatlevels) { # tr = "CoolS/CoolF"
+    subtr <- subspp[subspp$treatment == tr, ]
+    
+    plot(NULL,
+         xlim = range(subspp$DOY, na.rm = TRUE),
+         ylim = range(subspp$adjustedShootElong, na.rm = TRUE),
+         xlab = "Day of Year", ylab = "Adjusted Shoot Elongation",
+         main = tr)
+    for(id in unique(subtr$tree_ID)) {
+      subtree <- subtr[subtr$tree_ID == id, ]
+      lines(subtree$DOY, subtree$adjustedShootElong,
+            col = cols[which(spplevels == sp)])
+    }
+  }
+  mtext(sp, outer = TRUE, line = 0.5, cex = 1.2)
+}
+
+dev.off()
+
+# 2025
+pdf("figures/empiricalData_plots/shootelong2025XSppXTreat.pdf", 
+    width = 12, height = 8)
+
+spplevels <- unique(shoot2025$species)
+treatlevels <- unique(shoot2025$treatment)
+
+for(sp in spplevels) {
+  subspp <- shoot2025[shoot2025$species == sp, ]
+  
+  par(mfrow = c(2, 3), mar = c(4, 4, 3, 1), oma = c(0, 0, 2, 0))
+  
+  for(tr in treatlevels) {
+    subtr <- subspp[subspp$treatment == tr, ]
+    
+    plot(NULL,
+         xlim = range(subspp$DOY, na.rm = TRUE),
+         ylim = range(subspp$adjustedshootElong, na.rm = TRUE),
+         xlab = "Day of Year", ylab = "Adjusted Shoot Elongation",
+         main = tr)
+    for(id in unique(subtr$tree_ID)) {
+      subtree <- subtr[subtr$tree_ID == id, ]
+      lines(subtree$DOY, subtree$adjustedshootElong,
+            col = cols[which(spplevels == sp)])
+    }
+  }
+  mtext(sp, outer = TRUE, line = 0.5, cex = 1.2)
+}
+
+dev.off()
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 ##### Plots when they stopped elongating #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 # 2024
 shoot24forstop <- shoot2024[order(shoot2024$tree_ID, shoot2024$DOY), ]
 ## split by replicate, look at the first delta < 0.2
@@ -256,33 +309,43 @@ shootelongforplot$DOY <- as.numeric(shootelongforplot$DOY)
 
 # PLOT
 cols2 <- c("#00858a", "#e46e00")
-
 subforplot <- subset(shootelongforplot, Species != "Segi")
+spplevels <- unique(subforplot$Species)
+treatlevels <- unique(subforplot$Treatment)
+yearlevels <- unique(subforplot$year)
 
-shootelongstop <- ggplot(subforplot) +
-  geom_point(aes(x = Treatment, y = DOY, color = year),
-             position = position_jitterdodge(dodge.width = 0.8, jitter.width = 0), 
-             alpha = 0.2) +
-  stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
-                   color = year),
-               fun = mean,
-               geom = "point",
-               size = 2,
-               position = position_dodge(width = 0.8)) +
-  stat_summary(aes(x = Treatment, y = DOY, group = interaction(Species, Treatment, year), 
-                   color = year),
-               fun.data = mean_se,
-               geom = "linerange",
-               position = position_dodge(width = 0.8)
-  )+
-  scale_color_manual(values = cols2) +  
-  facet_wrap(~Species, ncol = 3, nrow = 2, scales = "free_y") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-shootelongstop
-# ggsave
-ggsave("figures/empiricalData_plots/shootelongstop.pdf", shootelongstop, width = 12, height = 8)
+pdf("figures/empiricalData_plots/shootelongstop.pdf", width = 9, height = 6)
+par(mfrow = c(2, 3), mar = c(8, 4, 3, 1), oma = c(0, 0, 2, 0))
 
+for(sp in spplevels) {
+  subspp <- subforplot[subforplot$Species == sp, ]
+  
+  plot(NULL,
+       xlim = c(0.5, length(treatlevels) + 0.5),
+       ylim = range(subspp$DOY, na.rm = TRUE),
+       xaxt = "n", xlab = "", ylab = "DOY", main = sp, frame = FALSE)
+  
+  for(tr in treatlevels) {
+    xi <- which(treatlevels == tr)
+    offset <- c(-0.15, 0.15)
+    for(yi in 1:length(yearlevels)) {
+      yr <- yearlevels[yi]
+      x <- subspp$DOY[subspp$Treatment == tr & subspp$year == yr]
+      col <- cols2[yi]
+      # raw points
+      points(rep(xi + offset[yi], length(x)) + runif(length(x), -0.05, 0.05),
+             x, pch = 16, cex = 0.6, col = adjustcolor(col, alpha.f = 0.5))
+      # mean and SE
+      m <- mean(x, na.rm = TRUE)
+      se <- sd(x, na.rm = TRUE) / sqrt(sum(!is.na(x)))
+      points(xi + offset[yi], m, pch = 16, cex = 2, col = col)
+      segments(xi + offset[yi], m - se, xi + offset[yi], m + se, col = col, lwd = 1.5)
+    }
+  }
+  axis(1, at = 1:length(treatlevels), labels = treatlevels, las = 2)
+  legend("topright", legend = yearlevels, pch = 16, col = cols2, bty = "n")
+}
+dev.off()
 ### === === === ###
 #### Senescence ####
 ### === === === ###
@@ -470,14 +533,17 @@ ggplot(meawide3, aes(x = treatment, y = heighincrement2024,
        x = "Treatment") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("figures/empiricalData_plots/2024heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/2024heightIncrement.jpg", 
+       width = 10, height = 6, units = "in", dpi = 300)
 
 # 2025
-ggplot(meawide3, 
-                     aes(x = treatment, y = heighincrement2025, color = treatment)) +
+ggplot(meawide3, aes(x = treatment, y = heighincrement2025, 
+                     color = treatment)) +
   geom_point(position = position_jitter(width = 0.2), size = 2, alpha = 0.6) +
-  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
-  stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "linerange", color = "black") +
+  stat_summary(fun = mean, geom = "point", 
+               shape = 18, size = 3, color = "black") +
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), geom = "linerange", color = "black") +
   scale_color_manual(values = variouspallet6) +  
   facet_wrap(~ species, ncol = 3, nrow = 3, scales = "free_y") +
   labs(title = "Height increment 2025 X treatment X species",
@@ -485,7 +551,8 @@ ggplot(meawide3,
        x = "Treatment") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("figures/empiricalData_plots/2025heightIncrement.jpg", width = 10, height = 6, units = "in", dpi = 300)
+ggsave("figures/empiricalData_plots/2025heightIncrement.jpg", 
+       width = 10, height = 6, units = "in", dpi = 300)
 
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
@@ -595,22 +662,22 @@ budburstToSet_stats
 
 sub <- subset(budburstToSet_stats, species == "acer_negundo")
 
-sub2 <- subset(sub, treatment == "CoolS/CoolF")
-ggplot(df) +
-  geom_segment(aes(x = start_day, xend = end_day,
-                   y = process, yend = process),
-               size = 8, color = "forestgreen") +
-  geom_segment(aes(x = 1, xend = 365,
-                   y = process, yend = process),
-               size = 8, color = "grey90") +
-  geom_text(aes(x = end_day + 10, y = process,
-                label = paste(end_day - start_day, "d")),
-            hjust = 0, vjust = 0.5) +
-  scale_x_continuous(limits = c(0, 365), expand = c(0,0),
-                     breaks = seq(0, 365, 50)) +
-  labs(x = "Day of year", y = "") +
-  theme_minimal(base_size = 14) +
-  theme(axis.text.y = element_text(size = 12),
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor = element_blank())
+# sub2 <- subset(sub, treatment == "CoolS/CoolF")
+# ggplot(df) +
+#   geom_segment(aes(x = start_day, xend = end_day,
+#                    y = process, yend = process),
+#                size = 8, color = "forestgreen") +
+#   geom_segment(aes(x = 1, xend = 365,
+#                    y = process, yend = process),
+#                size = 8, color = "grey90") +
+#   geom_text(aes(x = end_day + 10, y = process,
+#                 label = paste(end_day - start_day, "d")),
+#             hjust = 0, vjust = 0.5) +
+#   scale_x_continuous(limits = c(0, 365), expand = c(0,0),
+#                      breaks = seq(0, 365, 50)) +
+#   labs(x = "Day of year", y = "") +
+#   theme_minimal(base_size = 14) +
+#   theme(axis.text.y = element_text(size = 12),
+#         panel.grid.major.y = element_blank(),
+#         panel.grid.minor = element_blank())
 
