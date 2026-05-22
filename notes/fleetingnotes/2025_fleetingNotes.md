@@ -1109,9 +1109,9 @@ Fixed and random and mixed effects are confusing and often misleading, so we avo
 ## 4 December 2025
 **Permanent notes**
 *I already added the definitions of source and sink control in the slipbox*
-Beyond source and sink  control – toward an integrated  approach to understand the  carbon balance in plants
+### Beyond source and sink  control – toward an integrated  approach to understand the  carbon balance in plants
 
-Arthur Gessler 
+Arthur Gessler Roman Zweifel
 
 The production of growth i.e. production of new structural biomass and the accumulation of carbon reserves is depicted as the remaining of photosynthetic assimilates not used for autotrophic respiration (=NPP).
 - However, the directionality suggests that just the leftovers from photosynthesis and respiration determine growth
