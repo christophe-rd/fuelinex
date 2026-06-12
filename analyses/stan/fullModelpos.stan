@@ -78,7 +78,7 @@ transformed parameters{
     } else {
       delta1_pred[i] = aww1[spp[i]];
       delta2_pred[i] = aww2[spp[i]];
-    }
+    }  
   }
   
   vector[N_spp] a1;

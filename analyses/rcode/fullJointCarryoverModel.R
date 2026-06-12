@@ -16,7 +16,6 @@ if(length(grep("christophe", getwd()) > 0)) {
 
 library(ggplot2)
 library(rstan)
-rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 parallel:::setDefaultClusterOptions(setup_strategy = "sequential")
 
@@ -60,7 +59,9 @@ for(i in 1:length(trt)){
   d$s[idx] <- s[i]
   d$f[idx] <- f[i]
 }
+# warm spring warm fall
 d$sf <- d$s * d$f
+
 
 d <- subset(d, volinc1 > 0 & volinc2 > 0 & 
               treatment %in% trt[1:4] & 
@@ -71,10 +72,10 @@ d$trt_num <- match(d$treatment, unique(d$treatment))
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 d_allo <- subset(mea, year == "2025")
 d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID")
-d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & 
-                   treatment %in% trt[1:4] & 
-                   aboveGroundWeight > 0 & spp_num %in% 1:7)
 
+d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & 
+                   treatment %in% trt[1:4] & # excluding nitro boost for now
+                   aboveGroundWeight > 0 & spp_num %in% 1:7)
 # Fit model
 data <- list("N_allo" = nrow(d_allo),
              "d_allo" = d_allo$diameter,
@@ -146,11 +147,13 @@ names <- c(grep('^b1', names(samples), value = TRUE),
 # just delta 1s
 idtocheck <- which(d$spp_num == 1)
 deltanames <- paste0('delta1[', idtocheck, ']')
-deltadata <- sapply(deltanames, function(f_name) c(t(samples[[f_name]]), recursive = TRUE))
+deltadata <- sapply(deltanames, function(f_name) c(t(samples[[f_name]]), 
+                                                   recursive = TRUE))
 
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
-
+summary(fit)
+fit
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 ##### Marginal posterior #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 

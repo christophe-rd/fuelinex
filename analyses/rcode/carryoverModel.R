@@ -23,7 +23,7 @@ rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 parallel:::setDefaultClusterOptions(setup_strategy = "sequential")
 
-runmodel <- TRUE
+runmodel <- FALSE
 diagnos <- FALSE
 
 # load mike's diagnostic tools
