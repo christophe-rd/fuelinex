@@ -1112,7 +1112,7 @@ Fixed and random and mixed effects are confusing and often misleading, so we avo
 ### Beyond source and sink  control – toward an integrated  approach to understand the  carbon balance in plants
 
 Arthur Gessler Roman Zweifel
-
+**Permanent notes:** YES
 The production of growth i.e. production of new structural biomass and the accumulation of carbon reserves is depicted as the remaining of photosynthetic assimilates not used for autotrophic respiration (=NPP).
 - However, the directionality suggests that just the leftovers from photosynthesis and respiration determine growth
 - This view assumes that the plant carbon sink (e.g. growth) are directly and mainly controlled by the c source through photosynthetic activity which does not capture the cause-effect relationship.

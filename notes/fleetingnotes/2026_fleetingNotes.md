@@ -1,4 +1,10 @@
 ## 2026 Fleeting notes
+### Seasonal climate variations drive decoupling between the duration and amount of xylem growth along a hydrothermal gradient in the southern Altai Mountains
+Wenjin Wang, Li Qin, Tongwen Zhang, Feiyu Yang, Antoine Cabon, Zhou Wang, Peng Zhou, Yaling Zhang, Patrick Fonti, Jian-Guo Huang
+2025
+
+**Permanent notes:** YES
+
 In well watered temperate and boreal forests, warmer springs have advanced the onset and lengthened the duration of wood formation--> higher xylem production
 However, in water limited forest ecosytems, the growth rate has a higher influence on the final number of xylem cells formed by the end of the GS than the start or the duration of growth. 
 The growth rate is sensitive to variations in water availability unlike the onset and duration of growth (link to paper on xyelm production water sensitivity compared to vegetation). This is why GS extension may not increase wood production ina rid and semi-arid forests, especially when warming increases water stress. 
@@ -19,14 +25,15 @@ They conclude that long GS may even decrease xylem growth under water-constraint
 
 
 ## 20 January 2026
+### Underestimation of volcanic cooling in tree-ringbased reconstructions of hemispheric temperatures
+**Permanent notes:** YES
 Trees near elevation or altitude tree line are often used for reconstructing climate because of their close relationship with temperature.
 
 They used 2 models driven by simulated temperature variations to demonstrate that the discrepency between expected and reconstructed temperatures is an artefact cause by a reduced sensitivity of cooling of trees near treeline:
 1. GCM: forced simulation of the US National Center for Atm Reseach (NCAR) CSM1.4 coupled ocean-general circulation model (GCM)
 2. EBM: simulations of a simpler energy-balance climate model
 
-Both models are driven by estimated radiative forcings, they both capture historical temperature
-records, including cooling from volcanos.
+Both models are driven by estimated radiative forcings, they both capture historical temperature records, including cooling from volcanos.
 
 Both models predict a drop of 2C following the 1258/1259 eruption whereas the reconstruction shows a decrease of +- 0.6c
 
@@ -37,10 +44,11 @@ They checked if the tree ring reconstruction proxy could have caused the discrep
 **Climate sensitivity**: how much warming we get as a result of radiative forcing.
 
 ## 30 January 2026
-Carbon uptake, storage, and allocation patterns  contribute to blurring of annual 14C signals in  tree rings
+### Carbon uptake, storage, and allocation patterns  contribute to blurring of annual 14C signals in  tree rings
 2026
 Amy E. C , Andrew D. Richardson, Mariah S. Carbone
 
+**Permanent notes: YES**
 Until the last few decades, most measurements of C14 in tree rings were collected for calibrating the radiocarbon scale OR dating wood material and were sampled over multiple rings to reflect C14 over several years to decade. This is because all photosynthetic organisms record tropospheric C14 aproximately equally.
 
 Differences in phenological timing may be related to wood anatomy where large-diameter vessels of ring porous species are prone to cavitation during winter freeze-thaw cycles and hence leaf out must occur after the onset of wood growth.
@@ -206,3 +214,35 @@ Paper
 There is a key question of why cellular mass is relatively unresponsive to temperature, except in the final part of a developping ring. A potential answer is the lack of temp sensitivity in earlywood is due to compensation mechasnisms between rates and durations, which breaks down in latewood = max latewood density being an important proxy for past climate.
 
 Their work provides a mechanistic basis for the explicit treatment of tree growth in global vegetation models, facilitating a balanced source/sink approach.
+
+## 1 June 2026
+#### From Roots to Leaves: Tree Growth Phenology in Forest Ecosystems 
+Roberto Silvestro, Annie Deslauriers, Peter Prislan, Tim Rademacher, Negar Rezaie, Andrew D. Richardson, Yann Vitasse & Sergio Rossi 
+2025
+
+**Permanent notes:**
+At the end of the growing season, shorter photoperiod and cooler temperatures correlate with growth cessation in all shoot meristems. Trees shield their shoot meristems winthin winter buds: budset and happens in mid-summer and is considered a proxy for growth cessation. This process to protect meristematic tissues from frost and to increase cold hardiness is regulated in complex ways by developmental, molecular and environmental factors.
+
+Most studies focused on wood phenology in gymnosperms compared to angiosperms becasue of the simpler wood structure of conifers (composed of 90% tracheids), compared to the more complex structure of angio composed of vessels, fibers, and in some species, tracheids.
+
+Rossi shows that the peak rate of cell prod in European and American trees peak at summer solstice whenn day length, not temp is the highest, suggesting trees evolved to synchronize their phenology and growth rates with day length. *LINK WITH VICTOR'S PAPER*
+
+Cell division is sustained by the availability of carbohydrates, which need to be mobilized at the beginning of the gs. Sucros is the most abundant compoound in the cambium of Picea mariana. Sucros concentrations progressibiely decrease from the phloem to mature xylem due to its utilization in the subsequent developmental phases. This decline in sucrose shows its role in energy source and structural component, supporting cell wall thickening and lignification during xylem differentiation
+
+The synchronism between primary and secondary growth within and among organs is influenced both by environmental conditions and internal controls which is species specific and climatic factors, primarly thermic thresholds and water availability affect both, but in different ways and at different time.
+
+Studies in conifers showed that degree-days accumulation better predicted developmental resumption, thermal thresholds were more suitable for assessing cambium phenology. Further supported by prov trialwhere early-flushing provenacnes of Picea mariana demosntrated earlier xylem formation. In broadleaves, we know that ring-porous species exhibit earlier cambial reactivation and xylem cell differentation compared to diffuse-porous. Earlier growth in ring-porous is attributed to the winter emvolism of their large xylem vessels requiring restoration of the water transport pathway before new leaves can unfold and being transpiring
+
+Dorangeville showed that budbreak and xylem phenology happened concurrently and reached completion around the same time and observed that wood formation occured for longer than canopy development. *pretty sure I already have notes on this somewhere*
+
+Some other studies suggests xylem development preceeds leaf unfolding in ring-porous spp. With other studies having a close synchronization of xylem dev and leaf unfolding.
+
+Marchand observed a direct relationship between budbreak and timing of the previous year's ending of wood formation. Specifically, early bdbreak correlated with an earlier ending of wood formation in the preceeding year.
+They attributed this pattern to higher reserve storage resulting from the accumulation of photoassimilates produced by leaves before senescence. Using 13C labeling, they showed that stored carbohydrates from previous seasons contribute. Early wood shows C signature from previous season while late wood shows current year C. This suggests a carry-over effect in secondary growth illustrating how gowing conditions from the previous year influence the phenology and radial growth in the subsequent year. However, this carry-over effect is still debated.
+
+## 2 June 2026
+### Consistent time allocation fraction to vegetation green-up versus senescence across northern ecosystems despite recent climate change
+Fandong Meng, Andrew J. Felton, Jiafu Mao, Nan Cong, William K. Smith, Christian Körner, Zhongmin Hu, Songbai Hong, Jonathan Knott, Yanzi Yan, Bixi Guo, Ying Deng, Stephen Leisz, Tsechoe Dorji, Shiping Wang, Anping Chen
+2024
+**Permanent notes:**
+Tradional ground-based observations of phenology focus on the specific timing of different events, whereas satellite-based observations have the advantage of monitoring changes in greenness as well as photosynthetic activities throughout the GS on a large scale. 
