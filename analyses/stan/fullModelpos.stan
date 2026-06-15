@@ -81,6 +81,7 @@ transformed parameters{
     }  
   }
   
+  // This is just another way to paramatrize the model that is not affecting the above parameters
   vector[N_spp] a1;
   vector[N_spp] as1;
   vector[N_spp] af1;
