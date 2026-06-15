@@ -77,6 +77,9 @@ F. Stuart Chapin
 Harold Mooney
 Ernst-Detlef Schulze
 1990
+
+**Permanent notes:** YES
+
 They define storage as resources that build up in the plant and can be mobilized in the future to support biosynthesis for growth or other functions. They suggest 3 classes of storage:
 1. Accumulation which is the increase of compounds that do no directly promote growth. Occurs when supply exceeds demands for growth and maintenace
 2. Reserve formation involves the metabolically regulated compartmentation or synthesis of storage compounds from resources that might directly promote growth. Reserve formation competes with growth and defense
@@ -87,6 +90,8 @@ They define storage as resources that build up in the plant and can be mobilized
 Seasonal dynamics and age of stemwood nonstructural  carbohydrates in temperate forest trees
 Andrew D. Richardson, Mariah S. Carbone, Trevor F. Keenan, Claudia I. Czimczik, David Y. Hollinger, Paula Murakami, Paul G. Schaberg and Xiaomei Xu
 2013
+
+**Permanent notes:** YES
 
 Trees accumulate and store NSC as resources to be used to support future growth and metabolism. This NSC pool is essentially:
 1. Sugars (mostly surcrose)
