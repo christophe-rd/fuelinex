@@ -103,6 +103,7 @@ saveRDS(fit, "output/stanOutput/allometryModel")
 fit <- readRDS("output/stanOutput/allometryModel")
 diagnostics <- util$extract_hmc_diagnostics(fit) 
 util$check_all_hmc_diagnostics(diagnostics)
+curve(dlnorm(x, log(0.5), 0.3), from = 0, to = 2)
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Retrodictive checks ####

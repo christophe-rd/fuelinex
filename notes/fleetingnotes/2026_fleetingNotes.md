@@ -251,3 +251,33 @@ Fandong Meng, Andrew J. Felton, Jiafu Mao, Nan Cong, William K. Smith, Christian
 2024
 **Permanent notes:**
 Tradional ground-based observations of phenology focus on the specific timing of different events, whereas satellite-based observations have the advantage of monitoring changes in greenness as well as photosynthetic activities throughout the GS on a large scale. 
+
+## 16 June 2026
+
+### Elevational adaptation and plasticity in seedling phenology of temperate deciduous tree species
+Yann Vitasse, Günter Hoch, Christophe F. Randin, Armando Lenz, Chris Kollas, J. F. Scheepens, Christian Körner
+Journal: Oecologia
+2013
+**Permanent notes:**
+They asked if populations from high elevation were able to respond to increasing temperature to the same extent as low-elevation populations. They found that phenological plasticity to temperature was lower for high elevation populations. This may reflect opposing selective forces (trade-off between maximizing GSL and avoiding frost damages). However, environmental effects were much stronger than genetic effects. This suggests that a high phenological plasticity enables tree populations to track ongoing climate change.
+
+### Bud break responds more strongly to daytime than night-time temperature under asymmetric experimental warming
+Sergio Rossi, Nathalie Isabel
+2017
+Global Change Biology
+**Permanent notes:**
+They studied black spruce across a latitudinal gradient. Seedlings originating from colder sites: earlier bud break than southern sites. Meaning less hear or GDD was needed for resuming growth and confirmed the ecotypic differentiation of local populations. But their results suggest that provenances have similar responses to assymetric warming.
+
+### Lower plasticity exhibited by high- versus mid-elevation species in their  phenological responses to manipulated temperature and drought
+Simona Gugger, Halil Kesselring, Jurg Stocklin and Elena Hamann
+2015
+Annuals of Botany
+**Permanent notes:**
+Reciprocal common gardens study across a elevational gradient with warming and drought treatments. They showed that high elevation spp, when planted to lower elevation = advanced phenophases, so they track an advanced growing season. However, warmer temp accelerated their development = shortened phenophases. This indicates that high elevation plants can't take advantage of longer GS.
+
+### Leaf phenology sensitivity to temperature in European trees: Do within-species populations exhibit similar responses?
+Yann Vitasse, Sylvain Delzon, Eric Dufresne, Jean-Yves Pontailler,Jean-Marc Louvet, Antoine Kremer, Richard Michalet
+Agricultural and forest meteorology 
+2009
+**Permanent notes:**
+Altitudinal and temporal gradient to check the phenological sensitivities to temperature. They observed that tres advanced leaf unfolding the lower the elevation. They suggest that population sensititivity to global warming may be stable for a given species, in spite of its local adaptation.
