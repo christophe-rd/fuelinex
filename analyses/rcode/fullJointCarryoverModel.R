@@ -24,6 +24,7 @@ runfulljointmodel <- F
 util <- new.env()
 source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
+source('rcode/tools.R', local=util)
 
 mea <- read.csv2("output/cleanedMeasurements.csv", sep = ",", header = TRUE)
 
@@ -98,7 +99,7 @@ set.seed(1)
 inits <- function(chain_id){
   params <- list("b1" = as.array(rlnorm(unique(d$spp_num), log(0.5), 0.3)),
                  "b2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
-                 "s_allo" = as.array(abs(rnorm(unique(d$spp_num), 0, 1))),
+                 "sigma_allo" = as.array(abs(rnorm(unique(d$spp_num), 0, 1))),
                  "acc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "awc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "acw1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
@@ -120,7 +121,7 @@ if (runfulljointmodel) {
               # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
               seed = 1,
               warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-  # saveRDS(fit, "output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
+  # saveRDS(fit, "output/stanOutput/fullJoint_justAllometry.rds")
 }
 fit <- readRDS("output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
 
@@ -133,7 +134,7 @@ util$check_all_hmc_diagnostics(diagnostics)
 samples <- util$extract_expectand_vals(fit)
 names <- c(grep('^b1', names(samples), value = TRUE),
            grep('^b2', names(samples), value = TRUE),
-           grep('s_allo', names(samples), value = TRUE),
+           grep('sigma_allo', names(samples), value = TRUE),
            grep('acc1', names(samples), value = TRUE),
            grep('awc1', names(samples), value = TRUE),
            grep('acw1', names(samples), value = TRUE),
@@ -182,7 +183,7 @@ launch_shinystan(fit)
 # # with bound on b1
 # namesallo <- c(grep('b1', names(samples), value = TRUE),
 #            grep('b2', names(samples), value = TRUE),
-#            grep('s_allo', names(samples), value = TRUE),
+#            grep('sigma_allo', names(samples), value = TRUE),
 #            grep('s_y', names(samples), value = TRUE))
 # namesallo <- namesallo[!grepl("agb", namesallo)]
 # 
@@ -285,3 +286,78 @@ for (i in 1:ncol(b2_df)) { # i = 1
 }
 b2_df2
 
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Compare allometry alone vs with joint model ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+##### Recover and plot parameters SOS restricted vs full #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+d_joint <- as.data.frame(fit)
+d_joint <- d_joint[,names(d_joint)[grepl("^b2|^b1|sigma", names(d_joint))]]
+
+# summary
+d_joint_sum <- data.frame(
+  prm = colnames(d_joint),
+  mu  = round(sapply(d_joint, mean), 3),
+  p05 = round(sapply(d_joint, quantile, probs = 0.05), 3),
+  p25 = round(sapply(d_joint, quantile, probs = 0.25), 3),
+  p75 = round(sapply(d_joint, quantile, probs = 0.75), 3),
+  p95 = round(sapply(d_joint, quantile, probs = 0.95), 3),
+  row.names = NULL
+)
+
+# just allometry model
+d_allo <- as.data.frame(readRDS("output/stanOutput/allometryModel"))
+
+d_allo <- d_allo[,names(d_allo)[grepl("^b2|^b1|sigma", names(d_allo))]]
+
+# summary
+d_allo_sum <- data.frame(
+  prm = colnames(d_allo),
+  mu  = round(sapply(d_allo, mean), 3),
+  p05 = round(sapply(d_allo, quantile, probs = 0.05), 3),
+  p25 = round(sapply(d_allo, quantile, probs = 0.25), 3),
+  p75 = round(sapply(d_allo, quantile, probs = 0.75), 3),
+  p95 = round(sapply(d_allo, quantile, probs = 0.95), 3),
+  row.names = NULL
+)
+
+# subset out the sigmas for now
+d_joint_sum <- subset(d_joint_sum, !prm %in% d_joint_sum$prm[grepl("sigma", d_joint_sum$prm)])
+d_allo_sum <- subset(d_allo_sum, !prm %in% d_allo_sum$prm[grepl("sigma", d_allo_sum$prm)])
+
+# Open device
+jpeg("figures/empiricalData_plots/diagnostics/jointVSallom.jpeg", 
+     width = 9, height = 6, units = "in", res = 300)
+par(mfrow = c(1,1), oma = c(0, 2, 0, 0))
+
+# bspp
+plot(d_joint_sum$mu, d_allo_sum$mu,
+     xlab = "restricted", ylab = "full", main = "bspp", type = "n", frame = FALSE,
+     ylim = range(c(d_joint_sum$p25, d_joint_sum$p75)),
+     xlim = range(c(d_allo_sum$p25, d_allo_sum$p75)))
+arrows(x0 = d_joint_sum$mu, y0 = d_allo_sum$p25,
+       x1 = d_joint_sum$mu, y1 = d_allo_sum$p75,
+       angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
+arrows(x0 = d_joint_sum$p25, y0 = d_allo_sum$mu,
+       x1 = d_joint_sum$p75, y1 = d_allo_sum$mu,
+       angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
+points(d_joint_sum$mu, d_allo_sum$mu,
+       pch = 16, col = "#0a6a3c", cex = 1.5)
+abline(0, 1, lty = 2, col = "black", lwd = 2)
+
+# aspp
+plot(aspp_df2_sos$mean, aspp_df2_full_sos$mean,
+     xlab = "restricted", ylab = "full", main = "aspp", type = "n", frame = FALSE,
+     ylim = range(c(aspp_df2_full_sos$p25, aspp_df2_full_sos$p75)),
+     xlim = range(c(aspp_df2_sos$p25, aspp_df2_sos$p75)))
+arrows(x0 = aspp_df2_sos$mean, y0 = aspp_df2_full_sos$p25,
+       x1 = aspp_df2_sos$mean, y1 = aspp_df2_full_sos$p75,
+       angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
+arrows(x0 = aspp_df2_sos$p25, y0 = aspp_df2_full_sos$mean,
+       x1 = aspp_df2_sos$p75, y1 = aspp_df2_full_sos$mean,
+       angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
+points(aspp_df2_sos$mean, aspp_df2_full_sos$mean,
+       pch = 16, col = "#0a6a3c", cex = 1.5)
+abline(0, 1, lty = 2, col = "black", lwd = 2)
