@@ -252,6 +252,11 @@ Fandong Meng, Andrew J. Felton, Jiafu Mao, Nan Cong, William K. Smith, Christian
 **Permanent notes:**
 Tradional ground-based observations of phenology focus on the specific timing of different events, whereas satellite-based observations have the advantage of monitoring changes in greenness as well as photosynthetic activities throughout the GS on a large scale. 
 
+They tested 2 hypothesis regardarding vegetation phenology time allocation:
+1. Optimal time allocation hypothesis: temporal trend in time allocation that responds to climate warming. This implies that this allocation isn't biologically regulated but rather, plastic.
+2. The other, constant time allocation hypothesis suggests a stable time allocation due to a carryover across phenophases, implying that this allocation is intrinsically biologcally regualted
+
+Their main finding is that there is an intrinsic biological control in how time is allocated to different durations of phenophases in northern hemisphere. Despite longer GS, no differences in the time allocation to vegetation green-up and senescence.
 ## 16 June 2026
 
 ### Elevational adaptation and plasticity in seedling phenology of temperate deciduous tree species
