@@ -108,7 +108,7 @@ inits <- function(chain_id){
                  "awc2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "acw2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "aww2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "s_y" = as.array(abs(rnorm(unique(d$spp_num), 0, 1)))
+                 "sigma_y" = as.array(abs(rnorm(unique(d$spp_num), 0, 1)))
   )
   return(params)
 }
@@ -143,7 +143,7 @@ names <- c(grep('^b1', names(samples), value = TRUE),
            grep('awc2', names(samples), value = TRUE),
            grep('acw2', names(samples), value = TRUE),
            grep('aww2', names(samples), value = TRUE),
-           grep('s_y', names(samples), value = TRUE))
+           grep('sigma_y', names(samples), value = TRUE))
 
 # just delta 1s
 idtocheck <- which(d$spp_num == 1)
@@ -184,7 +184,7 @@ launch_shinystan(fit)
 # namesallo <- c(grep('b1', names(samples), value = TRUE),
 #            grep('b2', names(samples), value = TRUE),
 #            grep('sigma_allo', names(samples), value = TRUE),
-#            grep('s_y', names(samples), value = TRUE))
+#            grep('sigma_y', names(samples), value = TRUE))
 # namesallo <- namesallo[!grepl("agb", namesallo)]
 # 
 # pdf('figures/modelDiagnostics/pairs_normLikelihood_bound.pdf', height = 9, width = 9)
@@ -211,7 +211,7 @@ cols <- cols[!grepl("lp__", cols)]
 # For sigma_y
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # grab parameter estimates
-sigma_cols <- cols[grepl("s_y", cols) ]
+sigma_cols <- cols[grepl("sigma_y", cols) ]
 
 sigmavec <- as.vector(df_fit[, colnames(df_fit) %in% sigma_cols])
 
@@ -289,7 +289,7 @@ b2_df2
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Compare allometry alone vs with joint model ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
+fit <- readRDS("output/stanOutput/fullJoint_justAllometry.rds")
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 ##### Recover and plot parameters SOS restricted vs full #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -329,12 +329,15 @@ d_allo_sum <- subset(d_allo_sum, !prm %in% d_allo_sum$prm[grepl("sigma", d_allo_
 
 # Open device
 jpeg("figures/empiricalData_plots/diagnostics/jointVSallom.jpeg", 
-     width = 9, height = 6, units = "in", res = 300)
+     width = 6, height = 6, units = "in", res = 300)
 par(mfrow = c(1,1), oma = c(0, 2, 0, 0))
 
-# bspp
+prm_type <- ifelse(grepl("^b1", d_joint_sum$prm), "b1", "b2")
+cols <- ifelse(prm_type == "b1", "#0a6a3c", "#b5651d")
+
 plot(d_joint_sum$mu, d_allo_sum$mu,
-     xlab = "restricted", ylab = "full", main = "bspp", type = "n", frame = FALSE,
+     xlab = "joint model", ylab = "allometry model only", 
+     main = "", type = "n", frame = FALSE,
      ylim = range(c(d_joint_sum$p25, d_joint_sum$p75)),
      xlim = range(c(d_allo_sum$p25, d_allo_sum$p75)))
 arrows(x0 = d_joint_sum$mu, y0 = d_allo_sum$p25,
@@ -344,20 +347,30 @@ arrows(x0 = d_joint_sum$p25, y0 = d_allo_sum$mu,
        x1 = d_joint_sum$p75, y1 = d_allo_sum$mu,
        angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
 points(d_joint_sum$mu, d_allo_sum$mu,
-       pch = 16, col = "#0a6a3c", cex = 1.5)
+       pch = 16, col = cols, cex = 1.5)
 abline(0, 1, lty = 2, col = "black", lwd = 2)
+legend("topleft", legend = c("b1", "b2"),
+       pch = 16, col = c("#0a6a3c", "#b5651d"), bty = "n")
 
-# aspp
-plot(aspp_df2_sos$mean, aspp_df2_full_sos$mean,
-     xlab = "restricted", ylab = "full", main = "aspp", type = "n", frame = FALSE,
-     ylim = range(c(aspp_df2_full_sos$p25, aspp_df2_full_sos$p75)),
-     xlim = range(c(aspp_df2_sos$p25, aspp_df2_sos$p75)))
-arrows(x0 = aspp_df2_sos$mean, y0 = aspp_df2_full_sos$p25,
-       x1 = aspp_df2_sos$mean, y1 = aspp_df2_full_sos$p75,
-       angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
-arrows(x0 = aspp_df2_sos$p25, y0 = aspp_df2_full_sos$mean,
-       x1 = aspp_df2_sos$p75, y1 = aspp_df2_full_sos$mean,
-       angle = 90, code = 3, length = 0, lwd = 1.5, col = "darkgray")
-points(aspp_df2_sos$mean, aspp_df2_full_sos$mean,
-       pch = 16, col = "#0a6a3c", cex = 1.5)
-abline(0, 1, lty = 2, col = "black", lwd = 2)
+dev.off()
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Fit model with betas from a the separate fit ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+d_joint_sum$spp <- substr(d_joint_sum$prm, 4,4)
+b1 <- subset(d_joint_sum, grepl("b1", d_joint_sum$prm))
+b2 <- subset(d_joint_sum, grepl("b2", d_joint_sum$prm))
+
+data$b1 <- b1$mu[match(data$spp, b1$spp)]
+data$b2 <- b2$mu[match(data$spp, b2$spp)]
+
+fit <- stan("stan/fullModel_noBCal.stan",
+            data = data, 
+            # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
+            seed = 1,
+            warmup = 1000, iter = 2000, refresh = 500, chains = 4)
+# saveRDS(fit, "output/stanOutput/fullJoint_justAllometry.rds")
+
+
+
+

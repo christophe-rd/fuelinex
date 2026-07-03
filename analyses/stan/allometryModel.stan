@@ -13,7 +13,7 @@ array[N] real y; 		// biomass (response)
 
 parameters{
 vector<lower=0>[Nspp] b1;        
-vector[Nspp] b2; // temperature spring
+vector<lower=0>[Nspp] b2; // temperature spring
 real<lower=0> sigma_y;
 }
 
@@ -29,7 +29,10 @@ model{
   b1 ~ lognormal(log(0.5), 0.3);
   b2 ~ normal(0.7, 0.2);
   sigma_y ~ normal(0, 2);
-  y ~ normal(ypred, sigma_y);
+  
+  for (i in 1:N){
+    target += lognormal_lpdf(y[i] | log(ypred[i]), sigma_y);
+  }
 }	
 
 generated quantities {

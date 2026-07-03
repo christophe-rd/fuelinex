@@ -286,3 +286,16 @@ Agricultural and forest meteorology
 2009
 **Permanent notes:**
 Altitudinal and temporal gradient to check the phenological sensitivities to temperature. They observed that tres advanced leaf unfolding the lower the elevation. They suggest that population sensititivity to global warming may be stable for a given species, in spite of its local adaptation.
+
+## 25 June 2026
+### The Drought Response of Eastern US Oaks in the Context of Their Declining Abundance
+KIMBERLY NOVICK , INSU JO, LOÏC D’ORANGEVILLE, MICHAEL BENSON, TSUN FUNG AU , MALLORY BARNES, SANDER DENHAM , SONGLIN FEI, KELLY HEILMAN, TAEHEE HWANG, TARA KEYSER, JUSTIN MAXWELL, CHELCY MINIAT, JASON MCLACHLAN, NEIL PEDERSON, LIXIN WANG, JEFFREY D. WOOD, AND RICHARD P. PHILLIPS
+Bioscience
+2022
+**Permanent notes:**
+
+*didnt read the whole thing*
+Good overview of why oaks are drought tolerant. The eastern US can expect a hydrologic regime characterized by more rainfall but also more frequent drought events and an overall increase in ATM aridity linked to rising VPD
+
+### Characterizing U.S. drought over the past 20 years using the U.S. drought monitor
+Ronald D. Leeper1 | Rocky Bilotta2 | Bryan Petersen3 | Crystal J. Stiles4 | Richard Heim5 | Brian Fuchs6 | Olivier P. Prat1 | Michael Palecki5 | Steve Ansari5

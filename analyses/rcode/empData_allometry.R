@@ -82,21 +82,20 @@ dia <- df25$dia
 
 # assign bounds to tell the initial values to the sampler
 if (fitmodel) {
-inits <- function(chain_id){
-  params <- list("b1" = as.array(rlnorm(Nspp, log(0.5), 1)),
-                 "b2" = as.array(rnorm(Nspp, 0.5, 1)),
-                 "sigma_y" = abs(rnorm(1,0,1)))
-  return(params)
-}
-inits(1)
+# inits <- function(chain_id){
+#   params <- list("b1" = as.array(rlnorm(Nspp, log(0.5), 1)),
+#                  "b2" = as.array(rnorm(Nspp, 0.5, 1)),
+#                  "sigma_y" = abs(rnorm(1,0,1)))
+#   return(params)
+# }
+# inits(1)
 
 fit <- stan("stan/allometryModel.stan", 
             data=c("N","y",
                    "spp","Nspp",
                    "height", "dia"),
-            init = inits,
-            iter = 4000, chains = 4, cores = 4,
-            warmup = 2000)
+            # init = inits, 
+            iter = 2000, chains = 4, cores = 4, warmup = 1000)
 
 saveRDS(fit, "output/stanOutput/allometryModel")
 }
