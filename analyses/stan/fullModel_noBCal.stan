@@ -81,27 +81,6 @@ transformed parameters{
     }
   }
 
-  // This is just another way to paramatrize the model that is not affecting the above parameters
-  // vector[N_spp] a1;
-  // vector[N_spp] as1;
-  // vector[N_spp] af1;
-  // vector[N_spp] asf1;
-  // 
-  // vector[N_spp] a2;
-  // vector[N_spp] as2;
-  // vector[N_spp] af2;
-  // vector[N_spp] asf2;
-  // 
-  // for(i in 1:N_spp){
-  //   a1[i] = acc1[i];
-  //   as1[i] = awc1[i] - acc1[i];
-  //   af1[i] = acw1[i] - acc1[i];
-  //   asf1[i] = aww1[i] - a1[i] - as1[i] - af1[i];
-  // 
-  //   a2[i] = acc2[i];
-  //   as2[i] = awc2[i] - acc2[i];
-  //   af2[i] = acw2[i] - acc2[i];
-  //   asf2[i] = aww2[i] - a2[i] - as2[i] - af2[i];
 }
 
 model{	

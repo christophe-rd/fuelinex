@@ -361,16 +361,16 @@ d_joint_sum$spp <- substr(d_joint_sum$prm, 4,4)
 b1 <- subset(d_joint_sum, grepl("b1", d_joint_sum$prm))
 b2 <- subset(d_joint_sum, grepl("b2", d_joint_sum$prm))
 
-data$b1 <- b1$mu[match(data$spp, b1$spp)]
-data$b2 <- b2$mu[match(data$spp, b2$spp)]
+data$spp_b_idx <- 1:7
 
-fit <- stan("stan/fullModel_noBCal.stan",
+data$b1 <- b1$mu[match(data$spp_b_idx, b1$spp)]
+data$b2 <- b2$mu[match(data$spp_b_idx, b2$spp)]
+
+fit <- stan("stan/fullModel_noBCal.stan", 
             data = data, 
             # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
             seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-# saveRDS(fit, "output/stanOutput/fullJoint_justAllometry.rds")
+saveRDS(fit, "output/stanOutput/fullJoint_CO_noBcal")
 
-
-
-
+fit[grepl("sigma", names(fit))]
