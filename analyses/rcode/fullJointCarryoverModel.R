@@ -77,6 +77,7 @@ d_allo <- merge(d_allo, biom[, c("tree_ID","aboveGroundWeight")], by = "tree_ID"
 d_allo <- subset(d_allo, !is.na(diameter) & !is.na(height) & 
                    treatment %in% trt[1:4] & # excluding nitro boost for now
                    aboveGroundWeight > 0 & spp_num %in% 1:7)
+
 # Fit model
 data <- list("N_allo" = nrow(d_allo),
              "d_allo" = d_allo$diameter,
@@ -99,7 +100,7 @@ set.seed(1)
 inits <- function(chain_id){
   params <- list("b1" = as.array(rlnorm(unique(d$spp_num), log(0.5), 0.3)),
                  "b2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
-                 "sigma_allo" = as.array(abs(rnorm(unique(d$spp_num), 0, 1))),
+                 "sigma_allo" = abs(rnorm(1, 0, 1)),
                  "acc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "awc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "acw1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
@@ -108,7 +109,7 @@ inits <- function(chain_id){
                  "awc2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "acw2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
                  "aww2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
-                 "sigma_y" = as.array(abs(rnorm(unique(d$spp_num), 0, 1)))
+                 "sigma_y" = abs(rnorm(1, 0, 1))
   )
   return(params)
 }
@@ -116,15 +117,19 @@ inits <- function(chain_id){
 # Fit Model ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 if (runfulljointmodel) {
+  data$sigma_y <- runif(1)
   fit <- stan("stan/fullModelpos.stan",
               data = data, 
               # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
               seed = 1,
               warmup = 1000, iter = 2000, refresh = 500, chains = 4)
+  # saveRDS(fit, "output/stanOutput/fullJoint.rds")
+  # saveRDS(fit, "output/stanOutput/fullJoint_justTreat.rds")
   # saveRDS(fit, "output/stanOutput/fullJoint_justAllometry.rds")
+  # names(fit)[grepl("sigma_y", name(sigma_y))]
 }
-fit <- readRDS("output/stanOutput/full_fit_normalLikelihood_bound0B2.rds")
-
+fit <- readRDS("output/stanOutput/fullJoint_justAllometry.rds")
+fit_full <- readfull_fit_normalLikelihood_bound0B2
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Diagnostics ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -154,8 +159,8 @@ deltadata <- sapply(deltanames, function(f_name) c(t(samples[[f_name]]),
 base_samples <- util$filter_expectands(samples, names)
 print(util$check_all_expectand_diagnostics(base_samples))
 summary(fit)
-library(shinystan)
-launch_shinystan(fit)
+# library(shinystan)
+# launch_shinystan(fit)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 ##### Marginal posterior #####
@@ -357,7 +362,7 @@ dev.off()
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Fit model with betas from a the separate fit ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-d_joint_sum$spp <- substr(d_joint_sum$prm, 4,4)
+d_joint_sum$spp <- substr(d_joint_sum$prm, 4, 4)
 b1 <- subset(d_joint_sum, grepl("b1", d_joint_sum$prm))
 b2 <- subset(d_joint_sum, grepl("b2", d_joint_sum$prm))
 
@@ -365,6 +370,8 @@ data$spp_b_idx <- 1:7
 
 data$b1 <- b1$mu[match(data$spp_b_idx, b1$spp)]
 data$b2 <- b2$mu[match(data$spp_b_idx, b2$spp)]
+# data$sigma_y <- runif(7, min = 0.5, max =1.5)
+
 
 fit <- stan("stan/fullModel_noBCal.stan", 
             data = data, 
@@ -372,5 +379,51 @@ fit <- stan("stan/fullModel_noBCal.stan",
             seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
 saveRDS(fit, "output/stanOutput/fullJoint_CO_noBcal")
+fitnob <- readRDS("output/stanOutput/fullJoint_CO_noBcal")
 
 fit[grepl("sigma", names(fit))]
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Fit model with probabilistic allometry model ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+data <- list("N_allo" = nrow(d_allo),
+             "d_allo" = d_allo$diameter,
+             "h_allo" = d_allo$height,
+             "N_spp" = length(unique(d$species)),
+             "spp_allo" = d_allo$spp_num,
+             "agb_allo" = d_allo$aboveGroundWeight,
+             "N" = nrow(d),
+             "d0" = d$diameter.2023,
+             "h0" = d$height.2023,
+             "d1" = d$diameter.2024,
+             "h1" = d$height.2024,
+             "d2" = d$diameter.2025,
+             "h2" = d$height.2025,
+             "trt" = d$trt_num,
+             "spp" = d$spp_num)
+
+set.seed(1)
+
+inits <- function(chain_id){
+  params <- list("b1" = as.array(rlnorm(unique(d$spp_num), log(0.5), 0.3)),
+                 "b2" = as.array(rnorm(unique(d$spp_num), 0, 1)),
+                 "sigma_allo" = abs(rnorm(1, 0, 1)),
+                 "acc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "awc1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "acw1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "aww1" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "acc2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "awc2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "acw2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "aww2" = as.array(rlnorm(unique(d$spp_num), 1, 1)),
+                 "sigma_y" = abs(rnorm(1, 0, 1))
+  )
+  return(params)
+}
+
+# run model
+fit <- stan("stan/fullModel_prob.stan", 
+            data = data, 
+            # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
+            seed = 1,
+            warmup = 1000, iter = 2000, refresh = 500, chains = 4)
