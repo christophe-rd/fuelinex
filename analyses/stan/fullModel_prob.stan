@@ -52,7 +52,7 @@ transformed parameters{
   array[N_allo] real agb_allo_pred;
   
   for(i in 1:N_allo){
-    agb_allo_pred[i] = b1[spp_allo[i]] * (d_allo[i]^2 * h_allo[i])^b2[spp_allo[i]];
+    agb_allo_pred[i] = b1[spp_allo[i]] * (d_allo[i]^2 * h_allo[i]) ^ b2[spp_allo[i]];
   }
   
   array[N] real delta1;
@@ -122,11 +122,52 @@ for(i in 1:N){
 }
 
 generated quantities{
-  array[N] real delta1_trt;
-  array[N] real delta2_trt;
+
+  array[N] real delta1_rep;
+  array[N] real delta2_rep;
+
+  // Prior draws
+  vector[N_spp] b1_prior;
+  vector[N_spp] b2_prior;
+
+  vector[N_spp] acc1_prior;
+  vector[N_spp] awc1_prior;
+  vector[N_spp] acw1_prior;
+  vector[N_spp] aww1_prior;
+
+  vector[N_spp] acc2_prior;
+  vector[N_spp] awc2_prior;
+  vector[N_spp] acw2_prior;
+  vector[N_spp] aww2_prior;
+
+  real sigma_allo_prior;
+  real sigma_y_prior;
 
   for(i in 1:N){
-  delta1_trt[i] = normal_rng(log(delta1_pred[i]), sigma_y);
-  delta2_trt[i] = normal_rng(log(delta2_pred[i]), sigma_y);
+
+    delta1_rep[i] = normal_rng(delta1_pred[i], sigma_y);
+    delta2_rep[i] = normal_rng(delta2_pred[i], sigma_y);
+
   }
+
+  for(s in 1:N_spp){
+
+    b1_prior[s] = lognormal_rng(log(0.5), 0.3);
+    b2_prior[s] = normal_rng(0.7, 0.2);
+
+    acc1_prior[s] = lognormal_rng(1,1);
+    awc1_prior[s] = lognormal_rng(1,1);
+    acw1_prior[s] = lognormal_rng(1,1);
+    aww1_prior[s] = lognormal_rng(1,1);
+
+    acc2_prior[s] = lognormal_rng(1,1);
+    awc2_prior[s] = lognormal_rng(1,1);
+    acw2_prior[s] = lognormal_rng(1,1);
+    aww2_prior[s] = lognormal_rng(1,1);
+
+  }
+
+  sigma_allo_prior = fabs(normal_rng(0,2));
+  sigma_y_prior = lognormal_rng(0,0.5);
+
 }
