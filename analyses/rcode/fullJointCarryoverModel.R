@@ -1,5 +1,5 @@
 ## Started 16 February 2026
-## By Ken
+## By Ken and CRD
 
 ## STAT 547 model
 
@@ -26,7 +26,7 @@ source('mcmc_analysis_tools_rstan.R', local=util)
 source('mcmc_visualization_tools.R', local=util)
 source('rcode/tools.R', local=util)
 
-mea <- read.csv2("output/cleanedMeasurements.csv", sep = ",", header = TRUE)
+mea <- read.csv("output/cleanedMeasurements.csv", sep = ",", header = TRUE)
 
 mea$spp_num <- match(mea$genus, unique(mea$genus))
 mea$treeid_num <- match(mea$tree_ID, unique(mea$tree_ID))
@@ -36,6 +36,9 @@ mea$diameter <- as.numeric(mea$diameter)
 mea <- mea[, -1]
 
 biom <- read.csv("input/biomass.csv")
+biom2 <- biom[!is.na(as.numeric(biom$aboveGroundWeight)),]
+
+table(biom2$genus, biom2$bloc)
 # biomass now
 biom$aboveGroundWeight <- as.numeric(biom$aboveGroundWeight)
 
