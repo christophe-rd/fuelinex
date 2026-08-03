@@ -109,9 +109,9 @@ model{
   acw2 ~ lognormal(1, 1);
   aww2 ~ lognormal(1, 1);
 
-  agb0 ~ normal(10, 5);
-  agb1 ~ normal(10, 5);
-  agb2 ~ normal(10, 5);
+  agb0 ~ lognormal(10, 5);
+  agb1 ~ lognormal(10, 5);
+  agb2 ~ lognormal(10, 5);
   
   sigma_y ~ lognormal(0, 0.5);
 

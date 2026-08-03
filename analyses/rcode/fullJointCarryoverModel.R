@@ -430,3 +430,199 @@ fit <- stan("stan/fullModel_prob.stan",
             # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
             seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
+fitprobabilistic <- saveRDS(fit, "output/stanOutput/fullJointProbabilistic")
+diagnostics <- util$extract_hmc_diagnostics(fit)
+util$check_all_hmc_diagnostics(diagnostics)
+
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# Diagnostics ####
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+samples <- util$extract_expectand_vals(fit)
+nuts_params(fit)
+
+util$plot_div_pairs("zatreeid[1]", "sigma_atreeid", samples_gdd, diagnostics_gdd, transforms = list("sigma_atreeid" = 1))
+
+# check b1
+pdf(file = "figures/empiricalData_plots/diagnostics/pairsB1.pdf", 
+    width = 8, height = 10)
+b1 <- paste0("b1[", 1:7, "]")
+util$plot_div_pairs(b1, "sigma_allo", samples, diagnostics)
+dev.off()
+
+# check b2
+pdf(file = "figures/empiricalData_plots/diagnostics/pairsB2.pdf", 
+    width = 8, height = 10)
+b2 <- paste0("b2[", 1:7, "]")
+util$plot_div_pairs(b2, "sigma_allo", samples, diagnostics)
+dev.off()
+
+# check agb0
+pdf(file = "figures/empiricalData_plots/diagnostics/pairsAGB0.pdf", 
+    width = 8, height = 10)
+agb0 <- paste0("agb0[", sample(1:300, 50), "]")
+util$plot_div_pairs(agb0, "sigma_y", samples, diagnostics)
+dev.off()
+
+# check agb1
+pdf(file = "figures/empiricalData_plots/diagnostics/pairsAGB1.pdf", 
+    width = 8, height = 10)
+agb1 <- paste0("agb1[", sample(1:300, 50), "]")
+util$plot_div_pairs(agb1, "sigma_y", samples, diagnostics)
+dev.off()
+
+# check agb2
+pdf(file = "figures/empiricalData_plots/diagnostics/pairsAGB2.pdf", 
+    width = 8, height = 10)
+agb2 <- paste0("agb2[", sample(1:300, 50), "]")
+util$plot_div_pairs(agb2, "sigma_y", samples, diagnostics)
+dev.off()
+
+
+
+# check asite vs a
+asite <- paste0("asite[", 1:4, "]")
+util$plot_div_pairs(asite, "a", samples_gdd, diagnostics_gdd)
+
+# check asite vs aspp
+par(mfrow = c(4,4))
+pdf("figures/growthModelsMain/diagnostics/pairsSiteVSaspp.pdf", 
+    width = 6, height = 9)
+util$plot_div_pairs(asite, aspp, samples_gdd, diagnostics_gdd)
+dev.off()
+util$plot_div_pairs(asite, aspp, samples_gsl, diagnostics_gsl)
+util$plot_div_pairs(asite, aspp, samples_sos, diagnostics_sos)
+util$plot_div_pairs(asite, aspp, samples_eos, diagnostics_eos)
+dev.off()  
+
+# check bspp
+bspp <- paste0("bsp[", 1:4, "]")
+util$plot_div_pairs(bspp, bspp, samples_gdd, diagnostics_gdd)
+util$plot_div_pairs(bspp, bspp, samples_gsl, diagnostics_gsl)
+util$plot_div_pairs(bspp, bspp, samples_sos, diagnostics_sos)
+util$plot_div_pairs(bspp, bspp, samples_eos, diagnostics_eos)
+
+# check bsppyr
+bsppyr <- paste0("bspyr[", 1:4, "]")
+util$plot_div_pairs(bsppyr, bsppyr, samples, diagnostics)
+
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Check some priors #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+dfit <- as.data.frame(fit)
+
+# full posterior
+columns <- colnames(dfit)[!grepl("prior", colnames(dfit))]
+dsigma <- dfit[, columns[grepl("sigma", columns)]]
+db <- dfit[, columns[grepl("^b1|^b2", columns)]]
+agb <- dfit[, grepl("agb", columns) & !grepl("pred", columns)]
+
+agbsub <- agb[, sample(names(agb), 100)]
+
+# change colnames
+colnames(bspp_df_gdd) <- 1:ncol(bspp_df_gdd)
+colnames(treeid_df_gdd) <- 1:ncol(treeid_df_gdd)
+colnames(aspp_df_gdd) <- 1:ncol(aspp_df_gdd)
+colnames(site_df_gdd) <- 1:ncol(site_df_gdd)
+colnames(ayear_df_gdd) <- 1:ncol(ayear_df_gdd)
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+##### Plot posterior vs priors for gdd fit #####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+pdf(file = "figures/empiricalData_plots/diagnostics/priorVSposteriorAGB.pdf", 
+    width = 8, height = 10)
+
+pal <- wes_palette("AsteroidCity1")[3:4]
+
+par(mfrow = c(4, 2))
+
+for (i in names(agbsub)) {
+  
+  x <- dfit[[i]]
+  
+  plot(
+    density(agb[, "agb_prior"]),
+    col = pal[1],
+    lwd = 2,
+    main = paste("Posterior:", i),
+    xlab = i
+  )
+  
+}
+dev.off()
+# a
+plot(density(dfit[, names(agbsub)]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_a", 
+     # xlab = "a", 
+     ylim = c(0, 1))
+lines(density(dfit[, "a"]), col = pal[2], lwd = 2)
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# sigma_atreeid
+plot(density(dfit[, "sigma_atreeid_prior"]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_sigma_atreeid", 
+     xlab = "sigma_atreeid", ylim = c(0,4))
+lines(density(dfit[, "sigma_atreeid"]), col = pal[2], lwd = 2)
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# sigma_asite
+plot(density(dfit[, "sigma_asite_prior"]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_sigma_asite", 
+     xlab = "sigma_asite", ylim = c(0,4))
+lines(density(dfit[, "sigma_asite"]), col = pal[2], lwd = 2)
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# sigma_y
+plot(density(dfit[, "sigma_y_prior"]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_sigma_y", 
+     xlab = "sigma_y", ylim = c(0, 4))
+lines(density(dfit[, "sigma_y"]), col = pal[2], lwd = 2)
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# aspp
+plot(density(dfit[, "aspp_prior"]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_aspp", 
+     xlab = "aspp", 
+     # xlim = c(-5, 5), 
+     ylim = c(0, 0.3))
+for (col in colnames(aspp_df_gdd)) {
+  lines(density(aspp_df_gdd[, col]), col = pal[2], lwd = 1)
+} 
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# asite
+plot(density(dfit[, "asite_prior"]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_asite", 
+     xlab = "asite", xlim = c(-6, 6), ylim = c(0, 1))
+for (col in colnames(site_df_gdd)) {
+  lines(density(site_df_gdd[, col]), col = pal[2], lwd = 1)
+}
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# bsp
+plot(density(dfit[, "bsp_prior"]), 
+     col = pal[1], lwd = 2, 
+     main = "priorVSposterior_bsp", 
+     xlab = "bsp", ylim = c(0, 5))
+for (col in colnames(bspp_df_gdd)) {
+  lines(density(bspp_df_gdd[, col]), col = pal[2], lwd = 1)
+}
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+# ayear
+plot(density(dfit[, "ayear_prior"]),
+     col = pal[1], lwd = 2,
+     main = "priorVSposterior_ayear",
+     xlab = "ayear", xlim = c(-3, 3), ylim = c(0, 1))
+for (col in colnames(ayear_df_gdd)) {
+  lines(density(ayear_df_gdd[, col]), col = pal[2], lwd = 1)
+}
+legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
+
+dev.off()
