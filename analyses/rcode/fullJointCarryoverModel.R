@@ -375,7 +375,7 @@ data$b1 <- b1$mu[match(data$spp_b_idx, b1$spp)]
 data$b2 <- b2$mu[match(data$spp_b_idx, b2$spp)]
 # data$sigma_y <- runif(7, min = 0.5, max =1.5)
 
-
+if(F){
 fit <- stan("stan/fullModel_noBCal.stan", 
             data = data, 
             # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
@@ -383,7 +383,7 @@ fit <- stan("stan/fullModel_noBCal.stan",
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
 saveRDS(fit, "output/stanOutput/fullJoint_CO_noBcal")
 fitnob <- readRDS("output/stanOutput/fullJoint_CO_noBcal")
-
+}
 fit[grepl("sigma", names(fit))]
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -425,22 +425,23 @@ inits <- function(chain_id){
 }
 
 # run model
-fit <- stan("stan/fullModel_prob.stan", 
+if(F){
+  fitprobabilistic <- stan("stan/fullModel_prob.stan", 
             data = data, 
             # init = inits, # fill readd later when I figure out why the bound on b2 messes it up
             seed = 1,
             warmup = 1000, iter = 2000, refresh = 500, chains = 4)
-fitprobabilistic <- saveRDS(fit, "output/stanOutput/fullJointProbabilistic")
-diagnostics <- util$extract_hmc_diagnostics(fit)
+saveRDS(fitprobabilistic, "output/stanOutput/fullJointProbabilistic")
+}
+fitprobabilistic <- readRDS("output/stanOutput/fullJointProbabilistic")
+diagnostics <- util$extract_hmc_diagnostics(fitprobabilistic)
 util$check_all_hmc_diagnostics(diagnostics)
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Diagnostics ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-samples <- util$extract_expectand_vals(fit)
-nuts_params(fit)
+samples <- util$extract_expectand_vals(fitprobabilistic)
 
-util$plot_div_pairs("zatreeid[1]", "sigma_atreeid", samples_gdd, diagnostics_gdd, transforms = list("sigma_atreeid" = 1))
 
 # check b1
 pdf(file = "figures/empiricalData_plots/diagnostics/pairsB1.pdf", 
