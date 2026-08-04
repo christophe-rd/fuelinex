@@ -1,7 +1,8 @@
-// Started 16 February 2026
-// By Ken
+// Started 27 July 2026
+// By Ken, CRD with Charles' sugestions
 
-// Combined allometry and carryover model
+// Combined allometry and carryover model. The allometry here will be probabilistic,
+// not deterministic which likely caused the values --> 0
 
 data{
   int <lower = 0> N_allo;
@@ -51,6 +52,8 @@ parameters{
 transformed parameters{
   array[N_allo] real agb_allo_pred;
   
+  // Predicted biomass, given diameter and height, calibrated against observed
+  // agb_allo
   for(i in 1:N_allo){
     agb_allo_pred[i] = b1[spp_allo[i]] * (d_allo[i]^2 * h_allo[i]) ^ b2[spp_allo[i]];
   }
@@ -86,17 +89,18 @@ transformed parameters{
 model{	
   // allometry model
   for(i in 1:N) {
-  agb0[i] ~ normal(b1[spp[i]] * (d0[i]^2*h0[i])^b2[spp[i]], sigma_allo);
-  agb1[i] ~ normal(b1[spp[i]] * (d1[i]^2*h1[i])^b2[spp[i]], sigma_allo);
-  agb2[i] ~ normal(b1[spp[i]] * (d2[i]^2*h2[i])^b2[spp[i]], sigma_allo);
+  agb0[i] ~ lognormal(b1[spp[i]] * (d0[i]^2*h0[i])^b2[spp[i]], sigma_allo);
+  agb1[i] ~ lognormal(b1[spp[i]] * (d1[i]^2*h1[i])^b2[spp[i]], sigma_allo);
+  agb2[i] ~ lognormal(b1[spp[i]] * (d2[i]^2*h2[i])^b2[spp[i]], sigma_allo);
   }
   
   b1 ~ lognormal(log(0.5), 0.3);
   b2 ~ normal(0.7, 0.2);
   sigma_allo ~ normal(0, 2);
   
+  // Below, agb_allo is observed biomass
   for(i in 1:N_allo){
-    target += lognormal_lpdf(agb_allo[i] | log(agb_allo_pred[i]), sigma_allo);
+    target += lognormal_lpdf(agb_allo[i] | log(agb_allo_pred[i]), sigma_allo); 
   }
 
   acc1 ~ lognormal(1, 1);
@@ -169,5 +173,17 @@ generated quantities{
 
   sigma_allo_prior = fabs(normal_rng(0,2));
   sigma_y_prior = lognormal_rng(0,0.5);
+  
+  
+  array[N] real agb0_prior;
+  array[N] real agb1_prior;
+  array[N] real agb2_prior;
+
+    for(i in 1:N){
+    agb0_prior[i] = lognormal_rng(10, 5);
+    agb1_prior[i] = lognormal_rng(10, 5);
+    agb2_prior[i] = lognormal_rng(10, 5);
+  }
+  
 
 }
