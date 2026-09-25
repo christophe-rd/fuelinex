@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{sectsty,setspace}
+\usepackage[top=1.87cm, bottom=1.87cm, left=1.87cm, right=1.87cm]{geometry}
+\usepackage{amsmath,latexsym,amssymb,wasysym}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{times}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[hidelinks]{hyperref}
+
+\providecommand{\Doi}[1]{}
+
+\setstretch{1}
+\setlength\parindent{0pt}
+\setlength{\headheight}{15pt}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Christophe Rouleau-Desrochers}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Regular formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\title{Improving forest carbon models under climate change using drones and experiments}
+%\date{\today}
+%\author{Christophe Rouleau-Desrochers}
+%\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Pourquoi les arbres ne croissent-ils pas davantage lorsque la saison s'allonge ? Expériences et imagerie par drone}
+
+\textbf{Contexte :} Les changements climatiques transforment les systèmes naturels, et leur impact biologique le plus observé est le décalage de la phénologie, soit le calendrier des événements récurrents du vivant \cite{cleland_shifting_2007}. Le printemps (débourrement, feuillaison) avance de 0,5 à 4,2 jours par décennie \cite{fu_recent_2014} sous l'effet de la température \cite{chuine_why_2010}, alors que l'automne (formation des bourgeons, coloration des feuilles) est retardé beaucoup plus faiblement \cite{gallinat_autumn_2015}, sous l'effet du raccourcissement de la photopériode et de la température \cite{cooke_dynamic_2012}. La saison de croissance s'allonge donc, ce qui devrait augmenter la croissance des arbres. Par contre, plusieurs études récentes ne sont pas parvenues à établir ce lien \cite{dow_warm_2022,silvestro_longer_2023,matula_shifts_2023} : Dow \textit{et al}. (2022) ont montré que malgré un démarrage plus hâtif, ni le taux ni l'incrément de croissance annuel n'augmentaient avec la longueur de la saison. Comme les forêts tempérées représentent 40 \% du puits net de carbone mondial \cite{gibbs_revised_2025}, ce paradoxe se répercute sur les projections du cycle du carbone et sur les rétroactions au climat \cite{richardson_climate_2013}.
+
+Résoudre ce paradoxe exige de comprendre pourquoi les arbres ne croissent pas davantage lorsque la saison s'allonge. Je pose deux classes de limites non exclusives : externes (environnementales) et internes (physiologiques) \cite{wolkovich_why_2025}. Les facteurs externes, sécheresse, gel printanier et vagues de chaleur, surviennent simultanément et agissent sur des communautés entières plutôt que sur des individus \cite{li_widespread_2023}. Pour dissocier un printemps chaud d'une sécheresse plus tardive \cite{primack_observations_2015}, des expériences en milieux contrôlés sont impératives et permettent de raffiner les projections de séquestration du carbone \cite{cabon_crossbiome_2022}. Les limites internes, quant à elles, dépendent de la façon dont l'arbre répartit son carbone entre la croissance et ses réserves. Si la croissance est limitée par le puits plutôt que par la source, une saison plus longue produit plus de photosynthétats, mais pas plus de bois : le surplus est stocké en glucides non structuraux \cite{zohner_effect_2023,chapin_ecology_1990}, et le gain n'apparaîtrait que l'année suivante, s'il apparaît \cite{landhausser_partitioning_2012}. Tester cette hypothèse demande des données sur plusieurs années, ce que mon expérience terminée en 2025 rend maintenant possible. De plus, la majorité des expériences portent sur de jeunes arbres, dont les réponses se transposent mal aux arbres matures, qui contiennent l'essentiel de la biomasse forestière \cite{vitasse_ontogenic_2013}. Combler cet écart en milieu naturel est maintenant possible : l'imagerie multispectrale par drone, couplée à l'apprentissage automatique, permet d'échantillonner à une échelle impossible à atteindre au sol, et plus finement que les satellites \cite{teng_bringing_2025}. Je propose donc deux expériences pour tester les limites internes (chapitre 1) et externes (chapitre 2), ainsi qu'un projet d'observation à grande échelle sur des canopées matures (chapitre 3). À ce jour, aucune étude n'a testé ces deux classes de limites dans un même dispositif, ni relié les réponses des juvéniles à celles des arbres matures.
+
+%<><><><><><><><><><><><><><><><><><><><>
+% CHAPITRE 1 %
+%<><><><><><><><><><><><><><><><><><><><>
+\textbf{Chapitre 1. Effets différés de la saison, limites internes (année 1) :}
+Dans mon mémoire, j'ai montré que les décalages phénologiques affectent la croissance de la saison en cours. Cependant, aucune expérience n'a encore quantifié leurs effets différés sur les années suivantes \cite{chapin_ecology_1990,landhausser_partitioning_2012}. \textit{Objectif :} déterminer si la longueur de la saison de croissance affecte la croissance de l'année suivante. \textit{Hypothèse :} les arbres qui prolongent leur activité une année accumulent davantage de photosynthétats, ce qui favorise la croissance l'année suivante. L'effet devrait être le plus marqué chez les espèces qui investissent dans le stockage. Si le gain est différé, les études qui n'observent qu'une seule année concluent à tort à l'absence d'effet. À l'automne 2025, j'ai terminé une expérience sur la longueur de saison avec 15 réplicats de sept espèces répartis en six traitements, pour un total de 630 arbres suivis sur deux années consécutives. En année 1, j'analyserai les dizaines de milliers d'observations recueillies en 2024 et 2025 à l'aide d'un modèle bayésien hiérarchique conjoint, qui estime simultanément l'allométrie et les effets des traitements sur la croissance. Le modèle mettra l'information en commun entre espèces et propagera l'incertitude de la composante allométrique vers la composante de croissance. Je développerai ce modèle avec le Dr Charles Margossian, spécialiste de l'inférence bayésienne, à partir du flux de travail Stan établi durant ma maîtrise. Les données sont déjà recueillies : ce chapitre ne comporte aucun risque de collecte et fournira au domaine l'outil de modélisation réclamé par Wolkovich \textit{et al}. (2025).
+
+%<><><><><><><><><><><><><><><><><><><><>
+% CHAPITRE 2 %
+%<><><><><><><><><><><><><><><><><><><><>
+\textbf{Chapitre 2. Sécheresse et gel printanier, limites externes (années 2 et 3) :}
+Les changements climatiques modifieront aussi le moment des déficits hydriques et la fréquence des gels tardifs \cite{dox_wood_2022}. La dendrochronologie montre que sécheresses et gels causent d'importantes pertes de tissus \cite{baumgarten_no_2023}, mais on ignore si les arbres touchés croissent aussi moins, et si le moment du stress importe davantage que son intensité \cite{chamberlain_late_2021}. \textit{Objectif :} quantifier comment le moment de la sécheresse et du gel modifie la croissance chez des espèces aux stratégies d'histoire de vie contrastées. \textit{Hypothèse :} la perte de croissance augmente avec la proximité du stress par rapport au pic de croissance de l'espèce. Une sécheresse hâtive serait donc largement compensée, alors qu'une sécheresse au solstice ne le serait pas.
+Dès la deuxième année de la bourse, j'utiliserai 15 réplicats de 16 espèces décidues nord-américaines formant 8 paires congénériques sur le gradient acquisitif--conservateur, en cinq traitements et un témoin, soit 1440 individus, un effectif comparable à celui de l'expérience menée durant ma maîtrise. Pour les traitements de sécheresse, les arbres seront placés en chambres de croissance chaudes et sèches jusqu'au point de flétrissement propre à chaque espèce, mesuré par des sondes d'humidité dans chaque pot, puis ramenés en conditions ambiantes sous irrigation constante. Les trois sécheresses ne diffèrent que par leur moment : juste après la feuillaison ; une semaine avant le solstice, période de croissance maximale chez plusieurs espèces \cite{dorangeville_drought_2018} ; et en fin de saison, tout juste avant l'arrêt de croissance. Pour le gel, les arbres seront forcés à débourrer en chambres chaudes, puis maintenus à $-4^{\circ}$C pendant une heure. Le premier traitement aura lieu au débourrement, le second une fois les feuilles déployées, suivant les méthodes de Chamberlain \textit{et al}. (2021). Dans tous les traitements, je suivrai la phénologie deux fois par semaine et estimerai la biomasse en début et en fin de saison par équations allométriques. J'équiperai aussi un sous-ensemble d'arbres de dendromètres magnétiques, pour résoudre le moment exact des changements de croissance. Les analyses reprendront le cadre hiérarchique bâti au chapitre 1.
+
+%<><><><><><><><><><><><><><><><><><><><>
+% CHAPITRE 3 %
+%<><><><><><><><><><><><><><><><><><><><>
+\textbf{Chapitre 3. Synchronie croissance--phénologie par drone (années 1 à 3) :}
+La synchronie entre la croissance radiale du tronc et la phénologie foliaire varie entre espèces. Elle est déterminante pour la comptabilité du carbone forestier, mais reste très peu étudiée \cite{klein_coordination_2016}. \textit{Objectif :} quantifier la relation entre phénologie foliaire et saisonnalité de la croissance pour des arbres de canopée individuels en forêt mixte. \textit{Hypothèse :} les espèces diffèrent systématiquement dans ce couplage le long d'un gradient d'histoire de vie, ce qui fait de la phénologie de canopée un indicateur biaisé de la croissance, mais critique à comprendre davantage. Pendant les trois années, je survolerai donc une forêt mixte de la Station de biologie des Laurentides (Saint-Hippolyte, QC) à l'aide de drones équipés de capteurs multispectraux et de méthodes d'apprentissage automatique \cite{ball_accurate_2023} développées au laboratoire d'écologie fonctionnelle végétale de l'Université de Montréal \cite{cloutier_influence_2024}. Je volerai tous les trois à cinq jours durant les transitions saisonnières, et une fois par semaine en milieu de saison. J'utiliserai BalSAM, qui segmente les couronnes à partir d'images répétées \cite{teng_bringing_2025}, pour suivre chaque couronne d'un vol à l'autre et inférer le début et la fin de saison par espèce et par individu \cite{fawcett_monitoring_2021}. J'y joindrai 50 dendromètres, répartis sur les cinq espèces dominantes et dix réplicats par espèce, ce qui me permettra d'obtenir une excellente compréhension de la dynamique de croissance intra-annuelle de ces cinq espèces. Je pourrai ainsi tester la relation phénologie--croissance à l'échelle de l'individu, et améliorer à la fois les données dont dépendent les modèles du cycle du carbone \cite{richardson_climate_2013} et les méthodes de télédétection qui les produisent.
+
+
+%<><><><><><><><><><><><><><><><><><><><>
+% DIFFUSION %
+%<><><><><><><><><><><><><><><><><><><><>
+\textbf{Diffusion et mobilisation des connaissances :}
+Des saisons plus longues pourraient favoriser certaines espèces et en désavantager d'autres, et ainsi remodeler la dynamique forestière nord-américaine. Je publierai les trois chapitres en libre accès, code et données archivés sur le Knowledge Network for Biocomplexity. Je contribue au programme de science participative Tree Spotters depuis 2024 et démarrerai un suivi phénologique à Montréal, dans des quartiers où le couvert arboré est le plus faible.
+%<><><><><><><><><><><><><><><><><><><><> 
+% REFERENCES
+%<><><><><><><><><><><><><><><><><><><><>
+\newpage
+
+\bibliography{bibproposed.bib}
+\bibliographystyle{Science} % set citation style 
+
+\end{document}
