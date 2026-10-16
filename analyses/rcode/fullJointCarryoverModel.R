@@ -132,9 +132,9 @@ if (runfulljointmodel) {
   # names(fit)[grepl("sigma_y", name(sigma_y))]
 }
 fit <- readRDS("output/stanOutput/fullJoint_justAllometry.rds")
-fit_full <- readfull_fit_normalLikelihood_bound0B2
+# fit_full <- readfull_fit_normalLikelihood_bound0B2
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# Diagnostics ####
+## Diagnostics ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 diagnostics <- util$extract_hmc_diagnostics(fit)
 util$check_all_hmc_diagnostics(diagnostics)
@@ -166,7 +166,7 @@ summary(fit)
 # launch_shinystan(fit)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Marginal posterior #####
+## Marginal posterior #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 # 
 # pdf("figures/modelDiagnostics/marginalPost.pdf", height = 9, width = 9)
@@ -182,7 +182,7 @@ summary(fit)
 # dev.off()
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Pairs plot #####
+## Pairs plot #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 # pdf('figures/modelDiagnostics/pairs.pdf', height = 9, width = 9)
 # util$plot_div_pairs(names, names, samples, diagnostics)
@@ -219,7 +219,7 @@ cols <- cols[!grepl("lp__", cols)]
 # For sigma_y
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
 # grab parameter estimates
-sigma_cols <- cols[grepl("sigma_y", cols) ]
+sigma_cols <- cols[grepl("sigma", cols) ]
 
 sigmavec <- as.vector(df_fit[, colnames(df_fit) %in% sigma_cols])
 
@@ -295,11 +295,11 @@ for (i in 1:ncol(b2_df)) { # i = 1
 b2_df2
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-# Compare allometry alone vs with joint model ####
+# Compare allometry alone vs allometry inside joint model ####
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 fit <- readRDS("output/stanOutput/fullJoint_justAllometry.rds")
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-##### Recover and plot parameters SOS restricted vs full #####
+## Recover and plot parameters SOS restricted vs full #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 d_joint <- as.data.frame(fit)
 d_joint <- d_joint[,names(d_joint)[grepl("^b2|^b1|sigma", names(d_joint))]]
@@ -332,8 +332,10 @@ d_allo_sum <- data.frame(
 )
 
 # subset out the sigmas for now
-d_joint_sum <- subset(d_joint_sum, !prm %in% d_joint_sum$prm[grepl("sigma", d_joint_sum$prm)])
-d_allo_sum <- subset(d_allo_sum, !prm %in% d_allo_sum$prm[grepl("sigma", d_allo_sum$prm)])
+d_joint_sum <- subset(d_joint_sum, !prm %in% 
+                        d_joint_sum$prm[grepl("sigma", d_joint_sum$prm)])
+d_allo_sum <- subset(d_allo_sum, !prm %in% 
+                       d_allo_sum$prm[grepl("sigma", d_allo_sum$prm)])
 
 # Open device
 jpeg("figures/empiricalData_plots/diagnostics/jointVSallom.jpeg", 
@@ -442,6 +444,9 @@ util$check_all_hmc_diagnostics(diagnostics)
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 samples <- util$extract_expectand_vals(fitprobabilistic)
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+## Pairs plots ####
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 
 # check b1
 pdf(file = "figures/empiricalData_plots/diagnostics/pairsB1.pdf", 
@@ -478,37 +483,9 @@ agb2 <- paste0("agb2[", sample(1:300, 50), "]")
 util$plot_div_pairs(agb2, "sigma_y", samples, diagnostics)
 dev.off()
 
-
-
-# check asite vs a
-asite <- paste0("asite[", 1:4, "]")
-util$plot_div_pairs(asite, "a", samples_gdd, diagnostics_gdd)
-
-# check asite vs aspp
-par(mfrow = c(4,4))
-pdf("figures/growthModelsMain/diagnostics/pairsSiteVSaspp.pdf", 
-    width = 6, height = 9)
-util$plot_div_pairs(asite, aspp, samples_gdd, diagnostics_gdd)
-dev.off()
-util$plot_div_pairs(asite, aspp, samples_gsl, diagnostics_gsl)
-util$plot_div_pairs(asite, aspp, samples_sos, diagnostics_sos)
-util$plot_div_pairs(asite, aspp, samples_eos, diagnostics_eos)
-dev.off()  
-
-# check bspp
-bspp <- paste0("bsp[", 1:4, "]")
-util$plot_div_pairs(bspp, bspp, samples_gdd, diagnostics_gdd)
-util$plot_div_pairs(bspp, bspp, samples_gsl, diagnostics_gsl)
-util$plot_div_pairs(bspp, bspp, samples_sos, diagnostics_sos)
-util$plot_div_pairs(bspp, bspp, samples_eos, diagnostics_eos)
-
-# check bsppyr
-bsppyr <- paste0("bspyr[", 1:4, "]")
-util$plot_div_pairs(bsppyr, bsppyr, samples, diagnostics)
-
-
+if (FALSE) {
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Check some priors #####
+## Plot posterior vs priors for gdd fit #####
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
 dfit <- as.data.frame(fit)
 
@@ -527,9 +504,7 @@ colnames(aspp_df_gdd) <- 1:ncol(aspp_df_gdd)
 colnames(site_df_gdd) <- 1:ncol(site_df_gdd)
 colnames(ayear_df_gdd) <- 1:ncol(ayear_df_gdd)
 
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-##### Plot posterior vs priors for gdd fit #####
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+
 pdf(file = "figures/empiricalData_plots/diagnostics/priorVSposteriorAGB.pdf", 
     width = 8, height = 10)
 
@@ -627,3 +602,4 @@ for (col in colnames(ayear_df_gdd)) {
 legend("topright", legend = c("Prior", "Posterior"), col = pal, lwd = 2)
 
 dev.off()
+}
